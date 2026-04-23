@@ -1,10 +1,10 @@
 import pytest
 
-from benchman.adapters.base import Adapter, StreamedGeneration
-from benchman.benchmarks.quality_exact import ExactMatchBenchmark, _matches
-from benchman.benchmarks.quality_judge import JudgeBenchmark, _parse_judge_output
-from benchman.config import SamplingParams, SuiteConfig
-from benchman.schema import ModelSpec, Prompt, TokenUsage
+from llmbench.adapters.base import Adapter, StreamedGeneration
+from llmbench.benchmarks.quality_exact import ExactMatchBenchmark, _matches
+from llmbench.benchmarks.quality_judge import JudgeBenchmark, _parse_judge_output
+from llmbench.config import SamplingParams, SuiteConfig
+from llmbench.schema import ModelSpec, Prompt, TokenUsage
 
 
 class CannedAdapter(Adapter):
@@ -62,7 +62,7 @@ async def test_judge_scores_via_judge_adapter(monkeypatch):
     judge_adapter = CannedAdapter(judge_spec, text='{"score": 9, "reasoning": "Correct."}')
 
     # monkeypatch build_adapter so JudgeBenchmark doesn't try to hit a real API
-    import benchman.benchmarks.quality_judge as qj
+    import llmbench.benchmarks.quality_judge as qj
 
     monkeypatch.setattr(qj, "build_adapter", lambda spec: judge_adapter)
 

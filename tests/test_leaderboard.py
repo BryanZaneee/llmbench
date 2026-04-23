@@ -4,14 +4,14 @@ from datetime import datetime, timedelta, timezone
 import httpx
 import pytest
 
-from benchman.leaderboards import (
+from llmbench.leaderboards import (
     BundledSource,
     HuggingFaceLeaderboard,
     available_sources,
     get_source,
 )
-from benchman.leaderboards.base import LeaderboardEntry, LeaderboardSnapshot
-from benchman.leaderboards.cache import (
+from llmbench.leaderboards.base import LeaderboardEntry, LeaderboardSnapshot
+from llmbench.leaderboards.cache import (
     get_snapshot,
     is_fresh,
     load_cached,
@@ -65,7 +65,7 @@ def test_huggingface_parses_json_response(monkeypatch):
     transport = httpx.MockTransport(mock_handler)
     RealClient = httpx.Client
 
-    import benchman.leaderboards.huggingface as hf_mod
+    import llmbench.leaderboards.huggingface as hf_mod
     monkeypatch.setattr(
         hf_mod.httpx,
         "Client",

@@ -1,4 +1,4 @@
-from benchman.schema import BenchmarkResult, ModelSpec, ThroughputMetrics, TokenUsage
+from llmbench.schema import BenchmarkResult, ModelSpec, ThroughputMetrics, TokenUsage
 
 
 def test_model_spec_display_defaults_to_provider_model():

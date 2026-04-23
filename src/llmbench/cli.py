@@ -1,6 +1,6 @@
-"""Command-line entry point. Registered as the `benchman` script in pyproject.toml.
+"""Command-line entry point. Registered as the `llmbench` script in pyproject.toml.
 
-Calling `benchman` with no subcommand launches the interactive TUI (tui.py).
+Calling `llmbench` with no subcommand launches the interactive TUI (tui.py).
 Subcommands (`run`, `view`, etc.) remain script- and agent-callable.
 """
 
@@ -22,7 +22,7 @@ from .schema import BenchmarkResult, RunManifest
 from .storage import Store, write_jsonl
 
 app = typer.Typer(
-    help="benchman — benchmark any AI model. Run without a subcommand for the interactive TUI.",
+    help="llmbench — benchmark any AI model. Run without a subcommand for the interactive TUI.",
     invoke_without_command=True,
 )
 console = Console()
@@ -163,7 +163,7 @@ def cmd_leaderboard(
     """Show published benchmark scores from external leaderboards.
 
     Note: these are published numbers (from HuggingFace / LMArena etc), not
-    locally measured. Use `benchman run` to measure against your own setup.
+    locally measured. Use `llmbench run` to measure against your own setup.
     """
     from .leaderboards import available_sources, get_source
     from .leaderboards.cache import get_snapshot

@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from benchman.reports.html import render_gallery
-from benchman.schema import (
+from llmbench.reports.html import render_gallery
+from llmbench.schema import (
     BenchmarkResult,
     ModelSpec,
     Prompt,

@@ -4,6 +4,14 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-23 — Rename `benchman` -> `llmbench`
+
+- Renamed the project, PyPI package, Python package, and CLI command from `benchman` to `llmbench`. Reason: `benchman` was already taken on PyPI by an unrelated micro-benchmarks tool; `llmbench` is free, cleaner, and more discoverable for the LLM-benchmarking use case. One name all the way down (package, CLI, repo) to avoid the `ai-benchman -> benchman` split-brain pattern.
+- Regenerated the ANSI Shadow banner for "LLMBENCH" via pyfiglet (one-shot at dev time — no runtime dep added). Banner now matches the tool name.
+- Perl-based bulk rename: `find src tests -name "*.py" -exec perl -pi -e 's/\bbenchman\b/llmbench/g'` plus manual `pyproject.toml`, `README.md`, and `tui.py` banner updates.
+- Cache dir naturally follows: `~/.cache/llmbench/leaderboards/<source>.json` (was `~/.cache/benchman/...`). Users refreshing an old install will see a fresh empty cache.
+- **Repo directory on disk is still `ai-eval-suite/`** for now — renamed with a one-liner (`mv ai-eval-suite llmbench`). GitHub repo rename via `gh repo rename llmbench` or Settings page.
+
 ## 2026-04-23 — Open-source polish + TUI filter
 
 - Added a model-name filter step to the TUI leaderboard flow so humans can narrow by "claude" or "llama" without dropping to CLI flags. Same case-insensitive substring semantics as the CLI `--model` flag — one implementation, two surfaces.

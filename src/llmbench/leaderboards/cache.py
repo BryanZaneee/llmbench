@@ -1,6 +1,6 @@
 """On-disk cache for leaderboard snapshots with TTL.
 
-Lives at ~/.cache/benchman/leaderboards/<source>.json. Cache is a simple JSON
+Lives at ~/.cache/llmbench/leaderboards/<source>.json. Cache is a simple JSON
 file containing the pydantic-dumped LeaderboardSnapshot; we decide freshness
 by comparing `fetched_at` against the source's `cache_ttl_seconds`.
 """
@@ -16,7 +16,7 @@ from .base import LeaderboardSnapshot, LeaderboardSource
 
 def cache_dir() -> Path:
     root = os.environ.get("XDG_CACHE_HOME") or str(Path.home() / ".cache")
-    p = Path(root) / "benchman" / "leaderboards"
+    p = Path(root) / "llmbench" / "leaderboards"
     p.mkdir(parents=True, exist_ok=True)
     return p
 

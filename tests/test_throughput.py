@@ -3,10 +3,10 @@ import time
 
 import pytest
 
-from benchman.adapters.base import Adapter, GenerationEvent, StreamedGeneration
-from benchman.benchmarks.throughput import ThroughputBenchmark
-from benchman.config import SamplingParams
-from benchman.schema import Capability, ModelSpec, Prompt, TokenUsage
+from llmbench.adapters.base import Adapter, GenerationEvent, StreamedGeneration
+from llmbench.benchmarks.throughput import ThroughputBenchmark
+from llmbench.config import SamplingParams
+from llmbench.schema import Capability, ModelSpec, Prompt, TokenUsage
 
 
 class FakeAdapter(Adapter):

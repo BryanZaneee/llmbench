@@ -1,9 +1,9 @@
 import pytest
 
-from benchman.adapters.base import Adapter, ImageResult
-from benchman.benchmarks.image_gen import ImageGenBenchmark
-from benchman.config import SamplingParams
-from benchman.schema import ModelSpec, Prompt
+from llmbench.adapters.base import Adapter, ImageResult
+from llmbench.benchmarks.image_gen import ImageGenBenchmark
+from llmbench.config import SamplingParams
+from llmbench.schema import ModelSpec, Prompt
 
 # 1x1 transparent PNG
 _PNG_BYTES = (

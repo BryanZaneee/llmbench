@@ -1,20 +1,20 @@
-# benchman
+# llmbench
 
 ```
-██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗███╗   ███╗ █████╗ ███╗   ██╗
-██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║████╗ ████║██╔══██╗████╗  ██║
-██████╔╝█████╗  ██╔██╗ ██║██║     ███████║██╔████╔██║███████║██╔██╗ ██║
-██╔══██╗██╔══╝  ██║╚██╗██║██║     ██╔══██║██║╚██╔╝██║██╔══██║██║╚██╗██║
-██████╔╝███████╗██║ ╚████║╚██████╗██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
-╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+██╗     ██╗     ███╗   ███╗██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗
+██║     ██║     ████╗ ████║██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║
+██║     ██║     ██╔████╔██║██████╔╝█████╗  ██╔██╗ ██║██║     ███████║
+██║     ██║     ██║╚██╔╝██║██╔══██╗██╔══╝  ██║╚██╗██║██║     ██╔══██║
+███████╗███████╗██║ ╚═╝ ██║██████╔╝███████╗██║ ╚████║╚██████╗██║  ██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
 ```
 
 **Benchmark any AI model — any provider, one command.** CLI-first, open source, MIT-licensed.
 
 ```bash
-benchman                                       # interactive TUI
-benchman run suite.example.yaml --open         # run a suite, open HTML gallery
-benchman leaderboard --source lmarena -m claude  # search published scores
+llmbench                                       # interactive TUI
+llmbench run suite.example.yaml --open         # run a suite, open HTML gallery
+llmbench leaderboard --source lmarena -m claude  # search published scores
 ```
 
 ---
@@ -32,7 +32,7 @@ benchman leaderboard --source lmarena -m claude  # search published scores
 - [Output artifacts](#output-artifacts)
 - [Agent-friendly JSON output](#agent-friendly-json-output)
 - [Querying results with SQL](#querying-results-with-sql)
-- [Extending benchman](#extending-benchman)
+- [Extending llmbench](#extending-llmbench)
 - [Project layout](#project-layout)
 - [Contributing](#contributing)
 - [License](#license)
@@ -56,7 +56,7 @@ benchman leaderboard --source lmarena -m claude  # search published scores
 | --------------- | ------------------------------------------------------------------------------------- |
 | `huggingface`   | Open LLM Leaderboard v2 — IFEval, BBH, MATH, GPQA, MUSR, MMLU-PRO (OSS models)        |
 | `lmarena`       | LMArena ELO ratings from human-preference voting (text, vision, webdev, etc.)         |
-| `bundled`       | Snapshot shipped with benchman — works offline                                         |
+| `bundled`       | Snapshot shipped with llmbench — works offline                                         |
 
 **Two interfaces, same engine:**
 - **Humans**: interactive TUI with ASCII banner, menu-driven model/benchmark picker, browser gallery.
@@ -69,8 +69,8 @@ benchman leaderboard --source lmarena -m claude  # search published scores
 ### Zero-install (once published to PyPI)
 
 ```bash
-uvx benchman                    # if you use uv (https://docs.astral.sh/uv/)
-pipx run benchman               # if you use pipx
+uvx llmbench                    # if you use uv (https://docs.astral.sh/uv/)
+pipx run llmbench               # if you use pipx
 ```
 
 > **Note:** `npx` is Node.js only. `uvx` and `pipx run` are the Python equivalents.
@@ -78,7 +78,7 @@ pipx run benchman               # if you use pipx
 ### From source
 
 ```bash
-git clone https://github.com/<you>/benchman && cd benchman
+git clone https://github.com/<you>/llmbench && cd llmbench
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 cp .env.example .env            # optional: paste in ANTHROPIC_API_KEY / OPENAI_API_KEY
@@ -93,36 +93,36 @@ Requires Python 3.11+.
 Zero setup — see published scores immediately:
 
 ```bash
-benchman leaderboard --source lmarena --top 10      # ELO leaderboard
-benchman leaderboard --source huggingface --model llama
-benchman leaderboard --source bundled --offline     # works without internet
+llmbench leaderboard --source lmarena --top 10      # ELO leaderboard
+llmbench leaderboard --source huggingface --model llama
+llmbench leaderboard --source bundled --offline     # works without internet
 ```
 
 Your own benchmark run (requires at least one API key *or* a local model like Ollama):
 
 ```bash
-benchman run suite.example.yaml --open
+llmbench run suite.example.yaml --open
 ```
 
 Or launch the interactive menu:
 
 ```bash
-benchman
+llmbench
 ```
 
 ---
 
 ## The TUI
 
-Running `benchman` with no arguments launches an interactive menu:
+Running `llmbench` with no arguments launches an interactive menu:
 
 ```
-██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗███╗   ███╗ █████╗ ███╗   ██╗
-██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║████╗ ████║██╔══██╗████╗  ██║
-██████╔╝█████╗  ██╔██╗ ██║██║     ███████║██╔████╔██║███████║██╔██╗ ██║
-██╔══██╗██╔══╝  ██║╚██╗██║██║     ██╔══██║██║╚██╔╝██║██╔══██║██║╚██╗██║
-██████╔╝███████╗██║ ╚████║╚██████╗██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
-╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+██╗     ██╗     ███╗   ███╗██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗
+██║     ██║     ████╗ ████║██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║
+██║     ██║     ██╔████╔██║██████╔╝█████╗  ██╔██╗ ██║██║     ███████║
+██║     ██║     ██║╚██╔╝██║██╔══██╗██╔══╝  ██║╚██╗██║██║     ██╔══██║
+███████╗███████╗██║ ╚═╝ ██║██████╔╝███████╗██║ ╚████║╚██████╗██║  ██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
 
   benchmark any AI model · any provider · one command
   API keys: ● Anthropic   ○ OpenAI
@@ -177,7 +177,7 @@ models:
 Run it:
 
 ```bash
-benchman run my-suite.yaml --open
+llmbench run my-suite.yaml --open
 ```
 
 You get a Rich results table in the terminal plus artifacts on disk (see [Output artifacts](#output-artifacts)).
@@ -231,13 +231,13 @@ Prompts are YAML records. The optional `expected` and `rubric` fields enable qua
 No API keys, no model downloads, no runs — just published scores:
 
 ```bash
-benchman leaderboard                               # HuggingFace top 20
-benchman leaderboard --source lmarena --top 10     # LMArena ELO
-benchman leaderboard --source bundled              # offline snapshot
-benchman leaderboard --list-sources                # see all sources
+llmbench leaderboard                               # HuggingFace top 20
+llmbench leaderboard --source lmarena --top 10     # LMArena ELO
+llmbench leaderboard --source bundled              # offline snapshot
+llmbench leaderboard --list-sources                # see all sources
 ```
 
-Data is cached at `~/.cache/benchman/leaderboards/<source>.json` with a 24-hour TTL. Use `--refresh` to bypass the cache, `--offline` to skip network entirely.
+Data is cached at `~/.cache/llmbench/leaderboards/<source>.json` with a 24-hour TTL. Use `--refresh` to bypass the cache, `--offline` to skip network entirely.
 
 > **Important:** published numbers are not directly comparable to local benchmark results. They're measured in different environments with different prompts. Use them as context, not ground truth for your setup.
 
@@ -248,16 +248,16 @@ Data is cached at `~/.cache/benchman/leaderboards/<source>.json` with a 24-hour 
 Both the CLI and TUI let you filter leaderboards by model name (case-insensitive substring match on display name or model ID):
 
 ```bash
-benchman leaderboard --model claude                # all claude variants
-benchman leaderboard --model "gpt-5" --source lmarena
-benchman leaderboard --model llama --source huggingface
-benchman leaderboard -m haiku -s lmarena -n 5      # short flags
+llmbench leaderboard --model claude                # all claude variants
+llmbench leaderboard --model "gpt-5" --source lmarena
+llmbench leaderboard --model llama --source huggingface
+llmbench leaderboard -m haiku -s lmarena -n 5      # short flags
 ```
 
 Example output:
 
 ```
-$ benchman leaderboard --source lmarena --model claude --top 5
+$ llmbench leaderboard --source lmarena --model claude --top 5
 ┏━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━┓
 ┃ #   ┃ Model                    ┃ Org       ┃     elo ┃
 ┡━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━┩
@@ -290,7 +290,7 @@ The same benchmarks run unchanged against a 1B model on your laptop and Claude O
 
 ## Output artifacts
 
-After `benchman run`, a fresh `results/` looks like:
+After `llmbench run`, a fresh `results/` looks like:
 
 ```
 results/
@@ -305,7 +305,7 @@ results/
 Open the gallery anytime:
 
 ```bash
-benchman view <run_id>      # or --latest
+llmbench view <run_id>      # or --latest
 ```
 
 ---
@@ -315,8 +315,8 @@ benchman view <run_id>      # or --latest
 Every data-returning command accepts `--json`:
 
 ```bash
-benchman run suite.yaml --json > run.json
-benchman leaderboard --source lmarena --top 20 --json | jq '.entries[].display_name'
+llmbench run suite.yaml --json > run.json
+llmbench leaderboard --source lmarena --top 20 --json | jq '.entries[].display_name'
 ```
 
 No Rich table, no escape codes. A single JSON document on stdout, ready to pipe into `jq`, parse in any language, or return from a tool-use call.
@@ -350,11 +350,11 @@ WHERE json_extract(payload_json, '$.prompt_id') = 'bat_ball'
 
 ---
 
-## Extending benchman
+## Extending llmbench
 
 ### Add a provider adapter
 
-Create `src/benchman/adapters/my_provider.py`:
+Create `src/llmbench/adapters/my_provider.py`:
 
 ```python
 from .base import Adapter, StreamedGeneration
@@ -364,29 +364,29 @@ class MyProviderAdapter(Adapter):
         ...  # stream from your SDK, return a StreamedGeneration
 ```
 
-Register it in `src/benchman/adapters/__init__.py`, then use `adapter: myprovider` in your suite YAML.
+Register it in `src/llmbench/adapters/__init__.py`, then use `adapter: myprovider` in your suite YAML.
 
 ### Add a benchmark
 
-Create `src/benchman/benchmarks/my_bench.py` subclassing `Benchmark` with a `run()` method that returns `list[BenchmarkResult]`. Register it in `src/benchman/benchmarks/__init__.py`.
+Create `src/llmbench/benchmarks/my_bench.py` subclassing `Benchmark` with a `run()` method that returns `list[BenchmarkResult]`. Register it in `src/llmbench/benchmarks/__init__.py`.
 
 ### Add a leaderboard source
 
-Create `src/benchman/leaderboards/my_source.py` subclassing `LeaderboardSource`. Implement `fetch() -> LeaderboardSnapshot`. Register in `src/benchman/leaderboards/__init__.py`.
+Create `src/llmbench/leaderboards/my_source.py` subclassing `LeaderboardSource`. Implement `fetch() -> LeaderboardSnapshot`. Register in `src/llmbench/leaderboards/__init__.py`.
 
 ---
 
 ## Project layout
 
 ```
-benchman/
+llmbench/
 ├── pyproject.toml
 ├── README.md
 ├── LICENSE                  ← MIT
 ├── history.md               ← design-decision log, read before big changes
 ├── suite.example.yaml
 ├── prompts/default.yaml
-├── src/benchman/
+├── src/llmbench/
 │   ├── schema.py            ← pydantic data shapes
 │   ├── config.py            ← YAML + .env loader
 │   ├── runner.py            ← async orchestrator
@@ -407,7 +407,7 @@ benchman/
 
 Contributions welcome. The fastest paths to useful PRs:
 
-- **New adapters** (Cohere, Mistral, Bedrock, Vertex, …) — ~40 lines each, see the `Adapter` contract in `src/benchman/adapters/base.py`.
+- **New adapters** (Cohere, Mistral, Bedrock, Vertex, …) — ~40 lines each, see the `Adapter` contract in `src/llmbench/adapters/base.py`.
 - **New benchmarks** — cost-per-1k-tokens, streaming stability, long-context recall, etc.
 - **New leaderboard sources** — any public API with per-model scores.
 
