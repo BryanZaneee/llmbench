@@ -1,0 +1,30 @@
+- id: sun
+  prompt: "Write a one-sentence description of the sun."
+  rubric: "Score 1-10 on accuracy, conciseness, and vividness."
+
+- id: attention
+  prompt: "Explain how a transformer attention head works in roughly 150 words."
+  rubric: "Score 1-10 on technical correctness, clarity, and adherence to the ~150-word target."
+
+- id: lighthouse
+  prompt: "Write a 400-word fictional story about a lighthouse keeper in 1890."
+  rubric: "Score 1-10 on narrative quality, period-appropriate detail, and adherence to length."
+
+- id: fib
+  prompt: "Write a Python function that returns the nth Fibonacci number using memoization. Include a docstring."
+  expected: "def "
+  check: contains
+  rubric: "Score 1-10 on correctness, use of memoization, and code quality."
+
+- id: bat_ball
+  prompt: "A bat and a ball cost $1.10. The bat costs $1.00 more than the ball. How much does the ball cost? Show your reasoning, then give the final answer."
+  expected: "5 cents"
+  check: contains
+  rubric: "Score 1-10 on reasoning clarity and correctness of the final numeric answer."
+
+# Image prompts (used when image_gen is in the benchmarks list)
+- id: img_cat
+  prompt: "A photorealistic tabby cat sitting on a red wool rug, natural window light."
+
+- id: img_cyberpunk
+  prompt: "A cyberpunk city street at night, neon signs, rain reflections on the pavement, cinematic."

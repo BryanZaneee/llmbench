@@ -1,0 +1,57 @@
+benchmarks:
+  - throughput
+  - quality_exact
+  - quality_judge
+  # - image_gen          # uncomment once you have an image-capable model configured
+
+prompts_file: prompts/default.yaml
+repetitions: 3
+concurrency: 2
+
+sampling:
+  max_tokens: 512
+  temperature: 0.0
+  top_p: 1.0
+
+# Judge used by quality_judge. Defaults to Claude Opus 4.7 if omitted.
+judge:
+  provider: anthropic
+  adapter: anthropic
+  model: claude-opus-4-7
+  label: "Judge (Opus 4.7)"
+
+models:
+  - provider: anthropic
+    adapter: anthropic
+    model: claude-opus-4-7
+    label: "Claude Opus 4.7"
+    # `benchmarks:` (optional) restricts which benchmarks this model runs.
+    # Omit to run all top-level benchmarks against it.
+
+  - provider: anthropic
+    adapter: anthropic
+    model: claude-haiku-4-5-20251001
+    label: "Claude Haiku 4.5"
+
+  - provider: openai
+    adapter: openai
+    model: gpt-4o-mini
+    label: "GPT-4o mini"
+
+  # Image-capable model. Only runs image_gen.
+  # - provider: openai
+  #   adapter: openai
+  #   model: gpt-image-1
+  #   label: "GPT Image 1"
+  #   benchmarks: [image_gen]
+
+  # Local OSS text model via Ollama (start: `ollama serve && ollama pull llama3.2`)
+  # - provider: ollama
+  #   adapter: ollama
+  #   model: llama3.2
+  #   label: "Llama 3.2 (local)"
+
+  # Local OSS model via vLLM
+  # - provider: vllm
+  #   adapter: vllm
+  #   model: meta-llama/Llama-3.1-8B-Instruct
