@@ -4,6 +4,14 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-23 — Open-source polish + TUI filter
+
+- Added a model-name filter step to the TUI leaderboard flow so humans can narrow by "claude" or "llama" without dropping to CLI flags. Same case-insensitive substring semantics as the CLI `--model` flag — one implementation, two surfaces.
+- Added MIT `LICENSE`. Classifiers, keywords, and author metadata added to `pyproject.toml` for PyPI readiness.
+- Initialized the git repo and made the initial comprehensive commit. Going forward, changes are committed in small logical groups (one feature / fix per commit) rather than batched.
+- README rewritten for open-source scannability: table of contents up top, one-sentence pitch, one-command quick-start (leaderboard works with zero setup), Features section with two clean tables (local benchmarks vs published leaderboards), dedicated "Searching for specific models" section since that was an easily-missed feature. Contributing + License sections at the bottom follow standard OSS conventions.
+- Did not retroactively split the initial commit — not worth the history revision for a v0.1.0 bootstrap.
+
 ## 2026-04-23 — Published leaderboards
 
 - Added `benchman leaderboard` command + a new `leaderboards/` module with pluggable sources. Motivation: let users see published benchmark numbers without running any local benchmarks (no API keys, no cost).

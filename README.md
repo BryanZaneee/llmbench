@@ -9,108 +9,112 @@
 ╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
 ```
 
-**Benchmark any AI model — any provider, one command.**
+**Benchmark any AI model — any provider, one command.** CLI-first, open source, MIT-licensed.
 
-Drop in a model (Claude, OpenAI, Ollama, vLLM, LM Studio, or any OpenAI-compatible endpoint), run one command, and get back timing metrics, quality scores, and side-by-side generated images / text outputs for human review.
-
-Designed for both humans and agents:
-- **Humans** get an interactive TUI with an ASCII banner, menu-driven model/benchmark selection, and a browser-opened HTML gallery for side-by-side review.
-- **Agents** get deterministic subcommands with `--json` output, predictable file paths for generated images, and SQLite / JSONL artifacts for downstream analysis.
+```bash
+benchman                                       # interactive TUI
+benchman run suite.example.yaml --open         # run a suite, open HTML gallery
+benchman leaderboard --source lmarena -m claude  # search published scores
+```
 
 ---
 
-## What you can benchmark
+## Table of contents
 
-### Local benchmarks (run against live models)
+- [Features](#features)
+- [Install](#install)
+- [Quick start](#quick-start)
+- [The TUI](#the-tui)
+- [Running your own benchmarks](#running-your-own-benchmarks)
+- [Viewing published leaderboards](#viewing-published-leaderboards)
+- [Searching for specific models](#searching-for-specific-models)
+- [Supported providers](#supported-providers)
+- [Output artifacts](#output-artifacts)
+- [Agent-friendly JSON output](#agent-friendly-json-output)
+- [Querying results with SQL](#querying-results-with-sql)
+- [Extending benchman](#extending-benchman)
+- [Project layout](#project-layout)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Features
+
+**Local benchmarks** run against any provider you configure:
 
 | Benchmark        | What it measures                                                                      |
 | ---------------- | ------------------------------------------------------------------------------------- |
 | `throughput`     | TTFT, tokens/sec, inter-chunk latency, total latency, token usage                     |
 | `quality_exact`  | Deterministic check against `expected` (exact / contains / regex) — 1.0 or 0.0 score  |
-| `quality_judge`  | LLM-as-judge: judge model scores the output 1–10 with a short reason                  |
+| `quality_judge`  | LLM-as-judge: a judge model scores each output 1–10 with one-line reasoning           |
 | `image_gen`      | Latency + saved PNGs at known paths for side-by-side human review                     |
 
-### Published leaderboards (no API keys needed)
+**Published leaderboards** pull real scores from the internet — no API keys required:
 
 | Source          | What it provides                                                                      |
 | --------------- | ------------------------------------------------------------------------------------- |
-| `huggingface`   | Open LLM Leaderboard v2 — IFEval, BBH, MATH, GPQA, MUSR, MMLU-PRO for OSS models      |
+| `huggingface`   | Open LLM Leaderboard v2 — IFEval, BBH, MATH, GPQA, MUSR, MMLU-PRO (OSS models)        |
 | `lmarena`       | LMArena ELO ratings from human-preference voting (text, vision, webdev, etc.)         |
-| `bundled`       | A snapshot shipped with benchman — works offline, may be stale                        |
+| `bundled`       | Snapshot shipped with benchman — works offline                                         |
 
-```bash
-benchman leaderboard                          # huggingface (default), top 20
-benchman leaderboard --source lmarena         # ELO ratings
-benchman leaderboard --source bundled         # offline snapshot
-benchman leaderboard --model claude           # filter by model name
-benchman leaderboard --refresh                # force a re-fetch
-benchman leaderboard --offline                # cache/bundle only
-benchman leaderboard --json                   # for agents / piping to jq
-```
-
-Results are cached at `~/.cache/benchman/leaderboards/<source>.json` with a 24-hour TTL.
-
-**These numbers are not directly comparable to local benchmark results** — they're measured in different environments, with different prompts and scoring methodologies. Use them as context, not ground truth for your setup.
+**Two interfaces, same engine:**
+- **Humans**: interactive TUI with ASCII banner, menu-driven model/benchmark picker, browser gallery.
+- **Agents / scripts**: every command takes `--json`, outputs deterministic file paths, works headless.
 
 ---
 
-## Install & run
+## Install
 
-### Zero-install (when published to PyPI)
+### Zero-install (once published to PyPI)
 
 ```bash
 uvx benchman                    # if you use uv (https://docs.astral.sh/uv/)
 pipx run benchman               # if you use pipx
 ```
 
-These are the Python equivalents of `npx` — they fetch the package, run it, no persistent install. Note: `npx` itself is Node.js only and won't work here.
+> **Note:** `npx` is Node.js only. `uvx` and `pipx run` are the Python equivalents.
 
-### Local development
+### From source
 
 ```bash
-git clone <this-repo> && cd benchman
+git clone https://github.com/<you>/benchman && cd benchman
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-cp .env.example .env            # paste in ANTHROPIC_API_KEY / OPENAI_API_KEY
-
-benchman                        # launch interactive TUI
+cp .env.example .env            # optional: paste in ANTHROPIC_API_KEY / OPENAI_API_KEY
 ```
 
-### Two ways to use benchman
-
-```bash
-benchman                                # interactive TUI (human mode)
-benchman run suite.example.yaml --open  # direct command (scripts, CI, agents)
-```
-
-Both share the same guts — the TUI is just a menu-driven wrapper over the subcommands.
-
-After a run you'll have:
-- `results/results.db` — SQLite, one row per (model, prompt, repetition).
-- `results/<run_id>.jsonl` — full pydantic dump of every result.
-- `results/<run_id>/gallery.html` — side-by-side text + image comparison (auto-opens with `--open`).
-- `results/<run_id>/images/<model>/<prompt_id>__rep0.png` — generated images (if `image_gen` ran).
+Requires Python 3.11+.
 
 ---
 
-## CLI reference
+## Quick start
+
+Zero setup — see published scores immediately:
 
 ```bash
-benchman                                     # interactive TUI
-benchman run <suite.yaml> [--out DIR] [--open] [--json]
-benchman view <run_id>    [--out DIR]        # open gallery for a past run
-benchman view --latest                       # open the most recent gallery
-benchman list-runs        [--limit N]        # recent run IDs
-benchman list-adapters                       # supported provider adapters
-benchman list-benchmarks                     # registered benchmarks
-benchman leaderboard [--source ...] [--model ...] [--top N] [--refresh|--offline] [--json]
+benchman leaderboard --source lmarena --top 10      # ELO leaderboard
+benchman leaderboard --source huggingface --model llama
+benchman leaderboard --source bundled --offline     # works without internet
 ```
 
-### The interactive TUI
+Your own benchmark run (requires at least one API key *or* a local model like Ollama):
 
 ```bash
-$ benchman
+benchman run suite.example.yaml --open
 ```
+
+Or launch the interactive menu:
+
+```bash
+benchman
+```
+
+---
+
+## The TUI
+
+Running `benchman` with no arguments launches an interactive menu:
 
 ```
 ██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗███╗   ███╗ █████╗ ███╗   ██╗
@@ -125,342 +129,302 @@ $ benchman
 
 ? What would you like to do?
   > Run benchmarks
+    View published leaderboards
     Configure API keys
     View past results
     Quit
 ```
 
-- **Run benchmarks** → choose a preset suite / load a YAML / build one interactively (multi-select models, multi-select benchmarks, choose repetitions).
-- **Configure API keys** → pick a provider, enter the key, it's persisted to `.env`.
-- **View past results** → pick a past run, open its gallery or print its summary.
+Each option opens a guided flow:
 
-### Agent-friendly output
-
-```bash
-benchman run suite.yaml --json > results.json
-```
-
-Emits a single JSON document on stdout:
-```json
-{
-  "run_id": "ab12...",
-  "gallery": "results/ab12.../gallery.html",
-  "results": [ {...}, {...} ]
-}
-```
-
-No Rich table, no terminal noise — pipe-able into `jq` or any agent's tool-use payload.
+- **Run benchmarks** — multi-select models, multi-select benchmarks, choose repetitions, auto-open gallery.
+- **View published leaderboards** — pick source, filter by model name, choose row count.
+- **Configure API keys** — pick provider, paste key (masked), persisted to `.env`.
+- **View past results** — list recent runs, re-open any gallery or print its summary.
 
 ---
 
-## How it works
+## Running your own benchmarks
 
-```
-          suite.yaml
-              │
-              ▼
-  ┌────────────────────────┐
-  │   cli.py   (typer)     │   you enter here
-  └──────────┬─────────────┘
-             │
-             ▼
-  ┌────────────────────────┐
-  │   runner.py            │   fans out every (model, benchmark)
-  │   asyncio + semaphore  │   pair, capped by `concurrency`
-  └──────────┬─────────────┘
-             │
-       ┌─────┴─────┐
-       ▼           ▼
-  ┌─────────┐  ┌──────────────┐
-  │adapters/│  │ benchmarks/  │
-  │provider │  │  metrics     │
-  │  glue   │  │              │
-  └────┬────┘  └──────┬───────┘
-       │              │
-       └──────┬───────┘
-              ▼
-  ┌─────────────────────────┐
-  │ storage.py (DB + JSONL) │
-  │ reports/html.py         │
-  └─────────────────────────┘
-```
-
-### Flow in plain terms
-
-1. **You write a YAML** listing models, benchmarks, and a judge (optional).
-2. **`runner.py`** builds a grid of `(model, benchmark)` tasks and runs them in parallel under a `concurrency` semaphore.
-3. Each task picks an **adapter** (Claude, OpenAI, Ollama, …) and a **benchmark** (throughput, quality, image_gen) and calls it.
-4. Results go to SQLite + JSONL + a self-contained HTML gallery.
-
----
-
-## Adding a model
-
-Paste a block into your suite YAML.
-
-### Claude (Anthropic API)
+A **suite** is a YAML file listing the models and benchmarks you want to run:
 
 ```yaml
-- provider: anthropic
+benchmarks: [throughput, quality_exact, quality_judge]
+prompts_file: prompts/default.yaml
+repetitions: 3
+concurrency: 2
+
+judge:                                    # used by quality_judge
+  provider: anthropic
   adapter: anthropic
   model: claude-opus-4-7
-  label: "Opus 4.7"
+
+models:
+  - provider: anthropic
+    adapter: anthropic
+    model: claude-opus-4-7
+    label: "Claude Opus 4.7"
+
+  - provider: openai
+    adapter: openai
+    model: gpt-4o-mini
+
+  - provider: ollama
+    adapter: ollama
+    model: llama3.2
 ```
 
-### OpenAI
-
-```yaml
-- provider: openai
-  adapter: openai
-  model: gpt-4o-mini
-```
-
-### Local OSS model via Ollama
+Run it:
 
 ```bash
-ollama serve && ollama pull llama3.2
+benchman run my-suite.yaml --open
 ```
+
+You get a Rich results table in the terminal plus artifacts on disk (see [Output artifacts](#output-artifacts)).
+
+### Adding a model
+
+Paste the right block into the `models:` list:
 
 ```yaml
-- provider: ollama
-  adapter: ollama
-  model: llama3.2
+# Claude
+- { provider: anthropic, adapter: anthropic, model: claude-opus-4-7 }
+
+# OpenAI
+- { provider: openai, adapter: openai, model: gpt-4o-mini }
+
+# OpenAI image-gen
+- { provider: openai, adapter: openai, model: gpt-image-1, benchmarks: [image_gen] }
+
+# Local Ollama
+- { provider: ollama, adapter: ollama, model: llama3.2 }
+
+# Local vLLM
+- { provider: vllm, adapter: vllm, model: meta-llama/Llama-3.1-8B-Instruct }
+
+# Any OpenAI-compatible server (LM Studio, llama.cpp, TGI, custom gateway)
+- { provider: my-gateway, adapter: openai_compat, model: whatever-id, base_url: http://gateway.internal/v1 }
 ```
 
-### Local model via vLLM
+The optional `benchmarks: [...]` field restricts which benchmarks run against a specific model. Useful for image-only or text-only models.
 
-```yaml
-- provider: vllm
-  adapter: vllm
-  model: meta-llama/Llama-3.1-8B-Instruct
-  base_url: http://localhost:8000/v1    # optional; else VLLM_BASE_URL is used
-```
+### Prompts
 
-### Image-gen model (OpenAI)
-
-```yaml
-- provider: openai
-  adapter: openai
-  model: gpt-image-1
-  label: "GPT Image 1"
-  benchmarks: [image_gen]              # restrict to just image_gen
-```
-
-### Anything OpenAI-chat-compatible (llama.cpp, TGI, custom gateways)
-
-```yaml
-- provider: my-gateway
-  adapter: openai_compat
-  model: whatever-id-your-server-returns
-  base_url: http://gateway.internal/v1
-```
-
-### Per-model benchmark filter
-
-Each `models[]` entry may include `benchmarks: [name, ...]` to restrict which benchmarks run against it. Useful for image-only or text-only models. Omit the field to run every top-level benchmark.
-
----
-
-## Prompts
-
-Prompts are YAML records; the new fields `expected`, `check`, and `rubric` opt into quality benchmarks.
+Prompts are YAML records. The optional `expected` and `rubric` fields enable quality benchmarks:
 
 ```yaml
 - id: bat_ball
   prompt: "A bat and a ball cost $1.10..."
-  expected: "5 cents"
-  check: contains           # exact | contains | regex     (default: contains)
-  rubric: "Score 1-10 on reasoning clarity and correctness of the final answer."
+  expected: "5 cents"              # quality_exact: substring/exact/regex match
+  check: contains
+  rubric: "Score 1-10 on reasoning clarity and correctness."  # quality_judge
 
 - id: img_cat
   prompt: "A photorealistic tabby cat on a red wool rug."
-  # no expected/rubric — used only by image_gen and throughput
+  # no expected/rubric — image_gen and throughput use this, quality_* skip it
 ```
-
-Benchmarks self-filter:
-- `quality_exact` only runs on prompts with `expected`.
-- `quality_judge` runs on all prompts; uses `rubric` if present, else a generic rubric.
-- `image_gen` uses every prompt's text.
-- `throughput` runs on every prompt.
 
 ---
 
-## Quality evaluation
+## Viewing published leaderboards
 
-### Deterministic (`quality_exact`)
-
-For prompts with known answers (math, factual Qs, presence of a keyword). Zero cost, fully reproducible.
-
-### LLM-as-judge (`quality_judge`)
-
-For subjective quality (writing, reasoning, code review). Uses a second model — configured at suite level:
-
-```yaml
-judge:
-  provider: anthropic
-  adapter: anthropic
-  model: claude-opus-4-7
-```
-
-If omitted, defaults to Claude Opus 4.7 (requires `ANTHROPIC_API_KEY`).
-
-The judge gets the prompt, the model's response, and the prompt-specific rubric (or a generic one) and returns:
-
-```json
-{"score": 8, "reasoning": "Answer is correct, reasoning is clear, missed edge case."}
-```
-
-Scores and reasoning are stored on every `BenchmarkResult` and rendered in the gallery.
-
----
-
-## Image generation
-
-Image gen is a first-class benchmark. The workflow:
-
-1. `image_gen` calls `adapter.generate_image(prompt)` — currently implemented on `OpenAICompatAdapter`, so it works with any OpenAI-compatible images endpoint (OpenAI's own API, or a local SD server behind an OpenAI-compat shim).
-2. PNGs are written to deterministic paths: `results/<run_id>/images/<model_slug>/<prompt_id>__rep<N>.png`.
-3. Metrics (latency, size) go into the normal `BenchmarkResult` schema.
-4. The gallery renders them side by side, one row per prompt, one column per model.
-
-**Viewing:** the run command with `--open` auto-launches the gallery in your default browser. `benchman view <run_id>` (or `--latest`) re-opens it anytime.
-
----
-
-## Querying results (SQL)
+No API keys, no model downloads, no runs — just published scores:
 
 ```bash
-# Top-line numbers per model:
-sqlite3 results/results.db "
-  SELECT provider||'/'||model AS model,
-         ROUND(AVG(tokens_per_second), 1) AS tok_s,
-         ROUND(AVG(ttft_ms), 0)          AS ttft_ms,
-         ROUND(AVG(score), 2)            AS avg_score,
-         COUNT(*)                        AS n
-  FROM results
-  WHERE success = 1
-  GROUP BY provider, model
-  ORDER BY avg_score DESC NULLS LAST, tok_s DESC;
-"
+benchman leaderboard                               # HuggingFace top 20
+benchman leaderboard --source lmarena --top 10     # LMArena ELO
+benchman leaderboard --source bundled              # offline snapshot
+benchman leaderboard --list-sources                # see all sources
 ```
+
+Data is cached at `~/.cache/benchman/leaderboards/<source>.json` with a 24-hour TTL. Use `--refresh` to bypass the cache, `--offline` to skip network entirely.
+
+> **Important:** published numbers are not directly comparable to local benchmark results. They're measured in different environments with different prompts. Use them as context, not ground truth for your setup.
+
+---
+
+## Searching for specific models
+
+Both the CLI and TUI let you filter leaderboards by model name (case-insensitive substring match on display name or model ID):
 
 ```bash
-# Every model's answer to a specific prompt, plus judge score + reasoning:
-sqlite3 results/results.db "
-  SELECT provider||'/'||model AS model,
-         score,
-         json_extract(payload_json, '$.score_reasoning') AS reasoning,
-         substr(json_extract(payload_json, '$.sample_output'), 1, 200) AS preview
-  FROM results
-  WHERE json_extract(payload_json, '$.prompt_id') = 'bat_ball'
-    AND benchmark = 'quality_judge';
-"
+benchman leaderboard --model claude                # all claude variants
+benchman leaderboard --model "gpt-5" --source lmarena
+benchman leaderboard --model llama --source huggingface
+benchman leaderboard -m haiku -s lmarena -n 5      # short flags
 ```
+
+Example output:
+
+```
+$ benchman leaderboard --source lmarena --model claude --top 5
+┏━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━┓
+┃ #   ┃ Model                    ┃ Org       ┃     elo ┃
+┡━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━┩
+│ 1   │ claude-opus-4-6-thinking │ anthropic │ 1499.92 │
+│ 2   │ claude-opus-4-6          │ anthropic │ 1494.97 │
+│ 3   │ claude-opus-4-7-thinking │ anthropic │ 1487.18 │
+│ 4   │ claude-opus-4-7          │ anthropic │ 1480.57 │
+│ 5   │ claude-opus-4-5-20251101 │ anthropic │ 1448.53 │
+└─────┴──────────────────────────┴───────────┴─────────┘
+```
+
+In the TUI, the "View published leaderboards" flow prompts for a filter string.
 
 ---
 
-## Config reference
-
-### Suite YAML
-
-```yaml
-benchmarks: [throughput, quality_exact, quality_judge, image_gen]
-prompts_file: prompts/default.yaml
-repetitions: 3
-concurrency: 2
-results_dir: results
-sampling:
-  max_tokens: 512
-  temperature: 0.0
-  top_p: 1.0
-judge:                       # optional; defaults to Claude Opus 4.7
-  provider: anthropic
-  adapter: anthropic
-  model: claude-opus-4-7
-models:
-  - provider: ...
-    adapter: ...
-    model: ...
-    label: ...               # optional display name
-    base_url: ...            # optional; overrides env-var defaults
-    benchmarks: [...]        # optional; restricts which benchmarks run on this model
-```
-
-### Environment variables (`.env`)
-
-```
-ANTHROPIC_API_KEY=
-OPENAI_API_KEY=
-OLLAMA_BASE_URL=http://localhost:11434/v1
-VLLM_BASE_URL=http://localhost:8000/v1
-LMSTUDIO_BASE_URL=http://localhost:1234/v1
-```
-
----
-
-## Supported adapters
+## Supported providers
 
 | Adapter         | Targets                                                    |
 | --------------- | ---------------------------------------------------------- |
-| `anthropic`     | Claude API (Opus / Sonnet / Haiku). Text only.             |
-| `openai`        | OpenAI API (GPT-4o, o-series, dall-e-3, gpt-image-1, ...)  |
-| `ollama`        | Local Ollama server. Text only.                            |
-| `vllm`          | Local vLLM server. Text only (vLLM doesn't do image gen).  |
-| `lmstudio`      | LM Studio local server. Text only.                         |
-| `openai_compat` | Any OpenAI-compatible endpoint (text + optional image gen) |
+| `anthropic`     | Claude API (Opus / Sonnet / Haiku). Text.                  |
+| `openai`        | OpenAI API (GPT-4o, o-series, dall-e-3, gpt-image-1, ...). |
+| `ollama`        | Local Ollama server. Text.                                 |
+| `vllm`          | Local vLLM server. Text.                                   |
+| `lmstudio`      | LM Studio local server. Text.                              |
+| `openai_compat` | Any OpenAI-compatible endpoint (text + optional images).   |
+
+The same benchmarks run unchanged against a 1B model on your laptop and Claude Opus through the API — the runner doesn't care.
 
 ---
 
-## Extending
+## Output artifacts
 
-### Add a new adapter (non-OpenAI-compatible provider)
-
-1. Create `src/benchman/adapters/my_provider.py`:
-   ```python
-   from .base import Adapter, StreamedGeneration
-
-   class MyProviderAdapter(Adapter):
-       async def stream_generate(self, prompt, *, max_tokens, temperature, top_p):
-           ...  # stream from your SDK, return StreamedGeneration
-   ```
-2. Register in `src/benchman/adapters/__init__.py`.
-3. Reference as `adapter: myprovider` in your suite YAML.
-
-### Add a new benchmark
-
-1. Create `src/benchman/benchmarks/my_bench.py` subclassing `Benchmark` with a `run()` method that returns `list[BenchmarkResult]`.
-2. Register in `src/benchman/benchmarks/__init__.py`.
-3. Add the name to `benchmarks:` in your suite YAML.
-
----
-
-## Layout
+After `benchman run`, a fresh `results/` looks like:
 
 ```
-benchman-suite/
+results/
+├── results.db                        # SQLite, one row per (model, prompt, repetition)
+├── <run_id>.jsonl                    # full pydantic dump of every result
+└── <run_id>/
+    ├── gallery.html                  # side-by-side text + image comparison
+    └── images/<model_slug>/
+        └── <prompt_id>__rep0.png     # generated images (if image_gen ran)
+```
+
+Open the gallery anytime:
+
+```bash
+benchman view <run_id>      # or --latest
+```
+
+---
+
+## Agent-friendly JSON output
+
+Every data-returning command accepts `--json`:
+
+```bash
+benchman run suite.yaml --json > run.json
+benchman leaderboard --source lmarena --top 20 --json | jq '.entries[].display_name'
+```
+
+No Rich table, no escape codes. A single JSON document on stdout, ready to pipe into `jq`, parse in any language, or return from a tool-use call.
+
+---
+
+## Querying results with SQL
+
+```sql
+-- Top-line numbers per model
+SELECT provider||'/'||model AS model,
+       ROUND(AVG(tokens_per_second), 1) AS tok_s,
+       ROUND(AVG(ttft_ms), 0) AS ttft_ms,
+       ROUND(AVG(score), 2) AS avg_score
+FROM results
+WHERE success = 1
+GROUP BY provider, model
+ORDER BY avg_score DESC NULLS LAST;
+```
+
+```sql
+-- Every model's answer to one prompt, with judge reasoning
+SELECT provider||'/'||model AS model,
+       score,
+       json_extract(payload_json, '$.score_reasoning') AS reasoning,
+       substr(json_extract(payload_json, '$.sample_output'), 1, 200) AS preview
+FROM results
+WHERE json_extract(payload_json, '$.prompt_id') = 'bat_ball'
+  AND benchmark = 'quality_judge';
+```
+
+---
+
+## Extending benchman
+
+### Add a provider adapter
+
+Create `src/benchman/adapters/my_provider.py`:
+
+```python
+from .base import Adapter, StreamedGeneration
+
+class MyProviderAdapter(Adapter):
+    async def stream_generate(self, prompt, *, max_tokens, temperature, top_p):
+        ...  # stream from your SDK, return a StreamedGeneration
+```
+
+Register it in `src/benchman/adapters/__init__.py`, then use `adapter: myprovider` in your suite YAML.
+
+### Add a benchmark
+
+Create `src/benchman/benchmarks/my_bench.py` subclassing `Benchmark` with a `run()` method that returns `list[BenchmarkResult]`. Register it in `src/benchman/benchmarks/__init__.py`.
+
+### Add a leaderboard source
+
+Create `src/benchman/leaderboards/my_source.py` subclassing `LeaderboardSource`. Implement `fetch() -> LeaderboardSnapshot`. Register in `src/benchman/leaderboards/__init__.py`.
+
+---
+
+## Project layout
+
+```
+benchman/
 ├── pyproject.toml
 ├── README.md
+├── LICENSE                  ← MIT
 ├── history.md               ← design-decision log, read before big changes
 ├── suite.example.yaml
-├── prompts/
-│   └── default.yaml
+├── prompts/default.yaml
 ├── src/benchman/
-│   ├── schema.py            ← pydantic data shapes (Prompt, BenchmarkResult, ...)
+│   ├── schema.py            ← pydantic data shapes
 │   ├── config.py            ← YAML + .env loader
 │   ├── runner.py            ← async orchestrator
 │   ├── storage.py           ← SQLite + JSONL
 │   ├── cli.py               ← typer CLI
+│   ├── tui.py               ← interactive menu
 │   ├── adapters/            ← per-provider glue
 │   ├── benchmarks/          ← throughput, quality_exact, quality_judge, image_gen
-│   └── reports/             ← HTML gallery renderer
+│   ├── leaderboards/        ← huggingface, lmarena, bundled + cache
+│   ├── reports/             ← HTML gallery renderer
+│   └── data/                ← bundled leaderboard snapshot
 └── tests/
 ```
 
 ---
 
-## Fairness notes
+## Contributing
 
-- **Pin judge model version.** LLM-as-judge scores drift when the judge is upgraded. Record the judge in the manifest (done automatically) and pin it explicitly in your suite.
-- **Temperature 0 for judging.** The default `quality_judge` call uses `temperature=0.0` for reproducibility. Change only if you know you want it.
-- **Warm up before measuring.** First request often pays cold-start cost. `repetitions: 3` is usually enough; discard the first in aggregation if you care.
-- **Providers count tokens differently** (tiktoken vs SentencePiece vs custom BPE). Reported token counts are the provider's own numbers.
+Contributions welcome. The fastest paths to useful PRs:
+
+- **New adapters** (Cohere, Mistral, Bedrock, Vertex, …) — ~40 lines each, see the `Adapter` contract in `src/benchman/adapters/base.py`.
+- **New benchmarks** — cost-per-1k-tokens, streaming stability, long-context recall, etc.
+- **New leaderboard sources** — any public API with per-model scores.
+
+Ground rules:
+- Keep modules short and single-purpose. When in doubt, favor clarity over cleverness.
+- Add tests for new benchmarks and adapters (see `tests/test_*.py` for patterns).
+- Update `history.md` with your design rationale — it's the project's running architecture log.
+- No heavy dependencies without a strong reason; we aim to stay slim.
+
+Run the full suite before opening a PR:
+
+```bash
+pytest -q
+```
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).
