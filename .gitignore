@@ -12,3 +12,6 @@ results/
 *.sqlite
 *.parquet
 .DS_Store
+
+# Agent instructions — local only
+CLAUDE.md
