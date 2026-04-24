@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>llmbench — benchmark any AI model · any provider · one command</title>
+  <meta name="description" content="CLI tool and open leaderboard explorer for comparing LLMs across providers. Run your own benchmarks with one command, or browse published scores from HuggingFace and LMArena." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="ed-nav">
+    <div class="ed-nav-inner">
+      <a class="ed-nav-brand" href="/">
+        <span class="ed-nav-mark">b.</span>
+        <span class="ed-nav-vol">Bryan Zane Smith / llmbench</span>
+      </a>
+      <nav class="ed-nav-links" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="#install">Install</a>
+        <a href="#explorer">Leaderboards</a>
+        <a href="https://github.com/BryanZaneee/llmbench">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="lb-hero">
+    <div class="lb-hero-grid-bg" aria-hidden="true"></div>
+    <div class="lb-hero-inner">
+      <p class="lb-eyebrow">Open source · Python · MIT</p>
+
+      <pre class="lb-banner" aria-hidden="true">
+██╗     ██╗     ███╗   ███╗██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗
+██║     ██║     ████╗ ████║██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║
+██║     ██║     ██╔████╔██║██████╔╝█████╗  ██╔██╗ ██║██║     ███████║
+██║     ██║     ██║╚██╔╝██║██╔══██╗██╔══╝  ██║╚██╗██║██║     ██╔══██║
+███████╗███████╗██║ ╚═╝ ██║██████╔╝███████╗██║ ╚████║╚██████╗██║  ██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
+      </pre>
+
+      <h1 class="lb-title pf-serif">llmbench<span class="accent">.</span></h1>
+      <p class="lb-lede">
+        Benchmark any AI model — any provider, one command.
+        A CLI harness for measuring throughput, quality, and image generation across Claude, OpenAI, Ollama, vLLM, and anything OpenAI-compatible. Plus a unified leaderboard explorer for published scores.
+      </p>
+
+      <div class="lb-ctas">
+        <a class="lb-btn lb-btn-primary" href="#install">Install the CLI</a>
+        <a class="lb-btn" href="#explorer">Browse leaderboards</a>
+        <a class="lb-btn" href="https://github.com/BryanZaneee/llmbench">Source on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="lb-section" id="install">
+    <div class="lb-section-head">
+      <h2>Install<span class="accent">.</span></h2>
+      <span class="lb-section-kicker">§ 01 — Zero setup</span>
+    </div>
+    <p class="lede">
+      One command, any Python-capable machine. <code class="pf-mono">uvx</code> and <code class="pf-mono">pipx run</code> are Python's equivalents of <code class="pf-mono">npx</code>.
+    </p>
+    <div class="lb-install-grid">
+      <div class="lb-install-block">
+        <div class="lb-install-label">Using uv</div>
+        <pre class="lb-code"><code>uvx llmbench</code><button class="lb-code-copy" type="button" data-copy="uvx llmbench">Copy</button></pre>
+      </div>
+      <div class="lb-install-block">
+        <div class="lb-install-label">Using pipx</div>
+        <pre class="lb-code"><code>pipx run llmbench</code><button class="lb-code-copy" type="button" data-copy="pipx run llmbench">Copy</button></pre>
+      </div>
+      <div class="lb-install-block">
+        <div class="lb-install-label">From source</div>
+        <pre class="lb-code"><code>pip install llmbench</code><button class="lb-code-copy" type="button" data-copy="pip install llmbench">Copy</button></pre>
+      </div>
+    </div>
+    <p class="lb-fineprint">
+      Python 3.11+. Full install options, <code class="pf-mono">suite.yaml</code> schema, and provider setup on <a href="https://github.com/BryanZaneee/llmbench">GitHub</a>.
+    </p>
+  </section>
+
+  <section class="lb-section" id="explorer">
+    <div class="lb-section-head">
+      <h2>Leaderboards<span class="accent">.</span></h2>
+      <span class="lb-section-kicker">§ 02 — Published scores</span>
+    </div>
+    <p class="lede">
+      Published model scores from HuggingFace Open LLM Leaderboard v2, LMArena ELO, and a bundled snapshot — searchable in one place. Click a column to sort, toggle sources, or filter by name.
+    </p>
+
+    <div class="lb-controls">
+      <input class="lb-input" id="lb-search" type="search" placeholder="Filter by model or organization… (e.g. claude, llama, gpt)" autocomplete="off" />
+      <div class="lb-filter-group" id="lb-source-filter">
+        <label><input type="checkbox" value="huggingface" checked /> HuggingFace</label>
+        <label><input type="checkbox" value="lmarena" checked /> LMArena</label>
+        <label><input type="checkbox" value="bundled" checked /> Bundled</label>
+      </div>
+    </div>
+
+    <div class="lb-meta" id="lb-meta">Loading…</div>
+
+    <div class="lb-table-wrap">
+      <table class="lb-table" id="lb-table">
+        <thead>
+          <tr>
+            <th data-key="rank"         class="lb-th-num" title="Rank within source">#</th>
+            <th data-key="display_name">Model</th>
+            <th data-key="organization">Organization</th>
+            <th data-key="source">Source</th>
+            <th data-key="primary_score" class="lb-th-num" title="Primary metric per source: ELO for LMArena, Average for HF / Bundled">Score</th>
+            <th data-key="primary_label">Metric</th>
+          </tr>
+        </thead>
+        <tbody id="lb-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="lb-empty" id="lb-empty" hidden>No models match your filters.</div>
+
+    <p class="lb-fineprint">
+      Published numbers are not directly comparable to each other — different environments, different prompts, different scoring. They are context, not ground truth. Refreshed daily by GitHub Actions.
+    </p>
+  </section>
+
+  <footer class="lb-footer">
+    <a href="/">← bryanzane.com</a>
+    <span>llmbench · MIT · <a href="https://github.com/BryanZaneee/llmbench">BryanZaneee/llmbench</a></span>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
