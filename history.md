@@ -4,6 +4,16 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-24 — Two-surface distribution (PyPI + bryanzane.com/llmbench)
+
+- Split distribution into two surfaces for two audiences. CLI via PyPI (`uvx llmbench` / `pipx run llmbench`) serves developers who want to run benchmarks. A static page at `bryanzane.com/llmbench` serves non-devs who just want to browse published leaderboards — no terminal, no install. Premise: the value proposition differs by audience; one channel can't do both well.
+- Web code lives in `web/` of this repo rather than a separate `llmbench-web` project. Reason: keeps one star count, one issue tracker, one README, and the Python CLI stays the single source of truth for data (web consumes `llmbench leaderboard --json` output directly, shape already matches `LeaderboardSnapshot` in `src/llmbench/leaderboards/base.py`).
+- Web stack is plain HTML + CSS + JS with Tailwind + GSAP via CDN, matching `bryanzane_v3/` conventions exactly. No framework, no build step. Rationale: the portfolio site it's embedded in has no build pipeline either; introducing Next.js/Vite here would be the only built asset on the VPS and would clash visually. Uniform stack > "impressive" stack.
+- Typography + palette mirror `bryanzane_v3/styles.css` (Source Serif 4, Inter Tight, JetBrains Mono; off-white paper + deep navy ink + voltage blues). The llmbench subpage should read as part of the portfolio, not a bolted-on microsite.
+- VPS deployment reuses the existing webhook pattern — VPS clones `llmbench` to `/opt/llmbench/`, nginx serves `/llmbench/` from `/opt/llmbench/web/`, push-to-main triggers `git pull` on the VPS. No Python needed on the VPS; the leaderboard JSON snapshots are refreshed by a GitHub Action on daily cron, not by the VPS.
+- `.env.example` was **not** added in this pass — it already existed at the repo root from the initial commit. An earlier draft of this plan was wrong about this.
+- PyPI publish automated via `.github/workflows/release.yml` triggered on `v*` tag push. First publish still must be done locally (`uv build && uv publish`) to claim the name; after that the workflow handles subsequent releases on each version bump.
+
 ## 2026-04-23 — Rename `benchman` -> `llmbench`
 
 - Renamed the project, PyPI package, Python package, and CLI command from `benchman` to `llmbench`. Reason: `benchman` was already taken on PyPI by an unrelated micro-benchmarks tool; `llmbench` is free, cleaner, and more discoverable for the LLM-benchmarking use case. One name all the way down (package, CLI, repo) to avoid the `ai-benchman -> benchman` split-brain pattern.
