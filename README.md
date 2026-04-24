@@ -66,7 +66,7 @@ llmbench leaderboard --source lmarena -m claude  # search published scores
 
 ## Install
 
-### Zero-install (once published to PyPI)
+### Zero-install
 
 ```bash
 uvx llmbench                    # if you use uv (https://docs.astral.sh/uv/)
