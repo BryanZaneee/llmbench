@@ -1,0 +1,1318 @@
+{
+  "source": "aider",
+  "source_url": "https://aider.chat/docs/leaderboards/",
+  "fetched_at": "2026-04-25T18:17:07.737897Z",
+  "entries": [
+    {
+      "model_id": "gpt-5 (high)",
+      "display_name": "gpt-5 (high)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 88.0,
+        "polyglot_pass_rate_first_try": 52.0,
+        "polyglot_correct_edits": 91.6
+      },
+      "rank": 1,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-08-23-15-47-21--gpt-5-high"
+      }
+    },
+    {
+      "model_id": "gpt-5 (medium)",
+      "display_name": "gpt-5 (medium)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 86.7,
+        "polyglot_pass_rate_first_try": 49.8,
+        "polyglot_correct_edits": 88.4
+      },
+      "rank": 2,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-08-25-13-23-27--gpt-5-medium"
+      }
+    },
+    {
+      "model_id": "o3-pro (high)",
+      "display_name": "o3-pro (high)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 84.9,
+        "polyglot_pass_rate_first_try": 43.6,
+        "polyglot_correct_edits": 97.8
+      },
+      "rank": 3,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-06-28-00-38-18--o3-pro-high"
+      }
+    },
+    {
+      "model_id": "gemini-2.5-pro-preview-06-05 (32k think)",
+      "display_name": "gemini-2.5-pro-preview-06-05 (32k think)",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 83.1,
+        "polyglot_pass_rate_first_try": 46.2,
+        "polyglot_correct_edits": 99.6
+      },
+      "rank": 4,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff-fenced",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-06-06-16-36-21--gemini0605-32k-think-diff-fenced"
+      }
+    },
+    {
+      "model_id": "o3 (high)",
+      "display_name": "o3 (high)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 81.3,
+        "polyglot_pass_rate_first_try": 40.0,
+        "polyglot_correct_edits": 94.7
+      },
+      "rank": 5,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-06-25-21-04-24--o3-price-reduction-high"
+      }
+    },
+    {
+      "model_id": "gpt-5 (low)",
+      "display_name": "gpt-5 (low)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 81.3,
+        "polyglot_pass_rate_first_try": 43.1,
+        "polyglot_correct_edits": 86.7
+      },
+      "rank": 6,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-08-25-14-16-37--gpt-5-low"
+      }
+    },
+    {
+      "model_id": "grok-4 (high)",
+      "display_name": "grok-4 (high)",
+      "organization": "xai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 79.6,
+        "polyglot_pass_rate_first_try": 40.9,
+        "polyglot_correct_edits": 97.3
+      },
+      "rank": 7,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-07-11-19-37-40--xai-or-grok4-high"
+      }
+    },
+    {
+      "model_id": "gemini-2.5-pro-preview-06-05 (default think)",
+      "display_name": "gemini-2.5-pro-preview-06-05 (default think)",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 79.1,
+        "polyglot_pass_rate_first_try": 44.9,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 8,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff-fenced",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-06-06-18-38-56--gemini0605-diff-fenced"
+      }
+    },
+    {
+      "model_id": "o3 (high) + gpt-4.1",
+      "display_name": "o3 (high) + gpt-4.1",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 78.2,
+        "polyglot_pass_rate_first_try": 34.8,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 9,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "architect",
+        "released": null,
+        "test_cases": 224,
+        "dirname": "2025-06-27-23-53-57--o3-mini-high-diff-arch"
+      }
+    },
+    {
+      "model_id": "Gemini 2.5 Pro Preview 05-06",
+      "display_name": "Gemini 2.5 Pro Preview 05-06",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 76.9,
+        "polyglot_pass_rate_first_try": 36.4,
+        "polyglot_correct_edits": 97.3
+      },
+      "rank": 10,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff-fenced",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-05-07-19-32-40--gemini0506-diff-fenced-completion_cost"
+      }
+    },
+    {
+      "model_id": "o3",
+      "display_name": "o3",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 76.9,
+        "polyglot_pass_rate_first_try": 40.9,
+        "polyglot_correct_edits": 93.8
+      },
+      "rank": 11,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-06-25-20-30-16--o3-price-reduction"
+      }
+    },
+    {
+      "model_id": "DeepSeek-V3.2-Exp (Reasoner)",
+      "display_name": "DeepSeek-V3.2-Exp (Reasoner)",
+      "organization": "deepseek",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 74.2,
+        "polyglot_pass_rate_first_try": 39.6,
+        "polyglot_correct_edits": 97.3
+      },
+      "rank": 12,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-10-03-09-45-34--deepseek-v3.2-reasoner"
+      }
+    },
+    {
+      "model_id": "Gemini 2.5 Pro Preview 03-25",
+      "display_name": "Gemini 2.5 Pro Preview 03-25",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 72.9,
+        "polyglot_pass_rate_first_try": 40.9,
+        "polyglot_correct_edits": 92.4
+      },
+      "rank": 13,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff-fenced",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-12-04-55-50--gemini-25-pro-diff-fenced"
+      }
+    },
+    {
+      "model_id": "o4-mini (high)",
+      "display_name": "o4-mini (high)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 72.0,
+        "polyglot_pass_rate_first_try": 19.6,
+        "polyglot_correct_edits": 90.7
+      },
+      "rank": 14,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-16-22-01-58--o4-mini-high-diff-exsys"
+      }
+    },
+    {
+      "model_id": "claude-opus-4-20250514 (32k thinking)",
+      "display_name": "claude-opus-4-20250514 (32k thinking)",
+      "organization": "anthropic",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 72.0,
+        "polyglot_pass_rate_first_try": 37.3,
+        "polyglot_correct_edits": 97.3
+      },
+      "rank": 15,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-05-25-20-40-51--opus4-diff-exuser"
+      }
+    },
+    {
+      "model_id": "DeepSeek R1 (0528)",
+      "display_name": "DeepSeek R1 (0528)",
+      "organization": "deepseek",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 71.4,
+        "polyglot_pass_rate_first_try": 34.4,
+        "polyglot_correct_edits": 94.6
+      },
+      "rank": 16,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 224,
+        "dirname": "2025-06-06-16-47-07--r1-diff"
+      }
+    },
+    {
+      "model_id": "claude-opus-4-20250514 (no think)",
+      "display_name": "claude-opus-4-20250514 (no think)",
+      "organization": "anthropic",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 70.7,
+        "polyglot_pass_rate_first_try": 32.9,
+        "polyglot_correct_edits": 98.7
+      },
+      "rank": 17,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-05-25-19-57-20--opus4-diff-exuser"
+      }
+    },
+    {
+      "model_id": "DeepSeek-V3.2-Exp (Chat)",
+      "display_name": "DeepSeek-V3.2-Exp (Chat)",
+      "organization": "deepseek",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 70.2,
+        "polyglot_pass_rate_first_try": 38.7,
+        "polyglot_correct_edits": 98.2
+      },
+      "rank": 18,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-10-03-09-21-36--deepseek-v3.2-chat"
+      }
+    },
+    {
+      "model_id": "claude-3-7-sonnet-20250219 (32k thinking tokens)",
+      "display_name": "claude-3-7-sonnet-20250219 (32k thinking tokens)",
+      "organization": "anthropic",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 64.9,
+        "polyglot_pass_rate_first_try": 29.3,
+        "polyglot_correct_edits": 97.8
+      },
+      "rank": 19,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-02-24-21-47-23--sonnet37-diff-think-32k-64k"
+      }
+    },
+    {
+      "model_id": "DeepSeek R1 + claude-3-5-sonnet-20241022",
+      "display_name": "DeepSeek R1 + claude-3-5-sonnet-20241022",
+      "organization": "anthropic",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 64.0,
+        "polyglot_pass_rate_first_try": 27.1,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 20,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "architect",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-01-23-19-14-48--r1-architect-sonnet"
+      }
+    },
+    {
+      "model_id": "o1-2024-12-17 (high)",
+      "display_name": "o1-2024-12-17 (high)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 61.7,
+        "polyglot_pass_rate_first_try": 23.7,
+        "polyglot_correct_edits": 91.5
+      },
+      "rank": 21,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 224,
+        "dirname": "2024-12-21-19-23-03--polyglot-o1-hard-diff"
+      }
+    },
+    {
+      "model_id": "claude-sonnet-4-20250514 (32k thinking)",
+      "display_name": "claude-sonnet-4-20250514 (32k thinking)",
+      "organization": "anthropic",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 61.3,
+        "polyglot_pass_rate_first_try": 25.8,
+        "polyglot_correct_edits": 97.3
+      },
+      "rank": 22,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-05-24-22-10-36--sonnet4-diff-exuser-think32k"
+      }
+    },
+    {
+      "model_id": "o3-mini (high)",
+      "display_name": "o3-mini (high)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 60.4,
+        "polyglot_pass_rate_first_try": 21.0,
+        "polyglot_correct_edits": 93.3
+      },
+      "rank": 23,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 224,
+        "dirname": "2025-01-31-20-42-47--o3-mini-diff-high"
+      }
+    },
+    {
+      "model_id": "claude-3-7-sonnet-20250219 (no thinking)",
+      "display_name": "claude-3-7-sonnet-20250219 (no thinking)",
+      "organization": "anthropic",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 60.4,
+        "polyglot_pass_rate_first_try": 24.4,
+        "polyglot_correct_edits": 93.3
+      },
+      "rank": 24,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-02-24-19-54-07--sonnet37-diff"
+      }
+    },
+    {
+      "model_id": "Qwen3 235B A22B diff, no think, Alibaba API",
+      "display_name": "Qwen3 235B A22B diff, no think, Alibaba API",
+      "organization": "qwen",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 59.6,
+        "polyglot_pass_rate_first_try": 28.9,
+        "polyglot_correct_edits": 92.9
+      },
+      "rank": 25,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-05-09-17-02-02--qwen3-235b-a22b.unthink_16k_diff"
+      }
+    },
+    {
+      "model_id": "Kimi K2",
+      "display_name": "Kimi K2",
+      "organization": "unknown",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 59.1,
+        "polyglot_pass_rate_first_try": 20.4,
+        "polyglot_correct_edits": 92.9
+      },
+      "rank": 26,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-07-17-17-41-54--kimi-k2-diff-or-pricing"
+      }
+    },
+    {
+      "model_id": "DeepSeek R1",
+      "display_name": "DeepSeek R1",
+      "organization": "deepseek",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 56.9,
+        "polyglot_pass_rate_first_try": 26.7,
+        "polyglot_correct_edits": 96.9
+      },
+      "rank": 27,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-01-20-19-11-38--ds-turns-upd-cur-msgs-fix-with-summarizer"
+      }
+    },
+    {
+      "model_id": "claude-sonnet-4-20250514 (no thinking)",
+      "display_name": "claude-sonnet-4-20250514 (no thinking)",
+      "organization": "anthropic",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 56.4,
+        "polyglot_pass_rate_first_try": 20.4,
+        "polyglot_correct_edits": 98.2
+      },
+      "rank": 28,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-05-24-21-17-54--sonnet4-diff-exuser"
+      }
+    },
+    {
+      "model_id": "DeepSeek V3 (0324)",
+      "display_name": "DeepSeek V3 (0324)",
+      "organization": "deepseek",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 55.1,
+        "polyglot_pass_rate_first_try": 28.0,
+        "polyglot_correct_edits": 99.6
+      },
+      "rank": 29,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-03-24-15-41-33--deepseek-v3-0324-polyglot-diff"
+      }
+    },
+    {
+      "model_id": "gemini-2.5-flash-preview-05-20 (24k think)",
+      "display_name": "gemini-2.5-flash-preview-05-20 (24k think)",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 55.1,
+        "polyglot_pass_rate_first_try": 26.2,
+        "polyglot_correct_edits": 95.6
+      },
+      "rank": 30,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-05-25-22-58-44--flash25-05-20-24k-think"
+      }
+    },
+    {
+      "model_id": "Quasar Alpha",
+      "display_name": "Quasar Alpha",
+      "organization": "unknown",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 54.7,
+        "polyglot_pass_rate_first_try": 21.8,
+        "polyglot_correct_edits": 98.2
+      },
+      "rank": 31,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-04-02-57-25--qalpha-diff-exsys"
+      }
+    },
+    {
+      "model_id": "o3-mini (medium)",
+      "display_name": "o3-mini (medium)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 53.8,
+        "polyglot_pass_rate_first_try": 19.1,
+        "polyglot_correct_edits": 95.1
+      },
+      "rank": 32,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-01-31-20-27-46--o3-mini-diff2"
+      }
+    },
+    {
+      "model_id": "Grok 3 Beta",
+      "display_name": "Grok 3 Beta",
+      "organization": "xai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 53.3,
+        "polyglot_pass_rate_first_try": 22.2,
+        "polyglot_correct_edits": 99.6
+      },
+      "rank": 33,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-10-04-21-31--grok3-diff-exuser"
+      }
+    },
+    {
+      "model_id": "Optimus Alpha",
+      "display_name": "Optimus Alpha",
+      "organization": "unknown",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 52.9,
+        "polyglot_pass_rate_first_try": 21.3,
+        "polyglot_correct_edits": 97.3
+      },
+      "rank": 34,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-10-19-02-44--oalpha-diff-exsys"
+      }
+    },
+    {
+      "model_id": "gpt-4.1",
+      "display_name": "gpt-4.1",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 52.4,
+        "polyglot_pass_rate_first_try": 20.0,
+        "polyglot_correct_edits": 98.2
+      },
+      "rank": 35,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-14-21-05-54--gpt41-diff-exuser"
+      }
+    },
+    {
+      "model_id": "claude-3-5-sonnet-20241022",
+      "display_name": "claude-3-5-sonnet-20241022",
+      "organization": "anthropic",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 51.6,
+        "polyglot_pass_rate_first_try": 22.2,
+        "polyglot_correct_edits": 99.6
+      },
+      "rank": 36,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-01-17-19-44-33--sonnet-baseline-jan-17"
+      }
+    },
+    {
+      "model_id": "Grok 3 Mini Beta (high)",
+      "display_name": "Grok 3 Mini Beta (high)",
+      "organization": "xai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 49.3,
+        "polyglot_pass_rate_first_try": 17.3,
+        "polyglot_correct_edits": 99.6
+      },
+      "rank": 37,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-10-23-59-02--xai-grok3-mini-whole-high"
+      }
+    },
+    {
+      "model_id": "DeepSeek Chat V3 (prev)",
+      "display_name": "DeepSeek Chat V3 (prev)",
+      "organization": "deepseek",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 48.4,
+        "polyglot_pass_rate_first_try": 22.7,
+        "polyglot_correct_edits": 98.7
+      },
+      "rank": 38,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-25-13-31-51--deepseekv3preview-diff2"
+      }
+    },
+    {
+      "model_id": "gemini-2.5-flash-preview-04-17 (default)",
+      "display_name": "gemini-2.5-flash-preview-04-17 (default)",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 47.1,
+        "polyglot_pass_rate_first_try": 21.8,
+        "polyglot_correct_edits": 85.3
+      },
+      "rank": 39,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-20-19-54-31--flash25-diff-no-think"
+      }
+    },
+    {
+      "model_id": "chatgpt-4o-latest (2025-03-29)",
+      "display_name": "chatgpt-4o-latest (2025-03-29)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 45.3,
+        "polyglot_pass_rate_first_try": 16.4,
+        "polyglot_correct_edits": 64.4
+      },
+      "rank": 40,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-03-29-05-24-55--chatgpt4o-mar28-diff"
+      }
+    },
+    {
+      "model_id": "gpt-4.5-preview",
+      "display_name": "gpt-4.5-preview",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 44.9,
+        "polyglot_pass_rate_first_try": 22.3,
+        "polyglot_correct_edits": 97.3
+      },
+      "rank": 41,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 224,
+        "dirname": "2025-02-27-20-26-15--gpt45-diff3"
+      }
+    },
+    {
+      "model_id": "gemini-2.5-flash-preview-05-20 (no think)",
+      "display_name": "gemini-2.5-flash-preview-05-20 (no think)",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 44.0,
+        "polyglot_pass_rate_first_try": 20.9,
+        "polyglot_correct_edits": 93.8
+      },
+      "rank": 42,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-05-26-15-56-31--flash25-05-20-24k-think"
+      }
+    },
+    {
+      "model_id": "gpt-oss-120b (high)",
+      "display_name": "gpt-oss-120b (high)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 41.8,
+        "polyglot_pass_rate_first_try": 13.8,
+        "polyglot_correct_edits": 79.1
+      },
+      "rank": 43,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-08-06-04-54-48--gpt-oss-120b-high-polyglot"
+      }
+    },
+    {
+      "model_id": "Qwen3 32B",
+      "display_name": "Qwen3 32B",
+      "organization": "qwen",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 40.0,
+        "polyglot_pass_rate_first_try": 14.2,
+        "polyglot_correct_edits": 83.6
+      },
+      "rank": 44,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-05-08-03-20-24--qwen3-32b-default"
+      }
+    },
+    {
+      "model_id": "gemini-exp-1206",
+      "display_name": "gemini-exp-1206",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 38.2,
+        "polyglot_pass_rate_first_try": 19.6,
+        "polyglot_correct_edits": 98.2
+      },
+      "rank": 45,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-22-18-43-25--gemini-exp-1206-polyglot-whole-2"
+      }
+    },
+    {
+      "model_id": "Gemini 2.0 Pro exp-02-05",
+      "display_name": "Gemini 2.0 Pro exp-02-05",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 35.6,
+        "polyglot_pass_rate_first_try": 20.4,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 46,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-02-25-20-23-07--gemini-pro"
+      }
+    },
+    {
+      "model_id": "Grok 3 Mini Beta (low)",
+      "display_name": "Grok 3 Mini Beta (low)",
+      "organization": "xai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 34.7,
+        "polyglot_pass_rate_first_try": 11.1,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 47,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-10-18-47-24--grok3-mini-whole-exuser"
+      }
+    },
+    {
+      "model_id": "o1-mini-2024-09-12",
+      "display_name": "o1-mini-2024-09-12",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 32.9,
+        "polyglot_pass_rate_first_try": 5.8,
+        "polyglot_correct_edits": 96.9
+      },
+      "rank": 48,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-22-21-26-35--polyglot-o1mini-whole"
+      }
+    },
+    {
+      "model_id": "gpt-4.1-mini",
+      "display_name": "gpt-4.1-mini",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 32.4,
+        "polyglot_pass_rate_first_try": 11.1,
+        "polyglot_correct_edits": 92.4
+      },
+      "rank": 49,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-14-21-27-53--gpt41mini-diff"
+      }
+    },
+    {
+      "model_id": "claude-3-5-haiku-20241022",
+      "display_name": "claude-3-5-haiku-20241022",
+      "organization": "anthropic",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 28.0,
+        "polyglot_pass_rate_first_try": 7.1,
+        "polyglot_correct_edits": 91.1
+      },
+      "rank": 50,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-21-21-46-27--polyglot-haiku-diff"
+      }
+    },
+    {
+      "model_id": "chatgpt-4o-latest (2025-02-15)",
+      "display_name": "chatgpt-4o-latest (2025-02-15)",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 27.1,
+        "polyglot_pass_rate_first_try": 9.0,
+        "polyglot_correct_edits": 93.3
+      },
+      "rank": 51,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 223,
+        "dirname": "2025-02-15-19-51-22--chatgpt4o-feb15-diff"
+      }
+    },
+    {
+      "model_id": "QwQ-32B + Qwen 2.5 Coder Instruct",
+      "display_name": "QwQ-32B + Qwen 2.5 Coder Instruct",
+      "organization": "qwen",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 26.2,
+        "polyglot_pass_rate_first_try": 9.8,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 52,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "architect",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-03-07-15-11-27--qwq32b-arch-temp-topp-again"
+      }
+    },
+    {
+      "model_id": "gpt-4o-2024-08-06",
+      "display_name": "gpt-4o-2024-08-06",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 23.1,
+        "polyglot_pass_rate_first_try": 4.9,
+        "polyglot_correct_edits": 94.2
+      },
+      "rank": 53,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-30-20-44-54--gpt4o-ex-as-sys-clean-prompt"
+      }
+    },
+    {
+      "model_id": "gemini-2.0-flash-exp",
+      "display_name": "gemini-2.0-flash-exp",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 22.2,
+        "polyglot_pass_rate_first_try": 11.6,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 54,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-22-20-08-13--gemini-2.0-flash-exp-polyglot-whole"
+      }
+    },
+    {
+      "model_id": "qwen-max-2025-01-25",
+      "display_name": "qwen-max-2025-01-25",
+      "organization": "qwen",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 21.8,
+        "polyglot_pass_rate_first_try": 9.3,
+        "polyglot_correct_edits": 90.2
+      },
+      "rank": 55,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-01-28-16-00-03--qwen-max-2025-01-25-polyglot-diff"
+      }
+    },
+    {
+      "model_id": "QwQ-32B",
+      "display_name": "QwQ-32B",
+      "organization": "unknown",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 20.9,
+        "polyglot_pass_rate_first_try": 8.0,
+        "polyglot_correct_edits": 67.6
+      },
+      "rank": 56,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-03-06-17-40-24--qwq32b-diff-temp-topp-ex-sys-remind-user-for-real"
+      }
+    },
+    {
+      "model_id": "gpt-4o-2024-11-20",
+      "display_name": "gpt-4o-2024-11-20",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 18.2,
+        "polyglot_pass_rate_first_try": 4.9,
+        "polyglot_correct_edits": 95.1
+      },
+      "rank": 57,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-30-20-57-12--gpt-4o-2024-11-20-ex-as-sys"
+      }
+    },
+    {
+      "model_id": "gemini-2.0-flash-thinking-exp-01-21",
+      "display_name": "gemini-2.0-flash-thinking-exp-01-21",
+      "organization": "google",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 18.2,
+        "polyglot_pass_rate_first_try": 5.8,
+        "polyglot_correct_edits": 77.8
+      },
+      "rank": 58,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-01-21-22-51-49--gemini-2.0-flash-thinking-exp-01-21-polyglot-diff"
+      }
+    },
+    {
+      "model_id": "DeepSeek Chat V2.5",
+      "display_name": "DeepSeek Chat V2.5",
+      "organization": "deepseek",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 17.8,
+        "polyglot_pass_rate_first_try": 5.3,
+        "polyglot_correct_edits": 92.9
+      },
+      "rank": 59,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-21-20-56-21--polyglot-deepseek-diff"
+      }
+    },
+    {
+      "model_id": "Qwen2.5-Coder-32B-Instruct",
+      "display_name": "Qwen2.5-Coder-32B-Instruct",
+      "organization": "qwen",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 16.4,
+        "polyglot_pass_rate_first_try": 4.9,
+        "polyglot_correct_edits": 99.6
+      },
+      "rank": 60,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-26-00-55-20--Qwen2.5-Coder-32B-Instruct"
+      }
+    },
+    {
+      "model_id": "Llama 4 Maverick",
+      "display_name": "Llama 4 Maverick",
+      "organization": "meta",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 15.6,
+        "polyglot_pass_rate_first_try": 4.4,
+        "polyglot_correct_edits": 99.1
+      },
+      "rank": 61,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-06-08-39-52--llama-4-maverick-17b-128e-instruct-polyglot-whole"
+      }
+    },
+    {
+      "model_id": "yi-lightning",
+      "display_name": "yi-lightning",
+      "organization": "unknown",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 12.9,
+        "polyglot_pass_rate_first_try": 5.8,
+        "polyglot_correct_edits": 92.9
+      },
+      "rank": 62,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-23-01-11-56--yi-test"
+      }
+    },
+    {
+      "model_id": "command-a-03-2025-quality",
+      "display_name": "command-a-03-2025-quality",
+      "organization": "unknown",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 12.0,
+        "polyglot_pass_rate_first_try": 2.2,
+        "polyglot_correct_edits": 99.6
+      },
+      "rank": 63,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-03-14-23-40-00--cmda-quality-whole2"
+      }
+    },
+    {
+      "model_id": "Codestral 25.01",
+      "display_name": "Codestral 25.01",
+      "organization": "mistral",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 11.1,
+        "polyglot_pass_rate_first_try": 4.0,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 64,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-01-13-18-17-25--codestral-whole2"
+      }
+    },
+    {
+      "model_id": "openhands-lm-32b-v0.1",
+      "display_name": "openhands-lm-32b-v0.1",
+      "organization": "unknown",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 10.2,
+        "polyglot_pass_rate_first_try": 4.0,
+        "polyglot_correct_edits": 95.1
+      },
+      "rank": 65,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-19-14-43-04--o4-mini-patch"
+      }
+    },
+    {
+      "model_id": "gpt-4.1-nano",
+      "display_name": "gpt-4.1-nano",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 8.9,
+        "polyglot_pass_rate_first_try": 3.1,
+        "polyglot_correct_edits": 94.2
+      },
+      "rank": 66,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-04-14-22-46-01--gpt41nano-diff"
+      }
+    },
+    {
+      "model_id": "Qwen2.5-Coder-32B-Instruct",
+      "display_name": "Qwen2.5-Coder-32B-Instruct",
+      "organization": "qwen",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 8.0,
+        "polyglot_pass_rate_first_try": 4.4,
+        "polyglot_correct_edits": 71.6
+      },
+      "rank": 67,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "diff",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-22-13-22-32--polyglot-qwen-diff"
+      }
+    },
+    {
+      "model_id": "gemma-3-27b-it",
+      "display_name": "gemma-3-27b-it",
+      "organization": "unknown",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 4.9,
+        "polyglot_pass_rate_first_try": 1.8,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 68,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2025-03-15-01-21-24--gemma3-27b-or"
+      }
+    },
+    {
+      "model_id": "gpt-4o-mini-2024-07-18",
+      "display_name": "gpt-4o-mini-2024-07-18",
+      "organization": "openai",
+      "source": "aider",
+      "metrics": {
+        "polyglot_pass_rate": 3.6,
+        "polyglot_pass_rate_first_try": 0.9,
+        "polyglot_correct_edits": 100.0
+      },
+      "rank": 69,
+      "source_url": "https://aider.chat/docs/leaderboards/",
+      "extra": {
+        "edit_format": "whole",
+        "released": null,
+        "test_cases": 225,
+        "dirname": "2024-12-21-18-41-18--polyglot-gpt-4o-mini"
+      }
+    }
+  ]
+}
