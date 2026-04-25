@@ -25,6 +25,7 @@ jobs:
           mkdir -p web/data
           llmbench leaderboard --source huggingface --top 200 --json > web/data/huggingface.json
           llmbench leaderboard --source lmarena     --top 500 --json > web/data/lmarena.json
+          llmbench leaderboard --source aider       --top 200 --json > web/data/aider.json
           llmbench leaderboard --source bundled     --top 500 --json > web/data/bundled.json
 
       - name: Merge into all.json
@@ -36,6 +37,7 @@ jobs:
           paths = [
               "web/data/huggingface.json",
               "web/data/lmarena.json",
+              "web/data/aider.json",
               "web/data/bundled.json",
           ]
           snapshots = [json.load(open(p)) for p in paths]

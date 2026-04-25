@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+from .aider import AiderLeaderboard
 from .base import LeaderboardEntry, LeaderboardSource, LeaderboardSnapshot
 from .bundled import BundledSource
 from .huggingface import HuggingFaceLeaderboard
 from .lmarena import LMArenaLeaderboard
 
 _REGISTRY: dict[str, type[LeaderboardSource]] = {
+    "aider": AiderLeaderboard,
     "bundled": BundledSource,
     "huggingface": HuggingFaceLeaderboard,
     "lmarena": LMArenaLeaderboard,
@@ -24,6 +26,7 @@ def available_sources() -> list[str]:
 
 
 __all__ = [
+    "AiderLeaderboard",
     "BundledSource",
     "HuggingFaceLeaderboard",
     "LMArenaLeaderboard",

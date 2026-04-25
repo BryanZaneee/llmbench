@@ -5,6 +5,7 @@ import httpx
 import pytest
 
 from llmbench.leaderboards import (
+    AiderLeaderboard,
     BundledSource,
     HuggingFaceLeaderboard,
     available_sources,
@@ -24,6 +25,7 @@ def test_registry_exposes_known_sources():
     assert "huggingface" in names
     assert "lmarena" in names
     assert "bundled" in names
+    assert "aider" in names
 
 
 def test_bundled_source_works_offline():
@@ -79,6 +81,58 @@ def test_huggingface_parses_json_response(monkeypatch):
     assert entry.organization == "anthropic"
     assert entry.metrics["mmlu_pro"] == 77.4
     assert entry.source == "huggingface"
+
+
+def test_aider_parses_yaml_response(monkeypatch):
+    fake_yaml = """
+- dirname: 2026-01-15--claude-opus-4-7
+  test_cases: 225
+  model: claude-opus-4-7
+  edit_format: diff
+  pass_rate_1: 70.5
+  pass_rate_2: 79.0
+  percent_cases_well_formed: 99.2
+  released: 2026-01-15
+- dirname: 2026-01-10--gpt-5
+  test_cases: 225
+  model: gpt-5
+  edit_format: diff
+  pass_rate_1: 65.3
+  pass_rate_2: 74.1
+  percent_cases_well_formed: 98.4
+  released: 2026-01-10
+- dirname: 2025-12-01--no-pass-rate
+  test_cases: 225
+  model: model-without-pass-rate
+  edit_format: diff
+  percent_cases_well_formed: 50.0
+"""
+
+    def mock_handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, text=fake_yaml)
+
+    transport = httpx.MockTransport(mock_handler)
+    RealClient = httpx.Client
+
+    import llmbench.leaderboards.aider as aider_mod
+    monkeypatch.setattr(
+        aider_mod.httpx,
+        "Client",
+        lambda *args, **kwargs: RealClient(transport=transport, timeout=10),
+    )
+
+    snap = AiderLeaderboard().fetch()
+    assert snap.source == "aider"
+    # Third row had no pass_rate_2 — should be filtered out.
+    assert len(snap.entries) == 2
+    # Sorted descending by pass_rate_2.
+    assert snap.entries[0].model_id == "claude-opus-4-7"
+    assert snap.entries[0].rank == 1
+    assert snap.entries[0].metrics["polyglot_pass_rate"] == 79.0
+    assert snap.entries[0].metrics["polyglot_correct_edits"] == 99.2
+    assert snap.entries[0].organization == "anthropic"
+    assert snap.entries[1].model_id == "gpt-5"
+    assert snap.entries[1].organization == "openai"
 
 
 def test_cache_roundtrip(tmp_path, monkeypatch):
