@@ -1,0 +1,1327 @@
+{
+  "source": "bundled",
+  "source_url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+  "fetched_at": "2026-04-23T17:49:49.489548Z",
+  "entries": [
+    {
+      "model_id": "0-hero/Matter-0.2-7B-DPO",
+      "display_name": "0-hero/Matter-0.2-7B-DPO",
+      "organization": "0-hero",
+      "source": "huggingface",
+      "metrics": {
+        "average": 8.90636130175029,
+        "ifeval": 33.02792147058693,
+        "bbh": 10.055525080241035,
+        "math_lvl_5": 1.4350453172205437,
+        "gpqa": 1.230425055928408,
+        "musr": 5.871874999999999,
+        "mmlu_pro": 1.8173758865248217
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/0-hero/Matter-0.2-7B-DPO",
+      "extra": {
+        "params_b": 7.242,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-34B",
+      "display_name": "01-ai/Yi-1.5-34B",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 25.64649419429311,
+        "ifeval": 28.411725333226947,
+        "bbh": 42.74936268839652,
+        "math_lvl_5": 15.332326283987916,
+        "gpqa": 15.436241610738257,
+        "musr": 11.217187500000003,
+        "mmlu_pro": 40.732121749408975
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-34B",
+      "extra": {
+        "params_b": 34.389,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-34B-32K",
+      "display_name": "01-ai/Yi-1.5-34B-32K",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 26.727912908508134,
+        "ifeval": 31.186917379220468,
+        "bbh": 43.38184666762572,
+        "math_lvl_5": 15.407854984894259,
+        "gpqa": 15.100671140939594,
+        "musr": 14.07786458333333,
+        "mmlu_pro": 41.21232269503546
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-34B-32K",
+      "extra": {
+        "params_b": 34.389,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-34B-Chat",
+      "display_name": "01-ai/Yi-1.5-34B-Chat",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 33.35799367075618,
+        "ifeval": 60.66758423205982,
+        "bbh": 44.262825981005655,
+        "math_lvl_5": 27.719033232628398,
+        "gpqa": 15.324384787472036,
+        "musr": 13.058072916666665,
+        "mmlu_pro": 39.11606087470449
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+      "extra": {
+        "params_b": 34.389,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-34B-Chat-16K",
+      "display_name": "01-ai/Yi-1.5-34B-Chat-16K",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 29.403554842710225,
+        "ifeval": 45.6449997118756,
+        "bbh": 44.53615654671034,
+        "math_lvl_5": 21.37462235649547,
+        "gpqa": 11.74496644295302,
+        "musr": 13.736718750000001,
+        "mmlu_pro": 39.383865248226954
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat-16K",
+      "extra": {
+        "params_b": 34.389,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-6B",
+      "display_name": "01-ai/Yi-1.5-6B",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 16.745698054972127,
+        "ifeval": 26.166017278598567,
+        "bbh": 22.027904536694773,
+        "math_lvl_5": 6.646525679758309,
+        "gpqa": 8.501118568232664,
+        "musr": 13.309114583333335,
+        "mmlu_pro": 23.823507683215126
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-6B",
+      "extra": {
+        "params_b": 6.061,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-6B-Chat",
+      "display_name": "01-ai/Yi-1.5-6B-Chat",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 22.784006289829847,
+        "ifeval": 51.452701055421834,
+        "bbh": 23.67872313235784,
+        "math_lvl_5": 16.238670694864048,
+        "gpqa": 6.935123042505594,
+        "musr": 14.030468750000002,
+        "mmlu_pro": 24.368351063829788
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-6B-Chat",
+      "extra": {
+        "params_b": 6.061,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-9B",
+      "display_name": "01-ai/Yi-1.5-9B",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 22.153901514184795,
+        "ifeval": 29.358435617494916,
+        "bbh": 30.50071699492122,
+        "math_lvl_5": 11.404833836858005,
+        "gpqa": 17.225950782997764,
+        "musr": 12.030989583333332,
+        "mmlu_pro": 32.402482269503544
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-9B",
+      "extra": {
+        "params_b": 8.829,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-9B-32K",
+      "display_name": "01-ai/Yi-1.5-9B-32K",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 19.809786285875365,
+        "ifeval": 23.031113002389215,
+        "bbh": 28.937011582169664,
+        "math_lvl_5": 10.80060422960725,
+        "gpqa": 14.541387024608499,
+        "musr": 10.82682291666667,
+        "mmlu_pro": 30.721778959810877
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-9B-32K",
+      "extra": {
+        "params_b": 8.829,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-9B-Chat",
+      "display_name": "01-ai/Yi-1.5-9B-Chat",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 29.530872220260978,
+        "ifeval": 60.455258713546726,
+        "bbh": 36.95293138417893,
+        "math_lvl_5": 22.58308157099698,
+        "gpqa": 11.297539149888143,
+        "musr": 12.838281249999996,
+        "mmlu_pro": 33.05814125295508
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-9B-Chat",
+      "extra": {
+        "params_b": 8.829,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-1.5-9B-Chat-16K",
+      "display_name": "01-ai/Yi-1.5-9B-Chat-16K",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 23.76539234993476,
+        "ifeval": 42.14040966856828,
+        "bbh": 31.497608947018318,
+        "math_lvl_5": 17.82477341389728,
+        "gpqa": 7.829977628635347,
+        "musr": 10.03828125,
+        "mmlu_pro": 33.261303191489354
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-1.5-9B-Chat-16K",
+      "extra": {
+        "params_b": 8.829,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-34B",
+      "display_name": "01-ai/Yi-34B",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 22.373127018936653,
+        "ifeval": 30.45751938190668,
+        "bbh": 35.542431259008794,
+        "math_lvl_5": 5.13595166163142,
+        "gpqa": 15.548098434004473,
+        "musr": 9.648437500000004,
+        "mmlu_pro": 37.90632387706855
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-34B",
+      "extra": {
+        "params_b": 34.389,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-34B-200K",
+      "display_name": "01-ai/Yi-34B-200K",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 20.01347533597433,
+        "ifeval": 15.424850507763843,
+        "bbh": 36.02211028900003,
+        "math_lvl_5": 5.740181268882175,
+        "gpqa": 14.205816554809845,
+        "musr": 9.414843749999998,
+        "mmlu_pro": 39.273049645390074
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-34B-200K",
+      "extra": {
+        "params_b": 34.389,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-34B-Chat",
+      "display_name": "01-ai/Yi-34B-Chat",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 24.226662652803373,
+        "ifeval": 46.98887839820566,
+        "bbh": 37.623987597243485,
+        "math_lvl_5": 6.268882175226587,
+        "gpqa": 11.74496644295302,
+        "musr": 8.363802083333338,
+        "mmlu_pro": 34.369459219858165
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-34B-Chat",
+      "extra": {
+        "params_b": 34.389,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-6B",
+      "display_name": "01-ai/Yi-6B",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 13.611617485376058,
+        "ifeval": 28.93378458046871,
+        "bbh": 19.408504737915056,
+        "math_lvl_5": 1.5861027190332326,
+        "gpqa": 2.572706935123044,
+        "musr": 7.044270833333335,
+        "mmlu_pro": 22.12433510638298
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-6B",
+      "extra": {
+        "params_b": 6.061,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-6B-200K",
+      "display_name": "01-ai/Yi-6B-200K",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 11.996098298832841,
+        "ifeval": 8.433068702154728,
+        "bbh": 20.148020103768047,
+        "math_lvl_5": 1.812688821752266,
+        "gpqa": 4.250559284116329,
+        "musr": 16.842447916666668,
+        "mmlu_pro": 20.489804964539008
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-6B-200K",
+      "extra": {
+        "params_b": 6.061,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-6B-Chat",
+      "display_name": "01-ai/Yi-6B-Chat",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 14.11765000523676,
+        "ifeval": 33.95213588833185,
+        "bbh": 17.00016656742376,
+        "math_lvl_5": 1.3595166163141994,
+        "gpqa": 5.92841163310962,
+        "musr": 3.5656250000000003,
+        "mmlu_pro": 22.90004432624113
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-6B-Chat",
+      "extra": {
+        "params_b": 6.061,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-9B",
+      "display_name": "01-ai/Yi-9B",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 17.811867367746064,
+        "ifeval": 27.08779372066118,
+        "bbh": 27.626956112077934,
+        "math_lvl_5": 5.589123867069486,
+        "gpqa": 9.060402684563762,
+        "musr": 8.909114583333334,
+        "mmlu_pro": 28.59781323877068
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-9B",
+      "extra": {
+        "params_b": 8.829,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-9B-200K",
+      "display_name": "01-ai/Yi-9B-200K",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 17.72955178611439,
+        "ifeval": 23.270921155866432,
+        "bbh": 26.49249509714754,
+        "math_lvl_5": 6.646525679758309,
+        "gpqa": 8.7248322147651,
+        "musr": 12.109114583333332,
+        "mmlu_pro": 29.1334219858156
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-9B-200K",
+      "extra": {
+        "params_b": 8.829,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "01-ai/Yi-Coder-9B-Chat",
+      "display_name": "01-ai/Yi-Coder-9B-Chat",
+      "organization": "01-ai",
+      "source": "huggingface",
+      "metrics": {
+        "average": 16.985989314863886,
+        "ifeval": 48.17041006750976,
+        "bbh": 25.94315294491389,
+        "math_lvl_5": 4.003021148036254,
+        "gpqa": 0.0,
+        "musr": 7.963802083333333,
+        "mmlu_pro": 15.83554964539007
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/01-ai/Yi-Coder-9B-Chat",
+      "extra": {
+        "params_b": 8.829,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "1-800-LLMs/Qwen-2.5-14B-Hindi",
+      "display_name": "1-800-LLMs/Qwen-2.5-14B-Hindi",
+      "organization": "1-800-LLMs",
+      "source": "huggingface",
+      "metrics": {
+        "average": 36.266177006668904,
+        "ifeval": 58.2570911847232,
+        "bbh": 49.32988995210337,
+        "math_lvl_5": 33.30815709969788,
+        "gpqa": 14.988814317673373,
+        "musr": 14.350520833333334,
+        "mmlu_pro": 47.362588652482266
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/1-800-LLMs/Qwen-2.5-14B-Hindi",
+      "extra": {
+        "params_b": 14.77,
+        "license": "mit",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "1-800-LLMs/Qwen-2.5-14B-Hindi-Custom-Instruct",
+      "display_name": "1-800-LLMs/Qwen-2.5-14B-Hindi-Custom-Instruct",
+      "organization": "1-800-LLMs",
+      "source": "huggingface",
+      "metrics": {
+        "average": 31.020777275634742,
+        "ifeval": 30.774677854758707,
+        "bbh": 46.54015554088327,
+        "math_lvl_5": 31.1178247734139,
+        "gpqa": 15.99552572706935,
+        "musr": 15.432812499999995,
+        "mmlu_pro": 46.263667257683224
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/1-800-LLMs/Qwen-2.5-14B-Hindi-Custom-Instruct",
+      "extra": {
+        "params_b": 14.77,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "1024m/PHI-4-Hindi",
+      "display_name": "1024m/PHI-4-Hindi",
+      "organization": "1024m",
+      "source": "huggingface",
+      "metrics": {
+        "average": 27.48785095027712,
+        "ifeval": 0.816832670647216,
+        "bbh": 52.46181381023763,
+        "math_lvl_5": 23.338368580060422,
+        "gpqa": 19.686800894854585,
+        "musr": 21.519270833333326,
+        "mmlu_pro": 47.10401891252955
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/1024m/PHI-4-Hindi",
+      "extra": {
+        "params_b": 14.66,
+        "license": "mit",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "1024m/QWEN-14B-B100",
+      "display_name": "1024m/QWEN-14B-B100",
+      "organization": "1024m",
+      "source": "huggingface",
+      "metrics": {
+        "average": 41.91906679224076,
+        "ifeval": 77.62104549262622,
+        "bbh": 49.77664782103219,
+        "math_lvl_5": 54.38066465256798,
+        "gpqa": 13.422818791946312,
+        "musr": 9.883333333333335,
+        "mmlu_pro": 46.429890661938536
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/1024m/QWEN-14B-B100",
+      "extra": {
+        "params_b": 14.77,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "152334H/miqu-1-70b-sf",
+      "display_name": "152334H/miqu-1-70b-sf",
+      "organization": "152334H",
+      "source": "huggingface",
+      "metrics": {
+        "average": 29.097407726236643,
+        "ifeval": 51.81740005407873,
+        "bbh": 43.807147003691966,
+        "math_lvl_5": 12.462235649546828,
+        "gpqa": 13.422818791946312,
+        "musr": 17.209374999999998,
+        "mmlu_pro": 35.865469858156025
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/152334H/miqu-1-70b-sf",
+      "extra": {
+        "params_b": 68.977,
+        "license": "",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "1TuanPham/T-VisStar-7B-v0.1",
+      "display_name": "1TuanPham/T-VisStar-7B-v0.1",
+      "organization": "1TuanPham",
+      "source": "huggingface",
+      "metrics": {
+        "average": 19.144808610895357,
+        "ifeval": 36.07040430502179,
+        "bbh": 30.24383447882599,
+        "math_lvl_5": 5.740181268882175,
+        "gpqa": 4.697986577181204,
+        "musr": 13.554166666666669,
+        "mmlu_pro": 24.562278368794324
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/1TuanPham/T-VisStar-7B-v0.1",
+      "extra": {
+        "params_b": 7.294,
+        "license": "apache-2.0",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "1TuanPham/T-VisStar-v0.1",
+      "display_name": "1TuanPham/T-VisStar-v0.1",
+      "organization": "1TuanPham",
+      "source": "huggingface",
+      "metrics": {
+        "average": 19.144808610895357,
+        "ifeval": 36.07040430502179,
+        "bbh": 30.24383447882599,
+        "math_lvl_5": 5.740181268882175,
+        "gpqa": 4.697986577181204,
+        "musr": 13.554166666666669,
+        "mmlu_pro": 24.562278368794324
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/1TuanPham/T-VisStar-v0.1",
+      "extra": {
+        "params_b": 7.294,
+        "license": "apache-2.0",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "3rd-Degree-Burn/L-3.1-Science-Writer-8B",
+      "display_name": "3rd-Degree-Burn/L-3.1-Science-Writer-8B",
+      "organization": "3rd-Degree-Burn",
+      "source": "huggingface",
+      "metrics": {
+        "average": 21.09120798437004,
+        "ifeval": 42.625012743963794,
+        "bbh": 29.19930078641656,
+        "math_lvl_5": 10.347432024169184,
+        "gpqa": 3.243847874720355,
+        "musr": 11.693489583333331,
+        "mmlu_pro": 29.43816489361702
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/3rd-Degree-Burn/L-3.1-Science-Writer-8B",
+      "extra": {
+        "params_b": 8.03,
+        "license": "",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "3rd-Degree-Burn/Llama-3.1-8B-Squareroot",
+      "display_name": "3rd-Degree-Burn/Llama-3.1-8B-Squareroot",
+      "organization": "3rd-Degree-Burn",
+      "source": "huggingface",
+      "metrics": {
+        "average": 11.223740793316347,
+        "ifeval": 22.134381219608414,
+        "bbh": 8.618063681935197,
+        "math_lvl_5": 26.586102719033235,
+        "gpqa": 0.8948545861297527,
+        "musr": 0.7812499999999996,
+        "mmlu_pro": 8.32779255319149
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/3rd-Degree-Burn/Llama-3.1-8B-Squareroot",
+      "extra": {
+        "params_b": 8.03,
+        "license": "apache-2.0",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "3rd-Degree-Burn/Llama-3.1-8B-Squareroot-v1",
+      "display_name": "3rd-Degree-Burn/Llama-3.1-8B-Squareroot-v1",
+      "organization": "3rd-Degree-Burn",
+      "source": "huggingface",
+      "metrics": {
+        "average": 8.037946007988568,
+        "ifeval": 28.923811043586575,
+        "bbh": 6.515144725982737,
+        "math_lvl_5": 8.836858006042297,
+        "gpqa": 0.7829977628635317,
+        "musr": 1.7578124999999993,
+        "mmlu_pro": 1.4110520094562635
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/3rd-Degree-Burn/Llama-3.1-8B-Squareroot-v1",
+      "extra": {
+        "params_b": 8.03,
+        "license": "",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "3rd-Degree-Burn/Llama-Squared-8B",
+      "display_name": "3rd-Degree-Burn/Llama-Squared-8B",
+      "organization": "3rd-Degree-Burn",
+      "source": "huggingface",
+      "metrics": {
+        "average": 12.434954194134717,
+        "ifeval": 27.55244972229241,
+        "bbh": 21.277103190106818,
+        "math_lvl_5": 5.740181268882175,
+        "gpqa": 2.9082774049216997,
+        "musr": 1.9518229166666672,
+        "mmlu_pro": 15.179890661938533
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/3rd-Degree-Burn/Llama-Squared-8B",
+      "extra": {
+        "params_b": 8.03,
+        "license": "",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "4season/final_model_test_v2",
+      "display_name": "4season/final_model_test_v2",
+      "organization": "4season",
+      "source": "huggingface",
+      "metrics": {
+        "average": 23.086235043644056,
+        "ifeval": 31.911328608093193,
+        "bbh": 47.410670136906425,
+        "math_lvl_5": 8.38368580060423,
+        "gpqa": 10.290827740492169,
+        "musr": 12.430989583333334,
+        "mmlu_pro": 28.08990839243498
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/4season/final_model_test_v2",
+      "extra": {
+        "params_b": 21.421,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AALF/FuseChat-Llama-3.1-8B-Instruct-preview",
+      "display_name": "AALF/FuseChat-Llama-3.1-8B-Instruct-preview",
+      "organization": "AALF",
+      "source": "huggingface",
+      "metrics": {
+        "average": 28.56857495894073,
+        "ifeval": 71.89579205397234,
+        "bbh": 30.84806521622957,
+        "math_lvl_5": 24.773413897280967,
+        "gpqa": 7.38255033557047,
+        "musr": 6.150000000000006,
+        "mmlu_pro": 30.361628250591018
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AALF/FuseChat-Llama-3.1-8B-Instruct-preview",
+      "extra": {
+        "params_b": 8.03,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AALF/FuseChat-Llama-3.1-8B-SFT-preview",
+      "display_name": "AALF/FuseChat-Llama-3.1-8B-SFT-preview",
+      "organization": "AALF",
+      "source": "huggingface",
+      "metrics": {
+        "average": 29.225292099823264,
+        "ifeval": 72.80504616639405,
+        "bbh": 32.53678156315301,
+        "math_lvl_5": 22.507552870090635,
+        "gpqa": 7.270693512304249,
+        "musr": 9.749999999999998,
+        "mmlu_pro": 30.481678486997637
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AALF/FuseChat-Llama-3.1-8B-SFT-preview",
+      "extra": {
+        "params_b": 8.03,
+        "license": "",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AALF/gemma-2-27b-it-SimPO-37K",
+      "display_name": "AALF/gemma-2-27b-it-SimPO-37K",
+      "organization": "AALF",
+      "source": "huggingface",
+      "metrics": {
+        "average": 9.512077380763676,
+        "ifeval": 24.065257959990603,
+        "bbh": 15.307880971954303,
+        "math_lvl_5": 1.283987915407855,
+        "gpqa": 4.026845637583895,
+        "musr": 1.5950520833333328,
+        "mmlu_pro": 10.793439716312056
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AALF/gemma-2-27b-it-SimPO-37K",
+      "extra": {
+        "params_b": 27.227,
+        "license": "gemma",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AALF/gemma-2-27b-it-SimPO-37K-100steps",
+      "display_name": "AALF/gemma-2-27b-it-SimPO-37K-100steps",
+      "organization": "AALF",
+      "source": "huggingface",
+      "metrics": {
+        "average": 10.246803363324455,
+        "ifeval": 25.67642743476199,
+        "bbh": 15.261078322847055,
+        "math_lvl_5": 2.1148036253776437,
+        "gpqa": 5.145413870246088,
+        "musr": 0.7812499999999996,
+        "mmlu_pro": 12.501846926713947
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AALF/gemma-2-27b-it-SimPO-37K-100steps",
+      "extra": {
+        "params_b": 27.227,
+        "license": "gemma",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AELLM/gemma-2-aeria-infinity-9b",
+      "display_name": "AELLM/gemma-2-aeria-infinity-9b",
+      "organization": "AELLM",
+      "source": "huggingface",
+      "metrics": {
+        "average": 31.919053815912523,
+        "ifeval": 75.93995044260342,
+        "bbh": 42.0902142313775,
+        "math_lvl_5": 21.45015105740181,
+        "gpqa": 11.185682326621922,
+        "musr": 9.046093750000004,
+        "mmlu_pro": 31.80223108747045
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AELLM/gemma-2-aeria-infinity-9b",
+      "extra": {
+        "params_b": 9.242,
+        "license": "",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AELLM/gemma-2-lyco-infinity-9b",
+      "display_name": "AELLM/gemma-2-lyco-infinity-9b",
+      "organization": "AELLM",
+      "source": "huggingface",
+      "metrics": {
+        "average": 30.04985134020671,
+        "ifeval": 73.1647583966099,
+        "bbh": 39.78753882674737,
+        "math_lvl_5": 17.069486404833835,
+        "gpqa": 10.402684563758392,
+        "musr": 8.912760416666671,
+        "mmlu_pro": 30.961879432624112
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AELLM/gemma-2-lyco-infinity-9b",
+      "extra": {
+        "params_b": 10.159,
+        "license": "",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AGI-0/Art-v0-3B",
+      "display_name": "AGI-0/Art-v0-3B",
+      "organization": "AGI-0",
+      "source": "huggingface",
+      "metrics": {
+        "average": 12.132145545921874,
+        "ifeval": 31.9238509377341,
+        "bbh": 8.029776912286984,
+        "math_lvl_5": 24.622356495468278,
+        "gpqa": 1.230425055928408,
+        "musr": 5.002864583333332,
+        "mmlu_pro": 1.9835992907801419
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AGI-0/Art-v0-3B",
+      "extra": {
+        "params_b": 3.086,
+        "license": "other",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AGI-0/Artificium-llama3.1-8B-001",
+      "display_name": "AGI-0/Artificium-llama3.1-8B-001",
+      "organization": "AGI-0",
+      "source": "huggingface",
+      "metrics": {
+        "average": 19.491817924739056,
+        "ifeval": 52.47687247614108,
+        "bbh": 19.34889807323965,
+        "math_lvl_5": 13.595166163141995,
+        "gpqa": 2.1252796420581683,
+        "musr": 5.165625000000001,
+        "mmlu_pro": 24.23906619385342
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AGI-0/Artificium-llama3.1-8B-001",
+      "extra": {
+        "params_b": 8.03,
+        "license": "unknown",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "AGI-0/smartllama3.1-8B-001",
+      "display_name": "AGI-0/smartllama3.1-8B-001",
+      "organization": "AGI-0",
+      "source": "huggingface",
+      "metrics": {
+        "average": 20.424552077662117,
+        "ifeval": 35.178659290682056,
+        "bbh": 24.8577369132814,
+        "math_lvl_5": 12.990936555891238,
+        "gpqa": 7.494407158836691,
+        "musr": 14.397395833333333,
+        "mmlu_pro": 27.628176713947987
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AGI-0/smartllama3.1-8B-001",
+      "extra": {
+        "params_b": 8.03,
+        "license": "unknown",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "AI-MO/NuminaMath-7B-CoT",
+      "display_name": "AI-MO/NuminaMath-7B-CoT",
+      "organization": "AI-MO",
+      "source": "huggingface",
+      "metrics": {
+        "average": 16.118457218023075,
+        "ifeval": 26.88544173903022,
+        "bbh": 19.152364282090307,
+        "math_lvl_5": 26.963746223564954,
+        "gpqa": 2.1252796420581683,
+        "musr": 0.8263020833333333,
+        "mmlu_pro": 20.75760933806146
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AI-MO/NuminaMath-7B-CoT",
+      "extra": {
+        "params_b": 6.91,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AI-MO/NuminaMath-7B-TIR",
+      "display_name": "AI-MO/NuminaMath-7B-TIR",
+      "organization": "AI-MO",
+      "source": "huggingface",
+      "metrics": {
+        "average": 14.182289143173433,
+        "ifeval": 27.562423259174547,
+        "bbh": 16.87354725795866,
+        "math_lvl_5": 16.08761329305136,
+        "gpqa": 1.1185682326621946,
+        "musr": 4.199218749999999,
+        "mmlu_pro": 19.252364066193852
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AI-MO/NuminaMath-7B-TIR",
+      "extra": {
+        "params_b": 6.91,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AI-Sweden-Models/Llama-3-8B-instruct",
+      "display_name": "AI-Sweden-Models/Llama-3-8B-instruct",
+      "organization": "AI-Sweden-Models",
+      "source": "huggingface",
+      "metrics": {
+        "average": 14.343669671742774,
+        "ifeval": 24.012841482821138,
+        "bbh": 18.388095615027524,
+        "math_lvl_5": 3.8519637462235647,
+        "gpqa": 2.1252796420581683,
+        "musr": 19.936718749999997,
+        "mmlu_pro": 17.747118794326237
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AI-Sweden-Models/Llama-3-8B-instruct",
+      "extra": {
+        "params_b": 8.03,
+        "license": "llama3",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AI-Sweden-Models/gpt-sw3-40b",
+      "display_name": "AI-Sweden-Models/gpt-sw3-40b",
+      "organization": "AI-Sweden-Models",
+      "source": "huggingface",
+      "metrics": {
+        "average": 4.872902485288683,
+        "ifeval": 14.702988071649889,
+        "bbh": 6.894934050796576,
+        "math_lvl_5": 1.7371601208459215,
+        "gpqa": 0.0,
+        "musr": 2.8382812499999996,
+        "mmlu_pro": 3.064051418439715
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AI-Sweden-Models/gpt-sw3-40b",
+      "extra": {
+        "params_b": 39.927,
+        "license": "other",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "AI4free/Dhanishtha",
+      "display_name": "AI4free/Dhanishtha",
+      "organization": "AI4free",
+      "source": "huggingface",
+      "metrics": {
+        "average": 11.247711953182252,
+        "ifeval": 24.51240486353985,
+        "bbh": 7.93648440557281,
+        "math_lvl_5": 25.604229607250755,
+        "gpqa": 0.33557046979865535,
+        "musr": 1.951822916666666,
+        "mmlu_pro": 7.145759456264774
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AI4free/Dhanishtha",
+      "extra": {
+        "params_b": 1.777,
+        "license": "apache-2.0",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "AI4free/t2",
+      "display_name": "AI4free/t2",
+      "organization": "AI4free",
+      "source": "huggingface",
+      "metrics": {
+        "average": 11.33461581083953,
+        "ifeval": 38.66828902866616,
+        "bbh": 2.133152068631521,
+        "math_lvl_5": 18.957703927492446,
+        "gpqa": 1.0067114093959737,
+        "musr": 5.646093750000001,
+        "mmlu_pro": 1.595744680851063
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AI4free/t2",
+      "extra": {
+        "params_b": 7.613,
+        "license": "",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AIDC-AI/Marco-o1",
+      "display_name": "AIDC-AI/Marco-o1",
+      "organization": "AIDC-AI",
+      "source": "huggingface",
+      "metrics": {
+        "average": 27.639223265636087,
+        "ifeval": 47.7083028586373,
+        "bbh": 34.84254498655976,
+        "math_lvl_5": 37.46223564954683,
+        "gpqa": 1.230425055928408,
+        "musr": 9.963802083333334,
+        "mmlu_pro": 34.62802895981088
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AIDC-AI/Marco-o1",
+      "extra": {
+        "params_b": 7.616,
+        "license": "apache-2.0",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "Aashraf995/Creative-7B-nerd",
+      "display_name": "Aashraf995/Creative-7B-nerd",
+      "organization": "Aashraf995",
+      "source": "huggingface",
+      "metrics": {
+        "average": 29.97819251596781,
+        "ifeval": 47.21871301480073,
+        "bbh": 37.080153817355196,
+        "math_lvl_5": 31.64652567975831,
+        "gpqa": 10.17897091722595,
+        "musr": 14.942708333333334,
+        "mmlu_pro": 38.802083333333336
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/Aashraf995/Creative-7B-nerd",
+      "extra": {
+        "params_b": 7.616,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "Aashraf995/Gemma-Evo-10B",
+      "display_name": "Aashraf995/Gemma-Evo-10B",
+      "organization": "Aashraf995",
+      "source": "huggingface",
+      "metrics": {
+        "average": 34.32632733409121,
+        "ifeval": 73.32211864519475,
+        "bbh": 43.42455936867185,
+        "math_lvl_5": 22.280966767371602,
+        "gpqa": 13.870246085011187,
+        "musr": 16.66822916666666,
+        "mmlu_pro": 36.3918439716312
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/Aashraf995/Gemma-Evo-10B",
+      "extra": {
+        "params_b": 10.159,
+        "license": "apache-2.0",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "Aashraf995/Qwen-Evo-7B",
+      "display_name": "Aashraf995/Qwen-Evo-7B",
+      "organization": "Aashraf995",
+      "source": "huggingface",
+      "metrics": {
+        "average": 30.275058582706105,
+        "ifeval": 47.57343847657549,
+        "bbh": 38.585326990506125,
+        "math_lvl_5": 31.419939577039273,
+        "gpqa": 10.067114093959727,
+        "musr": 15.534895833333335,
+        "mmlu_pro": 38.46963652482269
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/Aashraf995/Qwen-Evo-7B",
+      "extra": {
+        "params_b": 7.616,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "Aashraf995/QwenStock-14B",
+      "display_name": "Aashraf995/QwenStock-14B",
+      "organization": "Aashraf995",
+      "source": "huggingface",
+      "metrics": {
+        "average": 37.13002133952593,
+        "ifeval": 50.08632650256874,
+        "bbh": 50.433898707168744,
+        "math_lvl_5": 35.725075528700906,
+        "gpqa": 18.568232662192393,
+        "musr": 19.274218750000003,
+        "mmlu_pro": 48.69237588652482
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/Aashraf995/QwenStock-14B",
+      "extra": {
+        "params_b": 14.766,
+        "license": "apache-2.0",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "AbacusResearch/Jallabi-34B",
+      "display_name": "AbacusResearch/Jallabi-34B",
+      "organization": "AbacusResearch",
+      "source": "huggingface",
+      "metrics": {
+        "average": 26.186081920716532,
+        "ifeval": 35.28604103777975,
+        "bbh": 43.61576498719506,
+        "math_lvl_5": 5.211480362537765,
+        "gpqa": 11.85682326621924,
+        "musr": 20.23880208333333,
+        "mmlu_pro": 40.90757978723404
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AbacusResearch/Jallabi-34B",
+      "extra": {
+        "params_b": 34.389,
+        "license": "apache-2.0",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "Ahdoot/StructuredThinker-v0.3-MoreStructure",
+      "display_name": "Ahdoot/StructuredThinker-v0.3-MoreStructure",
+      "organization": "Ahdoot",
+      "source": "huggingface",
+      "metrics": {
+        "average": 23.924082152035727,
+        "ifeval": 41.928084150055184,
+        "bbh": 27.258541777802407,
+        "math_lvl_5": 29.078549848942597,
+        "gpqa": 6.263982102908276,
+        "musr": 10.011197916666667,
+        "mmlu_pro": 29.00413711583924
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/Ahdoot/StructuredThinker-v0.3-MoreStructure",
+      "extra": {
+        "params_b": 3.397,
+        "license": "",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "Ahdoot/Test_StealthThinker",
+      "display_name": "Ahdoot/Test_StealthThinker",
+      "organization": "Ahdoot",
+      "source": "huggingface",
+      "metrics": {
+        "average": 22.06904758264274,
+        "ifeval": 42.20036170693759,
+        "bbh": 25.366571749083093,
+        "math_lvl_5": 17.900302114803626,
+        "gpqa": 6.152125279642054,
+        "musr": 11.938541666666666,
+        "mmlu_pro": 28.856382978723406
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/Ahdoot/Test_StealthThinker",
+      "extra": {
+        "params_b": 3.086,
+        "license": "mit",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "AicoresSecurity/Cybernet-Sec-3B-R1-V0",
+      "display_name": "AicoresSecurity/Cybernet-Sec-3B-R1-V0",
+      "organization": "AicoresSecurity",
+      "source": "huggingface",
+      "metrics": {
+        "average": 20.584200054790823,
+        "ifeval": 63.58018945287393,
+        "bbh": 22.32210586978715,
+        "math_lvl_5": 11.555891238670695,
+        "gpqa": 1.7897091722595053,
+        "musr": 1.920572916666666,
+        "mmlu_pro": 22.336731678486995
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AicoresSecurity/Cybernet-Sec-3B-R1-V0",
+      "extra": {
+        "params_b": 3.213,
+        "license": "",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AicoresSecurity/Cybernet-Sec-3B-R1-V0-Coder",
+      "display_name": "AicoresSecurity/Cybernet-Sec-3B-R1-V0-Coder",
+      "organization": "AicoresSecurity",
+      "source": "huggingface",
+      "metrics": {
+        "average": 22.930540293017284,
+        "ifeval": 70.9765644046685,
+        "bbh": 22.65149321038919,
+        "math_lvl_5": 14.879154078549849,
+        "gpqa": 2.9082774049216997,
+        "musr": 1.965625,
+        "mmlu_pro": 24.202127659574465
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AicoresSecurity/Cybernet-Sec-3B-R1-V0-Coder",
+      "extra": {
+        "params_b": 3.213,
+        "license": "",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AicoresSecurity/Cybernet-Sec-3B-R1-V1",
+      "display_name": "AicoresSecurity/Cybernet-Sec-3B-R1-V1",
+      "organization": "AicoresSecurity",
+      "source": "huggingface",
+      "metrics": {
+        "average": 19.9979903395144,
+        "ifeval": 61.45693426774292,
+        "bbh": 19.125071594281845,
+        "math_lvl_5": 15.181268882175228,
+        "gpqa": 1.4541387024608499,
+        "musr": 1.920572916666666,
+        "mmlu_pro": 20.849955673758867
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AicoresSecurity/Cybernet-Sec-3B-R1-V1",
+      "extra": {
+        "params_b": 3.213,
+        "license": "",
+        "precision": "bfloat16"
+      }
+    },
+    {
+      "model_id": "AicoresSecurity/Cybernet-Sec-3B-R1-V1.1",
+      "display_name": "AicoresSecurity/Cybernet-Sec-3B-R1-V1.1",
+      "organization": "AicoresSecurity",
+      "source": "huggingface",
+      "metrics": {
+        "average": 22.643406810994602,
+        "ifeval": 67.30209178313541,
+        "bbh": 20.43056853928926,
+        "math_lvl_5": 17.598187311178247,
+        "gpqa": 2.796420581655479,
+        "musr": 4.528385416666668,
+        "mmlu_pro": 23.204787234042552
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/AicoresSecurity/Cybernet-Sec-3B-R1-V1.1",
+      "extra": {
+        "params_b": 3.213,
+        "license": "",
+        "precision": "float16"
+      }
+    },
+    {
+      "model_id": "Alepach/notHumpback-M0",
+      "display_name": "Alepach/notHumpback-M0",
+      "organization": "Alepach",
+      "source": "huggingface",
+      "metrics": {
+        "average": 5.137220097878128,
+        "ifeval": 23.500755772461517,
+        "bbh": 1.2773603683897798,
+        "math_lvl_5": 1.8882175226586102,
+        "gpqa": 0.0,
+        "musr": 2.8382812499999996,
+        "mmlu_pro": 1.3187056737588652
+      },
+      "rank": null,
+      "source_url": "https://huggingface.co/Alepach/notHumpback-M0",
+      "extra": {
+        "params_b": 3.213,
+        "license": "apache-2.0",
+        "precision": "bfloat16"
+      }
+    }
+  ]
+}

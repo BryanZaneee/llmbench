@@ -56,6 +56,7 @@ llmbench leaderboard --source lmarena -m claude  # search published scores
 | --------------- | ------------------------------------------------------------------------------------- |
 | `huggingface`   | Open LLM Leaderboard v2 — IFEval, BBH, MATH, GPQA, MUSR, MMLU-PRO (OSS models)        |
 | `lmarena`       | LMArena ELO ratings from human-preference voting (text, vision, webdev, etc.)         |
+| `aider`         | Aider Polyglot — multi-language code-editing pass rate + edit-format compliance       |
 | `bundled`       | Snapshot shipped with llmbench — works offline                                         |
 
 **Two interfaces, same engine:**
@@ -66,7 +67,7 @@ llmbench leaderboard --source lmarena -m claude  # search published scores
 
 ## Install
 
-### Zero-install (once published to PyPI)
+### Zero-install
 
 ```bash
 uvx llmbench                    # if you use uv (https://docs.astral.sh/uv/)

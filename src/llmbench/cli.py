@@ -147,7 +147,7 @@ def cmd_leaderboard(
         "huggingface",
         "--source",
         "-s",
-        help="Source to fetch from (huggingface, lmarena, bundled). Use --list-sources to see all.",
+        help="Source to fetch from (huggingface, lmarena, aider, bundled). Use --list-sources to see all.",
     ),
     refresh: bool = typer.Option(False, "--refresh", help="Bypass cache and fetch fresh data"),
     offline: bool = typer.Option(False, "--offline", help="Use cache/bundled data only"),
