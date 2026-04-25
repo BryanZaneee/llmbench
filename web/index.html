@@ -90,27 +90,16 @@
       <span class="lb-section-kicker">§ 02 — Published scores</span>
     </div>
     <p class="lede">
-      Published model scores from HuggingFace Open LLM Leaderboard v2, LMArena ELO, Aider Polyglot, and bundled snapshots — searchable in one place. Filter by source, provider, or benchmark; sort by rank, score, or name.
+      Published model scores from HuggingFace Open LLM Leaderboard v2, LMArena ELO, Aider Polyglot, and a bundled snapshot — searchable in one place. Click a column to sort, toggle sources, or filter by name.
     </p>
 
     <div class="lb-controls">
       <input class="lb-input" id="lb-search" type="search" placeholder="Filter by model or organization… (e.g. claude, llama, gpt)" autocomplete="off" />
-
-      <div class="lb-filter-row">
-        <span class="lb-filter-label">Source</span>
-        <div class="lb-chips" id="lb-chips-source" role="group" aria-label="Filter by source"></div>
-      </div>
-      <div class="lb-filter-row">
-        <span class="lb-filter-label">Provider</span>
-        <div class="lb-chips" id="lb-chips-org" role="group" aria-label="Filter by provider"></div>
-      </div>
-      <div class="lb-filter-row">
-        <span class="lb-filter-label">Benchmark</span>
-        <div class="lb-chips" id="lb-chips-metric" role="group" aria-label="Select benchmark metric"></div>
-      </div>
-      <div class="lb-filter-row">
-        <span class="lb-filter-label">Sort by</span>
-        <div class="lb-chips" id="lb-chips-sort" role="group" aria-label="Sort by"></div>
+      <div class="lb-filter-group" id="lb-source-filter">
+        <label><input type="checkbox" value="huggingface" checked /> HuggingFace</label>
+        <label><input type="checkbox" value="lmarena" checked /> LMArena</label>
+        <label><input type="checkbox" value="aider" checked /> Aider</label>
+        <label><input type="checkbox" value="bundled" checked /> Bundled</label>
       </div>
     </div>
 
@@ -124,7 +113,7 @@
             <th data-key="display_name">Model</th>
             <th data-key="organization">Organization</th>
             <th data-key="source">Source</th>
-            <th data-key="primary_score" class="lb-th-num" id="lb-th-score" title="Selected benchmark score">Score</th>
+            <th data-key="primary_score" class="lb-th-num" title="Primary metric per source: ELO for LMArena, Average for HF / Bundled, Polyglot % for Aider">Score</th>
             <th data-key="primary_label">Metric</th>
           </tr>
         </thead>
@@ -132,8 +121,9 @@
       </table>
     </div>
 
-    <div class="lb-loadmore-wrap">
-      <button class="lb-btn lb-loadmore" id="lb-loadmore" type="button" hidden>Load 25 more</button>
+    <div class="lb-loadmore-wrap" id="lb-loadmore-wrap" hidden>
+      <button class="lb-btn lb-loadmore" id="lb-loadmore" type="button">Load 50 more</button>
+      <button class="lb-btn lb-showall" id="lb-showall" type="button">Show all</button>
     </div>
 
     <div class="lb-empty" id="lb-empty" hidden>No models match your filters.</div>

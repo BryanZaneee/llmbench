@@ -299,10 +299,14 @@ a { color: inherit; }
 
 /* ─────────────────────────────────────────── EXPLORER ─── */
 .lb-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+@media (max-width: 720px) {
+  .lb-controls { grid-template-columns: 1fr; }
 }
 .lb-input {
   font-family: var(--mono);
@@ -319,83 +323,33 @@ a { color: inherit; }
   border-color: var(--blue-700);
   background: var(--bg-paper);
 }
-
-.lb-filter-row {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 16px;
-  align-items: start;
-}
-@media (max-width: 720px) {
-  .lb-filter-row {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-}
-.lb-filter-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-400);
-  padding-top: 8px;
-}
-.lb-chips {
+.lb-filter-group {
   display: flex;
+  gap: 14px;
   flex-wrap: wrap;
-  gap: 6px;
+  justify-content: flex-end;
 }
-.lb-chip {
+.lb-filter-group label {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 6px 10px;
-  background: var(--bg-paper);
-  border: 1px solid var(--rule);
-  border-radius: 999px;
   color: var(--ink-700);
   cursor: pointer;
-  transition: background 0.12s, border-color 0.12s, color 0.12s;
 }
-.lb-chip:hover {
-  border-color: var(--blue-500);
-  color: var(--blue-700);
-}
-.lb-chip[data-active="true"] {
-  background: var(--ink-900);
-  border-color: var(--ink-900);
-  color: var(--bg-paper);
-}
-.lb-chip[data-active="true"]:hover {
-  background: var(--blue-700);
-  border-color: var(--blue-700);
-}
-.lb-chip-count {
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  color: var(--ink-400);
-  background: var(--bg-paper-2);
-  padding: 1px 6px;
-  border-radius: 999px;
-}
-.lb-chip[data-active="true"] .lb-chip-count {
-  color: var(--blue-200);
-  background: rgba(255, 255, 255, 0.08);
-}
+.lb-filter-group input[type="checkbox"] { accent-color: var(--blue-700); }
 
 .lb-loadmore-wrap {
   display: flex;
   justify-content: center;
+  gap: 12px;
   margin-top: 24px;
+  flex-wrap: wrap;
 }
-.lb-loadmore {
-  /* inherits .lb-btn — extends it with full-width-ish min-width on wide screens */
-  min-width: 200px;
-}
+.lb-loadmore-wrap[hidden] { display: none; }
 
 .lb-meta {
   font-family: var(--mono);
