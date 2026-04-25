@@ -4,6 +4,14 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-25 — VPS deploy + bare-path redirect
+
+- Confirmed the deploy chain works end-to-end: GitHub push → `webhook.service` (port 9000, exposed by Caddy at `bryanzane.com/hooks/*`) → `/opt/deploy/deploy.sh` runs `git fetch && git reset --hard origin/main` for the repo whose name matches `REPO_MAP`. `llmbench` → `/var/www/llmbench/` was already mapped by an earlier hand. No new infrastructure needed.
+- Caddy block for `/llmbench/*` already existed in the `bryanzane.com` site block (`handle_path /llmbench/* { root * /var/www/llmbench/web; file_server }`).
+- `bryanzane.com/llmbench/` (with trailing slash) worked from day one. **`bryanzane.com/llmbench` (without slash) returned 404** because `handle_path /llmbench/*` doesn't match the bare prefix. Fixed by adding `redir /llmbench /llmbench/ permanent` directly above the handle_path block. `caddy validate` complained about the Cloudflare DNS module (env file isn't read in validate context), but the running service reload was clean.
+- Portfolio link in `bryanzane_v3` now points at `/llmbench/` directly to skip the redirect roundtrip. Preserves a snappier first paint when entering from the project card.
+- VPS layout (paths, deploy script, webhook secret location) captured in `CLAUDE.md` so future agents don't have to re-derive it.
+
 ## 2026-04-25 — Web filter overhaul + Aider source
 
 - Web hero now uses the ASCII banner *as* the H1 (wrapped in `<h1 class="lb-banner-h1">`) and drops the separate "llmbench." serif title. The banner already says the name; a second, larger restatement of it underneath was visual duplication. Banner upsized one step to carry the title weight on its own.
