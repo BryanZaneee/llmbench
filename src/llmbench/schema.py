@@ -25,7 +25,6 @@ def _uid() -> str:
 class Capability(str, Enum):
     TEXT = "text"
     IMAGE_GEN = "image_gen"
-    EMBEDDING = "embedding"
 
 
 class ModelSpec(BaseModel):
@@ -54,7 +53,6 @@ class Prompt(BaseModel):
     expected: str | None = None
     check: str = "contains"  # exact | contains | regex
     rubric: str | None = None
-    tags: list[str] = Field(default_factory=list)
 
 
 class TokenUsage(BaseModel):
@@ -102,5 +100,3 @@ class RunManifest(BaseModel):
     models: list[ModelSpec]
     benchmarks: list[str]
     prompts: list[Prompt] = Field(default_factory=list)
-    harness_versions: dict[str, str] = Field(default_factory=dict)
-    notes: str | None = None

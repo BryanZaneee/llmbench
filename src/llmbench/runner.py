@@ -17,6 +17,8 @@ from .benchmarks import get_benchmark
 from .config import SuiteConfig
 from .schema import BenchmarkResult, ModelSpec, Prompt, RunManifest
 
+RESULTS_DIR = Path("results")
+
 
 DEFAULT_PROMPTS: list[Prompt] = [
     Prompt(id="short", prompt="Write a one-sentence description of the sun."),
@@ -46,7 +48,7 @@ async def run_suite(cfg: SuiteConfig) -> tuple[RunManifest, list[BenchmarkResult
         benchmarks=cfg.benchmarks,
         prompts=prompts,
     )
-    output_dir = Path(cfg.results_dir) / manifest.run_id
+    output_dir = RESULTS_DIR / manifest.run_id
 
     sem = asyncio.Semaphore(cfg.concurrency)
     tasks = [

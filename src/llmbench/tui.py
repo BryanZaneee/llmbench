@@ -14,12 +14,11 @@ from pathlib import Path
 import questionary
 from rich.console import Console
 from rich.panel import Panel
-from rich.table import Table
 from rich.text import Text
 
 from .config import SamplingParams, SuiteConfig
 from .reports import render_gallery
-from .runner import run_suite
+from .runner import RESULTS_DIR, run_suite
 from .schema import ModelSpec
 from .storage import Store
 
@@ -201,7 +200,7 @@ def _build_custom_suite() -> SuiteConfig | None:
 
 
 def _execute_run(cfg: SuiteConfig, *, open_browser: bool) -> None:
-    out = Path(cfg.results_dir)
+    out = RESULTS_DIR
     out.mkdir(parents=True, exist_ok=True)
 
     with console.status("[cyan]Running benchmarks..."):
@@ -210,33 +209,14 @@ def _execute_run(cfg: SuiteConfig, *, open_browser: bool) -> None:
     store = Store(out / "results.db")
     store.save_run(manifest, results)
     store.close()
-    from .storage import write_jsonl
-    write_jsonl(results, out / f"{manifest.run_id}.jsonl")
     gallery = render_gallery(manifest, results, out / manifest.run_id / "gallery.html")
 
+    from .cli import _print_results_table
     _print_results_table(results)
     console.print(f"\n[green]Saved {len(results)} results[/] to {out}")
     console.print(f"[cyan]Gallery:[/] {gallery}")
     if open_browser:
         webbrowser.open(gallery.as_uri())
-
-
-def _print_results_table(results) -> None:
-    t = Table(title="Results")
-    for col in ["Model", "Benchmark", "OK", "TTFT ms", "tok/s", "Score", "ms"]:
-        t.add_column(col)
-    for r in results:
-        tp = r.throughput
-        t.add_row(
-            r.model.display,
-            r.benchmark,
-            "OK" if r.success else "FAIL",
-            f"{tp.ttft_ms:.0f}" if tp and tp.ttft_ms else "-",
-            f"{tp.tokens_per_second:.1f}" if tp and tp.tokens_per_second else "-",
-            f"{r.score:.1f}" if r.score is not None else "-",
-            f"{r.duration_ms:.0f}",
-        )
-    console.print(t)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -349,7 +329,7 @@ def _write_env_var(key: str, value: str) -> None:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def _flow_view_past() -> None:
-    results_dir = Path("results")
+    results_dir = RESULTS_DIR
     if not (results_dir / "results.db").exists():
         console.print("[yellow]No past runs found (results/results.db doesn't exist yet)[/]")
         return
@@ -399,6 +379,7 @@ def _flow_view_past() -> None:
             render_gallery(manifest, results, gallery)
         webbrowser.open(gallery.as_uri())
     elif action == "Print summary in terminal":
+        from .cli import _print_results_table
         _print_results_table(results)
         console.print(
             Panel(

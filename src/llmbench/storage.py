@@ -1,4 +1,4 @@
-"""Persists results to SQLite (queryable) and JSONL (archival).
+"""Persists results to SQLite.
 
 The `payload_json` column holds the full pydantic dump of each result, so new
 benchmark fields never require a DB migration — the top-level columns are only
@@ -7,7 +7,6 @@ there to make common queries (filter by model, aggregate tok/s) fast.
 
 from __future__ import annotations
 
-import json
 import sqlite3
 from pathlib import Path
 
@@ -121,11 +120,3 @@ class Store:
 
     def close(self) -> None:
         self._conn.close()
-
-
-def write_jsonl(results: list[BenchmarkResult], path: str | Path) -> None:
-    p = Path(path)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    with p.open("w") as f:
-        for r in results:
-            f.write(json.dumps(r.model_dump(mode="json")) + "\n")

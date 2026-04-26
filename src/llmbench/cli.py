@@ -17,9 +17,9 @@ from rich.table import Table
 
 from .config import load_suite
 from .reports import render_gallery
-from .runner import run_suite
+from .runner import RESULTS_DIR, run_suite
 from .schema import BenchmarkResult, RunManifest
-from .storage import Store, write_jsonl
+from .storage import Store
 
 app = typer.Typer(
     help="llmbench — benchmark any AI model. Run without a subcommand for the interactive TUI.",
@@ -40,7 +40,6 @@ def _root(ctx: typer.Context) -> None:
 @app.command("run")
 def cmd_run(
     config: Path = typer.Argument(..., exists=True, help="Suite config YAML"),
-    out: Path = typer.Option(Path("results"), help="Output directory"),
     open_browser: bool = typer.Option(
         False, "--open", help="Open HTML gallery in browser when finished"
     ),
@@ -50,22 +49,23 @@ def cmd_run(
 ) -> None:
     """Run a suite defined in a YAML config file."""
     cfg = load_suite(config)
-    out.mkdir(parents=True, exist_ok=True)
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     manifest, results = asyncio.run(run_suite(cfg))
 
-    store = Store(out / "results.db")
+    store = Store(RESULTS_DIR / "results.db")
     store.save_run(manifest, results)
     store.close()
-    write_jsonl(results, out / f"{manifest.run_id}.jsonl")
 
-    gallery_path = render_gallery(manifest, results, out / manifest.run_id / "gallery.html")
+    gallery_path = render_gallery(
+        manifest, results, RESULTS_DIR / manifest.run_id / "gallery.html"
+    )
 
     if as_json:
         _print_json(manifest, results, gallery_path)
         return
 
-    _print_summary(results)
-    console.print(f"\n[green]Saved {len(results)} results[/] to {out}")
+    _print_results_table(results)
+    console.print(f"\n[green]Saved {len(results)} results[/] to {RESULTS_DIR}")
     console.print(f"[cyan]Gallery:[/] {gallery_path}")
 
     if open_browser:
@@ -75,11 +75,10 @@ def cmd_run(
 @app.command("view")
 def cmd_view(
     run_id: str = typer.Argument(None, help="Run ID (omit with --latest)"),
-    out: Path = typer.Option(Path("results"), help="Results directory"),
     latest: bool = typer.Option(False, "--latest", help="View the most recent run"),
 ) -> None:
     """Open the HTML gallery for a past run."""
-    store = Store(out / "results.db")
+    store = Store(RESULTS_DIR / "results.db")
     try:
         if latest:
             run_id = store.latest_run_id()
@@ -93,52 +92,11 @@ def cmd_view(
     finally:
         store.close()
 
-    gallery_path = out / manifest.run_id / "gallery.html"
+    gallery_path = RESULTS_DIR / manifest.run_id / "gallery.html"
     if not gallery_path.exists():
         render_gallery(manifest, results, gallery_path)
     console.print(f"[cyan]Opening:[/] {gallery_path}")
     webbrowser.open(gallery_path.as_uri())
-
-
-@app.command("list-runs")
-def cmd_list_runs(
-    out: Path = typer.Option(Path("results"), help="Results directory"),
-    limit: int = typer.Option(10, help="How many recent runs to show"),
-) -> None:
-    """List recent runs."""
-    store = Store(out / "results.db")
-    try:
-        rows = store._conn.execute(
-            "SELECT run_id, created_at, suite_version FROM runs "
-            "ORDER BY created_at DESC LIMIT ?",
-            (limit,),
-        ).fetchall()
-    finally:
-        store.close()
-    t = Table(title="Recent runs")
-    for col in ["run_id", "created_at", "suite_version"]:
-        t.add_column(col)
-    for run_id, created, version in rows:
-        t.add_row(run_id[:12], created, version)
-    console.print(t)
-
-
-@app.command("list-adapters")
-def cmd_list() -> None:
-    """Show supported adapters."""
-    from .adapters import _REGISTRY
-
-    for name, cls in sorted(_REGISTRY.items()):
-        console.print(f"  [cyan]{name}[/] -> {cls.__name__}")
-
-
-@app.command("list-benchmarks")
-def cmd_list_benchmarks() -> None:
-    """Show registered benchmarks."""
-    from .benchmarks import _REGISTRY
-
-    for name, cls in sorted(_REGISTRY.items()):
-        console.print(f"  [cyan]{name}[/] -> {cls.__name__}")
 
 
 @app.command("leaderboard")
@@ -238,7 +196,7 @@ def _print_leaderboard(snapshot, entries) -> None:
     )
 
 
-def _print_summary(results: list[BenchmarkResult]) -> None:
+def _print_results_table(results: list[BenchmarkResult]) -> None:
     t = Table(title="Benchmark Results")
     for col in ["Model", "Benchmark", "OK", "TTFT ms", "tok/s", "Score", "Out tok", "ms"]:
         t.add_column(col)

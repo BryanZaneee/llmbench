@@ -4,6 +4,17 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-25 — Bloat sweep: drop unused surface area
+
+- Removed pydantic fields with zero readers: `Capability.EMBEDDING`, `Prompt.tags`, `RunManifest.harness_versions`, `RunManifest.notes`. Declared, never read.
+- Dropped `pillow` dep (unused; image gen uses URL/b64 from the OpenAI-compat adapter directly). Moved `pyarrow` from required to `[project.optional-dependencies]` under key `lmarena`; only the LMArena source imports it, and it imports lazily so unrelated installs no longer pull ~80MB. Daily refresh workflow now installs with `.[lmarena]`.
+- Removed undocumented `list-runs`, `list-adapters`, `list-benchmarks` CLI commands. They weren't in the README and `list-runs` was reaching into `Store._conn` (private). If reintroduced, document them.
+- Deduped the results-table renderer between `cli.py` and `tui.py`; one definition lives in `cli.py` (with the richer `Out tok` column) and `tui.py` imports it.
+- Killed the half-wired `SuiteConfig.results_dir` knob — TUI hardcoded `Path("results")` everywhere, so the YAML field never took effect. Replaced with a module-level `RESULTS_DIR = Path("results")` in `runner.py` shared by CLI + TUI. Also removed the `--out` option from `llmbench run` / `view` — same reasoning, runner.py owns the path.
+- GH refresh workflow no longer commits the four per-source JSONs to `web/data/`; only `web/data/all.json` (the file `web/main.js` actually loads) is committed. The per-source files were pure nightly diff noise. Snapshots are now written to `$RUNNER_TEMP/snapshots/` and merged from there.
+- Dropped the unreachable `"1970-01-01T00:00:00+00:00"` fallback in `BundledSource` — `LeaderboardSnapshot.fetched_at` already has a `default_factory`, so the fallback never fired.
+- Dropped `write_jsonl()` and the parallel `<run_id>.jsonl` archive. The previous `history.md` line called it "append-only, ships to S3 easily" but the code opened with `"w"` mode and rewrote the whole file at end-of-run. SQLite's `payload_json` column already holds the same per-result pydantic dump; query it with `json_extract` instead.
+
 ## 2026-04-25 — VPS deploy + bare-path redirect
 
 - Confirmed the deploy chain works end-to-end: GitHub push → `webhook.service` (port 9000, exposed by Caddy at `bryanzane.com/hooks/*`) → `/opt/deploy/deploy.sh` runs `git fetch && git reset --hard origin/main` for the repo whose name matches `REPO_MAP`. `llmbench` → `/var/www/llmbench/` was already mapped by an earlier hand. No new infrastructure needed.
@@ -140,7 +151,7 @@ Agents reading this should skim before touching the code: many choices below are
 - Tok/s denominator is `end - first_token_time` (not total latency) — this isolates generation speed from TTFT, so a slow-to-start but fast-generating model isn't unfairly penalized.
 
 ### Storage + schema
-- Storage = SQLite (queryable) + JSONL (archival) in parallel — SQLite for ad-hoc analysis, JSONL is append-only and ships to S3 easily.
+- Storage = SQLite, with the full pydantic dump kept in a `payload_json` column. Earlier we wrote a parallel JSONL archive but it duplicated the same payload, so it was removed; query the column with `json_extract` if you need raw rows.
 - The `payload_json` column holds the full pydantic dump of each result, so new benchmark fields never require a DB migration. The top-level columns exist only to make common queries (filter by model, aggregate tok/s) fast.
 - Pydantic v2 is used for every type that crosses a boundary (config, DB, CLI output) so JSON <-> object conversion is free. Plain dataclasses are used for in-process values only (GenerationEvent, StreamedGeneration).
 

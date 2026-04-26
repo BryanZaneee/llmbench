@@ -131,7 +131,6 @@ After `llmbench run`:
 ```
 results/
 ├── results.db                  # SQLite, one row per (model, prompt, repetition)
-├── <run_id>.jsonl              # full pydantic dump of every result
 └── <run_id>/
     ├── gallery.html            # side-by-side text + image comparison
     └── images/<model>/...      # generated PNGs (if image_gen ran)

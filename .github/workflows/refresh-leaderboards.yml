@@ -18,27 +18,33 @@ jobs:
           python-version: "3.11"
 
       - name: Install llmbench
-        run: pip install -e .
+        run: pip install -e ".[lmarena]"
 
       - name: Fetch leaderboard snapshots
         run: |
-          mkdir -p web/data
-          llmbench leaderboard --source huggingface --top 200 --json > web/data/huggingface.json
-          llmbench leaderboard --source lmarena     --top 500 --json > web/data/lmarena.json
-          llmbench leaderboard --source aider       --top 200 --json > web/data/aider.json
-          llmbench leaderboard --source bundled     --top 500 --json > web/data/bundled.json
+          mkdir -p "$RUNNER_TEMP/snapshots"
+          llmbench leaderboard --source huggingface --top 200 --json > "$RUNNER_TEMP/snapshots/huggingface.json"
+          llmbench leaderboard --source lmarena     --top 500 --json > "$RUNNER_TEMP/snapshots/lmarena.json"
+          llmbench leaderboard --source aider       --top 200 --json > "$RUNNER_TEMP/snapshots/aider.json"
+          llmbench leaderboard --source bundled     --top 500 --json > "$RUNNER_TEMP/snapshots/bundled.json"
 
       - name: Merge into all.json
+        env:
+          SNAPSHOTS_DIR: ${{ runner.temp }}/snapshots
         run: |
+          mkdir -p web/data
           python - <<'PY'
           import json
+          import os
           from datetime import datetime, timezone
+          from pathlib import Path
 
+          src_dir = Path(os.environ["SNAPSHOTS_DIR"])
           paths = [
-              "web/data/huggingface.json",
-              "web/data/lmarena.json",
-              "web/data/aider.json",
-              "web/data/bundled.json",
+              src_dir / "huggingface.json",
+              src_dir / "lmarena.json",
+              src_dir / "aider.json",
+              src_dir / "bundled.json",
           ]
           snapshots = [json.load(open(p)) for p in paths]
           entries = []
@@ -66,9 +72,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/data/
+          git add web/data/all.json
           if git diff --cached --quiet; then
-            echo "No data changes — skipping commit."
+            echo "No data changes, skipping commit."
             exit 0
           fi
           git commit -m "chore: refresh leaderboard snapshots"

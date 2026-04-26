@@ -27,7 +27,6 @@ class SuiteConfig(BaseModel):
     sampling: SamplingParams = SamplingParams()
     repetitions: int = 3
     concurrency: int = 1
-    results_dir: str = "results"
     judge: ModelSpec | None = None
 
 

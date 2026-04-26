@@ -23,9 +23,11 @@ class BundledSource(LeaderboardSource):
             data_path = Path(__file__).parent.parent / "data" / "bundled_leaderboard.json"
         raw = json.loads(data_path.read_text())
         entries = [LeaderboardEntry(**e) for e in raw.get("entries", [])]
-        return LeaderboardSnapshot(
-            source=self.name,
-            source_url=raw.get("source_url"),
-            fetched_at=raw.get("fetched_at") or "1970-01-01T00:00:00+00:00",
-            entries=entries,
-        )
+        snapshot_kwargs: dict = {
+            "source": self.name,
+            "source_url": raw.get("source_url"),
+            "entries": entries,
+        }
+        if raw.get("fetched_at"):
+            snapshot_kwargs["fetched_at"] = raw["fetched_at"]
+        return LeaderboardSnapshot(**snapshot_kwargs)
