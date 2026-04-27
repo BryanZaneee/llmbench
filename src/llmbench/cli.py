@@ -72,6 +72,112 @@ def cmd_run(
         webbrowser.open(gallery_path.as_uri())
 
 
+@app.command("task")
+def cmd_task(
+    task_id: str = typer.Argument(..., help="Task ID (see `llmbench list-tasks`)"),
+    provider: str = typer.Option("anthropic", "--provider", "-p", help="Chat provider"),
+    model: str = typer.Option(
+        "claude-opus-4-7", "--model", "-m", help="Model name passed to the provider"
+    ),
+    reps: int = typer.Option(1, "--reps", "-n", min=1, help="Repetitions to run"),
+    max_steps: int | None = typer.Option(
+        None, "--max-steps", help="Override the task's default step budget"
+    ),
+    max_tokens: int = typer.Option(4096, "--max-tokens", help="max_tokens passed each turn"),
+    temperature: float = typer.Option(0.0, "--temperature", help="Sampling temperature"),
+    runs_dir: Path = typer.Option(Path("runs"), "--runs-dir", help="Directory for trace JSON"),
+    as_json: bool = typer.Option(False, "--json", help="Emit per-run summary JSON on stdout"),
+) -> None:
+    """Run an agentic task. Writes one trace JSON per repetition to <runs_dir>/<run_id>.json."""
+    from .agent.runner import run_task as run_one
+    from .schema import ModelConfig
+    from .tasks import get_task
+
+    try:
+        task = get_task(task_id)
+    except KeyError as e:
+        console.print(f"[red]{e}[/]")
+        raise typer.Exit(1)
+
+    cfg = ModelConfig(
+        provider=provider,
+        model=model,
+        params={"temperature": temperature, "max_tokens": max_tokens},
+    )
+
+    budget_override = None
+    if max_steps is not None:
+        from .schema import Budget
+
+        budget_override = Budget(max_steps=max_steps)
+
+    summaries: list[dict] = []
+    for i in range(reps):
+        try:
+            trace, path = asyncio.run(
+                run_one(
+                    task_id,
+                    cfg,
+                    runs_dir=runs_dir,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    budget_override=budget_override,
+                )
+            )
+        except RuntimeError as exc:
+            console.print(f"[red]{exc}[/]")
+            raise typer.Exit(1)
+
+        summaries.append(
+            {
+                "run_id": trace.run_id,
+                "trace": str(path),
+                "status": trace.status,
+                "verdict": trace.verdicts.final_state_check if trace.verdicts else None,
+                "steps": len(trace.trace.steps),
+                "input_tokens": trace.totals.input_tokens,
+                "output_tokens": trace.totals.output_tokens,
+                "tool_calls": trace.totals.tool_call_count,
+                "wall_time_ms": trace.totals.wall_time_ms,
+            }
+        )
+
+        if not as_json:
+            console.print(
+                f"[cyan]rep {i + 1}/{reps}[/] · {task.id}@{task.version} · "
+                f"[{('green' if trace.status == 'success' else 'yellow' if trace.status == 'failure' else 'red')}]{trace.status}[/]"
+                f" · verdict={trace.verdicts.final_state_check if trace.verdicts else '-'}"
+                f" · steps={len(trace.trace.steps)} · tools={trace.totals.tool_call_count}"
+            )
+            console.print(f"  [dim]{path}[/]")
+
+    if as_json:
+        print(json.dumps({"task_id": task_id, "runs": summaries}, indent=2))
+
+
+@app.command("list-tasks")
+def cmd_list_tasks(
+    as_json: bool = typer.Option(False, "--json", help="Emit task catalog as JSON on stdout"),
+) -> None:
+    """Show every registered agentic task."""
+    from .tasks import list_tasks
+
+    rows = [
+        {"id": cls.id, "version": cls.version, "description": cls.description}
+        for cls in list_tasks()
+    ]
+    if as_json:
+        print(json.dumps(rows, indent=2))
+        return
+    t = Table(title="Tasks")
+    t.add_column("ID")
+    t.add_column("Ver", style="dim")
+    t.add_column("Description")
+    for r in rows:
+        t.add_row(r["id"], r["version"], r["description"])
+    console.print(t)
+
+
 @app.command("view")
 def cmd_view(
     run_id: str = typer.Argument(None, help="Run ID (omit with --latest)"),
