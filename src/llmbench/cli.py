@@ -178,6 +178,44 @@ def cmd_list_tasks(
     console.print(t)
 
 
+@app.command("list-models")
+def cmd_list_models(
+    as_json: bool = typer.Option(False, "--json", help="Emit pricing table as JSON on stdout"),
+) -> None:
+    """Show every model with a registered price (USD per million tokens)."""
+    from .agent.pricing import list_models
+
+    rows = [
+        {
+            "provider": provider,
+            "model": model,
+            "input_per_m": price.input_per_million,
+            "output_per_m": price.output_per_million,
+            "cached_input_per_m": price.cached_input_per_million,
+        }
+        for provider, model, price in list_models()
+    ]
+    if as_json:
+        print(json.dumps(rows, indent=2))
+        return
+    t = Table(title="Pricing (USD per 1M tokens)")
+    t.add_column("Provider")
+    t.add_column("Model")
+    t.add_column("Input", justify="right")
+    t.add_column("Output", justify="right")
+    t.add_column("Cached", justify="right", style="dim")
+    for r in rows:
+        cached = "" if r["cached_input_per_m"] is None else f"${r['cached_input_per_m']:.2f}"
+        t.add_row(
+            r["provider"],
+            r["model"],
+            f"${r['input_per_m']:.2f}",
+            f"${r['output_per_m']:.2f}",
+            cached,
+        )
+    console.print(t)
+
+
 @app.command("view")
 def cmd_view(
     run_id: str = typer.Argument(None, help="Run ID (omit with --latest)"),
