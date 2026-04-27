@@ -1,3 +1,5 @@
+# llmbench
+
 ```
 ██╗     ██╗     ███╗   ███╗██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗
 ██║     ██║     ████╗ ████║██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║
@@ -7,7 +9,7 @@
 ╚══════╝╚══════╝╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
 ```
 
-**Benchmark any AI model, any provider, one command.** CLI-first, open source, MIT-licensed.
+**Benchmark any AI model — any provider, one command.** CLI-first, open source, MIT-licensed.
 
 ```bash
 llmbench                                         # interactive TUI
@@ -40,7 +42,7 @@ Requires Python 3.11+.
 
 ## What it does
 
-**Local benchmarks** run against any provider you configure:
+**Local benchmarks** — run against any provider you configure:
 
 | Benchmark        | Measures                                                          |
 | ---------------- | ----------------------------------------------------------------- |
@@ -49,20 +51,20 @@ Requires Python 3.11+.
 | `quality_judge`  | LLM-as-judge: 1–10 score with one-line reasoning                  |
 | `image_gen`      | Latency + saved PNGs for side-by-side review                      |
 
-**Published leaderboards** offer real scores, no API keys:
+**Published leaderboards** — real scores without needing any API keys:
 
 | Source        | Provides                                                          |
 | ------------- | ----------------------------------------------------------------- |
 | `huggingface` | Open LLM Leaderboard v2 (IFEval, BBH, MATH, GPQA, MUSR, MMLU-PRO) |
 | `lmarena`     | LMArena ELO from human-preference voting                          |
-| `aider`       | Aider Polyglot multi-language code-editing pass rate              |
+| `aider`       | Aider Polyglot — multi-language code-editing pass rate            |
 | `bundled`     | Snapshot shipped with llmbench (works offline)                    |
 
 ---
 
 ## Quick start
 
-Zero setup. See published scores immediately:
+Zero setup — see published scores immediately:
 
 ```bash
 llmbench leaderboard --source lmarena --top 10
@@ -131,6 +133,7 @@ After `llmbench run`:
 ```
 results/
 ├── results.db                  # SQLite, one row per (model, prompt, repetition)
+├── <run_id>.jsonl              # full pydantic dump of every result
 └── <run_id>/
     ├── gallery.html            # side-by-side text + image comparison
     └── images/<model>/...      # generated PNGs (if image_gen ran)
@@ -150,7 +153,7 @@ llmbench leaderboard --source lmarena --top 20 --json | jq '.entries[].display_n
 
 Subclass `Adapter`, `Benchmark`, or `LeaderboardSource` (see `base.py` in each directory) and register your class in the corresponding `__init__.py`. New adapters are typically ~40 lines.
 
-> Read `history.md` before non-trivial architectural changes; it's the running design log.
+> Read `history.md` before non-trivial architectural changes — it's the running design log.
 
 ---
 
@@ -162,4 +165,4 @@ PRs welcome. Add tests (see `tests/test_*.py` for patterns), keep modules single
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
