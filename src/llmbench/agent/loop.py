@@ -22,6 +22,7 @@ from ..schema import (
     Totals,
 )
 from ..tools.base import Tool, ToolError
+from .pricing import compute_cost
 from .provider import ChatMessage, ChatProvider, StopReason, ToolDefinition
 
 
@@ -118,6 +119,7 @@ async def run_agent(
         totals.input_tokens += response.usage.input_tokens
         totals.output_tokens += response.usage.output_tokens
         totals.cached_tokens += response.usage.cached_input_tokens
+        totals.cost_usd = compute_cost(provider.config.provider, provider.config.model, totals)
         totals.wall_time_ms = (time.perf_counter() - loop_started) * 1000
         if totals.time_to_first_token_ms is None:
             totals.time_to_first_token_ms = response.latency_ms or model_elapsed_ms

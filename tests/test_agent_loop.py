@@ -140,6 +140,54 @@ async def test_loop_respects_max_steps_budget():
 
 
 @pytest.mark.asyncio
+async def test_loop_rolls_up_cost_for_known_model():
+    # claude-opus-4-7 priced at $15 in / $75 out per 1M. 1000 in + 500 out -> $0.0525.
+    provider = MockProvider(ModelConfig(provider="anthropic", model="claude-opus-4-7")).script(
+        ChatResponse(
+            content="done",
+            tool_calls=[],
+            usage=TokenUsage(input_tokens=1_000, output_tokens=500),
+            stop_reason=StopReason.END_TURN,
+        )
+    )
+    result = await run_agent(
+        provider,
+        system=None,
+        user_prompt="hi",
+        tools={},
+        budget=Budget(max_steps=5),
+    )
+    assert result.totals.cost_usd == pytest.approx(0.0525)
+
+
+@pytest.mark.asyncio
+async def test_loop_max_cost_budget_gates():
+    # Every turn costs ~$0.0525; max_cost_usd=0.10 should fire after the second turn.
+    responses = [
+        ChatResponse(
+            content=None,
+            tool_calls=[ToolCallRequest(id=f"t{i}", name="echo", arguments={"text": "x"})],
+            usage=TokenUsage(input_tokens=1_000, output_tokens=500),
+            stop_reason=StopReason.TOOL_USE,
+        )
+        for i in range(5)
+    ]
+    provider = MockProvider(ModelConfig(provider="anthropic", model="claude-opus-4-7")).script(
+        *responses
+    )
+    tools: dict[str, Tool] = {"echo": EchoTool()}
+    result = await run_agent(
+        provider,
+        system=None,
+        user_prompt="loop",
+        tools=tools,
+        budget=Budget(max_steps=10, max_cost_usd=0.10),
+    )
+    assert result.status == RunStatus.BUDGET_EXCEEDED
+    assert "max_cost_usd" in (result.error or "")
+
+
+@pytest.mark.asyncio
 async def test_loop_records_provider_error_as_error_status():
     class ExplodingProvider(MockProvider):
         async def chat(self, messages, tools, *, max_tokens=4096, temperature=0.0):
