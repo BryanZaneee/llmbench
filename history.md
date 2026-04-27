@@ -4,6 +4,59 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-26 - Agentic engine v1 (M1: engine core)
+
+Begins the PRD-described agentic surface alongside the existing single-completion benchmarks. Goal: people can test their own agents or run the bundled task suite. M1 is the engine core; later milestones add the remaining providers and tasks.
+
+### Module layout
+
+- New top-level packages: `src/llmbench/agent/` (loop, providers, runner), `src/llmbench/tools/` (sandboxed primitives + failure injector), `src/llmbench/tasks/` (task contract + registry + first task). The existing `adapters/` and `benchmarks/` packages stay put: agentic and single-completion are different mental models and conflating them would force every benchmark to absorb tool-use semantics it does not need. Runs land in `./runs/<run_id>.json` per the PRD, distinct from `./results/` used by benchmarks.
+
+### Schema
+
+- Added `TraceDocument`, `Step`, `StepList`, `StepRole`, `StepTokens`, `ToolCallTrace`, `ModelConfig`, `Totals`, `Verdicts`, `Budget`, `RunStatus`, `VerdictResult` to `schema.py`. The trace shape follows the PRD verbatim except for one Python-specific concession: pydantic v2 reserves the attribute name `model_config` for class config, so the Python field is `target_model` aliased to JSON key `model_config` via `Field(alias="model_config")` and `populate_by_name=True`. `model_dump_json(by_alias=True)` produces the canonical PRD shape.
+- Trace `status` and `verdicts.final_state_check` are deliberately separate axes. `status` reflects how the loop ended (`success` / `failure` / `budget_exceeded` / `error`); `verdicts.final_state_check` reflects whether the task itself was achieved. The runner promotes `success` to `failure` when the loop completed cleanly but the verdict failed, so a glance at `status` tells you "ran fine, wrong answer" vs "ran out of steps" vs "exception".
+
+### Loop
+
+- Vendor-neutral `ChatProvider` ABC with one abstract method (`chat(messages, tools, ...)`) returning a `ChatResponse` (`content`, `tool_calls`, `usage`, `stop_reason`, `latency_ms`). The agent loop never branches on provider name above this.
+- One trace step per assistant turn (role=`assistant`), with the tool_calls list filled in post-execution (`output`, `duration_ms`, `error` populated). Picked the single-step interpretation of the PRD's trace shape because the example tool_call dict carries both `input` and `output`, which only lines up if a step records a complete round-trip. The `tool` StepRole stays in the enum for forward-compat with async-tool extensions.
+- Budget gate runs before each turn so a hit produces an explicit `budget_exceeded` status instead of going silent. Five limits supported: `max_steps`, `max_input_tokens`, `max_output_tokens`, `max_wall_time_ms`, `max_cost_usd`. Cost is unimplemented in M1 (Totals.cost_usd stays 0); pricing.yaml + cost rollup land in M2.
+- Hallucinated tool calls (model invokes a name we did not surface) record `error="unknown tool: …"` and add `"hallucinated_tool"` to behavior_flags exactly once per run. Real tools that raise `ToolError` record the error string but do not flag.
+
+### Tools
+
+- `Tool` ABC with `name`, `description`, `input_schema` (JSON-schema dict), and async `run(**kwargs)`. Raising `ToolError` reports back to the model; raising anything else also reports but adds a "tool exception" prefix.
+- `FakeFs` is a single in-memory dict shared by `read_file`, `write_file`, `list_dir`, `delete_file`. Tasks own the FakeFs and seed it in `setup()`; `check()` inspects the post-run state on the same instance.
+- `FailureInjector` wraps an inner Tool and raises ToolError for the first N calls; mirrors the inner tool's `name`/`description`/`input_schema` so the model sees no behavioral wrapper. `AlwaysFailTool` is a standalone permanent-failure tool.
+
+### Providers
+
+- `MockProvider` lives in `src/llmbench/agent/providers/mock.py` (not `tests/`) because it is a useful library surface for downstream users scripting agent behaviors. Receives a list of pre-baked `ChatResponse`s and emits them in order; records every conversation it received.
+- `AnthropicProvider` reaches `https://api.anthropic.com/v1/messages` directly via `httpx.AsyncClient` (no SDK), per the PRD. Translates the vendor-neutral message shape: tool calls become `tool_use` blocks, tool returns become a synthetic `user`-role message with `tool_result` blocks. Reads `cache_read_input_tokens` from usage when present so prompt-cache hits surface in totals.
+- `build_provider(ModelConfig)` lazy-imports each concrete provider so a unit test using only the mock does not pay the import cost of httpx-backed providers.
+
+### Tasks
+
+- `Task` ABC + `register_task` decorator + module-level `_REGISTRY`. Importing `llmbench.tasks` triggers each task module's import, which triggers its decorator, which populates the registry. Same registry pattern leaderboards already use.
+- Task instances are stateful and single-use: `setup()` seeds the sandbox and returns prompts/tools/budget; `check()` reads the post-run state on the same instance. The runner instantiates a fresh Task per repetition.
+- `file-refactor` (id, v1.0.0): seeds a 5-file mock Python project (src/ingest.py, src/pipeline.py, src/cli.py, tests/test_pipeline.py, README.md) all referencing `process_data`. Verdict requires no remaining occurrences of `process_data`, every originally-referenced file now contains `transform_data`, and every Python file still parses via `ast.parse`. Default budget is `max_steps=30`.
+
+### CLI
+
+- `llmbench task <task_id>` and `llmbench list-tasks` added alongside existing `run` / `view` / `leaderboard`. Considered making `run` polymorphic (auto-detect task ID vs. YAML suite path) per the PRD's exact CLI surface, but kept the surfaces separate to avoid disturbing the shipped benchmark `run` path. Renaming and merging is a follow-up. `task` flags: `--provider`, `--model`, `--reps`, `--max-steps`, `--max-tokens`, `--temperature`, `--runs-dir`, `--json`. Default provider/model is `anthropic` / `claude-opus-4-7` so a user with `ANTHROPIC_API_KEY` set can run `llmbench task file-refactor` with no other config.
+- `list-models` from the PRD is deferred until pricing.yaml lands in M2.
+
+### Tests
+
+- 17 new tests under `tests/test_agent_*.py` and `tests/test_task_file_refactor.py`. Coverage: loop terminates on end_turn; loop executes a tool then finishes; hallucinated tools flag once; budget gate produces `budget_exceeded`; provider exception produces `error`; FakeFs read/write/list/delete + missing-path errors; FailureInjector fails N then succeeds and mirrors the inner surface; AlwaysFailTool always raises; file-refactor verdict fails on untouched state; file-refactor verdict passes when a scripted MockProvider performs the rename via tool calls; full runner pipeline writes a trace.json with the canonical PRD shape (`model_config` alias intact); runner promotes loop-success-with-failed-verdict to `status="failure"`. All 39 tests pass (22 prior + 17 new).
+
+### Deferred to later milestones
+
+- M2: OpenAI / Gemini / Moonshot providers; pricing.yaml + cost rollup; `list-models`.
+- M3: remaining four task categories (api-orchestration, multi-step research, recovery, long-horizon) and the rest of the sandboxed primitives (`fake_http`, `fake_sql`, `fake_search`, `fake_shell`).
+- M4-M6: Textual TUI screens for tasks; web trace viewer; hosted FastAPI backend.
+
 ## 2026-04-25 — Bloat sweep: drop unused surface area
 
 - Removed pydantic fields with zero readers: `Capability.EMBEDDING`, `Prompt.tags`, `RunManifest.harness_versions`, `RunManifest.notes`. Declared, never read.
