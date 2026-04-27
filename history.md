@@ -4,6 +4,45 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-27 - M3: task suite + remaining sandbox primitives
+
+The four sandbox tools (`fake_http`, `fake_sql`, `fake_search`, `fake_shell`) and the four task scenarios (`api-orchestration`, `multi-step-research`, `recovery`, `long-horizon`) the PRD calls for at v1 launch. With M3 done the engine surface is feature-complete: five tasks across five categories, six sandbox primitives plus a failure injector, and the loop drives all of them.
+
+### Sandbox tools
+
+- `fake_http` is a route table keyed on `(method, path)`. Misses are 404s with descriptive bodies, not exceptions, so the model can probe the surface. Calls (including bodies) are recorded for verdict introspection.
+- `fake_sql` wraps stdlib `sqlite3.connect(":memory:")` with `row_factory=Row` so query results come back as dict-like rows. Three operation tools with statement-prefix gating: `sql_query` only accepts SELECT, `sql_insert` only INSERT, `sql_update` accepts UPDATE or DELETE. `sqlite3.Error` is caught and re-raised as `ToolError` so the model sees a clean message instead of a stack trace prefix.
+- `fake_search` is exact-string keyed; misses return an empty list. `limit` defaults to 10 to match real search APIs.
+- `fake_shell` is allowlisted commands with canned `{stdout, stderr, exit_code}`. NEVER executes anything; the whole point is a sandbox returning canned output. Disallowed commands return exit_code=126 (POSIX "permission denied" semantics) so the model sees a recognizable shell-shaped failure.
+- All four follow `fake_fs`'s shape: state class plus per-operation Tool classes plus a `build_fake_*_tools(state) -> dict[str, Tool]` helper. The helpers were initially named `make_fake_*_tools` by parallel agents; renamed to `build_*` to match M1.
+
+### Task suite
+
+- **api-orchestration** seeds 3 users in a `GET /users` route and an audit endpoint at `POST /audit`. The user prompt deliberately requires a field rename (`id` -> `user_id`) so the verdict tests transform behavior, not pass-through. Verdict reads `FakeHttp.calls` and asserts exactly one GET, three POSTs with the right shape, and the right `(user_id, name)` set.
+- **multi-step-research** uses a fully fictional company **"Llamatech"** so there is zero ambiguity from the model's training data. Four pre-registered queries return canned results containing specific verifiable facts. The model writes its synthesis to `/research.md` (a fake_fs file the verdict reads) rather than returning text directly, so the verdict stays sandbox-introspection-only and `Task.check()` does not need to be async or take a trace argument. Verdict checks substring matches per fact category. `unregistered_search_query` behavior flag fires if the model issues a query outside the four registered ones.
+- **recovery** wraps `SqlInsertTool(state)` in `FailureInjector(fail_times=1)` and overrides the wrapper's `name` and `description` post-construction so the model sees a single tool called `commit_transaction` (per PRD verbiage) without us writing a one-off task-specific tool. After the run, the verdict queries `state._conn` directly (sync sqlite3) since `Task.check()` is sync; checks for exactly one row with `action="login"`, `user_id=42`. `recovered_from_transient_failure` flag fires when the injector counter reached 0 AND a row exists.
+- **long-horizon** seeds a `/config.json` listing three source paths plus `output_path` plus `required_sections`. The model has to parse the config, GET each source, transform into markdown with four required headings, and write to the configured output path. Verdict aggregates failures into a single message so a real model run is debuggable in one glance instead of "FAIL". `excessive_http_calls` flag fires past 5 calls (3 expected, 4-5 retry territory, >5 looping). `unexpected_delete` flag is informational. PRD calls this "15+ steps"; budget is 30 steps to leave slack for chain-of-thought turns.
+
+### Task registry
+
+- `tasks/__init__.py` imports each task module so the `@register_task` decorator side-effect populates the registry. One line per task. Resisted the instinct to autodiscover via `pkgutil.iter_modules`; explicit imports keep `list-tasks` stable and surface registration failures at import time instead of silently.
+
+### Behavior flags surfaced by M3
+
+`excessive_http_calls`, `unexpected_delete`, `recovered_from_transient_failure`, `unregistered_search_query` join `hallucinated_tool` from M1. These are informational and do not affect pass/fail; they let the trace viewer (M5) surface coarse model behaviors without re-reading every step.
+
+### Tests
+
+- 28 new tool tests (7 fake_http + 9 fake_sql + 6 fake_search + 6 fake_shell).
+- 19 new task tests (4 api-orchestration + 5 multi-step-research + 5 recovery + 5 long-horizon).
+- Total: 110 passing (47 new this milestone). Suite runs in ~0.7s.
+
+### Deferred to M4
+
+- Textual TUI screens (live run, results, trace detail).
+- README documenting the agent surface alongside the existing benchmark surface.
+- A YAML pricing overlay; still no demand.
+
 ## 2026-04-27 - M2: providers + cost rollup
 
 Three more chat providers plus per-model pricing land. `llmbench task` now works against OpenAI, Moonshot, and Gemini in addition to Anthropic, and `Totals.cost_usd` is populated after every turn (so the `max_cost_usd` budget gate actually fires instead of being a dead branch).
