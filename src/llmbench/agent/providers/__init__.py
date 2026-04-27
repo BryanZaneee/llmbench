@@ -1,8 +1,8 @@
 """Concrete ChatProvider implementations.
 
-`mock` is for tests. `anthropic` reaches the real API via httpx (no SDK).
-Future providers (openai, gemini, moonshot) plug in here under the same
-ChatProvider contract.
+`mock` is for tests. The vendor providers reach their respective APIs via
+httpx (no SDK). `openai` and `moonshot` share the OpenAI-compatible
+implementation, parameterized by base_url and api_key_env.
 """
 
 from __future__ import annotations
@@ -27,4 +27,20 @@ def build_provider(config: ModelConfig) -> ChatProvider:
         from .anthropic import AnthropicProvider
 
         return AnthropicProvider(config)
+    if config.provider == "openai":
+        from .openai_compat import OpenAICompatProvider
+
+        return OpenAICompatProvider(config)
+    if config.provider == "moonshot":
+        from .openai_compat import OpenAICompatProvider
+
+        return OpenAICompatProvider(
+            config,
+            base_url="https://api.moonshot.ai/v1",
+            api_key_env="MOONSHOT_API_KEY",
+        )
+    if config.provider == "gemini":
+        from .gemini import GeminiProvider
+
+        return GeminiProvider(config)
     raise ValueError(f"unknown provider: {config.provider}")
