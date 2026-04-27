@@ -4,6 +4,42 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-27 - M2: providers + cost rollup
+
+Three more chat providers plus per-model pricing land. `llmbench task` now works against OpenAI, Moonshot, and Gemini in addition to Anthropic, and `Totals.cost_usd` is populated after every turn (so the `max_cost_usd` budget gate actually fires instead of being a dead branch).
+
+### Providers
+
+- `OpenAICompatProvider` covers OpenAI and Moonshot from one class. Both expose the same Chat Completions wire format; the differences are base_url and the env var name. Constructor takes `base_url` and `api_key_env` so `build_provider` instantiates one for `provider="openai"` (defaults) and another for `provider="moonshot"` (Moonshot URL + `MOONSHOT_API_KEY`). Same instinct as the existing `OpenAICompatAdapter` in `adapters/`: shared transport, parameterized endpoint.
+- `GeminiProvider` is its own class. Google's API has a distinct shape (contents/parts, system_instruction, functionDeclarations, functionCall/functionResponse) so collapsing it into the OpenAI-compatible class would have been forced. Synthesizes per-turn tool-call IDs (`gemini_call_{i}`) since Gemini does not return them. Resolves `tool_call_id` back to a function name by scanning prior assistant turns; the loop's `ChatMessage.role="tool"` carries only the ID, not the name. Acceptable for now; if a future provider needs the name on the tool message itself we can extend the loop.
+- Both providers support cached-token accounting (`cached_tokens` / `cachedContentTokenCount`) and map a refused finish reason (`content_filter`, `SAFETY`/`RECITATION`/`BLOCKLIST`) to `StopReason.REFUSED`.
+- Both are unit-tested via `httpx.MockTransport` injected through the `client` constructor kwarg. AnthropicProvider already had the same DI seam; we kept the pattern consistent so all three vendors test the wire-format layer the same way.
+
+### Pricing and cost rollup
+
+- `agent/pricing.py` ships a `Price(input_per_million, output_per_million, cached_input_per_million)` NamedTuple keyed on `(provider, model)`. PRD called for a `pricing.yaml`; we deviated to a Python dict for v1 because the data is small (≈12 rows), edits are typed, and adding a model is a one-line change instead of touching a separate config file. A YAML overlay can be layered later without changing the lookup interface.
+- `compute_cost(provider, model, totals)` is recomputed from running totals after every turn rather than incrementally, so the loop has no cost accumulator to drift. Unknown `(provider, model)` returns 0.0 silently; the user sees zero cost in the trace and can verify via `llmbench list-models`.
+- The loop already had a `max_cost_usd` budget branch that was untriggerable in M1 because cost stayed at 0. With pricing wired in, the gate is now a real gate; a regression test (`test_loop_max_cost_budget_gates`) holds the contract.
+- Rates seeded as of 2026-04-27. They drift quarterly; a comment in `pricing.py` calls that out so future runs do not silently ship stale numbers.
+
+### CLI
+
+- `llmbench list-models` shows the pricing table (provider, model, input $/M, output $/M, cached $/M). `--json` for scripting. `list-models` was deferred from M1 explicitly waiting on this table.
+- `task` flags unchanged; the new providers are reached via `--provider openai|moonshot|gemini`.
+
+### Tests
+
+- 7 new tests for the OpenAI-compatible provider (happy path, tool-call emission, tool round-trip, cached tokens, missing API key, custom base_url for Moonshot, non-2xx error).
+- 8 new tests for Gemini (same coverage plus system-instruction stitching and SAFETY → REFUSED mapping).
+- 7 new tests for pricing (lookup hits/misses, no-cache math, cache math, fallback when no cached rate, sorted listing).
+- 2 new tests in the loop for cost rollup and the `max_cost_usd` gate.
+- Total: 63 passing (24 new + 39 prior). Suite runs in 0.7s.
+
+### Deferred
+
+- M3: remaining four task categories (api-orchestration, multi-step research, recovery, long-horizon) and the rest of the sandboxed primitives (`fake_http`, `fake_sql`, `fake_search`, `fake_shell`).
+- YAML pricing overlay for users who want to ship custom rates without editing source. Trivial when the demand shows up.
+
 ## 2026-04-26 - Agentic engine v1 (M1: engine core)
 
 Begins the PRD-described agentic surface alongside the existing single-completion benchmarks. Goal: people can test their own agents or run the bundled task suite. M1 is the engine core; later milestones add the remaining providers and tasks.
