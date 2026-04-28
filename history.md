@@ -4,6 +4,33 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-28 - M4: questionary TUI integration + polish
+
+The M4 plan in `history.md` (M3 entry) called for "Textual TUI screens (live run, results, trace detail)." We prototyped both and picked questionary for v1; the Textual prototype is preserved on the `m4-textual-tui` branch in case we revisit. The remaining task at v1 is integrating the engine surface (M1-M3) into the existing questionary menu and polishing the UX, not introducing a new TUI library.
+
+### Why questionary over Textual
+
+- Questionary is line-oriented, matches the rest of the CLI surface, and renders cleanly in any terminal (including over SSH and dumb terminals). A Textual app pulls in a heavy widget framework, owns the whole screen, and has a different visual idiom than the existing CLI tables. The user prefers the simpler line-by-line questionary style for v1.
+- The Textual prototype landed at `9a4aaa5 feat(tui): textual app for browsing traces and configuring runs` and is intact on `m4-textual-tui`. If demand for live-updating screens emerges, we can revive it without re-prototyping.
+- The questionary path now exposes every CLI surface a non-developer would use: agentic tasks, benchmarks, leaderboards, past runs, past traces, key configuration. No CLI command is missing from the menu.
+
+### Banner
+
+- "LLM" is yellow, "BENCH" is blue, split at column 27 (the boundary between the M and B blocks). The earlier 6-line magenta-to-blue gradient was visually busy and didn't reinforce the name; a two-color split that maps to the word boundaries reads cleanly.
+
+### Menu structure
+
+- Seven flat items reorganized into three groups via `questionary.Separator`: actions ("Run agentic task", "Run benchmarks"), browse ("View past task traces", "View past benchmark runs", "View published leaderboards"), and config ("Configure API keys", "Quit"). Separators in questionary are non-selectable, so the cursor skips them.
+- Renamed "View past results" → "View past benchmark runs" because traces are also "past results"; the new label disambiguates.
+
+### Pricing surfaced in pickers, not as a standalone view
+
+- The agentic-task model picker now embeds per-1M token pricing in each label (`anthropic/claude-opus-4-7  ·  $15/$75 per 1M in/out`). `list-models` from the CLI is *not* added as a standalone TUI menu entry; users browsing models do so as part of choosing one to run, which is when pricing is decision-relevant. A read-only "browse models" view would duplicate the picker and add menu clutter.
+
+### API-key pre-flight
+
+- `_PROVIDER_KEY_BY_ID` (provider id → env var) now backs `_confirm_provider_key()`, which warns and prompts before either flow (`_flow_run`, `_flow_run_task`) launches a run that's guaranteed to fail. Local-only providers (`ollama`, `mock`) are skipped because they have no key requirement. The benchmark flow checks every model's provider in the suite; the task flow checks the single picked provider.
+
 ## 2026-04-27 - M3: task suite + remaining sandbox primitives
 
 The four sandbox tools (`fake_http`, `fake_sql`, `fake_search`, `fake_shell`) and the four task scenarios (`api-orchestration`, `multi-step-research`, `recovery`, `long-horizon`) the PRD calls for at v1 launch. With M3 done the engine surface is feature-complete: five tasks across five categories, six sandbox primitives plus a failure injector, and the loop drives all of them.
