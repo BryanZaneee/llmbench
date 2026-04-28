@@ -1,0 +1,19 @@
+benchmarks:
+  - image_gen
+
+prompts_file: prompts/cat_bench.yaml
+repetitions: 3
+concurrency: 2
+
+sampling:
+  max_tokens: 512
+  temperature: 0.0
+  top_p: 1.0
+
+models:
+  # Image-capable model. Only runs image_gen.
+  - provider: openai
+    adapter: openai
+    model: dall-e-3
+    label: "DALL-E 3"
+    benchmarks: [image_gen]
