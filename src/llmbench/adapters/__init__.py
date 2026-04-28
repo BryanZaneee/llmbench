@@ -4,6 +4,8 @@ from ..schema import ModelSpec
 from .anthropic import AnthropicAdapter
 from .base import Adapter, GenerationEvent, ImageResult, StreamedGeneration
 from .openai_compat import OpenAICompatAdapter
+from .gemini import GeminiAdapter
+from .flux import FluxAdapter
 
 _REGISTRY: dict[str, type[Adapter]] = {
     "anthropic": AnthropicAdapter,
@@ -12,6 +14,10 @@ _REGISTRY: dict[str, type[Adapter]] = {
     "ollama": OpenAICompatAdapter,
     "vllm": OpenAICompatAdapter,
     "lmstudio": OpenAICompatAdapter,
+    "gemini": GeminiAdapter,
+    "google": GeminiAdapter,
+    "flux": FluxAdapter,
+    "bfl": FluxAdapter,
 }
 
 

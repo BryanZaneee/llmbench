@@ -50,7 +50,7 @@ Requires Python 3.11+.
 | `throughput`     | TTFT, tokens/sec, inter-chunk latency, total latency, token usage |
 | `quality_exact`  | Deterministic check vs `expected` (exact / contains / regex)      |
 | `quality_judge`  | LLM-as-judge: 1–10 score with one-line reasoning                  |
-| `image_gen`      | Latency + saved PNGs for side-by-side review                      |
+| `image_gen`      | Latency + saved PNGs for visual review (e.g. `CatBench`)          |
 
 **Published leaderboards** — real scores without needing any API keys:
 
@@ -141,6 +141,8 @@ Prompts are YAML records; optional `expected` / `rubric` fields enable the quali
 | --------------- | -------------------------------------------------------- |
 | `anthropic`     | Claude API (Opus / Sonnet / Haiku).                      |
 | `openai`        | OpenAI API (GPT-4o, o-series, dall-e-3, gpt-image-1).    |
+| `gemini`        | Google Gemini API (text + Imagen 3 image generation).    |
+| `flux`          | Black Forest Labs API (`api.bfl.ml` image models).       |
 | `ollama`        | Local Ollama server.                                     |
 | `vllm`          | Local vLLM server.                                       |
 | `lmstudio`      | LM Studio local server.                                  |

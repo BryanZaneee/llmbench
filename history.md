@@ -4,6 +4,12 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-28 - Image Benchmarks: CatBench, Gemini, and Flux Adapters
+
+- **CatBench prompt and suite separation**: Created a dedicated `prompts/cat_bench.yaml` and `suite.cat_bench.yaml` rather than adding the new CatBench prompt to `default.yaml`. Reason: Since `runner.py` doesn't filter prompts by benchmark type, placing image prompts in the default file causes image models to generate images for text prompts (wasting API credits) and text models to generate text for image prompts. Isolating them into specific suites prevents cross-pollination.
+- **Gemini Adapter (`gemini`)**: Added a benchmark adapter for Google's models using raw `httpx` instead of `google-genai` SDK, staying consistent with the agentic `GeminiProvider` implementation. Supports SSE for `streamGenerateContent` and the `predict` endpoint for Imagen 3 generation.
+- **Flux Adapter (`flux`)**: Added a benchmark adapter for Black Forest Labs. Implemented their async polling pattern (`POST` -> poll `GET` -> download result) natively.
+
 ## 2026-04-28 - M4: questionary TUI integration + polish
 
 The M4 plan in `history.md` (M3 entry) called for "Textual TUI screens (live run, results, trace detail)." We prototyped both and picked questionary for v1; the Textual prototype is preserved on the `m4-textual-tui` branch in case we revisit. The remaining task at v1 is integrating the engine surface (M1-M3) into the existing questionary menu and polishing the UX, not introducing a new TUI library.
