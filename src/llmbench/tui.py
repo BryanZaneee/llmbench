@@ -76,6 +76,8 @@ def launch() -> None:
         choice = questionary.select(
             "What would you like to do?",
             choices=[
+                "Run an agentic task",
+                "Browse past task traces",
                 "Run benchmarks",
                 "View published leaderboards",
                 "Configure API keys",
@@ -87,7 +89,11 @@ def launch() -> None:
         if choice is None or choice == "Quit":
             console.print("[dim]bye[/]")
             return
-        if choice == "Run benchmarks":
+        if choice == "Run an agentic task":
+            _flow_run_task()
+        elif choice == "Browse past task traces":
+            _flow_view_traces()
+        elif choice == "Run benchmarks":
             _flow_run()
         elif choice == "View published leaderboards":
             _flow_leaderboard()
@@ -390,3 +396,227 @@ def _flow_view_past() -> None:
                 title="Run details",
             )
         )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Agentic-task flows
+# ─────────────────────────────────────────────────────────────────────────────
+
+RUNS_DIR = Path("runs")
+
+
+def _flow_run_task() -> None:
+    from .agent.pricing import list_models as list_priced_models
+    from .tasks import list_tasks
+
+    tasks = list_tasks()
+    if not tasks:
+        console.print("[yellow]No tasks registered[/]")
+        return
+
+    task_choices = [f"{t.id}  —  {t.description}" for t in tasks] + ["Back"]
+    pick = questionary.select("Pick a task:", choices=task_choices).ask()
+    if pick is None or pick == "Back":
+        return
+    task_id = pick.split("  —  ")[0]
+
+    model_rows = list_priced_models()
+    model_choices = [f"{p}/{m}" for p, m, _price in model_rows] + ["Back"]
+    pick_model = questionary.select(
+        "Pick a model:",
+        choices=model_choices,
+        default="anthropic/claude-opus-4-7",
+    ).ask()
+    if pick_model is None or pick_model == "Back":
+        return
+    provider, model = pick_model.split("/", 1)
+
+    reps_raw = questionary.text("Repetitions:", default="1").ask()
+    try:
+        reps = max(1, int(reps_raw or "1"))
+    except ValueError:
+        reps = 1
+
+    temp_raw = questionary.text("Temperature:", default="0.0").ask()
+    try:
+        temperature = float(temp_raw or "0.0")
+    except ValueError:
+        temperature = 0.0
+
+    max_steps_raw = questionary.text(
+        "Max steps (blank = task default):", default=""
+    ).ask()
+    max_steps: int | None = None
+    if max_steps_raw and max_steps_raw.strip():
+        try:
+            max_steps = int(max_steps_raw)
+        except ValueError:
+            max_steps = None
+
+    if not questionary.confirm(
+        f"Run {task_id} on {provider}/{model} ({reps}x)?", default=True
+    ).ask():
+        return
+
+    _execute_task(
+        task_id=task_id,
+        provider=provider,
+        model=model,
+        reps=reps,
+        temperature=temperature,
+        max_steps=max_steps,
+    )
+
+
+def _execute_task(
+    *,
+    task_id: str,
+    provider: str,
+    model: str,
+    reps: int,
+    temperature: float,
+    max_steps: int | None,
+) -> None:
+    from rich.table import Table
+
+    from .agent.runner import run_task as run_one
+    from .schema import Budget, ModelConfig
+
+    cfg = ModelConfig(
+        provider=provider,
+        model=model,
+        params={"temperature": temperature, "max_tokens": 4096},
+    )
+    budget_override = Budget(max_steps=max_steps) if max_steps is not None else None
+
+    table = Table(title=f"{task_id} · {provider}/{model}")
+    table.add_column("rep")
+    table.add_column("status")
+    table.add_column("verdict")
+    table.add_column("steps", justify="right")
+    table.add_column("tokens", justify="right")
+    table.add_column("cost", justify="right")
+    table.add_column("trace", style="dim")
+
+    for i in range(reps):
+        with console.status(f"[cyan]rep {i + 1}/{reps}..."):
+            try:
+                trace, path = asyncio.run(
+                    run_one(
+                        task_id,
+                        cfg,
+                        runs_dir=RUNS_DIR,
+                        max_tokens=4096,
+                        temperature=temperature,
+                        budget_override=budget_override,
+                    )
+                )
+            except Exception as exc:
+                console.print(f"[red]rep {i + 1} failed:[/] {exc}")
+                continue
+        verdict = trace.verdicts.final_state_check.value if trace.verdicts else "—"
+        tokens = trace.totals.input_tokens + trace.totals.output_tokens
+        cost = f"${trace.totals.cost_usd:.4f}" if trace.totals.cost_usd else "$0"
+        status_color = {
+            "success": "green",
+            "failure": "yellow",
+            "budget_exceeded": "yellow",
+            "error": "red",
+        }.get(trace.status.value, "white")
+        table.add_row(
+            f"{i + 1}/{reps}",
+            f"[{status_color}]{trace.status.value}[/]",
+            verdict,
+            str(len(trace.trace.steps)),
+            str(tokens),
+            cost,
+            str(path),
+        )
+
+    console.print(table)
+
+
+def _flow_view_traces() -> None:
+    import json
+
+    from rich.tree import Tree
+
+    if not RUNS_DIR.exists():
+        console.print(f"[yellow]No traces yet ({RUNS_DIR}/ does not exist)[/]")
+        return
+
+    files = sorted(RUNS_DIR.glob("*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if not files:
+        console.print(f"[yellow]No traces in {RUNS_DIR}/[/]")
+        return
+
+    labels: list[str] = []
+    file_by_label: dict[str, Path] = {}
+    for f in files[:30]:
+        try:
+            data = json.loads(f.read_text())
+            label = (
+                f"{data.get('created_at', '?')[:19]}  "
+                f"{data.get('task_id', '?'):20}  "
+                f"{data.get('status', '?')}"
+            )
+        except Exception:
+            label = f"{f.stem}  (parse error)"
+        labels.append(label)
+        file_by_label[label] = f
+
+    pick = questionary.select(
+        "Pick a trace:", choices=labels + ["Back"]
+    ).ask()
+    if pick is None or pick == "Back":
+        return
+
+    path = file_by_label[pick]
+    try:
+        from .schema import TraceDocument
+
+        trace = TraceDocument.model_validate(json.loads(path.read_text()))
+    except Exception as exc:
+        console.print(f"[red]Failed to parse {path}:[/] {exc}")
+        return
+
+    verdict = trace.verdicts.final_state_check.value if trace.verdicts else "—"
+    flags = ", ".join(trace.verdicts.behavior_flags) if trace.verdicts and trace.verdicts.behavior_flags else "—"
+    cost = f"${trace.totals.cost_usd:.4f}" if trace.totals.cost_usd else "$0"
+
+    console.print(
+        Panel.fit(
+            f"[b]{trace.task_id}[/b]@{trace.task_version}\n"
+            f"[dim]run_id:[/] {trace.run_id}\n"
+            f"[dim]model:[/]  {trace.target_model.provider}/{trace.target_model.model}\n"
+            f"[dim]when:[/]   {trace.created_at}\n"
+            f"\n"
+            f"[b]status[/]  {trace.status.value}\n"
+            f"[b]verdict[/] {verdict}\n"
+            f"[b]flags[/]   {flags}\n"
+            f"[b]totals[/]  {trace.totals.input_tokens} in / {trace.totals.output_tokens} out  ·  "
+            f"{trace.totals.tool_call_count} tool calls  ·  cost {cost}  ·  "
+            f"wall {trace.totals.wall_time_ms / 1000:.1f}s",
+            title="Trace summary",
+        )
+    )
+
+    if not questionary.confirm(
+        f"Show {len(trace.trace.steps)} step(s) in detail?", default=True
+    ).ask():
+        return
+
+    tree = Tree(f"[bold]Steps ({len(trace.trace.steps)})[/]")
+    for step in trace.trace.steps:
+        head = (step.content or "").strip().splitlines()[:1]
+        excerpt = head[0][:70] if head else "(no text)"
+        node = tree.add(
+            f"[cyan]step {step.step_id}[/]  [{step.role.value}]  "
+            f"{step.tokens.input}+{step.tokens.output}t  ·  {step.timing_ms:.0f}ms"
+            + (f"\n  {excerpt}" if excerpt and excerpt != "(no text)" else "")
+        )
+        for tc in step.tool_calls:
+            tag = "[red]ERR[/] " if tc.error else ""
+            arg_excerpt = json.dumps(tc.input, default=str)[:60]
+            node.add(f"{tag}[secondary]{tc.name}[/]  ({tc.duration_ms:.0f}ms)  {arg_excerpt}")
+    console.print(tree)
