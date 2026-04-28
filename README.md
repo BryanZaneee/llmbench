@@ -13,7 +13,8 @@
 
 ```bash
 llmbench                                         # interactive TUI
-llmbench run suite.example.yaml --open           # run a suite, open HTML gallery
+llmbench task file-refactor                      # run a sandboxed agentic task
+llmbench run suite.example.yaml --open           # run a benchmark suite, open the HTML gallery
 llmbench leaderboard --source lmarena -m claude  # search published scores
 ```
 
@@ -60,6 +61,18 @@ Requires Python 3.11+.
 | `aider`       | Aider Polyglot — multi-language code-editing pass rate            |
 | `bundled`     | Snapshot shipped with llmbench (works offline)                    |
 
+**Agentic tasks** drive an LLM agent through a multi-step scenario in a sealed sandbox. Verdict is computed from post-run state, not text:
+
+| Task                  | What it tests                                                                |
+| --------------------- | ---------------------------------------------------------------------------- |
+| `file-refactor`       | Rename a function across a 5-file mock project without breaking parsing.     |
+| `api-orchestration`   | GET a list, transform each row, POST to an audit endpoint with a field rename. |
+| `multi-step-research` | Synthesize four canned search results into a markdown brief.                 |
+| `recovery`            | Retry a transient transactional failure and verify the side effect landed.   |
+| `long-horizon`        | Parse a config, fetch sources, and write a multi-section report (~15 steps). |
+
+Every task run produces a `TraceDocument` JSON at `runs/<run_id>.json` capturing every turn, tool call, token count, timing, cost, and verdict. Browse them via the TUI's "View past task traces" flow. Agent providers: `anthropic`, `openai`, `gemini`, `moonshot`. See `llmbench list-tasks` and `llmbench list-models` (with priced rates) for the catalog.
+
 ---
 
 ## Quick start
@@ -76,6 +89,15 @@ Run your own benchmark (needs at least one API key, or a local model):
 
 ```bash
 llmbench run suite.example.yaml --open
+```
+
+Run an agentic task:
+
+```bash
+llmbench task file-refactor                          # default model, one repetition
+llmbench task long-horizon --provider openai -m gpt-4o --reps 3
+llmbench list-tasks                                  # see all registered tasks
+llmbench list-models                                 # priced model catalog
 ```
 
 Or launch the menu:
@@ -133,13 +155,21 @@ After `llmbench run`:
 ```
 results/
 ├── results.db                  # SQLite, one row per (model, prompt, repetition)
-├── <run_id>.jsonl              # full pydantic dump of every result
 └── <run_id>/
     ├── gallery.html            # side-by-side text + image comparison
     └── images/<model>/...      # generated PNGs (if image_gen ran)
 ```
 
-Re-open later with `llmbench view <run_id>` (or `--latest`).
+Re-open later with `llmbench view <run_id>` (or `--latest`). Every `BenchmarkResult` is also stored as a JSON blob in the SQLite `payload_json` column; query it with `json_extract` for ad-hoc analysis.
+
+After `llmbench task`:
+
+```
+runs/
+└── <run_id>.json               # one TraceDocument per repetition (steps, tool calls, totals, verdict)
+```
+
+Inspect a trace with the TUI's "View past task traces" flow, or load `runs/<run_id>.json` directly; its shape is the `TraceDocument` pydantic model in `schema.py`.
 
 Every data-returning command takes `--json` for piping into `jq` or tool-use:
 

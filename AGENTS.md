@@ -1,16 +1,18 @@
 # AGENTS.md
 
-Project-level instructions for AI agents working on **llmbench**. Kept local (gitignored), not part of the public repo.
+Project-level instructions for AI agents working on **llmbench**. Tracked in the public repo so external contributors and tooling agents pick up the same conventions.
 
 ---
 
 ## What this is
 
-A CLI-first Python harness for benchmarking LLMs across providers. Lives at [github.com/BryanZaneee/llmbench](https://github.com/BryanZaneee/llmbench). MIT-licensed. Open source.
+A CLI-first Python harness for benchmarking LLMs and running sandboxed agentic tasks. Lives at [github.com/BryanZaneee/llmbench](https://github.com/BryanZaneee/llmbench). MIT-licensed. Open source.
 
-Two surfaces:
-- **CLI** (`llmbench run ...`, `llmbench leaderboard ...`) — scriptable, agent-friendly, `--json` everywhere.
-- **TUI** (`llmbench` with no args) — interactive menu with ASCII banner, for humans.
+Two surfaces, two evaluation modes:
+- **CLI** (`llmbench run`, `llmbench task`, `llmbench leaderboard`, `llmbench list-tasks`, `llmbench list-models`, `llmbench view`): scriptable, agent-friendly, `--json` everywhere.
+- **TUI** (`llmbench` with no args): interactive questionary menu with ASCII banner, grouped Run / Browse / Config sections, key pre-flight, inline pricing in the model picker.
+- **Benchmark mode** (`run`): measures throughput, quality (exact / judge), and image generation against a YAML-defined suite of (model × benchmark) pairs.
+- **Agent mode** (`task`): runs a registered `Task` through the agent loop with sandboxed tools (`fake_fs` / `fake_http` / `fake_sql` / `fake_search` / `fake_shell` / `failure_injector`), writes a full `TraceDocument` to `runs/<run_id>.json`.
 
 ---
 
@@ -64,8 +66,10 @@ All tests must pass. Tests for new benchmarks/adapters use the same mock pattern
 ## Commits
 
 - **Small, single-concern commits.** One feature or fix per commit.
-- **No `Co-Authored-By: Codex` lines** (user preference).
-- Commit message body explains *why*, not just *what* — the diff shows the what.
+- **No AI coauthor trailers** (`Co-Authored-By: Claude`, `Co-Authored-By: Codex`, etc.); user preference.
+- **Labeled subjects** in the 50/72 style: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`. Optional scope: `feat(tui): ...`.
+- Commit message body explains *why*, not just *what*; the diff shows the what.
+- No em dashes in commits, code comments, or docs (user preference). Use commas, semicolons, or periods.
 
 ---
 
@@ -86,16 +90,28 @@ The web surface (`web/`) is served by Caddy on the user's VPS as `bryanzane.com/
 
 ```
 src/llmbench/
-  schema.py            pydantic shapes crossing boundaries
+  schema.py            pydantic shapes crossing boundaries (incl. TraceDocument)
   config.py            YAML / .env loading
-  runner.py            async orchestrator
-  storage.py           SQLite + JSONL
-  cli.py               typer commands
-  tui.py               interactive menu
-  adapters/            per-provider (Adapter ABC in base.py)
-  benchmarks/          per-metric (Benchmark ABC in base.py)
-  leaderboards/        published-score sources + cache
-  reports/             HTML gallery renderer
-  data/                bundled static snapshots
-tests/                 one test file per module under test
+  runner.py            async benchmark orchestrator
+  storage.py           SQLite (results/results.db); payload_json column has full pydantic dumps
+  cli.py               typer commands; `llmbench` with no args invokes tui.launch()
+  tui.py               questionary menu (banner + grouped Run/Browse/Config sections)
+  adapters/            per-provider streaming adapter for benchmarks (Adapter ABC in base.py)
+  benchmarks/          per-metric (Benchmark ABC in base.py): throughput, quality_exact, quality_judge, image_gen
+  agent/               vendor-neutral agent loop + ChatProvider implementations + pricing/cost rollup
+    loop.py            single-turn step executor with budget gating + hallucinated-tool detection
+    runner.py          run_task entry point; writes runs/<run_id>.json
+    pricing.py         (provider, model) -> Price lookup; compute_cost from Totals
+    providers/         anthropic, openai (covers moonshot via base_url), gemini, mock
+  tasks/               agentic scenarios (Task ABC in base.py); registry populated on import
+                       file_refactor, api_orchestration, multi_step_research, recovery, long_horizon
+  tools/               sandboxed primitives (Tool ABC in base.py): fake_fs, fake_http, fake_sql,
+                       fake_search, fake_shell, failure_injector
+  leaderboards/        published-score sources + 24h-TTL cache (huggingface, lmarena, aider, bundled)
+  reports/             HTML gallery renderer (results/<run_id>/gallery.html)
+  data/                bundled static snapshots (offline leaderboard fallback)
+tests/                 one test file per module under test (110 passing as of M4)
+runs/                  trace JSONs from `llmbench task` (gitignored)
+results/               benchmark outputs from `llmbench run` (gitignored)
+web/                   static page served at bryanzane.com/llmbench (data refreshed daily by GH Action)
 ```
