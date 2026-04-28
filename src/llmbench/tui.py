@@ -62,11 +62,43 @@ PRESET_MODELS: list[ModelSpec] = [
 BENCHMARK_CHOICES = ["throughput", "quality_exact", "quality_judge", "image_gen"]
 
 PROVIDER_KEYS = {
-    "Anthropic (Claude)": "ANTHROPIC_API_KEY",
+    "Anthropic": "ANTHROPIC_API_KEY",
     "OpenAI": "OPENAI_API_KEY",
+    "Gemini": "GEMINI_API_KEY",
+    "Moonshot": "MOONSHOT_API_KEY",
+}
+
+# Maps the agent-engine provider IDs (used by build_provider) to the env var
+# the user needs set. mock has no key requirement.
+_PROVIDER_KEY_BY_ID = {
+    "anthropic": "ANTHROPIC_API_KEY",
+    "openai": "OPENAI_API_KEY",
+    "gemini": "GEMINI_API_KEY",
+    "moonshot": "MOONSHOT_API_KEY",
 }
 
 ENV_PATH = Path(".env")
+
+
+def _format_model_choice(provider: str, model: str, price) -> str:
+    return (
+        f"{provider}/{model}  ·  "
+        f"${price.input_per_million:g}/${price.output_per_million:g} per 1M in/out"
+    )
+
+
+def _confirm_provider_key(providers: list[str]) -> bool:
+    """Warn if API keys are missing for any provider; ask the user before proceeding."""
+    needed = {_PROVIDER_KEY_BY_ID[p] for p in providers if p in _PROVIDER_KEY_BY_ID}
+    missing = sorted(k for k in needed if not os.environ.get(k))
+    if not missing:
+        return True
+    console.print(f"[yellow]Missing env var(s):[/] {', '.join(missing)}")
+    console.print("[dim]Configure them via the menu's 'Configure API keys' option.[/]")
+    answer = questionary.confirm(
+        "Continue anyway? (the run will fail until the key is set)", default=False
+    ).ask()
+    return bool(answer)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -79,12 +111,14 @@ def launch() -> None:
         choice = questionary.select(
             "What would you like to do?",
             choices=[
-                "Run an agentic task",
-                "Browse past task traces",
+                "Run agentic task",
                 "Run benchmarks",
+                questionary.Separator("─── Browse ───"),
+                "View past task traces",
+                "View past benchmark runs",
                 "View published leaderboards",
+                questionary.Separator("─── Config ───"),
                 "Configure API keys",
-                "View past results",
                 "Quit",
             ],
         ).ask()
@@ -92,9 +126,9 @@ def launch() -> None:
         if choice is None or choice == "Quit":
             console.print("[dim]bye[/]")
             return
-        if choice == "Run an agentic task":
+        if choice == "Run agentic task":
             _flow_run_task()
-        elif choice == "Browse past task traces":
+        elif choice == "View past task traces":
             _flow_view_traces()
         elif choice == "Run benchmarks":
             _flow_run()
@@ -102,7 +136,7 @@ def launch() -> None:
             _flow_leaderboard()
         elif choice == "Configure API keys":
             _flow_configure_keys()
-        elif choice == "View past results":
+        elif choice == "View past benchmark runs":
             _flow_view_past()
 
 
@@ -158,6 +192,10 @@ def _flow_run() -> None:
         cfg = _build_custom_suite()
         if cfg is None:
             return
+
+    providers = sorted({spec.provider for spec in cfg.models})
+    if not _confirm_provider_key(providers):
+        return
 
     open_when_done = questionary.confirm(
         "Open HTML gallery in browser when finished?", default=True
@@ -426,15 +464,26 @@ def _flow_run_task() -> None:
     task_id = pick.split("  —  ")[0]
 
     model_rows = list_priced_models()
-    model_choices = [f"{p}/{m}" for p, m, _price in model_rows] + ["Back"]
+    model_labels = [_format_model_choice(p, m, price) for p, m, price in model_rows]
+    default_label = next(
+        (
+            _format_model_choice(p, m, price)
+            for p, m, price in model_rows
+            if p == "anthropic" and m == "claude-opus-4-7"
+        ),
+        None,
+    )
     pick_model = questionary.select(
         "Pick a model:",
-        choices=model_choices,
-        default="anthropic/claude-opus-4-7",
+        choices=model_labels + ["Back"],
+        default=default_label,
     ).ask()
     if pick_model is None or pick_model == "Back":
         return
-    provider, model = pick_model.split("/", 1)
+    provider, model = pick_model.split("  ·  ", 1)[0].split("/", 1)
+
+    if not _confirm_provider_key([provider]):
+        return
 
     reps_raw = questionary.text("Repetitions:", default="1").ask()
     try:
