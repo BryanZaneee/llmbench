@@ -36,11 +36,13 @@ BANNER = r"""
 
 TAGLINE = "benchmark any AI model · any provider · one command"
 
-# The banner reads "LLMBENCH"; "LLM" is yellow, "BENCH" is blue. Split at the
-# column where the M block ends and the B block begins (zero-indexed).
+# The banner reads "LLMBENCH"; "LLM" is dark yellow, "BENCH" is dark blue.
+# Split at the column where the M block ends and the B block begins
+# (zero-indexed). Hex colors keep the shade stable across terminals that map
+# "bold" to "bright" for ANSI named colors.
 _LLM_END_COL = 27
-_LLM_STYLE = "bold yellow"
-_BENCH_STYLE = "bold blue"
+_LLM_STYLE = "bold #b8860b"
+_BENCH_STYLE = "bold #1e3a8a"
 
 
 # Curated preset models for the "Build a custom run" flow.
