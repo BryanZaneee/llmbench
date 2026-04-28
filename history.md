@@ -20,8 +20,15 @@ The M4 plan in `history.md` (M3 entry) called for "Textual TUI screens (live run
 
 ### Menu structure
 
-- Seven flat items reorganized into three groups via `questionary.Separator`: actions ("Run agentic task", "Run benchmarks"), browse ("View past task traces", "View past benchmark runs", "View published leaderboards"), and config ("Configure API keys", "Quit"). Separators in questionary are non-selectable, so the cursor skips them.
+- Seven flat items reorganized into three groups via `questionary.Separator`: Run ("Run agentic task", "Run benchmarks"), Browse ("View LLM leaderboards", "View past benchmark runs", "View past task traces"), and Config ("Configure API keys", "Quit"). Separators in questionary are non-selectable, so the cursor skips them. Each group gets its own header (including the top group) so the structure is consistent rather than having an implicit first group.
+- Browse leads with "View LLM leaderboards" because that's the zero-config entry point — works without API keys, without a prior run, so it's the first thing a new user can usefully click. Past traces / past runs need prior activity to be interesting.
+- Renamed "View published leaderboards" → "View LLM leaderboards" since the project name already implies "LLM" and "published" was redundant against the user-visible distinction (their own runs vs. external numbers); the new label is shorter and parallel to the other Browse entries.
 - Renamed "View past results" → "View past benchmark runs" because traces are also "past results"; the new label disambiguates.
+
+### Style continuity
+
+- Single `LLMBENCH_STYLE` (questionary `Style`) is threaded through every `select` / `checkbox` / `text` / `confirm` / `password` / `path` call so the whole TUI shares one palette: `qmark` blue (#1e3a8a, matches BENCH), `pointer` / `highlighted` / `selected` yellow (#b8860b, matches LLM), `separator` dim slate. Section headers (`── Run ──────...`) span the banner width (69 chars) so they read as proper dividers rather than short labels. A dim `─` rule is printed under the banner / status line to give the menu a defined top edge.
+- Defining the style once and passing it to every prompt is verbose but explicit: questionary has no global default-style hook, and a wrapper that injected it would obscure the call signatures more than the repetition does.
 
 ### Pricing surfaced in pickers, not as a standalone view
 

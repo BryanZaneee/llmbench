@@ -43,6 +43,23 @@ TAGLINE = "benchmark any AI model · any provider · one command"
 _LLM_END_COL = 27
 _LLM_STYLE = "bold #b8860b"
 _BENCH_STYLE = "bold #1e3a8a"
+_BANNER_WIDTH = 69  # rendered visual width of one BANNER line
+
+# Questionary style reusing the banner palette so every prompt feels like part
+# of the same surface. Yellow on focus / pointer (matches LLM), blue on the
+# `?` qmark (matches BENCH); separators dim slate so section headers recede.
+LLMBENCH_STYLE = questionary.Style([
+    ("qmark",       "fg:#1e3a8a bold"),
+    ("question",    "bold"),
+    ("answer",      "fg:#b8860b"),
+    ("pointer",     "fg:#b8860b bold"),
+    ("highlighted", "fg:#b8860b bold"),
+    ("selected",    "fg:#b8860b bold"),
+    ("separator",   "fg:#7a8290"),
+    ("instruction", "fg:#6a737d italic"),
+    ("text",        ""),
+    ("disabled",    "fg:#6a737d italic"),
+])
 
 
 # Curated preset models for the "Build a custom run" flow.
@@ -98,7 +115,9 @@ def _confirm_provider_key(providers: list[str]) -> bool:
     console.print(f"[yellow]Missing env var(s):[/] {', '.join(missing)}")
     console.print("[dim]Configure them via the menu's 'Configure API keys' option.[/]")
     answer = questionary.confirm(
-        "Continue anyway? (the run will fail until the key is set)", default=False
+        "Continue anyway? (the run will fail until the key is set)",
+        default=False,
+        style=LLMBENCH_STYLE,
     ).ask()
     return bool(answer)
 
@@ -113,16 +132,18 @@ def launch() -> None:
         choice = questionary.select(
             "What would you like to do?",
             choices=[
+                questionary.Separator(_section("Run")),
                 "Run agentic task",
                 "Run benchmarks",
-                questionary.Separator("─── Browse ───"),
-                "View past task traces",
+                questionary.Separator(_section("Browse")),
+                "View LLM leaderboards",
                 "View past benchmark runs",
-                "View published leaderboards",
-                questionary.Separator("─── Config ───"),
+                "View past task traces",
+                questionary.Separator(_section("Config")),
                 "Configure API keys",
                 "Quit",
             ],
+            style=LLMBENCH_STYLE,
         ).ask()
 
         if choice is None or choice == "Quit":
@@ -134,12 +155,18 @@ def launch() -> None:
             _flow_view_traces()
         elif choice == "Run benchmarks":
             _flow_run()
-        elif choice == "View published leaderboards":
+        elif choice == "View LLM leaderboards":
             _flow_leaderboard()
         elif choice == "Configure API keys":
             _flow_configure_keys()
         elif choice == "View past benchmark runs":
             _flow_view_past()
+
+
+def _section(label: str) -> str:
+    """Render a section header that spans the banner width."""
+    head = f"── {label} "
+    return head + "─" * max(0, _BANNER_WIDTH - len(head))
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -154,8 +181,9 @@ def _render_banner() -> None:
         text.append(line[_LLM_END_COL:], style=_BENCH_STYLE)
         text.append("\n")
     console.print(text)
-    console.print(f"  [dim]{TAGLINE}[/]")
-    console.print(f"  {_keys_status_line()}\n")
+    console.print(f"  [italic #6a737d]{TAGLINE}[/]")
+    console.print(f"  {_keys_status_line()}")
+    console.print(f"  [#7a8290]{'─' * (_BANNER_WIDTH - 2)}[/]\n")
 
 
 def _keys_status_line() -> str:
@@ -180,12 +208,15 @@ def _flow_run() -> None:
             "Load a suite YAML file",
             "Back",
         ],
+        style=LLMBENCH_STYLE,
     ).ask()
 
     if style is None or style == "Back":
         return
     if style == "Load a suite YAML file":
-        path = questionary.path("Path to suite YAML:", default="suite.example.yaml").ask()
+        path = questionary.path(
+            "Path to suite YAML:", default="suite.example.yaml", style=LLMBENCH_STYLE
+        ).ask()
         if not path:
             return
         from .config import load_suite
@@ -200,7 +231,9 @@ def _flow_run() -> None:
         return
 
     open_when_done = questionary.confirm(
-        "Open HTML gallery in browser when finished?", default=True
+        "Open HTML gallery in browser when finished?",
+        default=True,
+        style=LLMBENCH_STYLE,
     ).ask()
     _execute_run(cfg, open_browser=bool(open_when_done))
 
@@ -210,6 +243,7 @@ def _build_custom_suite() -> SuiteConfig | None:
     picked = questionary.checkbox(
         "Select models (space to toggle, enter to confirm):",
         choices=model_labels,
+        style=LLMBENCH_STYLE,
     ).ask()
     if not picked:
         console.print("[yellow]No models selected[/]")
@@ -220,12 +254,15 @@ def _build_custom_suite() -> SuiteConfig | None:
         "Select benchmarks:",
         choices=BENCHMARK_CHOICES,
         default=None,
+        style=LLMBENCH_STYLE,
     ).ask()
     if not benchmarks:
         console.print("[yellow]No benchmarks selected[/]")
         return None
 
-    reps_raw = questionary.text("Repetitions per prompt:", default="3").ask()
+    reps_raw = questionary.text(
+        "Repetitions per prompt:", default="3", style=LLMBENCH_STYLE
+    ).ask()
     try:
         reps = max(1, int(reps_raw or "3"))
     except ValueError:
@@ -233,7 +270,9 @@ def _build_custom_suite() -> SuiteConfig | None:
 
     prompts_default = "prompts/default.yaml"
     prompts_file = questionary.text(
-        "Prompts file (blank for built-in defaults):", default=prompts_default
+        "Prompts file (blank for built-in defaults):",
+        default=prompts_default,
+        style=LLMBENCH_STYLE,
     ).ask()
     prompts_file = prompts_file.strip() or None
     if prompts_file and not Path(prompts_file).exists():
@@ -286,13 +325,14 @@ def _flow_leaderboard() -> None:
     pick = questionary.select(
         "Pick a source:",
         choices=source_descriptions + ["Back"],
+        style=LLMBENCH_STYLE,
     ).ask()
     if pick is None or pick == "Back":
         return
 
     source_name = pick.split("  ")[0]
     refresh = questionary.confirm(
-        "Force refresh (bypass cache)?", default=False
+        "Force refresh (bypass cache)?", default=False, style=LLMBENCH_STYLE
     ).ask()
 
     src = get_source(source_name)
@@ -304,10 +344,12 @@ def _flow_leaderboard() -> None:
         return
 
     name_filter = questionary.text(
-        "Filter by model name (blank for all):", default=""
+        "Filter by model name (blank for all):", default="", style=LLMBENCH_STYLE
     ).ask()
 
-    n_raw = questionary.text("How many rows to display?", default="20").ask()
+    n_raw = questionary.text(
+        "How many rows to display?", default="20", style=LLMBENCH_STYLE
+    ).ask()
     try:
         top_n = max(1, int(n_raw or "20"))
     except ValueError:
@@ -341,12 +383,13 @@ def _flow_configure_keys() -> None:
         pick = questionary.select(
             "Which key do you want to set?",
             choices=labels + ["Back"],
+            style=LLMBENCH_STYLE,
         ).ask()
         if pick is None or pick == "Back":
             return
         label = pick.split("  ")[0]
         env_name = PROVIDER_KEYS[label]
-        value = questionary.password(f"{env_name}:").ask()
+        value = questionary.password(f"{env_name}:", style=LLMBENCH_STYLE).ask()
         if value is None:
             continue
         value = value.strip()
@@ -402,6 +445,7 @@ def _flow_view_past() -> None:
     pick = questionary.select(
         "Pick a run to view:",
         choices=labels + ["Back"],
+        style=LLMBENCH_STYLE,
     ).ask()
     if pick is None or pick == "Back":
         return
@@ -422,6 +466,7 @@ def _flow_view_past() -> None:
             "Print summary in terminal",
             "Back",
         ],
+        style=LLMBENCH_STYLE,
     ).ask()
 
     if action == "Open the gallery in browser":
@@ -460,7 +505,9 @@ def _flow_run_task() -> None:
         return
 
     task_choices = [f"{t.id}  —  {t.description}" for t in tasks] + ["Back"]
-    pick = questionary.select("Pick a task:", choices=task_choices).ask()
+    pick = questionary.select(
+        "Pick a task:", choices=task_choices, style=LLMBENCH_STYLE
+    ).ask()
     if pick is None or pick == "Back":
         return
     task_id = pick.split("  —  ")[0]
@@ -479,6 +526,7 @@ def _flow_run_task() -> None:
         "Pick a model:",
         choices=model_labels + ["Back"],
         default=default_label,
+        style=LLMBENCH_STYLE,
     ).ask()
     if pick_model is None or pick_model == "Back":
         return
@@ -487,20 +535,24 @@ def _flow_run_task() -> None:
     if not _confirm_provider_key([provider]):
         return
 
-    reps_raw = questionary.text("Repetitions:", default="1").ask()
+    reps_raw = questionary.text(
+        "Repetitions:", default="1", style=LLMBENCH_STYLE
+    ).ask()
     try:
         reps = max(1, int(reps_raw or "1"))
     except ValueError:
         reps = 1
 
-    temp_raw = questionary.text("Temperature:", default="0.0").ask()
+    temp_raw = questionary.text(
+        "Temperature:", default="0.0", style=LLMBENCH_STYLE
+    ).ask()
     try:
         temperature = float(temp_raw or "0.0")
     except ValueError:
         temperature = 0.0
 
     max_steps_raw = questionary.text(
-        "Max steps (blank = task default):", default=""
+        "Max steps (blank = task default):", default="", style=LLMBENCH_STYLE
     ).ask()
     max_steps: int | None = None
     if max_steps_raw and max_steps_raw.strip():
@@ -510,7 +562,9 @@ def _flow_run_task() -> None:
             max_steps = None
 
     if not questionary.confirm(
-        f"Run {task_id} on {provider}/{model} ({reps}x)?", default=True
+        f"Run {task_id} on {provider}/{model} ({reps}x)?",
+        default=True,
+        style=LLMBENCH_STYLE,
     ).ask():
         return
 
@@ -622,7 +676,7 @@ def _flow_view_traces() -> None:
         file_by_label[label] = f
 
     pick = questionary.select(
-        "Pick a trace:", choices=labels + ["Back"]
+        "Pick a trace:", choices=labels + ["Back"], style=LLMBENCH_STYLE
     ).ask()
     if pick is None or pick == "Back":
         return
@@ -658,7 +712,9 @@ def _flow_view_traces() -> None:
     )
 
     if not questionary.confirm(
-        f"Show {len(trace.trace.steps)} step(s) in detail?", default=True
+        f"Show {len(trace.trace.steps)} step(s) in detail?",
+        default=True,
+        style=LLMBENCH_STYLE,
     ).ask():
         return
 
