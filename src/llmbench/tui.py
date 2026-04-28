@@ -36,8 +36,11 @@ BANNER = r"""
 
 TAGLINE = "benchmark any AI model · any provider · one command"
 
-# Gradient across the banner lines for visual polish.
-_GRADIENT = ["bright_magenta", "magenta", "bright_cyan", "cyan", "bright_blue", "blue"]
+# The banner reads "LLMBENCH"; "LLM" is yellow, "BENCH" is blue. Split at the
+# column where the M block ends and the B block begins (zero-indexed).
+_LLM_END_COL = 27
+_LLM_STYLE = "bold yellow"
+_BENCH_STYLE = "bold blue"
 
 
 # Curated preset models for the "Build a custom run" flow.
@@ -110,8 +113,10 @@ def launch() -> None:
 def _render_banner() -> None:
     lines = [line for line in BANNER.splitlines() if line.strip()]
     text = Text()
-    for line, color in zip(lines, _GRADIENT):
-        text.append(line + "\n", style=f"bold {color}")
+    for line in lines:
+        text.append(line[:_LLM_END_COL], style=_LLM_STYLE)
+        text.append(line[_LLM_END_COL:], style=_BENCH_STYLE)
+        text.append("\n")
     console.print(text)
     console.print(f"  [dim]{TAGLINE}[/]")
     console.print(f"  {_keys_status_line()}\n")
