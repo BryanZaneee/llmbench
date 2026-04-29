@@ -4,6 +4,30 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-04-28 - Web: navigable TUI clone + page refresh through M4
+
+`web/index.html` was last refreshed 2026-04-25 (leaderboard explorer overhaul) and shipped only Install + the table — none of the M2/M3/M4 surface (5 agentic tasks, 6 sandbox primitives, agent loop, pricing rollup, polished questionary TUI, Gemini/Flux image adapters). Brought it through to current state and added a navigable web TUI as the centerpiece.
+
+### TUI showcase (`web/tui.js`, new)
+
+- Built a hand-rolled JS state machine instead of an asciinema cast or a static screenshot. Reason: the user explicitly asked for *navigable*, and a recording communicates the menu structure but not the affordance — the point is "you can drive it like the real thing." A cast also can't pause on a long sub-screen for the reader.
+- Pure-data screen catalog (one object per menu, indexed by stack id), single render pass on every state change, screen stack in `state.stack`. No framework. ~300 LOC.
+- Keyboard contract: ↑↓ / j k move (Vim bindings dropped in mostly for the keyboard-first audience), Enter / Space activate, Esc / Backspace / q pop. `q` is gated to non-root screens so the user can still type "q" elsewhere on the page when not focused. `preventDefault` only fires when the frame has focus, so arrow keys still scroll the page from outside.
+- Banner color split is column-27 in two `<span>`s exactly mirroring `tui.py`'s `_LLM_END_COL` / `_LLM_STYLE` / `_BENCH_STYLE` (yellow #b8860b / blue #1e3a8a). When someone installs llmbench after the page, the terminal banner is pixel-identical to the web one — that pun on consistency is the "cool flex" the user asked for.
+- Sub-screens mirror the real `_flow_*` functions: priced model picker formatted exactly like `_format_model_choice`, leaderboard preview with `Leaderboard · lmarena (top 5)` style title, trace summary panel mirroring `Panel.fit(...)` from `_flow_view_traces`. The `(demo: install llmbench to run for real)` footer is on every leaf screen so the contract is explicit.
+
+### Page sections
+
+- Numbered §01–§05 sections (Install / Interactive / Capabilities / Leaderboards / Providers). Editorial-quarterly tone holds across the whole page; the Interactive section is the one moment of dark inverse to give the TUI weight.
+- Capabilities is two cards (Benchmarks / Agentic tasks) with `<id>` mono on the left, serif description on the right — same shape as the README tables, no redundant prose. Sandbox-primitive strip below names every `fake_*` tool plus `failure_injector` so visitors can tell what "sandboxed" actually means here.
+- Hero gained a 4-stat row (5 tasks / 9 providers / 4 leaderboard sources / 110 passing tests). These numbers come from the actual current state and want updating each milestone.
+
+### What did *not* change
+
+- `web/main.js` (leaderboard explorer) untouched — still reads `data/all.json` exactly as the GH Action writes it. Daily refresh keeps working.
+- `web/data/` untouched.
+- No new dependencies. Vanilla JS + CSS.
+
 ## 2026-04-28 - Image Benchmarks: CatBench, Gemini, and Flux Adapters
 
 - **CatBench prompt and suite separation**: Created a dedicated `prompts/cat_bench.yaml` and `suite.cat_bench.yaml` rather than adding the new CatBench prompt to `default.yaml`. Reason: Since `runner.py` doesn't filter prompts by benchmark type, placing image prompts in the default file causes image models to generate images for text prompts (wasting API credits) and text models to generate text for image prompts. Isolating them into specific suites prevents cross-pollination.

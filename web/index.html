@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>llmbench — benchmark any AI model · any provider · one command</title>
-  <meta name="description" content="CLI tool and open leaderboard explorer for comparing LLMs across providers. Run your own benchmarks with one command, or browse published scores from HuggingFace and LMArena." />
+  <meta name="description" content="Open-source CLI for benchmarking LLMs across providers, plus an agentic task harness with sandboxed tools and trace capture. Runs Anthropic, OpenAI, Gemini, Moonshot, Ollama, vLLM, LM Studio, and any OpenAI-compatible endpoint." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -18,10 +18,12 @@
     <div class="ed-nav-inner">
       <a class="ed-nav-brand" href="/">
         <span class="ed-nav-mark">b.</span>
-        <span class="ed-nav-vol">Bryan Zane Smith / llmbench</span>
+        <span class="ed-nav-vol">Bryan Zane Smith / llmbench / Vol. 04</span>
       </a>
       <nav class="ed-nav-links" aria-label="Primary">
         <a href="#install">Install</a>
+        <a href="#tui">TUI</a>
+        <a href="#capabilities">Capabilities</a>
         <a href="#explorer">Leaderboards</a>
         <a href="https://github.com/BryanZaneee/llmbench">GitHub</a>
       </nav>
@@ -31,26 +33,31 @@
   <section class="lb-hero">
     <div class="lb-hero-grid-bg" aria-hidden="true"></div>
     <div class="lb-hero-inner">
-      <p class="lb-eyebrow">Open source · Python · MIT</p>
+      <p class="lb-eyebrow">Issue 04 · 2026 — Open Source · Python · MIT</p>
 
       <h1 class="lb-banner-h1">
-        <pre class="lb-banner" aria-label="llmbench">
-██╗     ██╗     ███╗   ███╗██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗
-██║     ██║     ████╗ ████║██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║
-██║     ██║     ██╔████╔██║██████╔╝█████╗  ██╔██╗ ██║██║     ███████║
-██║     ██║     ██║╚██╔╝██║██╔══██╗██╔══╝  ██║╚██╗██║██║     ██╔══██║
-███████╗███████╗██║ ╚═╝ ██║██████╔╝███████╗██║ ╚████║╚██████╗██║  ██║
-╚══════╝╚══════╝╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
-        </pre>
+        <pre class="lb-banner" aria-label="llmbench"><span class="banner-llm">██╗     ██╗     ███╗   ███╗</span><span class="banner-bench">██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗</span>
+<span class="banner-llm">██║     ██║     ████╗ ████║</span><span class="banner-bench">██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║</span>
+<span class="banner-llm">██║     ██║     ██╔████╔██║</span><span class="banner-bench">██████╔╝█████╗  ██╔██╗ ██║██║     ███████║</span>
+<span class="banner-llm">██║     ██║     ██║╚██╔╝██║</span><span class="banner-bench">██╔══██╗██╔══╝  ██║╚██╗██║██║     ██╔══██║</span>
+<span class="banner-llm">███████╗███████╗██║ ╚═╝ ██║</span><span class="banner-bench">██████╔╝███████╗██║ ╚████║╚██████╗██║  ██║</span>
+<span class="banner-llm">╚══════╝╚══════╝╚═╝     ╚═╝</span><span class="banner-bench">╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝</span></pre>
       </h1>
 
       <p class="lb-lede">
-        Benchmark any AI model — any provider, one command.
-        A CLI harness for measuring throughput, quality, and image generation across Claude, OpenAI, Ollama, vLLM, and anything OpenAI-compatible. Plus a unified leaderboard explorer for published scores.
+        Benchmark any AI model — any provider, one command. A CLI harness for measuring throughput, quality, and image generation, an agent loop with five sandboxed tasks, and a unified leaderboard explorer for published scores.
       </p>
+
+      <ul class="lb-stat-row" aria-label="Project stats">
+        <li><span class="lb-stat-num">5</span><span class="lb-stat-label">Agentic tasks</span></li>
+        <li><span class="lb-stat-num">9</span><span class="lb-stat-label">Provider adapters</span></li>
+        <li><span class="lb-stat-num">4</span><span class="lb-stat-label">Leaderboard sources</span></li>
+        <li><span class="lb-stat-num">110</span><span class="lb-stat-label">Passing tests</span></li>
+      </ul>
 
       <div class="lb-ctas">
         <a class="lb-btn lb-btn-primary" href="#install">Install the CLI</a>
+        <a class="lb-btn" href="#tui">Try the TUI</a>
         <a class="lb-btn" href="#explorer">Browse leaderboards</a>
         <a class="lb-btn" href="https://github.com/BryanZaneee/llmbench">Source on GitHub</a>
       </div>
@@ -68,29 +75,184 @@
     <div class="lb-install-grid">
       <div class="lb-install-block">
         <div class="lb-install-label">Using uv</div>
-        <pre class="lb-code"><code>uvx llmbench</code><button class="lb-code-copy" type="button" data-copy="uvx llmbench">Copy</button></pre>
+        <pre class="lb-code"><code>uvx llmbench</code><button class="lb-code-copy" type="button" data-copy="uvx llmbench" aria-label="Copy">Copy</button></pre>
       </div>
       <div class="lb-install-block">
         <div class="lb-install-label">Using pipx</div>
-        <pre class="lb-code"><code>pipx run llmbench</code><button class="lb-code-copy" type="button" data-copy="pipx run llmbench">Copy</button></pre>
+        <pre class="lb-code"><code>pipx run llmbench</code><button class="lb-code-copy" type="button" data-copy="pipx run llmbench" aria-label="Copy">Copy</button></pre>
       </div>
       <div class="lb-install-block">
         <div class="lb-install-label">From source</div>
-        <pre class="lb-code"><code>pip install llmbench</code><button class="lb-code-copy" type="button" data-copy="pip install llmbench">Copy</button></pre>
+        <pre class="lb-code"><code>pip install llmbench</code><button class="lb-code-copy" type="button" data-copy="pip install llmbench" aria-label="Copy">Copy</button></pre>
       </div>
     </div>
     <p class="lb-fineprint">
-      Python 3.11+. Full install options, <code class="pf-mono">suite.yaml</code> schema, and provider setup on <a href="https://github.com/BryanZaneee/llmbench">GitHub</a>.
+      Python 3.11+. Full options, <code class="pf-mono">suite.yaml</code> schema, and provider setup on <a href="https://github.com/BryanZaneee/llmbench">GitHub</a>.
+    </p>
+  </section>
+
+  <section class="lb-section lb-section--dark" id="tui">
+    <div class="lb-section-head">
+      <h2 class="dark">Interactive<span class="accent">.</span></h2>
+      <span class="lb-section-kicker dark">§ 02 — Walk the menu</span>
+    </div>
+    <p class="lede dark">
+      A pixel-faithful clone of the questionary TUI. Use <kbd class="kbd-inline">↑</kbd> <kbd class="kbd-inline">↓</kbd> and <kbd class="kbd-inline">↵</kbd> to navigate, or click. The colors, banner, and menu structure match what you'll see when you run <code class="pf-mono">llmbench</code> in your terminal.
+    </p>
+
+    <div class="tui-frame" id="tui-frame" tabindex="0" role="application" aria-label="Interactive llmbench TUI demo">
+      <div class="tui-chrome" aria-hidden="true">
+        <div class="tui-chrome-dots">
+          <span class="tui-dot tui-dot--red"></span>
+          <span class="tui-dot tui-dot--yellow"></span>
+          <span class="tui-dot tui-dot--green"></span>
+        </div>
+        <div class="tui-chrome-title">~/projects/llmbench  —  zsh</div>
+        <div class="tui-chrome-spacer"></div>
+      </div>
+
+      <div class="tui-screen" id="tui-screen">
+        <div class="tui-prompt-line">
+          <span class="tui-prompt">$</span>
+          <span class="tui-prompt-cmd">llmbench</span>
+          <span class="tui-prompt-cursor" aria-hidden="true">▌</span>
+        </div>
+
+        <pre class="tui-banner" aria-label="llmbench"><span class="banner-llm">██╗     ██╗     ███╗   ███╗</span><span class="banner-bench">██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗</span>
+<span class="banner-llm">██║     ██║     ████╗ ████║</span><span class="banner-bench">██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║</span>
+<span class="banner-llm">██║     ██║     ██╔████╔██║</span><span class="banner-bench">██████╔╝█████╗  ██╔██╗ ██║██║     ███████║</span>
+<span class="banner-llm">██║     ██║     ██║╚██╔╝██║</span><span class="banner-bench">██╔══██╗██╔══╝  ██║╚██╗██║██║     ██╔══██║</span>
+<span class="banner-llm">███████╗███████╗██║ ╚═╝ ██║</span><span class="banner-bench">██████╔╝███████╗██║ ╚████║╚██████╗██║  ██║</span>
+<span class="banner-llm">╚══════╝╚══════╝╚═╝     ╚═╝</span><span class="banner-bench">╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝</span></pre>
+
+        <div class="tui-tagline">benchmark any AI model · any provider · one command</div>
+
+        <div class="tui-status" id="tui-status">
+          <span class="tui-status-label">API keys:</span>
+          <span class="tui-key tui-key--set"><span class="tui-key-dot"></span> Anthropic</span>
+          <span class="tui-key"><span class="tui-key-dot"></span> OpenAI</span>
+          <span class="tui-key"><span class="tui-key-dot"></span> Gemini</span>
+          <span class="tui-key"><span class="tui-key-dot"></span> Moonshot</span>
+        </div>
+
+        <div class="tui-rule" aria-hidden="true">─────────────────────────────────────────────────────────────────────</div>
+
+        <div class="tui-content" id="tui-content" aria-live="polite">
+          <!-- TUI controller renders here -->
+        </div>
+      </div>
+
+      <div class="tui-hint" aria-hidden="true">
+        <span class="tui-hint-group"><kbd>↑</kbd><kbd>↓</kbd><span>navigate</span></span>
+        <span class="tui-hint-group"><kbd>↵</kbd><span>select</span></span>
+        <span class="tui-hint-group"><kbd>Esc</kbd><span>back</span></span>
+        <span class="tui-hint-group"><kbd>Tab</kbd><span>exit demo</span></span>
+        <span class="tui-hint-status" id="tui-focus-status">click to focus</span>
+      </div>
+    </div>
+
+    <p class="lb-fineprint dark">
+      Pure demo. Clicking through doesn't run benchmarks. Install llmbench to drive the real menu.
+    </p>
+  </section>
+
+  <section class="lb-section" id="capabilities">
+    <div class="lb-section-head">
+      <h2>Capabilities<span class="accent">.</span></h2>
+      <span class="lb-section-kicker">§ 03 — What it measures</span>
+    </div>
+    <p class="lede">
+      Two evaluation modes, two outputs. Benchmarks compare models on raw throughput and quality. Agentic tasks run a model through a multi-step scenario in a sealed sandbox; the verdict is computed from post-run state, not text.
+    </p>
+
+    <div class="cap-grid">
+      <article class="cap-card">
+        <header class="cap-card-head">
+          <span class="cap-card-eyebrow">Mode A · single completion</span>
+          <h3 class="cap-card-title">Benchmarks</h3>
+          <p class="cap-card-tagline">One prompt in, one completion out, repeated.</p>
+        </header>
+        <ul class="cap-list">
+          <li class="cap-row">
+            <span class="cap-id">throughput</span>
+            <span class="cap-desc">TTFT, tokens/sec, inter-chunk latency, total latency, token usage.</span>
+          </li>
+          <li class="cap-row">
+            <span class="cap-id">quality_exact</span>
+            <span class="cap-desc">Deterministic check vs <code class="pf-mono">expected</code>: exact, contains, regex.</span>
+          </li>
+          <li class="cap-row">
+            <span class="cap-id">quality_judge</span>
+            <span class="cap-desc">LLM-as-judge: 1–10 score with one-line reasoning.</span>
+          </li>
+          <li class="cap-row">
+            <span class="cap-id">image_gen</span>
+            <span class="cap-desc">Latency plus saved PNGs for visual review (e.g. CatBench).</span>
+          </li>
+        </ul>
+        <footer class="cap-card-foot">
+          <span class="cap-card-foot-label">Output</span>
+          <code class="pf-mono">results/&lt;run_id&gt;/gallery.html</code> + SQLite (<code class="pf-mono">payload_json</code> per row, queryable with <code class="pf-mono">json_extract</code>).
+        </footer>
+      </article>
+
+      <article class="cap-card">
+        <header class="cap-card-head">
+          <span class="cap-card-eyebrow">Mode B · multi-step</span>
+          <h3 class="cap-card-title">Agentic tasks</h3>
+          <p class="cap-card-tagline">Sandboxed scenarios, post-run verdicts.</p>
+        </header>
+        <ul class="cap-list">
+          <li class="cap-row">
+            <span class="cap-id">file-refactor</span>
+            <span class="cap-desc">Rename a function across a 5-file mock project without breaking parsing.</span>
+          </li>
+          <li class="cap-row">
+            <span class="cap-id">api-orchestration</span>
+            <span class="cap-desc">GET a list, transform each row, POST to an audit endpoint with a field rename.</span>
+          </li>
+          <li class="cap-row">
+            <span class="cap-id">multi-step-research</span>
+            <span class="cap-desc">Synthesize four canned search results about a fictional company into a markdown brief.</span>
+          </li>
+          <li class="cap-row">
+            <span class="cap-id">recovery</span>
+            <span class="cap-desc">Retry a transient transactional failure and verify the side effect landed.</span>
+          </li>
+          <li class="cap-row">
+            <span class="cap-id">long-horizon</span>
+            <span class="cap-desc">Parse a config, fetch sources, and write a multi-section report (~15 steps).</span>
+          </li>
+        </ul>
+        <footer class="cap-card-foot">
+          <span class="cap-card-foot-label">Output</span>
+          <code class="pf-mono">runs/&lt;run_id&gt;.json</code> · full <code class="pf-mono">TraceDocument</code> (turns, tool calls, tokens, timing, cost, verdict).
+        </footer>
+      </article>
+    </div>
+
+    <div class="cap-tools">
+      <span class="cap-tools-label">Sandbox primitives</span>
+      <code class="pf-mono">fake_fs</code>
+      <code class="pf-mono">fake_http</code>
+      <code class="pf-mono">fake_sql</code>
+      <code class="pf-mono">fake_search</code>
+      <code class="pf-mono">fake_shell</code>
+      <code class="pf-mono">failure_injector</code>
+    </div>
+
+    <p class="lb-fineprint">
+      Verdicts read post-run sandbox state directly so a model can't text-its-way-through. Behavior flags (<code class="pf-mono">hallucinated_tool</code>, <code class="pf-mono">excessive_http_calls</code>, <code class="pf-mono">recovered_from_transient_failure</code>, <code class="pf-mono">unregistered_search_query</code>, <code class="pf-mono">unexpected_delete</code>) are surfaced informationally per run.
     </p>
   </section>
 
   <section class="lb-section" id="explorer">
     <div class="lb-section-head">
       <h2>Leaderboards<span class="accent">.</span></h2>
-      <span class="lb-section-kicker">§ 02 — Published scores</span>
+      <span class="lb-section-kicker">§ 04 — Published scores</span>
     </div>
     <p class="lede">
-      Published model scores from HuggingFace Open LLM Leaderboard v2, LMArena ELO, Aider Polyglot, and a bundled snapshot — searchable in one place. Click a column to sort, toggle sources, or filter by name.
+      Published model scores from HuggingFace Open LLM v2, LMArena ELO, Aider Polyglot, and a bundled offline snapshot — searchable in one place. Click a column to sort, toggle sources, or filter by name.
     </p>
 
     <div class="lb-controls">
@@ -109,7 +271,7 @@
       <table class="lb-table" id="lb-table">
         <thead>
           <tr>
-            <th data-key="rank"         class="lb-th-num" title="Rank within source">#</th>
+            <th data-key="rank"          class="lb-th-num" title="Rank within source">#</th>
             <th data-key="display_name">Model</th>
             <th data-key="organization">Organization</th>
             <th data-key="source">Source</th>
@@ -129,8 +291,30 @@
     <div class="lb-empty" id="lb-empty" hidden>No models match your filters.</div>
 
     <p class="lb-fineprint">
-      Published numbers are not directly comparable to each other — different environments, different prompts, different scoring. They are context, not ground truth. Refreshed daily by GitHub Actions.
+      Published numbers aren't directly comparable to each other — different environments, different prompts, different scoring. Treat them as context, not ground truth. Refreshed daily by GitHub Actions.
     </p>
+  </section>
+
+  <section class="lb-section lb-section--compact" id="providers">
+    <div class="lb-section-head">
+      <h2>Providers<span class="accent">.</span></h2>
+      <span class="lb-section-kicker">§ 05 — Reach</span>
+    </div>
+    <p class="lede">
+      Chat, image, and local. One adapter per provider; new ones are typically ~40 lines.
+    </p>
+
+    <ul class="prov-grid" aria-label="Supported providers">
+      <li class="prov-chip" data-kind="chat"><span class="prov-name">Anthropic</span><span class="prov-kind">chat</span></li>
+      <li class="prov-chip" data-kind="chat"><span class="prov-name">OpenAI</span><span class="prov-kind">chat · image</span></li>
+      <li class="prov-chip" data-kind="chat"><span class="prov-name">Google Gemini</span><span class="prov-kind">chat · image</span></li>
+      <li class="prov-chip" data-kind="chat"><span class="prov-name">Moonshot</span><span class="prov-kind">chat</span></li>
+      <li class="prov-chip" data-kind="local"><span class="prov-name">Ollama</span><span class="prov-kind">local</span></li>
+      <li class="prov-chip" data-kind="local"><span class="prov-name">vLLM</span><span class="prov-kind">local</span></li>
+      <li class="prov-chip" data-kind="local"><span class="prov-name">LM Studio</span><span class="prov-kind">local</span></li>
+      <li class="prov-chip" data-kind="image"><span class="prov-name">Black Forest Labs</span><span class="prov-kind">image</span></li>
+      <li class="prov-chip" data-kind="generic"><span class="prov-name">OpenAI-compatible</span><span class="prov-kind">any base_url</span></li>
+    </ul>
   </section>
 
   <footer class="lb-footer">
@@ -139,5 +323,6 @@
   </footer>
 
   <script src="main.js" defer></script>
+  <script src="tui.js" defer></script>
 </body>
 </html>
