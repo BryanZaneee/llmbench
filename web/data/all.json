@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-04-28T08:39:29+00:00",
+  "generated_at": "2026-04-29T08:32:26+00:00",
   "sources": [
     {
       "source": "huggingface",
       "source_url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
-      "fetched_at": "2026-04-28T08:39:24.933609Z",
+      "fetched_at": "2026-04-29T08:32:22.381100Z",
       "count": 100
     },
     {
       "source": "lmarena",
       "source_url": "https://lmarena.ai/leaderboard",
-      "fetched_at": "2026-04-28T08:39:26.449254Z",
-      "count": 349
+      "fetched_at": "2026-04-29T08:32:23.749051Z",
+      "count": 351
     },
     {
       "source": "aider",
       "source_url": "https://aider.chat/docs/leaderboards/",
-      "fetched_at": "2026-04-28T08:39:27.853121Z",
+      "fetched_at": "2026-04-29T08:32:24.937280Z",
       "count": 69
     },
     {
@@ -2243,7 +2243,7 @@
         "vote_count": 20917.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2262,7 +2262,7 @@
         "vote_count": 22200.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2281,7 +2281,7 @@
         "vote_count": 26125.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2300,7 +2300,7 @@
         "vote_count": 5996.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2319,7 +2319,7 @@
         "vote_count": 41400.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2338,7 +2338,7 @@
         "vote_count": 6746.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2357,7 +2357,7 @@
         "vote_count": 7931.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2376,7 +2376,7 @@
         "vote_count": 3587.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2395,7 +2395,7 @@
         "vote_count": 12130.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2414,7 +2414,7 @@
         "vote_count": 14328.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2433,7 +2433,7 @@
         "vote_count": 9670.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2452,7 +2452,7 @@
         "vote_count": 30809.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2471,7 +2471,7 @@
         "vote_count": 3757.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2490,7 +2490,26 @@
         "vote_count": 111956.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
+      }
+    },
+    {
+      "model_id": "mimo-v2.5-pro",
+      "display_name": "mimo-v2.5-pro",
+      "organization": "xiaomi",
+      "source": "lmarena",
+      "metrics": {
+        "elo": 1459.7797225614736,
+        "elo_lower": 1449.7937394511068,
+        "elo_upper": 1469.7657056718404
+      },
+      "rank": 15,
+      "source_url": "https://lmarena.ai/leaderboard",
+      "extra": {
+        "vote_count": 3375.0,
+        "license": "MIT",
+        "category": "text",
+        "published": "2026-04-28"
       }
     },
     {
@@ -2503,13 +2522,13 @@
         "elo_lower": 1450.1725650967662,
         "elo_upper": 1461.1305997901663
       },
-      "rank": 15,
+      "rank": 16,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14557.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2522,13 +2541,13 @@
         "elo_lower": 1450.3210022098283,
         "elo_upper": 1459.8002183219367
       },
-      "rank": 16,
+      "rank": 17,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 23661.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2541,13 +2560,13 @@
         "elo_lower": 1445.7504478533886,
         "elo_upper": 1462.1079757182792
       },
-      "rank": 17,
+      "rank": 18,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4901.0,
         "license": "Modified MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2560,13 +2579,13 @@
         "elo_lower": 1448.1750267469342,
         "elo_upper": 1459.3023851831358
       },
-      "rank": 18,
+      "rank": 19,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14942.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2579,13 +2598,13 @@
         "elo_lower": 1446.5411327362128,
         "elo_upper": 1457.3565221817566
       },
-      "rank": 19,
+      "rank": 20,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14948.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2598,13 +2617,13 @@
         "elo_lower": 1445.9526871412997,
         "elo_upper": 1454.7823170673173
       },
-      "rank": 20,
+      "rank": 21,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26406.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2617,13 +2636,13 @@
         "elo_lower": 1444.1585341540879,
         "elo_upper": 1455.1274783769136
       },
-      "rank": 21,
+      "rank": 22,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 15438.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2636,13 +2655,13 @@
         "elo_lower": 1438.7026440614982,
         "elo_upper": 1458.563254765248
       },
-      "rank": 22,
+      "rank": 23,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3421.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2655,13 +2674,13 @@
         "elo_lower": 1444.7313417511687,
         "elo_upper": 1452.4339051615977
       },
-      "rank": 23,
+      "rank": 24,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 38415.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2674,13 +2693,13 @@
         "elo_lower": 1444.4389984038353,
         "elo_upper": 1451.5687795587844
       },
-      "rank": 24,
+      "rank": 25,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 52042.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2693,13 +2712,13 @@
         "elo_lower": 1441.8152230558353,
         "elo_upper": 1452.8356080664075
       },
-      "rank": 25,
+      "rank": 26,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14205.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2712,13 +2731,13 @@
         "elo_lower": 1437.7171586748248,
         "elo_upper": 1456.2999547085108
       },
-      "rank": 26,
+      "rank": 27,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3823.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2731,13 +2750,13 @@
         "elo_lower": 1437.8103695182429,
         "elo_upper": 1455.3974008144364
       },
-      "rank": 27,
+      "rank": 28,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4175.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2750,13 +2769,13 @@
         "elo_lower": 1442.4247201375765,
         "elo_upper": 1450.3763889003553
       },
-      "rank": 28,
+      "rank": 29,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 37181.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2769,13 +2788,13 @@
         "elo_lower": 1440.6977734474976,
         "elo_upper": 1450.605753157447
       },
-      "rank": 29,
+      "rank": 30,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18455.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2788,13 +2807,13 @@
         "elo_lower": 1440.4514233454277,
         "elo_upper": 1449.377599570072
       },
-      "rank": 30,
+      "rank": 31,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24838.0,
         "license": "Modified MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2807,13 +2826,13 @@
         "elo_lower": 1438.4844223465695,
         "elo_upper": 1448.096397807346
       },
-      "rank": 31,
+      "rank": 32,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19928.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2826,13 +2845,13 @@
         "elo_lower": 1435.697825383436,
         "elo_upper": 1448.832049165388
       },
-      "rank": 32,
+      "rank": 33,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9769.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2845,13 +2864,13 @@
         "elo_lower": 1433.8646202481464,
         "elo_upper": 1449.2554293414173
       },
-      "rank": 33,
+      "rank": 34,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5818.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2864,13 +2883,13 @@
         "elo_lower": 1437.238559156643,
         "elo_upper": 1444.9117612704172
       },
-      "rank": 34,
+      "rank": 35,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 40897.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2883,13 +2902,13 @@
         "elo_lower": 1433.3169481352297,
         "elo_upper": 1448.0355057949807
       },
-      "rank": 35,
+      "rank": 36,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6143.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2902,13 +2921,13 @@
         "elo_lower": 1437.090797004863,
         "elo_upper": 1444.1682016345003
       },
-      "rank": 36,
+      "rank": 37,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 52248.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2921,13 +2940,13 @@
         "elo_lower": 1436.3914433202376,
         "elo_upper": 1444.3037567896097
       },
-      "rank": 37,
+      "rank": 38,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 35713.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2940,13 +2959,13 @@
         "elo_lower": 1434.892072105959,
         "elo_upper": 1444.387321777676
       },
-      "rank": 38,
+      "rank": 39,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 20668.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2959,13 +2978,13 @@
         "elo_lower": 1433.9526734014944,
         "elo_upper": 1442.9851026406363
       },
-      "rank": 39,
+      "rank": 40,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27767.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2978,13 +2997,13 @@
         "elo_lower": 1434.0530672257514,
         "elo_upper": 1441.049200877067
       },
-      "rank": 40,
+      "rank": 41,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 56277.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -2997,13 +3016,13 @@
         "elo_lower": 1429.8590656455663,
         "elo_upper": 1442.1293896031993
       },
-      "rank": 41,
+      "rank": 42,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12143.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3016,13 +3035,13 @@
         "elo_lower": 1429.0540657018134,
         "elo_upper": 1440.6574308699212
       },
-      "rank": 42,
+      "rank": 43,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12693.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3035,13 +3054,13 @@
         "elo_lower": 1426.9999965529755,
         "elo_upper": 1442.44694283644
       },
-      "rank": 43,
+      "rank": 44,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5781.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3054,13 +3073,13 @@
         "elo_lower": 1430.6751066281665,
         "elo_upper": 1437.1511306606321
       },
-      "rank": 44,
+      "rank": 45,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 62303.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3073,13 +3092,13 @@
         "elo_lower": 1426.215403703139,
         "elo_upper": 1433.598524854286
       },
-      "rank": 45,
+      "rank": 46,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 41363.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3092,13 +3111,13 @@
         "elo_lower": 1420.6115964720477,
         "elo_upper": 1438.3245923191455
       },
-      "rank": 46,
+      "rank": 47,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4731.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3111,13 +3130,13 @@
         "elo_lower": 1425.98207643557,
         "elo_upper": 1432.1661107092928
       },
-      "rank": 47,
+      "rank": 48,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 64424.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3130,13 +3149,13 @@
         "elo_lower": 1423.897255456079,
         "elo_upper": 1433.6508260971532
       },
-      "rank": 48,
+      "rank": 49,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24352.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3149,13 +3168,13 @@
         "elo_lower": 1425.6869019434257,
         "elo_upper": 1431.3503892218764
       },
-      "rank": 49,
+      "rank": 50,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 82578.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3168,13 +3187,13 @@
         "elo_lower": 1421.9992880066925,
         "elo_upper": 1433.3053438393451
       },
-      "rank": 50,
+      "rank": 51,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18472.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3187,13 +3206,13 @@
         "elo_lower": 1416.6594648718428,
         "elo_upper": 1435.6443513605316
       },
-      "rank": 51,
+      "rank": 52,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3510.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3206,13 +3225,13 @@
         "elo_lower": 1419.610710331596,
         "elo_upper": 1432.0303787722046
       },
-      "rank": 52,
+      "rank": 53,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10405.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3225,13 +3244,13 @@
         "elo_lower": 1422.8978867912551,
         "elo_upper": 1428.517065515312
       },
-      "rank": 53,
+      "rank": 54,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 81565.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3244,13 +3263,13 @@
         "elo_lower": 1415.8220245711666,
         "elo_upper": 1434.502090138937
       },
-      "rank": 54,
+      "rank": 55,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3605.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3263,13 +3282,13 @@
         "elo_lower": 1420.3490304220481,
         "elo_upper": 1428.9183470407258
       },
-      "rank": 55,
+      "rank": 56,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32916.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3282,13 +3301,13 @@
         "elo_lower": 1419.8511471620627,
         "elo_upper": 1427.2280373579838
       },
-      "rank": 56,
+      "rank": 57,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 44831.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3301,13 +3320,13 @@
         "elo_lower": 1416.932663995699,
         "elo_upper": 1430.0550863639128
       },
-      "rank": 57,
+      "rank": 58,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9083.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3320,13 +3339,13 @@
         "elo_lower": 1417.952686988419,
         "elo_upper": 1427.8289028767658
       },
-      "rank": 58,
+      "rank": 59,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 20812.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3339,13 +3358,13 @@
         "elo_lower": 1416.079525457581,
         "elo_upper": 1428.8991726701424
       },
-      "rank": 59,
+      "rank": 60,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11953.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3358,13 +3377,13 @@
         "elo_lower": 1418.4495687643387,
         "elo_upper": 1425.8821290565636
       },
-      "rank": 60,
+      "rank": 61,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 43546.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3377,13 +3396,13 @@
         "elo_lower": 1415.3655999078046,
         "elo_upper": 1428.0903015353815
       },
-      "rank": 61,
+      "rank": 62,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11416.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3396,13 +3415,13 @@
         "elo_lower": 1414.5431315541562,
         "elo_upper": 1427.5221342853915
       },
-      "rank": 62,
+      "rank": 63,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11529.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3415,13 +3434,13 @@
         "elo_lower": 1410.81948208957,
         "elo_upper": 1430.0649526338873
       },
-      "rank": 63,
+      "rank": 64,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3689.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3434,13 +3453,13 @@
         "elo_lower": 1413.7054115087099,
         "elo_upper": 1426.9404980661068
       },
-      "rank": 64,
+      "rank": 65,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8206.0,
         "license": "Modified MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3453,13 +3472,13 @@
         "elo_lower": 1413.7659033828754,
         "elo_upper": 1425.4344894515766
       },
-      "rank": 65,
+      "rank": 66,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11968.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3472,13 +3491,13 @@
         "elo_lower": 1409.1488121338234,
         "elo_upper": 1429.1846540687868
       },
-      "rank": 66,
+      "rank": 67,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3467.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3491,13 +3510,13 @@
         "elo_lower": 1413.0957487025296,
         "elo_upper": 1425.1260748100792
       },
-      "rank": 67,
+      "rank": 68,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14997.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3510,13 +3529,13 @@
         "elo_lower": 1415.320532689426,
         "elo_upper": 1422.8671477300752
       },
-      "rank": 68,
+      "rank": 69,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 39104.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3529,13 +3548,13 @@
         "elo_lower": 1413.623579952047,
         "elo_upper": 1423.7928489853057
       },
-      "rank": 69,
+      "rank": 70,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16762.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3548,13 +3567,13 @@
         "elo_lower": 1415.720925925083,
         "elo_upper": 1421.2281734014966
       },
-      "rank": 70,
+      "rank": 71,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 85971.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3567,13 +3586,13 @@
         "elo_lower": 1413.444658432438,
         "elo_upper": 1422.9682416545495
       },
-      "rank": 71,
+      "rank": 72,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 22912.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3586,13 +3605,13 @@
         "elo_lower": 1414.7006698472724,
         "elo_upper": 1421.70247371139
       },
-      "rank": 72,
+      "rank": 73,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 49865.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3605,13 +3624,13 @@
         "elo_lower": 1414.1747070452966,
         "elo_upper": 1422.226999212737
       },
-      "rank": 73,
+      "rank": 74,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 35116.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3624,13 +3643,13 @@
         "elo_lower": 1415.2915013824554,
         "elo_upper": 1420.4960648467954
       },
-      "rank": 74,
+      "rank": 75,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 111621.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3643,13 +3662,13 @@
         "elo_lower": 1407.777499062862,
         "elo_upper": 1427.0843692186727
       },
-      "rank": 75,
+      "rank": 76,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3713.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3662,13 +3681,13 @@
         "elo_lower": 1414.2368759474696,
         "elo_upper": 1420.3412390012465
       },
-      "rank": 76,
+      "rank": 77,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 77480.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3681,13 +3700,13 @@
         "elo_lower": 1411.5025865653872,
         "elo_upper": 1422.8839867489644
       },
-      "rank": 77,
+      "rank": 78,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14547.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3700,13 +3719,13 @@
         "elo_lower": 1409.8698045520748,
         "elo_upper": 1423.0864887360642
       },
-      "rank": 78,
+      "rank": 79,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11762.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3719,13 +3738,32 @@
         "elo_lower": 1411.8133717862447,
         "elo_upper": 1420.5778797908608
       },
-      "rank": 79,
+      "rank": 80,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 25447.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
+      }
+    },
+    {
+      "model_id": "mimo-v2.5",
+      "display_name": "mimo-v2.5",
+      "organization": "xiaomi",
+      "source": "lmarena",
+      "metrics": {
+        "elo": 1415.5979634481366,
+        "elo_lower": 1405.7974913294145,
+        "elo_upper": 1425.3984355668586
+      },
+      "rank": 81,
+      "source_url": "https://lmarena.ai/leaderboard",
+      "extra": {
+        "vote_count": 3442.0,
+        "license": "MIT",
+        "category": "text",
+        "published": "2026-04-28"
       }
     },
     {
@@ -3738,13 +3776,13 @@
         "elo_lower": 1410.8660216427234,
         "elo_upper": 1419.040878204481
       },
-      "rank": 80,
+      "rank": 82,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32308.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3757,13 +3795,13 @@
         "elo_lower": 1410.439383761543,
         "elo_upper": 1417.3074817019876
       },
-      "rank": 81,
+      "rank": 83,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 50311.0,
         "license": "Modified MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3776,13 +3814,13 @@
         "elo_lower": 1406.8952681086685,
         "elo_upper": 1419.9118267561823
       },
-      "rank": 82,
+      "rank": 84,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9008.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3795,13 +3833,13 @@
         "elo_lower": 1406.322177814532,
         "elo_upper": 1419.194687793289
       },
-      "rank": 83,
+      "rank": 85,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9182.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3814,13 +3852,13 @@
         "elo_lower": 1407.3099239245028,
         "elo_upper": 1415.1183969489537
       },
-      "rank": 84,
+      "rank": 86,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 34578.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3833,13 +3871,13 @@
         "elo_lower": 1405.7237731436403,
         "elo_upper": 1413.5294777469912
       },
-      "rank": 85,
+      "rank": 87,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 41428.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3852,13 +3890,13 @@
         "elo_lower": 1405.5288248018062,
         "elo_upper": 1412.7259892685909
       },
-      "rank": 86,
+      "rank": 88,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 59808.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3871,13 +3909,13 @@
         "elo_lower": 1405.3349022149403,
         "elo_upper": 1412.4070187433708
       },
-      "rank": 87,
+      "rank": 89,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 47266.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3890,13 +3928,13 @@
         "elo_lower": 1401.221762110126,
         "elo_upper": 1416.4054563274206
       },
-      "rank": 88,
+      "rank": 90,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6828.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3909,13 +3947,13 @@
         "elo_lower": 1402.7189050356126,
         "elo_upper": 1410.8456610888295
       },
-      "rank": 89,
+      "rank": 91,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32959.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3928,13 +3966,13 @@
         "elo_lower": 1393.7842681759098,
         "elo_upper": 1418.4829034868233
       },
-      "rank": 90,
+      "rank": 92,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2220.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3947,13 +3985,13 @@
         "elo_lower": 1400.6183885655703,
         "elo_upper": 1409.5011854589984
       },
-      "rank": 91,
+      "rank": 93,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 31982.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3966,13 +4004,13 @@
         "elo_lower": 1398.7305509417217,
         "elo_upper": 1409.0447319503162
       },
-      "rank": 92,
+      "rank": 94,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16330.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -3985,13 +4023,13 @@
         "elo_lower": 1398.9493696311943,
         "elo_upper": 1407.5013799550684
       },
-      "rank": 93,
+      "rank": 95,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 31632.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4004,13 +4042,13 @@
         "elo_lower": 1396.8540440713437,
         "elo_upper": 1405.9881955934638
       },
-      "rank": 94,
+      "rank": 96,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 22678.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4023,13 +4061,13 @@
         "elo_lower": 1394.0312791811682,
         "elo_upper": 1407.6457505676965
       },
-      "rank": 95,
+      "rank": 97,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7951.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4042,13 +4080,13 @@
         "elo_lower": 1394.3872281587426,
         "elo_upper": 1404.6692951713758
       },
-      "rank": 96,
+      "rank": 98,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17064.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4061,13 +4099,13 @@
         "elo_lower": 1390.9168081574205,
         "elo_upper": 1408.1159140669665
       },
-      "rank": 97,
+      "rank": 99,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4710.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4080,13 +4118,13 @@
         "elo_lower": 1388.5368084434942,
         "elo_upper": 1408.3751283122701
       },
-      "rank": 98,
+      "rank": 100,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3421.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4099,13 +4137,13 @@
         "elo_lower": 1392.1482891661897,
         "elo_upper": 1402.2119631731803
       },
-      "rank": 99,
+      "rank": 101,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18748.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4118,13 +4156,13 @@
         "elo_lower": 1391.5330876990674,
         "elo_upper": 1401.7168137860585
       },
-      "rank": 100,
+      "rank": 102,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16914.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4137,13 +4175,13 @@
         "elo_lower": 1389.095191111064,
         "elo_upper": 1401.6391328014015
       },
-      "rank": 101,
+      "rank": 103,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10988.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4156,13 +4194,13 @@
         "elo_lower": 1387.9481665409644,
         "elo_upper": 1400.2808411070328
       },
-      "rank": 102,
+      "rank": 104,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11481.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4175,13 +4213,13 @@
         "elo_lower": 1389.1629261170767,
         "elo_upper": 1398.1362523318328
       },
-      "rank": 103,
+      "rank": 105,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 38251.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4194,13 +4232,13 @@
         "elo_lower": 1388.0310236659066,
         "elo_upper": 1398.872831857434
       },
-      "rank": 104,
+      "rank": 106,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17903.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4213,13 +4251,13 @@
         "elo_lower": 1385.6685746137744,
         "elo_upper": 1397.941452511322
       },
-      "rank": 105,
+      "rank": 107,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10943.0,
         "license": "Modified MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4232,13 +4270,13 @@
         "elo_lower": 1385.7741343856833,
         "elo_upper": 1396.1658446982556
       },
-      "rank": 106,
+      "rank": 108,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17169.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4251,13 +4289,13 @@
         "elo_lower": 1384.908783771052,
         "elo_upper": 1391.1195970479955
       },
-      "rank": 107,
+      "rank": 109,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 64096.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4270,13 +4308,13 @@
         "elo_lower": 1379.4831739858846,
         "elo_upper": 1389.579243583574
       },
-      "rank": 108,
+      "rank": 110,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19481.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4289,13 +4327,13 @@
         "elo_lower": 1378.670619479093,
         "elo_upper": 1388.412367630912
       },
-      "rank": 109,
+      "rank": 111,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 23771.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4308,13 +4346,13 @@
         "elo_lower": 1378.2450137533913,
         "elo_upper": 1386.717756470645
       },
-      "rank": 110,
+      "rank": 112,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 31130.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4327,13 +4365,13 @@
         "elo_lower": 1377.9943037355886,
         "elo_upper": 1385.3739075920203
       },
-      "rank": 111,
+      "rank": 113,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 51065.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4346,13 +4384,13 @@
         "elo_lower": 1373.0523636919984,
         "elo_upper": 1386.0246858801684
       },
-      "rank": 112,
+      "rank": 114,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11805.0,
         "license": "Modified MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4365,13 +4403,13 @@
         "elo_lower": 1375.1648417690124,
         "elo_upper": 1382.1064028084763
       },
-      "rank": 113,
+      "rank": 115,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 47300.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4384,13 +4422,13 @@
         "elo_lower": 1371.3815524083768,
         "elo_upper": 1385.8721526468137
       },
-      "rank": 114,
+      "rank": 116,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7419.0,
         "license": "NVIDIA Open Model",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4403,13 +4441,13 @@
         "elo_lower": 1369.9777346195826,
         "elo_upper": 1381.7802173573402
       },
-      "rank": 115,
+      "rank": 117,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11336.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4422,13 +4460,13 @@
         "elo_lower": 1369.3724169126053,
         "elo_upper": 1382.2575785075985
       },
-      "rank": 116,
+      "rank": 118,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10722.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4441,13 +4479,13 @@
         "elo_lower": 1370.6456907615375,
         "elo_upper": 1379.4408266317234
       },
-      "rank": 117,
+      "rank": 119,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 36956.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4460,13 +4498,13 @@
         "elo_lower": 1370.8401293661966,
         "elo_upper": 1378.5275329310452
       },
-      "rank": 118,
+      "rank": 120,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 45552.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4479,13 +4517,13 @@
         "elo_lower": 1363.3050093228258,
         "elo_upper": 1385.9699317732893
       },
-      "rank": 119,
+      "rank": 121,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2807.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4498,13 +4536,13 @@
         "elo_lower": 1368.9279381148506,
         "elo_upper": 1378.046267002823
       },
-      "rank": 120,
+      "rank": 122,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27068.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4517,13 +4555,13 @@
         "elo_lower": 1367.6841511638802,
         "elo_upper": 1377.3606235253353
       },
-      "rank": 121,
+      "rank": 123,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18524.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4536,13 +4574,13 @@
         "elo_lower": 1365.702852252439,
         "elo_upper": 1375.4058872429136
       },
-      "rank": 122,
+      "rank": 124,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27661.0,
         "license": "Modified MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4555,13 +4593,13 @@
         "elo_lower": 1365.5489239527199,
         "elo_upper": 1375.0179236648828
       },
-      "rank": 123,
+      "rank": 125,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 21952.0,
         "license": "Modified MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4574,13 +4612,13 @@
         "elo_lower": 1364.55841853938,
         "elo_upper": 1373.9121461496293
       },
-      "rank": 124,
+      "rank": 126,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 33255.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4593,13 +4631,13 @@
         "elo_lower": 1363.6932205245673,
         "elo_upper": 1372.6612999400995
       },
-      "rank": 125,
+      "rank": 127,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32949.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4612,13 +4650,13 @@
         "elo_lower": 1361.3224885208942,
         "elo_upper": 1373.0146632147141
       },
-      "rank": 126,
+      "rank": 128,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 13713.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4631,13 +4669,13 @@
         "elo_lower": 1361.1857511875642,
         "elo_upper": 1371.8429985743999
       },
-      "rank": 127,
+      "rank": 129,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16976.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4650,13 +4688,13 @@
         "elo_lower": 1362.4064733135447,
         "elo_upper": 1370.531728148264
       },
-      "rank": 128,
+      "rank": 130,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32626.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4669,13 +4707,13 @@
         "elo_lower": 1361.225057557203,
         "elo_upper": 1370.1603972555451
       },
-      "rank": 129,
+      "rank": 131,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27807.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4688,13 +4726,13 @@
         "elo_lower": 1360.810082961946,
         "elo_upper": 1370.1957029157688
       },
-      "rank": 130,
+      "rank": 132,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26287.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4707,13 +4745,13 @@
         "elo_lower": 1360.923003676997,
         "elo_upper": 1369.622952254357
       },
-      "rank": 131,
+      "rank": 133,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 30677.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4726,13 +4764,13 @@
         "elo_lower": 1359.8398761273713,
         "elo_upper": 1368.4462232400876
       },
-      "rank": 132,
+      "rank": 134,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 44267.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4745,13 +4783,13 @@
         "elo_lower": 1352.8660346204806,
         "elo_upper": 1374.586223652657
       },
-      "rank": 133,
+      "rank": 135,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2839.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4764,13 +4802,13 @@
         "elo_lower": 1356.4687523860084,
         "elo_upper": 1368.7123075459872
       },
-      "rank": 134,
+      "rank": 136,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12254.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4783,13 +4821,13 @@
         "elo_lower": 1357.5190563529509,
         "elo_upper": 1367.5150974145317
       },
-      "rank": 135,
+      "rank": 137,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 22722.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4802,13 +4840,13 @@
         "elo_lower": 1354.9937893941387,
         "elo_upper": 1369.4389976982525
       },
-      "rank": 136,
+      "rank": 138,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7016.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4821,13 +4859,13 @@
         "elo_lower": 1354.3497445261987,
         "elo_upper": 1361.6097459919479
       },
-      "rank": 137,
+      "rank": 139,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 47577.0,
         "license": "Gemma",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4840,13 +4878,13 @@
         "elo_lower": 1345.995996000297,
         "elo_upper": 1367.0976781891368
       },
-      "rank": 138,
+      "rank": 140,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3128.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4859,13 +4897,13 @@
         "elo_lower": 1351.278166191871,
         "elo_upper": 1361.2418670584184
       },
-      "rank": 139,
+      "rank": 141,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 25762.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4878,13 +4916,13 @@
         "elo_lower": 1347.8772055928393,
         "elo_upper": 1364.5844590269735
       },
-      "rank": 140,
+      "rank": 142,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5334.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4897,13 +4935,13 @@
         "elo_lower": 1350.065459299391,
         "elo_upper": 1357.485601649887
       },
-      "rank": 141,
+      "rank": 143,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 43773.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4916,13 +4954,13 @@
         "elo_lower": 1347.6346905362184,
         "elo_upper": 1359.2986937180447
       },
-      "rank": 142,
+      "rank": 144,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11780.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4935,13 +4973,13 @@
         "elo_lower": 1347.595645689862,
         "elo_upper": 1357.7671713528757
       },
-      "rank": 143,
+      "rank": 145,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 31122.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4954,13 +4992,13 @@
         "elo_lower": 1348.5917957177694,
         "elo_upper": 1356.4878218317083
       },
-      "rank": 144,
+      "rank": 146,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 45486.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4973,13 +5011,13 @@
         "elo_lower": 1343.757894473268,
         "elo_upper": 1354.8135374424178
       },
-      "rank": 145,
+      "rank": 147,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 15535.0,
         "license": "NVIDIA Open Model",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -4992,13 +5030,13 @@
         "elo_lower": 1341.655486338952,
         "elo_upper": 1356.3723661422614
       },
-      "rank": 146,
+      "rank": 148,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6558.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5011,13 +5049,13 @@
         "elo_lower": 1343.6519568074946,
         "elo_upper": 1352.5882514021832
       },
-      "rank": 147,
+      "rank": 149,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 35165.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5030,13 +5068,13 @@
         "elo_lower": 1337.8975836547138,
         "elo_upper": 1346.4247131686463
       },
-      "rank": 148,
+      "rank": 150,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 35252.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5049,13 +5087,13 @@
         "elo_lower": 1334.1230488150304,
         "elo_upper": 1349.572440600534
       },
-      "rank": 149,
+      "rank": 151,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6876.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5068,13 +5106,13 @@
         "elo_lower": 1336.05155650797,
         "elo_upper": 1344.6234688878076
       },
-      "rank": 150,
+      "rank": 152,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 39367.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5087,13 +5125,13 @@
         "elo_lower": 1330.4893687626345,
         "elo_upper": 1349.2806163249284
       },
-      "rank": 151,
+      "rank": 153,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3926.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5106,13 +5144,13 @@
         "elo_lower": 1333.7362620069039,
         "elo_upper": 1344.1024591722085
       },
-      "rank": 152,
+      "rank": 154,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17723.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5125,13 +5163,13 @@
         "elo_lower": 1333.206926624437,
         "elo_upper": 1342.022964276257
       },
-      "rank": 153,
+      "rank": 155,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 40353.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5144,13 +5182,13 @@
         "elo_lower": 1327.4389356053562,
         "elo_upper": 1347.4905610383485
       },
-      "rank": 154,
+      "rank": 156,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3345.0,
         "license": "Nvidia Open",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5163,13 +5201,13 @@
         "elo_lower": 1331.1621598971296,
         "elo_upper": 1341.6559249464635
       },
-      "rank": 155,
+      "rank": 157,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18589.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5182,13 +5220,13 @@
         "elo_lower": 1328.075503111525,
         "elo_upper": 1341.7942291311783
       },
-      "rank": 156,
+      "rank": 158,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9045.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5201,13 +5239,13 @@
         "elo_lower": 1324.5887126183693,
         "elo_upper": 1343.4647882138077
       },
-      "rank": 157,
+      "rank": 159,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3829.0,
         "license": "Gemma",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5220,13 +5258,13 @@
         "elo_lower": 1325.0471612168517,
         "elo_upper": 1341.7456072293985
       },
-      "rank": 158,
+      "rank": 160,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4969.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5239,13 +5277,13 @@
         "elo_lower": 1327.6303738567199,
         "elo_upper": 1337.124554600581
       },
-      "rank": 159,
+      "rank": 161,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 21770.0,
         "license": "DeepSeek",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5258,13 +5296,13 @@
         "elo_lower": 1324.2516355529774,
         "elo_upper": 1338.6059470923083
       },
-      "rank": 160,
+      "rank": 162,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7158.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5277,13 +5315,13 @@
         "elo_lower": 1327.6276898111619,
         "elo_upper": 1334.5016166543326
       },
-      "rank": 161,
+      "rank": 163,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 56341.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5296,13 +5334,13 @@
         "elo_lower": 1322.2435757775818,
         "elo_upper": 1339.1797706053835
       },
-      "rank": 162,
+      "rank": 164,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5760.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5315,13 +5353,13 @@
         "elo_lower": 1325.208441405453,
         "elo_upper": 1335.3943216621792
       },
-      "rank": 163,
+      "rank": 165,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17933.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5334,13 +5372,13 @@
         "elo_lower": 1325.1369784236867,
         "elo_upper": 1333.7003780137734
       },
-      "rank": 164,
+      "rank": 166,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24955.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5353,13 +5391,13 @@
         "elo_lower": 1324.6786862639178,
         "elo_upper": 1333.5144997108032
       },
-      "rank": 165,
+      "rank": 167,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 25405.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5372,13 +5410,13 @@
         "elo_lower": 1317.9016550293418,
         "elo_upper": 1334.6708782909982
       },
-      "rank": 166,
+      "rank": 168,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5819.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5391,13 +5429,13 @@
         "elo_lower": 1312.1676113688704,
         "elo_upper": 1329.4698606846819
       },
-      "rank": 167,
+      "rank": 169,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4833.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5410,13 +5448,13 @@
         "elo_lower": 1312.9781309519888,
         "elo_upper": 1326.6294111243965
       },
-      "rank": 168,
+      "rank": 170,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8280.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5429,13 +5467,13 @@
         "elo_lower": 1307.7067056259316,
         "elo_upper": 1331.4689473713443
       },
-      "rank": 169,
+      "rank": 171,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2220.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5448,13 +5486,13 @@
         "elo_lower": 1307.636982153182,
         "elo_upper": 1330.93563042101
       },
-      "rank": 170,
+      "rank": 172,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2549.0,
         "license": "Nvidia Open Model",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5467,13 +5505,13 @@
         "elo_lower": 1315.621957219072,
         "elo_upper": 1322.428975054341
       },
-      "rank": 171,
+      "rank": 173,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 55606.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5486,13 +5524,13 @@
         "elo_lower": 1315.3401190112222,
         "elo_upper": 1322.367457538472
       },
-      "rank": 172,
+      "rank": 174,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 57371.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5505,13 +5543,13 @@
         "elo_lower": 1312.2982602633097,
         "elo_upper": 1321.718339118821
       },
-      "rank": 173,
+      "rank": 175,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26506.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5524,13 +5562,13 @@
         "elo_lower": 1313.3016483873398,
         "elo_upper": 1320.6509834370822
       },
-      "rank": 174,
+      "rank": 176,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 51981.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5543,13 +5581,13 @@
         "elo_lower": 1309.9825684200093,
         "elo_upper": 1318.409485895374
       },
-      "rank": 175,
+      "rank": 177,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 38839.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5562,13 +5600,13 @@
         "elo_lower": 1306.0020941939486,
         "elo_upper": 1318.2169569640027
       },
-      "rank": 176,
+      "rank": 178,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12251.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5581,13 +5619,13 @@
         "elo_lower": 1299.675416685302,
         "elo_upper": 1322.8839931824123
       },
-      "rank": 177,
+      "rank": 179,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2290.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5600,13 +5638,13 @@
         "elo_lower": 1296.0080525518483,
         "elo_upper": 1320.461371823166
       },
-      "rank": 178,
+      "rank": 180,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2218.0,
         "license": "Nvidia",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5619,13 +5657,13 @@
         "elo_lower": 1301.0036464381587,
         "elo_upper": 1311.2795110432257
       },
-      "rank": 179,
+      "rank": 181,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 22619.0,
         "license": "Gemma",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5638,13 +5676,13 @@
         "elo_lower": 1300.7660736317755,
         "elo_upper": 1308.2013331720796
       },
-      "rank": 180,
+      "rank": 182,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 63498.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5657,13 +5695,13 @@
         "elo_lower": 1296.4531753695553,
         "elo_upper": 1306.404932016256
       },
-      "rank": 181,
+      "rank": 183,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27332.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5676,13 +5714,13 @@
         "elo_lower": 1296.8066793270802,
         "elo_upper": 1303.8768137396207
       },
-      "rank": 182,
+      "rank": 184,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 112881.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5695,13 +5733,13 @@
         "elo_lower": 1292.6858296154292,
         "elo_upper": 1305.4235077834091
       },
-      "rank": 183,
+      "rank": 185,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10187.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5714,13 +5752,13 @@
         "elo_lower": 1295.0698470413454,
         "elo_upper": 1302.9648412225501
       },
-      "rank": 184,
+      "rank": 186,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 43216.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5733,13 +5771,13 @@
         "elo_lower": 1290.3524055338503,
         "elo_upper": 1306.8157134648422
       },
-      "rank": 185,
+      "rank": 187,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5965.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5752,13 +5790,13 @@
         "elo_lower": 1294.332091431236,
         "elo_upper": 1300.6006345657088
       },
-      "rank": 186,
+      "rank": 188,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 88363.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5771,13 +5809,13 @@
         "elo_lower": 1273.1618033233128,
         "elo_upper": 1316.1469377093406
       },
-      "rank": 187,
+      "rank": 189,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 802.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5790,13 +5828,13 @@
         "elo_lower": 1285.5532683219412,
         "elo_upper": 1302.1501245423317
       },
-      "rank": 188,
+      "rank": 190,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6795.0,
         "license": "DeepSeek",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5809,13 +5847,13 @@
         "elo_lower": 1286.7946541342017,
         "elo_upper": 1295.9338967360634
       },
-      "rank": 189,
+      "rank": 191,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24739.0,
         "license": "NexusFlow",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5828,13 +5866,13 @@
         "elo_lower": 1281.3315197781478,
         "elo_upper": 1299.910167984072
       },
-      "rank": 190,
+      "rank": 192,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4171.0,
         "license": "Gemma",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5847,13 +5885,13 @@
         "elo_lower": 1284.5751554731582,
         "elo_upper": 1294.5271238764117
       },
-      "rank": 191,
+      "rank": 193,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26126.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5866,13 +5904,13 @@
         "elo_lower": 1277.955514143672,
         "elo_upper": 1297.6982401245168
       },
-      "rank": 192,
+      "rank": 194,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3738.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5885,13 +5923,13 @@
         "elo_lower": 1283.2202790973768,
         "elo_upper": 1291.697465776689
       },
-      "rank": 193,
+      "rank": 195,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 40008.0,
         "license": "Llama 4",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5904,13 +5942,13 @@
         "elo_lower": 1280.8466576129545,
         "elo_upper": 1293.578272176231
       },
-      "rank": 194,
+      "rank": 196,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10638.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5923,13 +5961,13 @@
         "elo_lower": 1282.315138197155,
         "elo_upper": 1290.7972245620722
       },
-      "rank": 195,
+      "rank": 197,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 34902.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5942,13 +5980,13 @@
         "elo_lower": 1282.7852247722624,
         "elo_upper": 1289.8649899579775
       },
-      "rank": 196,
+      "rank": 198,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 68710.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5961,13 +5999,13 @@
         "elo_lower": 1276.920100780561,
         "elo_upper": 1292.2954404233828
       },
-      "rank": 197,
+      "rank": 199,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6103.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5980,13 +6018,13 @@
         "elo_lower": 1279.876824812523,
         "elo_upper": 1287.263415369272
       },
-      "rank": 198,
+      "rank": 200,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 41375.0,
         "license": "Llama 3.1 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -5999,13 +6037,13 @@
         "elo_lower": 1274.7514634451509,
         "elo_upper": 1290.348249912581
       },
-      "rank": 199,
+      "rank": 201,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7140.0,
         "license": "Llama 3.1",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6018,13 +6056,13 @@
         "elo_lower": 1278.1823436980085,
         "elo_upper": 1286.71025373792
       },
-      "rank": 200,
+      "rank": 202,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 45499.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6037,13 +6075,13 @@
         "elo_lower": 1276.0202448181435,
         "elo_upper": 1287.5359834179471
       },
-      "rank": 201,
+      "rank": 203,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16478.0,
         "license": "Qwen",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6056,13 +6094,13 @@
         "elo_lower": 1278.0630124309696,
         "elo_upper": 1285.3578005745067
       },
-      "rank": 202,
+      "rank": 204,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 59656.0,
         "license": "Llama 3.1 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6075,13 +6113,13 @@
         "elo_lower": 1267.6682825062735,
         "elo_upper": 1295.4674842339923
       },
-      "rank": 203,
+      "rank": 205,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1963.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6094,13 +6132,13 @@
         "elo_lower": 1277.2865136142736,
         "elo_upper": 1284.3516356653552
       },
-      "rank": 204,
+      "rank": 206,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 82419.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6113,13 +6151,13 @@
         "elo_lower": 1276.8365481169344,
         "elo_upper": 1284.365566490384
       },
-      "rank": 205,
+      "rank": 207,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 52567.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6132,13 +6170,13 @@
         "elo_lower": 1275.8182552115304,
         "elo_upper": 1285.2041042910264
       },
-      "rank": 206,
+      "rank": 208,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 30323.0,
         "license": "Llama",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6151,13 +6189,13 @@
         "elo_lower": 1273.22996101227,
         "elo_upper": 1283.6931420468927
       },
-      "rank": 207,
+      "rank": 209,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 50148.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6170,13 +6208,13 @@
         "elo_lower": 1273.085544781703,
         "elo_upper": 1282.1129238197004
       },
-      "rank": 208,
+      "rank": 210,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 33241.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6189,13 +6227,13 @@
         "elo_lower": 1271.4752603256813,
         "elo_upper": 1278.351046369997
       },
-      "rank": 209,
+      "rank": 211,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 54756.0,
         "license": "Llama-3.3",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6208,13 +6246,13 @@
         "elo_lower": 1264.0905124038727,
         "elo_upper": 1283.6537762823573
       },
-      "rank": 210,
+      "rank": 212,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3904.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6227,13 +6265,13 @@
         "elo_lower": 1269.3030705400515,
         "elo_upper": 1277.4910849985436
       },
-      "rank": 211,
+      "rank": 213,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 79138.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6246,13 +6284,13 @@
         "elo_lower": 1267.57028664843,
         "elo_upper": 1275.6128582615802
       },
-      "rank": 212,
+      "rank": 214,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 98114.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6265,13 +6303,13 @@
         "elo_lower": 1266.3933114463275,
         "elo_upper": 1275.906155138442
       },
-      "rank": 213,
+      "rank": 215,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24572.0,
         "license": "DeepSeek",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6284,13 +6322,13 @@
         "elo_lower": 1263.307543169414,
         "elo_upper": 1277.838433987355
       },
-      "rank": 214,
+      "rank": 216,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8514.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6303,13 +6341,13 @@
         "elo_lower": 1264.817513198705,
         "elo_upper": 1273.0346126596094
       },
-      "rank": 215,
+      "rank": 217,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 39406.0,
         "license": "Qwen",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6322,13 +6360,13 @@
         "elo_lower": 1262.048035229326,
         "elo_upper": 1270.0406710288864
       },
-      "rank": 216,
+      "rank": 218,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 45459.0,
         "license": "Mistral Research",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6341,13 +6379,13 @@
         "elo_lower": 1260.746097882653,
         "elo_upper": 1269.6055780579777
       },
-      "rank": 217,
+      "rank": 219,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 28073.0,
         "license": "MRL",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6360,13 +6398,13 @@
         "elo_lower": 1259.3032399524757,
         "elo_upper": 1270.7848190306959
       },
-      "rank": 218,
+      "rank": 220,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19621.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6379,13 +6417,13 @@
         "elo_lower": 1259.3139622789731,
         "elo_upper": 1267.3630882395128
       },
-      "rank": 219,
+      "rank": 221,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 100105.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6398,13 +6436,13 @@
         "elo_lower": 1253.9214244848813,
         "elo_upper": 1272.4583816858017
       },
-      "rank": 220,
+      "rank": 222,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5372.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6417,13 +6455,13 @@
         "elo_lower": 1257.8847884329462,
         "elo_upper": 1266.3247200237906
       },
-      "rank": 221,
+      "rank": 223,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 93439.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6436,13 +6474,13 @@
         "elo_lower": 1258.762391398072,
         "elo_upper": 1265.0612428644624
       },
-      "rank": 222,
+      "rank": 224,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 194909.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6455,13 +6493,13 @@
         "elo_lower": 1257.0294476680249,
         "elo_upper": 1264.602325345432
       },
-      "rank": 223,
+      "rank": 225,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 55240.0,
         "license": "Llama 3.1 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6474,13 +6512,13 @@
         "elo_lower": 1254.02388281322,
         "elo_upper": 1263.0995980132875
       },
-      "rank": 224,
+      "rank": 226,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24745.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6493,13 +6531,13 @@
         "elo_lower": 1245.0522775279746,
         "elo_upper": 1266.2281468932758
       },
-      "rank": 225,
+      "rank": 227,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2846.0,
         "license": "Llama 3.1",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6512,13 +6550,13 @@
         "elo_lower": 1252.1182992664972,
         "elo_upper": 1258.4793426628223
       },
-      "rank": 226,
+      "rank": 228,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 70029.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6531,13 +6569,13 @@
         "elo_lower": 1247.5425187994501,
         "elo_upper": 1260.4353763601925
       },
-      "rank": 227,
+      "rank": 229,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11646.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6550,13 +6588,13 @@
         "elo_lower": 1241.0817200189667,
         "elo_upper": 1255.4858429987353
       },
-      "rank": 228,
+      "rank": 230,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7312.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6569,13 +6607,13 @@
         "elo_lower": 1232.6721996725585,
         "elo_upper": 1249.624118379409
       },
-      "rank": 229,
+      "rank": 231,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5689.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6588,13 +6626,13 @@
         "elo_lower": 1234.6158099743561,
         "elo_upper": 1243.792974612105
       },
-      "rank": 230,
+      "rank": 232,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 62833.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6607,13 +6645,13 @@
         "elo_lower": 1229.5336848080708,
         "elo_upper": 1244.3218547972776
       },
-      "rank": 231,
+      "rank": 233,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8662.0,
         "license": "Jamba Open",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6626,13 +6664,13 @@
         "elo_lower": 1227.519939522293,
         "elo_upper": 1239.2804698432285
       },
-      "rank": 232,
+      "rank": 234,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14681.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6645,13 +6683,13 @@
         "elo_lower": 1227.8533297278138,
         "elo_upper": 1234.6959229076472
       },
-      "rank": 233,
+      "rank": 235,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 75754.0,
         "license": "Gemma license",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6664,13 +6702,13 @@
         "elo_lower": 1221.8220704080704,
         "elo_upper": 1238.0846510437912
       },
-      "rank": 234,
+      "rank": 236,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5432.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6683,13 +6721,13 @@
         "elo_lower": 1222.1698116893917,
         "elo_upper": 1235.4333596668816
       },
-      "rank": 235,
+      "rank": 237,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9866.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6702,13 +6740,13 @@
         "elo_lower": 1223.2130663484413,
         "elo_upper": 1233.5311044406667
       },
-      "rank": 236,
+      "rank": 238,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19372.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6721,13 +6759,13 @@
         "elo_lower": 1217.8315731365687,
         "elo_upper": 1237.9409876585491
       },
-      "rank": 237,
+      "rank": 239,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3749.0,
         "license": "Llama 3.1",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6740,13 +6778,13 @@
         "elo_lower": 1220.015927069631,
         "elo_upper": 1233.9195376549035
       },
-      "rank": 238,
+      "rank": 240,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10072.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6759,13 +6797,13 @@
         "elo_lower": 1218.728377642738,
         "elo_upper": 1232.8942574805242
       },
-      "rank": 239,
+      "rank": 241,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9788.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6778,13 +6816,13 @@
         "elo_lower": 1221.4393432063007,
         "elo_upper": 1230.0878227258481
       },
-      "rank": 240,
+      "rank": 242,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 35558.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6797,13 +6835,13 @@
         "elo_lower": 1219.2769477968982,
         "elo_upper": 1230.156255684537
       },
-      "rank": 241,
+      "rank": 243,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19659.0,
         "license": "NVIDIA Open Model",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6816,13 +6854,13 @@
         "elo_lower": 1219.0219951980055,
         "elo_upper": 1228.814648139803
       },
-      "rank": 242,
+      "rank": 244,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27124.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6835,13 +6873,13 @@
         "elo_lower": 1216.9408122464088,
         "elo_upper": 1224.4592449135314
       },
-      "rank": 243,
+      "rank": 245,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 156876.0,
         "license": "Llama 3 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6854,13 +6892,13 @@
         "elo_lower": 1213.781187311048,
         "elo_upper": 1222.1014963712128
       },
-      "rank": 244,
+      "rank": 246,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 109284.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6873,13 +6911,13 @@
         "elo_lower": 1210.7966464231995,
         "elo_upper": 1224.8492328307307
       },
-      "rank": 245,
+      "rank": 247,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7536.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6892,13 +6930,13 @@
         "elo_lower": 1206.8872822268856,
         "elo_upper": 1228.663772642008
       },
-      "rank": 246,
+      "rank": 248,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3334.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6911,13 +6949,13 @@
         "elo_lower": 1211.9858449002702,
         "elo_upper": 1221.1463085085488
       },
-      "rank": 247,
+      "rank": 249,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24126.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6930,13 +6968,13 @@
         "elo_lower": 1203.1451136249516,
         "elo_upper": 1213.4704001127134
       },
-      "rank": 248,
+      "rank": 250,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19364.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6949,13 +6987,13 @@
         "elo_lower": 1203.4407681003152,
         "elo_upper": 1211.136105880271
       },
-      "rank": 249,
+      "rank": 251,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 54611.0,
         "license": "Gemma license",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6968,13 +7006,13 @@
         "elo_lower": 1200.9371719533601,
         "elo_upper": 1210.885076377424
       },
-      "rank": 250,
+      "rank": 252,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 54173.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -6987,13 +7025,13 @@
         "elo_lower": 1199.2641040365975,
         "elo_upper": 1208.2035408168415
       },
-      "rank": 251,
+      "rank": 253,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 77554.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7006,13 +7044,13 @@
         "elo_lower": 1198.146397809277,
         "elo_upper": 1208.2046447096939
       },
-      "rank": 252,
+      "rank": 254,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 37325.0,
         "license": "Qianwen LICENSE",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7025,13 +7063,13 @@
         "elo_lower": 1190.0637661471778,
         "elo_upper": 1213.579794079518
       },
-      "rank": 253,
+      "rank": 255,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2728.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7044,13 +7082,13 @@
         "elo_lower": 1190.698391242116,
         "elo_upper": 1198.4635028977748
       },
-      "rank": 254,
+      "rank": 256,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 117701.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7063,13 +7101,13 @@
         "elo_lower": 1182.583617660836,
         "elo_upper": 1203.8621306102614
       },
-      "rank": 255,
+      "rank": 257,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2896.0,
         "license": "Llama 3.1",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7082,13 +7120,13 @@
         "elo_lower": 1184.6048457521947,
         "elo_upper": 1197.5829566890447
       },
-      "rank": 256,
+      "rank": 258,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 15147.0,
         "license": "DeepSeek License",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7101,13 +7139,13 @@
         "elo_lower": 1181.7068267956306,
         "elo_upper": 1199.918817680788
       },
-      "rank": 257,
+      "rank": 259,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4781.0,
         "license": "MRL",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7120,13 +7158,13 @@
         "elo_lower": 1180.6499696441851,
         "elo_upper": 1193.8739598890284
       },
-      "rank": 258,
+      "rank": 260,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10140.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7139,13 +7177,13 @@
         "elo_lower": 1179.3032935463136,
         "elo_upper": 1193.85531229701
       },
-      "rank": 259,
+      "rank": 261,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8858.0,
         "license": "Jamba Open",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7158,13 +7196,13 @@
         "elo_lower": 1182.311078269087,
         "elo_upper": 1190.656517493203
       },
-      "rank": 260,
+      "rank": 262,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 49605.0,
         "license": "Llama 3.1 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7177,13 +7215,13 @@
         "elo_lower": 1181.6691809633458,
         "elo_upper": 1190.1487912173739
       },
-      "rank": 261,
+      "rank": 263,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 88723.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7196,13 +7234,13 @@
         "elo_lower": 1178.0545451200946,
         "elo_upper": 1191.990507698639
       },
-      "rank": 262,
+      "rank": 264,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9818.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7215,13 +7253,13 @@
         "elo_lower": 1171.5154487710201,
         "elo_upper": 1181.2440140411763
       },
-      "rank": 263,
+      "rank": 265,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 62436.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7234,13 +7272,13 @@
         "elo_lower": 1168.785716077655,
         "elo_upper": 1180.1608912181448
       },
-      "rank": 264,
+      "rank": 266,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26195.0,
         "license": "Qianwen LICENSE",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7253,13 +7291,13 @@
         "elo_lower": 1167.694729867787,
         "elo_upper": 1178.0265633406866
       },
-      "rank": 265,
+      "rank": 267,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24146.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7272,13 +7310,13 @@
         "elo_lower": 1162.8575104597367,
         "elo_upper": 1177.8124653446494
       },
-      "rank": 266,
+      "rank": 268,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 15450.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7291,13 +7329,13 @@
         "elo_lower": 1160.6730329764405,
         "elo_upper": 1171.4359500761097
       },
-      "rank": 267,
+      "rank": 269,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 39302.0,
         "license": "Qianwen LICENSE",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7310,13 +7348,13 @@
         "elo_lower": 1161.6120232016924,
         "elo_upper": 1169.40061503462
       },
-      "rank": 268,
+      "rank": 270,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 104642.0,
         "license": "Llama 3 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7329,13 +7367,13 @@
         "elo_lower": 1159.4041551762245,
         "elo_upper": 1170.6766589075341
       },
-      "rank": 269,
+      "rank": 271,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 34550.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7348,13 +7386,13 @@
         "elo_lower": 1158.8280729927314,
         "elo_upper": 1170.953139670549
       },
-      "rank": 270,
+      "rank": 272,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24806.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7367,13 +7405,13 @@
         "elo_lower": 1158.1294704100492,
         "elo_upper": 1167.94434765008
       },
-      "rank": 271,
+      "rank": 273,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 54036.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7386,13 +7424,13 @@
         "elo_lower": 1157.2225377283453,
         "elo_upper": 1166.5559917789785
       },
-      "rank": 272,
+      "rank": 274,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 51416.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7405,13 +7443,13 @@
         "elo_lower": 1150.1798412641194,
         "elo_upper": 1173.2253158440953
       },
-      "rank": 273,
+      "rank": 275,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3231.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7424,13 +7462,13 @@
         "elo_lower": 1151.1882840962533,
         "elo_upper": 1165.5061054965033
       },
-      "rank": 274,
+      "rank": 276,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9901.0,
         "license": "Other",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7443,13 +7481,13 @@
         "elo_lower": 1151.5841767555721,
         "elo_upper": 1159.7578534344561
       },
-      "rank": 275,
+      "rank": 277,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 46616.0,
         "license": "Gemma license",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7462,13 +7500,13 @@
         "elo_lower": 1138.355602294373,
         "elo_upper": 1160.5274937350705
       },
-      "rank": 276,
+      "rank": 278,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3090.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7481,13 +7519,13 @@
         "elo_lower": 1141.3563691598852,
         "elo_upper": 1156.1437895055174
       },
-      "rank": 277,
+      "rank": 279,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18354.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7500,13 +7538,13 @@
         "elo_lower": 1132.6670328854707,
         "elo_upper": 1154.5217729174744
       },
-      "rank": 278,
+      "rank": 280,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4652.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7519,13 +7557,13 @@
         "elo_lower": 1132.2053540480147,
         "elo_upper": 1142.6996088280266
       },
-      "rank": 279,
+      "rank": 281,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 25055.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7538,13 +7576,13 @@
         "elo_lower": 1130.8614533885168,
         "elo_upper": 1143.3475871234439
       },
-      "rank": 280,
+      "rank": 282,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 21741.0,
         "license": "Qianwen LICENSE",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7557,13 +7595,13 @@
         "elo_lower": 1124.4749504065653,
         "elo_upper": 1139.414866403201
       },
-      "rank": 281,
+      "rank": 283,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16056.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7576,13 +7614,13 @@
         "elo_lower": 1127.0223564005094,
         "elo_upper": 1135.898220685191
       },
-      "rank": 282,
+      "rank": 284,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 73503.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7595,13 +7633,13 @@
         "elo_lower": 1118.732160509027,
         "elo_upper": 1142.1476601213476
       },
-      "rank": 283,
+      "rank": 285,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6390.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7614,13 +7652,13 @@
         "elo_lower": 1121.4160129965608,
         "elo_upper": 1135.3278462235685
       },
-      "rank": 284,
+      "rank": 286,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 15483.0,
         "license": "Yi License",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7633,13 +7671,13 @@
         "elo_lower": 1120.3704986104144,
         "elo_upper": 1134.82009564206
       },
-      "rank": 285,
+      "rank": 287,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17839.0,
         "license": "Qianwen LICENSE",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7652,13 +7690,13 @@
         "elo_lower": 1116.1141421474838,
         "elo_upper": 1138.5328154598844
       },
-      "rank": 286,
+      "rank": 288,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3188.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7671,13 +7709,13 @@
         "elo_lower": 1119.9660216738628,
         "elo_upper": 1129.6788876142073
       },
-      "rank": 287,
+      "rank": 289,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 66207.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7690,13 +7728,13 @@
         "elo_lower": 1111.0199259523997,
         "elo_upper": 1130.852677554772
       },
-      "rank": 288,
+      "rank": 290,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6535.0,
         "license": "AI2 ImpACT Low-risk",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7709,13 +7747,13 @@
         "elo_lower": 1109.848387350798,
         "elo_upper": 1128.9954489198917
       },
-      "rank": 289,
+      "rank": 291,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8214.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7728,13 +7766,13 @@
         "elo_lower": 1112.5504351517327,
         "elo_upper": 1124.9901320669746
       },
-      "rank": 290,
+      "rank": 292,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32191.0,
         "license": "DBRX LICENSE",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7747,13 +7785,13 @@
         "elo_lower": 1109.4550126128706,
         "elo_upper": 1120.8033993744784
       },
-      "rank": 291,
+      "rank": 293,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 38492.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7766,13 +7804,13 @@
         "elo_lower": 1099.9003815101776,
         "elo_upper": 1123.979743424096
       },
-      "rank": 292,
+      "rank": 294,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3777.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7785,13 +7823,13 @@
         "elo_lower": 1103.7183656062873,
         "elo_upper": 1115.7307120439623
       },
-      "rank": 293,
+      "rank": 295,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17766.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7804,13 +7842,13 @@
         "elo_lower": 1101.7641424841472,
         "elo_upper": 1117.1078979411368
       },
-      "rank": 294,
+      "rank": 296,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7936.0,
         "license": "Llama 3.2",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7823,13 +7861,13 @@
         "elo_lower": 1099.4447270768892,
         "elo_upper": 1115.6794959289332
       },
-      "rank": 295,
+      "rank": 297,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10224.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7842,13 +7880,13 @@
         "elo_lower": 1098.4152887436305,
         "elo_upper": 1114.604014559387
       },
-      "rank": 296,
+      "rank": 298,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12637.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7861,13 +7899,13 @@
         "elo_lower": 1098.8065989897418,
         "elo_upper": 1111.515567199206
       },
-      "rank": 297,
+      "rank": 299,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 22479.0,
         "license": "Non-commercial",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7880,13 +7918,13 @@
         "elo_lower": 1093.1418427284304,
         "elo_upper": 1116.719156889614
       },
-      "rank": 298,
+      "rank": 300,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4932.0,
         "license": "DeepSeek License",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7899,13 +7937,13 @@
         "elo_lower": 1094.8250113774816,
         "elo_upper": 1106.9281621482132
       },
-      "rank": 299,
+      "rank": 301,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32832.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7918,13 +7956,13 @@
         "elo_lower": 1085.272651452703,
         "elo_upper": 1110.7101474704107
       },
-      "rank": 300,
+      "rank": 302,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3585.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7937,13 +7975,13 @@
         "elo_lower": 1087.0692281432334,
         "elo_upper": 1106.7968478116982
       },
-      "rank": 301,
+      "rank": 303,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7968.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7956,13 +7994,13 @@
         "elo_lower": 1087.6548978593246,
         "elo_upper": 1105.022744429451
       },
-      "rank": 302,
+      "rank": 304,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6638.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7975,13 +8013,13 @@
         "elo_lower": 1085.0666547121707,
         "elo_upper": 1102.977053897024
       },
-      "rank": 303,
+      "rank": 305,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16619.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -7994,13 +8032,13 @@
         "elo_lower": 1087.7104897798154,
         "elo_upper": 1100.0366849174002
       },
-      "rank": 304,
+      "rank": 306,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 23893.0,
         "license": "Gemma license",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8013,13 +8051,13 @@
         "elo_lower": 1081.842593972964,
         "elo_upper": 1102.957331746873
       },
-      "rank": 305,
+      "rank": 307,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5006.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8032,13 +8070,13 @@
         "elo_lower": 1082.7381479301143,
         "elo_upper": 1096.1934258236956
       },
-      "rank": 306,
+      "rank": 308,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19402.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8051,13 +8089,13 @@
         "elo_lower": 1077.4998422503277,
         "elo_upper": 1091.2159149081426
       },
-      "rank": 307,
+      "rank": 309,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19174.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8070,13 +8108,13 @@
         "elo_lower": 1073.4774065250285,
         "elo_upper": 1093.2437662270681
       },
-      "rank": 308,
+      "rank": 310,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4737.0,
         "license": "Qianwen LICENSE",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8089,13 +8127,13 @@
         "elo_lower": 1069.60929336091,
         "elo_upper": 1096.3664992675622
       },
-      "rank": 309,
+      "rank": 311,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4155.0,
         "license": "CC-BY-NC-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8108,13 +8146,13 @@
         "elo_lower": 1065.1480189207246,
         "elo_upper": 1096.5989428944229
       },
-      "rank": 310,
+      "rank": 312,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1679.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8127,13 +8165,13 @@
         "elo_lower": 1073.3856615228594,
         "elo_upper": 1086.3281879536114
       },
-      "rank": 311,
+      "rank": 313,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12297.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8146,13 +8184,13 @@
         "elo_lower": 1071.3883746266124,
         "elo_upper": 1088.0960158457394
       },
-      "rank": 312,
+      "rank": 314,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6837.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8165,13 +8203,13 @@
         "elo_lower": 1066.881981865062,
         "elo_upper": 1085.994274659814
       },
-      "rank": 313,
+      "rank": 315,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7044.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8184,13 +8222,13 @@
         "elo_lower": 1066.7481137956079,
         "elo_upper": 1079.6653929881945
       },
-      "rank": 314,
+      "rank": 316,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 20118.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8203,13 +8241,13 @@
         "elo_lower": 1060.3703588819021,
         "elo_upper": 1078.2735330650573
       },
-      "rank": 315,
+      "rank": 317,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11118.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8222,13 +8260,13 @@
         "elo_lower": 1055.9981008659292,
         "elo_upper": 1081.0201424091354
       },
-      "rank": 316,
+      "rank": 318,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2572.0,
         "license": "CC-BY-NC-SA-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8241,13 +8279,13 @@
         "elo_lower": 1056.3805655731155,
         "elo_upper": 1074.387125523537
       },
-      "rank": 317,
+      "rank": 319,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7366.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8260,13 +8298,13 @@
         "elo_lower": 1042.151390191898,
         "elo_upper": 1074.3870738857331
       },
-      "rank": 318,
+      "rank": 320,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1785.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8279,13 +8317,13 @@
         "elo_lower": 1050.7111104427074,
         "elo_upper": 1064.404615897077
       },
-      "rank": 319,
+      "rank": 321,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19367.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8298,13 +8336,13 @@
         "elo_lower": 1038.6783231341306,
         "elo_upper": 1075.6056928268517
       },
-      "rank": 320,
+      "rank": 322,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1143.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8317,13 +8355,13 @@
         "elo_lower": 1046.3032413416677,
         "elo_upper": 1065.8064500273308
       },
-      "rank": 321,
+      "rank": 323,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8925.0,
         "license": "Gemma license",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8336,13 +8374,13 @@
         "elo_lower": 1046.7052373894269,
         "elo_upper": 1062.367487402996
       },
-      "rank": 322,
+      "rank": 324,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8045.0,
         "license": "Llama 3.2",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8355,13 +8393,13 @@
         "elo_lower": 1036.787918831093,
         "elo_upper": 1071.7186467175757
       },
-      "rank": 323,
+      "rank": 325,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1295.0,
         "license": "Falcon-180B TII License",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8374,13 +8412,13 @@
         "elo_lower": 1046.1300168913751,
         "elo_upper": 1060.4667621998522
       },
-      "rank": 324,
+      "rank": 326,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14148.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8393,13 +8431,13 @@
         "elo_lower": 1040.843559892902,
         "elo_upper": 1065.713130296889
       },
-      "rank": 325,
+      "rank": 327,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2921.0,
         "license": "Non-commercial",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8412,13 +8450,13 @@
         "elo_lower": 1039.7997604191605,
         "elo_upper": 1062.0543712729673
       },
-      "rank": 326,
+      "rank": 328,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4964.0,
         "license": "Qianwen LICENSE",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8431,13 +8469,13 @@
         "elo_lower": 1042.8863121780928,
         "elo_upper": 1057.6925321775502
       },
-      "rank": 327,
+      "rank": 329,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 20685.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8450,13 +8488,13 @@
         "elo_lower": 1027.5182687134356,
         "elo_upper": 1056.338032958935
       },
-      "rank": 328,
+      "rank": 330,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2199.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8469,13 +8507,13 @@
         "elo_lower": 1027.1471384278536,
         "elo_upper": 1049.5315635598888
       },
-      "rank": 329,
+      "rank": 331,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5182.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8488,13 +8526,13 @@
         "elo_lower": 1020.4052086596787,
         "elo_upper": 1043.0159961165457
       },
-      "rank": 330,
+      "rank": 332,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6328.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8507,13 +8545,13 @@
         "elo_lower": 1021.408490794312,
         "elo_upper": 1040.2836701412061
       },
-      "rank": 331,
+      "rank": 333,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6923.0,
         "license": "Llama 2 Community",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8526,13 +8564,13 @@
         "elo_lower": 1017.594551739726,
         "elo_upper": 1036.6795352167214
       },
-      "rank": 332,
+      "rank": 334,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8554.0,
         "license": "Proprietary",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8545,13 +8583,13 @@
         "elo_lower": 1013.9999027680217,
         "elo_upper": 1032.8141884929846
       },
-      "rank": 333,
+      "rank": 335,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8977.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8564,13 +8602,13 @@
         "elo_lower": 1014.2846081360035,
         "elo_upper": 1029.9627254306224
       },
-      "rank": 334,
+      "rank": 336,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10854.0,
         "license": "Gemma license",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8583,13 +8621,13 @@
         "elo_lower": 990.2904368681266,
         "elo_upper": 1013.8026267952832
       },
-      "rank": 335,
+      "rank": 337,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4780.0,
         "license": "Gemma license",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8602,13 +8640,13 @@
         "elo_lower": 987.6984893552066,
         "elo_upper": 1006.5693235136637
       },
-      "rank": 336,
+      "rank": 338,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7597.0,
         "license": "Qianwen LICENSE",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8621,13 +8659,13 @@
         "elo_lower": 979.2723884874806,
         "elo_upper": 999.7427479039698
       },
-      "rank": 337,
+      "rank": 339,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6965.0,
         "license": "Non-commercial",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8640,13 +8678,13 @@
         "elo_lower": 960.1002763291845,
         "elo_upper": 983.7734839150237
       },
-      "rank": 338,
+      "rank": 340,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4658.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8659,13 +8697,13 @@
         "elo_lower": 940.500485394045,
         "elo_upper": 971.6589015055198
       },
-      "rank": 339,
+      "rank": 341,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1743.0,
         "license": "Non-commercial",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8678,13 +8716,13 @@
         "elo_lower": 942.8916209994865,
         "elo_upper": 967.3430725430696
       },
-      "rank": 340,
+      "rank": 342,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3924.0,
         "license": "CC-BY-NC-SA-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8697,13 +8735,13 @@
         "elo_lower": 936.5200692634314,
         "elo_upper": 960.048396993563
       },
-      "rank": 341,
+      "rank": 343,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4845.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8716,13 +8754,13 @@
         "elo_lower": 924.6873372581565,
         "elo_upper": 952.3641504872351
       },
-      "rank": 342,
+      "rank": 344,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2658.0,
         "license": "Apache-2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8735,13 +8773,13 @@
         "elo_lower": 920.92195813815,
         "elo_upper": 944.4957088899193
       },
-      "rank": 343,
+      "rank": 345,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5745.0,
         "license": "Non-commercial",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8754,13 +8792,13 @@
         "elo_lower": 905.599101292664,
         "elo_upper": 931.1262421064196
       },
-      "rank": 344,
+      "rank": 346,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4914.0,
         "license": "Non-commercial",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8773,13 +8811,13 @@
         "elo_lower": 904.7456026441621,
         "elo_upper": 927.1835871771505
       },
-      "rank": 345,
+      "rank": 347,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6310.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8792,13 +8830,13 @@
         "elo_lower": 881.5420398833644,
         "elo_upper": 907.0522693817891
       },
-      "rank": 346,
+      "rank": 348,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4203.0,
         "license": "Apache 2.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8811,13 +8849,13 @@
         "elo_lower": 853.2173832036049,
         "elo_upper": 879.7253096882132
       },
-      "rank": 347,
+      "rank": 349,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3287.0,
         "license": "CC-BY-NC-SA-4.0",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8830,13 +8868,13 @@
         "elo_lower": 837.1058969686999,
         "elo_upper": 864.9453523379393
       },
-      "rank": 348,
+      "rank": 350,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3412.0,
         "license": "MIT",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
@@ -8849,13 +8887,13 @@
         "elo_lower": 817.0061861370978,
         "elo_upper": 849.8107180930554
       },
-      "rank": 349,
+      "rank": 351,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2391.0,
         "license": "Non-commercial",
         "category": "text",
-        "published": "2026-04-27"
+        "published": "2026-04-28"
       }
     },
     {
