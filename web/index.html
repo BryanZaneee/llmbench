@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add("js");</script>
   <title>llmbench — benchmark any AI model · any provider · one command</title>
   <meta name="description" content="Open-source CLI for benchmarking LLMs across providers, plus an agentic task harness with sandboxed tools and trace capture. Runs Anthropic, OpenAI, Gemini, Moonshot, Ollama, vLLM, LM Studio, and any OpenAI-compatible endpoint." />
   <link rel="canonical" href="https://bryanzane.com/llmbench/" />
@@ -26,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/shared/editorial.css?v=2" />
+  <link rel="stylesheet" href="/shared/editorial.css?v=3" />
   <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
@@ -67,11 +68,11 @@
         Benchmark any AI model — any provider, one command. A CLI harness for measuring throughput, quality, and image generation, an agent loop with five sandboxed tasks, and a unified leaderboard explorer for published scores.
       </p>
 
-      <ul class="lb-stat-row" aria-label="Project stats">
-        <li><span class="lb-stat-num">5</span><span class="lb-stat-label">Agentic tasks</span></li>
-        <li><span class="lb-stat-num">9</span><span class="lb-stat-label">Provider adapters</span></li>
-        <li><span class="lb-stat-num">4</span><span class="lb-stat-label">Leaderboard sources</span></li>
-        <li><span class="lb-stat-num">110</span><span class="lb-stat-label">Passing tests</span></li>
+      <ul class="lb-stat-row" data-reveal="cascade" aria-label="Project stats">
+        <li><span class="lb-stat-num" data-count-to="5">5</span><span class="lb-stat-label">Agentic tasks</span></li>
+        <li><span class="lb-stat-num" data-count-to="9">9</span><span class="lb-stat-label">Provider adapters</span></li>
+        <li><span class="lb-stat-num" data-count-to="4">4</span><span class="lb-stat-label">Leaderboard sources</span></li>
+        <li><span class="lb-stat-num" data-count-to="110">110</span><span class="lb-stat-label">Passing tests</span></li>
       </ul>
 
       <div class="lb-ctas">
@@ -84,7 +85,7 @@
   </section>
 
   <section class="lb-section" id="install">
-    <div class="lb-section-head">
+    <div class="lb-section-head" data-reveal="rise">
       <h2>Install<span class="accent">.</span></h2>
       <span class="lb-section-kicker">§ 01 — Zero setup</span>
     </div>
@@ -111,7 +112,7 @@
   </section>
 
   <section class="lb-section lb-section--dark" id="tui">
-    <div class="lb-section-head">
+    <div class="lb-section-head" data-reveal="rise">
       <h2 class="dark">Interactive<span class="accent">.</span></h2>
       <span class="lb-section-kicker dark">§ 02 — Walk the menu</span>
     </div>
@@ -176,7 +177,7 @@
   </section>
 
   <section class="lb-section" id="capabilities">
-    <div class="lb-section-head">
+    <div class="lb-section-head" data-reveal="rise">
       <h2>Capabilities<span class="accent">.</span></h2>
       <span class="lb-section-kicker">§ 03 — What it measures</span>
     </div>
@@ -266,7 +267,7 @@
   </section>
 
   <section class="lb-section" id="explorer">
-    <div class="lb-section-head">
+    <div class="lb-section-head" data-reveal="rise">
       <h2>Leaderboards<span class="accent">.</span></h2>
       <span class="lb-section-kicker">§ 04 — Published scores</span>
     </div>
@@ -315,7 +316,7 @@
   </section>
 
   <section class="lb-section lb-section--compact" id="providers">
-    <div class="lb-section-head">
+    <div class="lb-section-head" data-reveal="rise">
       <h2>Providers<span class="accent">.</span></h2>
       <span class="lb-section-kicker">§ 05 — Reach</span>
     </div>
@@ -348,6 +349,7 @@
     </div>
   </footer>
 
+  <script src="/shared/motion.js?v=1" defer></script>
   <script src="main.js" defer></script>
   <script src="tui.js" defer></script>
 </body>
