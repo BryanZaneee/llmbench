@@ -75,55 +75,9 @@ a { color: inherit; }
 * { font-variant-numeric: tabular-nums; }
 
 /* ─────────────────────────────────────────── NAV ─── */
-.ed-nav {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: rgba(250, 250, 247, 0.92);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--rule);
-}
-.ed-nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 32px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
-}
-.ed-nav-brand {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--ink-900);
-  flex-shrink: 0;
-}
-.ed-nav-mark {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-style: italic;
-}
-.ed-nav-vol {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-500);
-}
-.ed-nav-links { display: flex; gap: 22px; flex-wrap: wrap; }
-.ed-nav-links a {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-700);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.ed-nav-links a:hover { color: var(--blue-700); }
+/* Chrome comes from /shared/editorial.css (served by the parent site).
+   Only the llmbench-specific tweak survives here. */
+.ed-nav-links { gap: 22px; flex-wrap: wrap; }
 
 /* ─────────────────────────────────────────── HERO ─── */
 .lb-hero {
@@ -1122,20 +1076,4 @@ a { color: inherit; }
 .prov-chip[data-kind="generic"] { border-left: 2px solid var(--ink-300); }
 
 /* ─────────────────────────────────────────── FOOTER ─── */
-.lb-footer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-500);
-}
-.lb-footer a { color: var(--ink-700); text-decoration: none; }
-.lb-footer a:hover { color: var(--blue-700); }
+/* .ed-colophon chrome comes from /shared/editorial.css. */
