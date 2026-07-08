@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-07-07T09:59:07+00:00",
+  "generated_at": "2026-07-08T08:42:31+00:00",
   "sources": [
     {
       "source": "huggingface",
       "source_url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
-      "fetched_at": "2026-07-07T09:59:02.744106Z",
+      "fetched_at": "2026-07-08T08:42:26.421185Z",
       "count": 100
     },
     {
       "source": "lmarena",
       "source_url": "https://lmarena.ai/leaderboard",
-      "fetched_at": "2026-07-07T09:59:04.919781Z",
-      "count": 369
+      "fetched_at": "2026-07-08T08:42:28.253931Z",
+      "count": 370
     },
     {
       "source": "aider",
       "source_url": "https://aider.chat/docs/leaderboards/",
-      "fetched_at": "2026-07-07T09:59:06.459553Z",
+      "fetched_at": "2026-07-08T08:42:29.716438Z",
       "count": 69
     },
     {
@@ -3311,6 +3311,25 @@
       }
     },
     {
+      "model_id": "claude-sonnet-5-high",
+      "display_name": "claude-sonnet-5-high",
+      "organization": "anthropic",
+      "source": "lmarena",
+      "metrics": {
+        "elo": 1432.8627390312972,
+        "elo_lower": 1420.3149008965206,
+        "elo_upper": 1445.4105771660738
+      },
+      "rank": 58,
+      "source_url": "https://lmarena.ai/leaderboard",
+      "extra": {
+        "vote_count": 2223.0,
+        "license": "Proprietary",
+        "category": "text",
+        "published": "2026-07-02"
+      }
+    },
+    {
       "model_id": "claude-sonnet-4-5-20250929-thinking-32k",
       "display_name": "claude-sonnet-4-5-20250929-thinking-32k",
       "organization": "anthropic",
@@ -3320,7 +3339,7 @@
         "elo_lower": 1429.7923869536576,
         "elo_upper": 1435.4274797018038
       },
-      "rank": 58,
+      "rank": 59,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 82456.0,
@@ -3339,7 +3358,7 @@
         "elo_lower": 1426.8799516449149,
         "elo_upper": 1436.0056180159058
       },
-      "rank": 59,
+      "rank": 60,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 36817.0,
@@ -3358,7 +3377,7 @@
         "elo_lower": 1426.8346785241406,
         "elo_upper": 1433.9110579772596
       },
-      "rank": 60,
+      "rank": 61,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 44086.0,
@@ -3377,7 +3396,7 @@
         "elo_lower": 1420.8241768739294,
         "elo_upper": 1438.4547561593122
       },
-      "rank": 61,
+      "rank": 62,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4705.0,
@@ -3396,7 +3415,7 @@
         "elo_lower": 1423.9957097378065,
         "elo_upper": 1433.7113815377838
       },
-      "rank": 62,
+      "rank": 63,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24293.0,
@@ -3415,7 +3434,7 @@
         "elo_lower": 1425.9786859080205,
         "elo_upper": 1431.561245951656
       },
-      "rank": 63,
+      "rank": 64,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 82424.0,
@@ -3434,7 +3453,7 @@
         "elo_lower": 1422.374872657767,
         "elo_upper": 1433.6391432145456
       },
-      "rank": 64,
+      "rank": 65,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18457.0,
@@ -3453,7 +3472,7 @@
         "elo_lower": 1421.718894926942,
         "elo_upper": 1431.0613438586938
       },
-      "rank": 65,
+      "rank": 66,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 35255.0,
@@ -3472,7 +3491,7 @@
         "elo_lower": 1422.6604110312305,
         "elo_upper": 1427.89270554814
       },
-      "rank": 66,
+      "rank": 67,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 93943.0,
@@ -3491,7 +3510,7 @@
         "elo_lower": 1420.6115146960879,
         "elo_upper": 1429.813058443142
       },
-      "rank": 67,
+      "rank": 68,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 28162.0,
@@ -3510,7 +3529,7 @@
         "elo_lower": 1420.595188968034,
         "elo_upper": 1429.1559949944844
       },
-      "rank": 68,
+      "rank": 69,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32900.0,
@@ -3529,7 +3548,7 @@
         "elo_lower": 1420.786246628987,
         "elo_upper": 1427.872685870358
       },
-      "rank": 69,
+      "rank": 70,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 47254.0,
@@ -3548,7 +3567,7 @@
         "elo_lower": 1417.3952086920945,
         "elo_upper": 1430.468209079696
       },
-      "rank": 70,
+      "rank": 71,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9071.0,
@@ -3567,7 +3586,7 @@
         "elo_lower": 1416.332183705476,
         "elo_upper": 1429.0604920023352
       },
-      "rank": 71,
+      "rank": 72,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11921.0,
@@ -3586,7 +3605,7 @@
         "elo_lower": 1418.042944160708,
         "elo_upper": 1427.2576070482792
       },
-      "rank": 72,
+      "rank": 73,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 36653.0,
@@ -3605,7 +3624,7 @@
         "elo_lower": 1418.5547756430915,
         "elo_upper": 1425.8093711759216
       },
-      "rank": 73,
+      "rank": 74,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 43455.0,
@@ -3624,7 +3643,7 @@
         "elo_lower": 1415.6029203702,
         "elo_upper": 1428.2804591628396
       },
-      "rank": 74,
+      "rank": 75,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11380.0,
@@ -3643,7 +3662,7 @@
         "elo_lower": 1416.0780918571281,
         "elo_upper": 1427.4435507514077
       },
-      "rank": 75,
+      "rank": 76,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19629.0,
@@ -3662,7 +3681,7 @@
         "elo_lower": 1414.8413118299527,
         "elo_upper": 1427.766354106558
       },
-      "rank": 76,
+      "rank": 77,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11501.0,
@@ -3681,7 +3700,7 @@
         "elo_lower": 1414.0260922065058,
         "elo_upper": 1427.1215483984006
       },
-      "rank": 77,
+      "rank": 78,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8185.0,
@@ -3700,7 +3719,7 @@
         "elo_lower": 1410.3270355783884,
         "elo_upper": 1430.2769505476317
       },
-      "rank": 78,
+      "rank": 79,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3459.0,
@@ -3719,7 +3738,7 @@
         "elo_lower": 1416.5515065356058,
         "elo_upper": 1423.8228253506559
       },
-      "rank": 79,
+      "rank": 80,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 41062.0,
@@ -3738,7 +3757,7 @@
         "elo_lower": 1410.5356218619104,
         "elo_upper": 1429.5995105028042
       },
-      "rank": 80,
+      "rank": 81,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3676.0,
@@ -3757,7 +3776,7 @@
         "elo_lower": 1412.9303760778948,
         "elo_upper": 1426.1200434901457
       },
-      "rank": 81,
+      "rank": 82,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10782.0,
@@ -3776,7 +3795,7 @@
         "elo_lower": 1416.7059058869263,
         "elo_upper": 1421.8701143878025
       },
-      "rank": 82,
+      "rank": 83,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 97195.0,
@@ -3795,7 +3814,7 @@
         "elo_lower": 1413.1855117833347,
         "elo_upper": 1425.1582735657516
       },
-      "rank": 83,
+      "rank": 84,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14954.0,
@@ -3814,7 +3833,7 @@
         "elo_lower": 1414.108296417769,
         "elo_upper": 1424.217309164209
       },
-      "rank": 84,
+      "rank": 85,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26172.0,
@@ -3833,7 +3852,7 @@
         "elo_lower": 1413.9520971691836,
         "elo_upper": 1423.4139801780952
       },
-      "rank": 85,
+      "rank": 86,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 22865.0,
@@ -3852,7 +3871,7 @@
         "elo_lower": 1414.9376596721668,
         "elo_upper": 1421.860148466808
       },
-      "rank": 86,
+      "rank": 87,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 49773.0,
@@ -3871,7 +3890,7 @@
         "elo_lower": 1413.253697791919,
         "elo_upper": 1422.0002804200867
       },
-      "rank": 87,
+      "rank": 88,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 28563.0,
@@ -3890,7 +3909,7 @@
         "elo_lower": 1407.9202187168903,
         "elo_upper": 1427.1672201960455
       },
-      "rank": 88,
+      "rank": 89,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3691.0,
@@ -3909,7 +3928,7 @@
         "elo_lower": 1414.4200611691567,
         "elo_upper": 1420.4116952055747
       },
-      "rank": 89,
+      "rank": 90,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 77292.0,
@@ -3928,7 +3947,7 @@
         "elo_lower": 1411.7156465040912,
         "elo_upper": 1423.0589487587954
       },
-      "rank": 90,
+      "rank": 91,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14547.0,
@@ -3947,7 +3966,7 @@
         "elo_lower": 1414.8730780815208,
         "elo_upper": 1419.7538478390093
       },
-      "rank": 91,
+      "rank": 92,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 124477.0,
@@ -3966,7 +3985,7 @@
         "elo_lower": 1410.464323377359,
         "elo_upper": 1423.6178536920102
       },
-      "rank": 92,
+      "rank": 93,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11731.0,
@@ -3985,7 +4004,7 @@
         "elo_lower": 1412.1427684332043,
         "elo_upper": 1420.7386635107482
       },
-      "rank": 93,
+      "rank": 94,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 25376.0,
@@ -4004,7 +4023,7 @@
         "elo_lower": 1412.5735387036466,
         "elo_upper": 1419.795591482175
       },
-      "rank": 94,
+      "rank": 95,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 48052.0,
@@ -4023,7 +4042,7 @@
         "elo_lower": 1411.647445329199,
         "elo_upper": 1419.226536486252
       },
-      "rank": 95,
+      "rank": 96,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 57809.0,
@@ -4042,7 +4061,7 @@
         "elo_lower": 1410.904946692258,
         "elo_upper": 1417.1959156659414
       },
-      "rank": 96,
+      "rank": 97,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 62069.0,
@@ -4061,7 +4080,7 @@
         "elo_lower": 1407.1108911606116,
         "elo_upper": 1420.092061981381
       },
-      "rank": 97,
+      "rank": 98,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8991.0,
@@ -4080,7 +4099,7 @@
         "elo_lower": 1406.7434765172102,
         "elo_upper": 1419.5794550150854
       },
-      "rank": 98,
+      "rank": 99,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9151.0,
@@ -4099,7 +4118,7 @@
         "elo_lower": 1409.0069822578776,
         "elo_upper": 1417.1328512917144
       },
-      "rank": 99,
+      "rank": 100,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 48963.0,
@@ -4118,7 +4137,7 @@
         "elo_lower": 1407.755876239688,
         "elo_upper": 1414.8031011047196
       },
-      "rank": 100,
+      "rank": 101,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 46660.0,
@@ -4137,7 +4156,7 @@
         "elo_lower": 1407.8947762225694,
         "elo_upper": 1414.6605596111567
       },
-      "rank": 101,
+      "rank": 102,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 68870.0,
@@ -4156,7 +4175,7 @@
         "elo_lower": 1406.0781866118036,
         "elo_upper": 1413.8322406377174
       },
-      "rank": 102,
+      "rank": 103,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 41363.0,
@@ -4175,7 +4194,7 @@
         "elo_lower": 1405.9048142689107,
         "elo_upper": 1413.0676945320538
       },
-      "rank": 103,
+      "rank": 104,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 59721.0,
@@ -4194,7 +4213,7 @@
         "elo_lower": 1401.4676813228416,
         "elo_upper": 1416.5918398343997
       },
-      "rank": 104,
+      "rank": 105,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6808.0,
@@ -4213,7 +4232,7 @@
         "elo_lower": 1404.161839462824,
         "elo_upper": 1412.9820018219161
       },
-      "rank": 105,
+      "rank": 106,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27408.0,
@@ -4232,7 +4251,7 @@
         "elo_lower": 1405.1319126641583,
         "elo_upper": 1411.6315122167139
       },
-      "rank": 106,
+      "rank": 107,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 56849.0,
@@ -4251,7 +4270,7 @@
         "elo_lower": 1402.9749501418742,
         "elo_upper": 1411.0211050583603
       },
-      "rank": 107,
+      "rank": 108,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32884.0,
@@ -4270,7 +4289,7 @@
         "elo_lower": 1393.5396683672093,
         "elo_upper": 1418.0443494934857
       },
-      "rank": 108,
+      "rank": 109,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2218.0,
@@ -4289,7 +4308,7 @@
         "elo_lower": 1400.9112456336711,
         "elo_upper": 1409.7498140470248
       },
-      "rank": 109,
+      "rank": 110,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 31915.0,
@@ -4308,7 +4327,7 @@
         "elo_lower": 1397.28358003957,
         "elo_upper": 1412.3119299766072
       },
-      "rank": 110,
+      "rank": 111,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6674.0,
@@ -4327,7 +4346,7 @@
         "elo_lower": 1400.2875636817867,
         "elo_upper": 1408.8977193488195
       },
-      "rank": 111,
+      "rank": 112,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 42368.0,
@@ -4346,7 +4365,7 @@
         "elo_lower": 1399.9312051328152,
         "elo_upper": 1407.3728043189585
       },
-      "rank": 112,
+      "rank": 113,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 52274.0,
@@ -4365,7 +4384,7 @@
         "elo_lower": 1399.369183360308,
         "elo_upper": 1407.8685850169145
       },
-      "rank": 113,
+      "rank": 114,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 31551.0,
@@ -4384,7 +4403,7 @@
         "elo_lower": 1397.6471081484774,
         "elo_upper": 1406.7682136467956
       },
-      "rank": 114,
+      "rank": 115,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 37636.0,
@@ -4403,7 +4422,7 @@
         "elo_lower": 1394.1604137115319,
         "elo_upper": 1407.720793793831
       },
-      "rank": 115,
+      "rank": 116,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7939.0,
@@ -4422,7 +4441,7 @@
         "elo_lower": 1391.1546255912049,
         "elo_upper": 1408.2990543217848
       },
-      "rank": 116,
+      "rank": 117,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4701.0,
@@ -4441,7 +4460,7 @@
         "elo_lower": 1388.9435902714122,
         "elo_upper": 1408.5950724160098
       },
-      "rank": 117,
+      "rank": 118,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3410.0,
@@ -4460,7 +4479,7 @@
         "elo_lower": 1394.7225301743529,
         "elo_upper": 1402.6286806857133
       },
-      "rank": 118,
+      "rank": 119,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 48877.0,
@@ -4479,7 +4498,7 @@
         "elo_lower": 1392.7761276351189,
         "elo_upper": 1402.7790573855818
       },
-      "rank": 119,
+      "rank": 120,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18708.0,
@@ -4498,7 +4517,7 @@
         "elo_lower": 1391.2725892505314,
         "elo_upper": 1399.930541862339
       },
-      "rank": 120,
+      "rank": 121,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 29211.0,
@@ -4517,7 +4536,7 @@
         "elo_lower": 1388.9343902670817,
         "elo_upper": 1401.3413002126695
       },
-      "rank": 121,
+      "rank": 122,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10955.0,
@@ -4536,7 +4555,7 @@
         "elo_lower": 1388.3528575216833,
         "elo_upper": 1400.57459268413
       },
-      "rank": 122,
+      "rank": 123,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11469.0,
@@ -4555,7 +4574,7 @@
         "elo_lower": 1389.3768801249657,
         "elo_upper": 1398.3160434055249
       },
-      "rank": 123,
+      "rank": 124,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 38191.0,
@@ -4574,7 +4593,7 @@
         "elo_lower": 1389.8025549755207,
         "elo_upper": 1395.278728685364
       },
-      "rank": 124,
+      "rank": 125,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 100212.0,
@@ -4593,7 +4612,7 @@
         "elo_lower": 1385.7252249060484,
         "elo_upper": 1395.977520387536
       },
-      "rank": 125,
+      "rank": 126,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17112.0,
@@ -4612,7 +4631,7 @@
         "elo_lower": 1383.7275089279283,
         "elo_upper": 1392.345492250904
       },
-      "rank": 126,
+      "rank": 127,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 33084.0,
@@ -4631,7 +4650,7 @@
         "elo_lower": 1378.8835497240784,
         "elo_upper": 1388.5869925552934
       },
-      "rank": 127,
+      "rank": 128,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 23720.0,
@@ -4650,7 +4669,7 @@
         "elo_lower": 1378.5085296893608,
         "elo_upper": 1386.9349398210156
       },
-      "rank": 128,
+      "rank": 129,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 31066.0,
@@ -4669,7 +4688,7 @@
         "elo_lower": 1378.361591674703,
         "elo_upper": 1385.7115418754652
       },
-      "rank": 129,
+      "rank": 130,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 50955.0,
@@ -4688,7 +4707,7 @@
         "elo_lower": 1373.1152142542737,
         "elo_upper": 1386.0337073199676
       },
-      "rank": 130,
+      "rank": 131,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11772.0,
@@ -4707,7 +4726,7 @@
         "elo_lower": 1375.6549721523538,
         "elo_upper": 1382.4836417003585
       },
-      "rank": 131,
+      "rank": 132,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 47204.0,
@@ -4726,7 +4745,7 @@
         "elo_lower": 1371.4633354549392,
         "elo_upper": 1385.844773564333
       },
-      "rank": 132,
+      "rank": 133,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7547.0,
@@ -4745,7 +4764,7 @@
         "elo_lower": 1369.5356425861469,
         "elo_upper": 1382.3719191339583
       },
-      "rank": 133,
+      "rank": 134,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10722.0,
@@ -4764,7 +4783,7 @@
         "elo_lower": 1371.0433132296403,
         "elo_upper": 1379.8055980948375
       },
-      "rank": 134,
+      "rank": 135,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 36870.0,
@@ -4783,7 +4802,7 @@
         "elo_lower": 1371.095532945058,
         "elo_upper": 1378.7636877516065
       },
-      "rank": 135,
+      "rank": 136,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 45491.0,
@@ -4802,7 +4821,7 @@
         "elo_lower": 1363.407969598071,
         "elo_upper": 1385.852578096999
       },
-      "rank": 136,
+      "rank": 137,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2802.0,
@@ -4821,7 +4840,7 @@
         "elo_lower": 1369.8416477284918,
         "elo_upper": 1378.0510240002754
       },
-      "rank": 137,
+      "rank": 138,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 48005.0,
@@ -4840,7 +4859,7 @@
         "elo_lower": 1369.2711742851584,
         "elo_upper": 1378.3462278244197
       },
-      "rank": 138,
+      "rank": 139,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27016.0,
@@ -4859,7 +4878,7 @@
         "elo_lower": 1367.8783301362878,
         "elo_upper": 1377.536862808381
       },
-      "rank": 139,
+      "rank": 140,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18524.0,
@@ -4878,7 +4897,7 @@
         "elo_lower": 1365.9071640708764,
         "elo_upper": 1375.5754880603881
       },
-      "rank": 140,
+      "rank": 141,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27627.0,
@@ -4897,7 +4916,7 @@
         "elo_lower": 1364.7002619909106,
         "elo_upper": 1374.0214438930375
       },
-      "rank": 141,
+      "rank": 142,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 33206.0,
@@ -4916,7 +4935,7 @@
         "elo_lower": 1363.9825959025047,
         "elo_upper": 1372.922727108973
       },
-      "rank": 142,
+      "rank": 143,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32886.0,
@@ -4935,7 +4954,7 @@
         "elo_lower": 1362.0973629715036,
         "elo_upper": 1373.7344142717056
       },
-      "rank": 143,
+      "rank": 144,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 13686.0,
@@ -4954,7 +4973,7 @@
         "elo_lower": 1361.483513134841,
         "elo_upper": 1372.105349904196
       },
-      "rank": 144,
+      "rank": 145,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16953.0,
@@ -4973,7 +4992,7 @@
         "elo_lower": 1362.4525804098394,
         "elo_upper": 1370.5778801738447
       },
-      "rank": 145,
+      "rank": 146,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32617.0,
@@ -4992,7 +5011,7 @@
         "elo_lower": 1361.429979907885,
         "elo_upper": 1370.3366931038004
       },
-      "rank": 146,
+      "rank": 147,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27807.0,
@@ -5011,7 +5030,7 @@
         "elo_lower": 1361.0507037892712,
         "elo_upper": 1370.4066522875796
       },
-      "rank": 147,
+      "rank": 148,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26259.0,
@@ -5030,7 +5049,7 @@
         "elo_lower": 1361.1361673310566,
         "elo_upper": 1369.7894831269668
       },
-      "rank": 148,
+      "rank": 149,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 30639.0,
@@ -5049,7 +5068,7 @@
         "elo_lower": 1353.6798850475147,
         "elo_upper": 1375.2491289387553
       },
-      "rank": 149,
+      "rank": 150,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2832.0,
@@ -5068,7 +5087,7 @@
         "elo_lower": 1359.9451233671055,
         "elo_upper": 1368.5160542685785
       },
-      "rank": 150,
+      "rank": 151,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 44191.0,
@@ -5087,7 +5106,7 @@
         "elo_lower": 1355.7992941202774,
         "elo_upper": 1370.1809913336438
       },
-      "rank": 151,
+      "rank": 152,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7003.0,
@@ -5106,7 +5125,7 @@
         "elo_lower": 1356.6437343254838,
         "elo_upper": 1368.7576743732338
       },
-      "rank": 152,
+      "rank": 153,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12233.0,
@@ -5125,7 +5144,7 @@
         "elo_lower": 1357.6876140523445,
         "elo_upper": 1367.6448875527747
       },
-      "rank": 153,
+      "rank": 154,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 22703.0,
@@ -5144,7 +5163,7 @@
         "elo_lower": 1355.0092518497027,
         "elo_upper": 1362.9842268000662
       },
-      "rank": 154,
+      "rank": 155,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 41241.0,
@@ -5163,7 +5182,7 @@
         "elo_lower": 1354.5928662627434,
         "elo_upper": 1361.8440964591146
       },
-      "rank": 155,
+      "rank": 156,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 47513.0,
@@ -5182,7 +5201,7 @@
         "elo_lower": 1346.7134947095492,
         "elo_upper": 1367.5967712611925
       },
-      "rank": 156,
+      "rank": 157,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3123.0,
@@ -5201,7 +5220,7 @@
         "elo_lower": 1351.3741523172703,
         "elo_upper": 1361.2994077648905
       },
-      "rank": 157,
+      "rank": 158,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 25709.0,
@@ -5220,7 +5239,7 @@
         "elo_lower": 1347.7748678800513,
         "elo_upper": 1364.3510705119716
       },
-      "rank": 158,
+      "rank": 159,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5329.0,
@@ -5239,7 +5258,7 @@
         "elo_lower": 1350.311410344335,
         "elo_upper": 1357.7397888436622
       },
-      "rank": 159,
+      "rank": 160,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 43740.0,
@@ -5258,7 +5277,7 @@
         "elo_lower": 1347.6577376732203,
         "elo_upper": 1359.1857351691197
       },
-      "rank": 160,
+      "rank": 161,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11724.0,
@@ -5277,7 +5296,7 @@
         "elo_lower": 1347.8490058791108,
         "elo_upper": 1357.8846647318899
       },
-      "rank": 161,
+      "rank": 162,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 31122.0,
@@ -5296,7 +5315,7 @@
         "elo_lower": 1348.7443822463802,
         "elo_upper": 1356.6094359586734
       },
-      "rank": 162,
+      "rank": 163,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 45433.0,
@@ -5315,7 +5334,7 @@
         "elo_lower": 1342.3755944104278,
         "elo_upper": 1357.0443256193773
       },
-      "rank": 163,
+      "rank": 164,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6537.0,
@@ -5334,7 +5353,7 @@
         "elo_lower": 1343.7734392770387,
         "elo_upper": 1354.6853842979242
       },
-      "rank": 164,
+      "rank": 165,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 15509.0,
@@ -5353,7 +5372,7 @@
         "elo_lower": 1343.8254865106278,
         "elo_upper": 1352.7316279352085
       },
-      "rank": 165,
+      "rank": 166,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 35086.0,
@@ -5372,7 +5391,7 @@
         "elo_lower": 1338.040688303654,
         "elo_upper": 1346.5362017699538
       },
-      "rank": 166,
+      "rank": 167,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 35177.0,
@@ -5391,7 +5410,7 @@
         "elo_lower": 1334.4703078275456,
         "elo_upper": 1349.8244364605866
       },
-      "rank": 167,
+      "rank": 168,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6864.0,
@@ -5410,7 +5429,7 @@
         "elo_lower": 1336.9150120451088,
         "elo_upper": 1346.401945779244
       },
-      "rank": 168,
+      "rank": 169,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 29229.0,
@@ -5429,7 +5448,7 @@
         "elo_lower": 1336.232687467343,
         "elo_upper": 1344.7754882429642
       },
-      "rank": 169,
+      "rank": 170,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 39308.0,
@@ -5448,7 +5467,7 @@
         "elo_lower": 1330.7412175873924,
         "elo_upper": 1349.3764974116257
       },
-      "rank": 170,
+      "rank": 171,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3926.0,
@@ -5467,7 +5486,7 @@
         "elo_lower": 1334.0906844651831,
         "elo_upper": 1344.4256664496313
       },
-      "rank": 171,
+      "rank": 172,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17698.0,
@@ -5486,7 +5505,7 @@
         "elo_lower": 1334.569802528906,
         "elo_upper": 1343.2660311444365
       },
-      "rank": 172,
+      "rank": 173,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 30115.0,
@@ -5505,7 +5524,7 @@
         "elo_lower": 1333.423331837122,
         "elo_upper": 1342.2033933646903
       },
-      "rank": 173,
+      "rank": 174,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 40294.0,
@@ -5524,7 +5543,7 @@
         "elo_lower": 1327.6206105589854,
         "elo_upper": 1347.5540412499963
       },
-      "rank": 174,
+      "rank": 175,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3346.0,
@@ -5543,7 +5562,7 @@
         "elo_lower": 1331.3706718712278,
         "elo_upper": 1341.834233655611
       },
-      "rank": 175,
+      "rank": 176,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18589.0,
@@ -5562,7 +5581,7 @@
         "elo_lower": 1328.5604341442568,
         "elo_upper": 1342.1863464402834
       },
-      "rank": 176,
+      "rank": 177,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9033.0,
@@ -5581,7 +5600,7 @@
         "elo_lower": 1324.825425725367,
         "elo_upper": 1343.5816507026143
       },
-      "rank": 177,
+      "rank": 178,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3829.0,
@@ -5600,7 +5619,7 @@
         "elo_lower": 1325.3966479176277,
         "elo_upper": 1342.0413631689567
       },
-      "rank": 178,
+      "rank": 179,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4956.0,
@@ -5619,7 +5638,7 @@
         "elo_lower": 1327.8464135962868,
         "elo_upper": 1337.2805224119065
       },
-      "rank": 179,
+      "rank": 180,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 21770.0,
@@ -5638,7 +5657,7 @@
         "elo_lower": 1324.6421961519954,
         "elo_upper": 1338.9385121367297
       },
-      "rank": 180,
+      "rank": 181,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7137.0,
@@ -5657,7 +5676,7 @@
         "elo_lower": 1327.922108783112,
         "elo_upper": 1334.7767683454786
       },
-      "rank": 181,
+      "rank": 182,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 56234.0,
@@ -5676,7 +5695,7 @@
         "elo_lower": 1322.5041279048733,
         "elo_upper": 1339.285965779481
       },
-      "rank": 182,
+      "rank": 183,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5760.0,
@@ -5695,7 +5714,7 @@
         "elo_lower": 1325.3264281452766,
         "elo_upper": 1333.8754846573195
       },
-      "rank": 183,
+      "rank": 184,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24955.0,
@@ -5714,7 +5733,7 @@
         "elo_lower": 1324.8368893140168,
         "elo_upper": 1333.663148742974
       },
-      "rank": 184,
+      "rank": 185,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 25382.0,
@@ -5733,7 +5752,7 @@
         "elo_lower": 1318.1785148779795,
         "elo_upper": 1334.760212461007
       },
-      "rank": 185,
+      "rank": 186,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5819.0,
@@ -5752,7 +5771,7 @@
         "elo_lower": 1312.4529351415545,
         "elo_upper": 1329.5528551846728
       },
-      "rank": 186,
+      "rank": 187,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4833.0,
@@ -5771,7 +5790,7 @@
         "elo_lower": 1313.4568624399485,
         "elo_upper": 1327.0636647170713
       },
-      "rank": 187,
+      "rank": 188,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8257.0,
@@ -5790,7 +5809,7 @@
         "elo_lower": 1308.051673108044,
         "elo_upper": 1331.5047618489657
       },
-      "rank": 188,
+      "rank": 189,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2220.0,
@@ -5809,7 +5828,7 @@
         "elo_lower": 1307.9445107973763,
         "elo_upper": 1331.0140417906211
       },
-      "rank": 189,
+      "rank": 190,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2549.0,
@@ -5828,7 +5847,7 @@
         "elo_lower": 1315.8583477077254,
         "elo_upper": 1322.5647232186502
       },
-      "rank": 190,
+      "rank": 191,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 55606.0,
@@ -5847,7 +5866,7 @@
         "elo_lower": 1315.5356741488833,
         "elo_upper": 1322.5694400395032
       },
-      "rank": 191,
+      "rank": 192,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 57325.0,
@@ -5866,7 +5885,7 @@
         "elo_lower": 1313.5461999981844,
         "elo_upper": 1320.7761061374895
       },
-      "rank": 192,
+      "rank": 193,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 51981.0,
@@ -5885,7 +5904,7 @@
         "elo_lower": 1312.2925917156895,
         "elo_upper": 1321.6819458974294
       },
-      "rank": 193,
+      "rank": 194,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26474.0,
@@ -5904,7 +5923,7 @@
         "elo_lower": 1310.1705711489149,
         "elo_upper": 1318.5858173606084
       },
-      "rank": 194,
+      "rank": 195,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 38819.0,
@@ -5923,7 +5942,7 @@
         "elo_lower": 1305.5711161008903,
         "elo_upper": 1317.6574864354866
       },
-      "rank": 195,
+      "rank": 196,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12217.0,
@@ -5942,7 +5961,7 @@
         "elo_lower": 1300.0141418971052,
         "elo_upper": 1322.9254626382308
       },
-      "rank": 196,
+      "rank": 197,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2290.0,
@@ -5961,7 +5980,7 @@
         "elo_lower": 1296.351215176786,
         "elo_upper": 1320.4972228001716
       },
-      "rank": 197,
+      "rank": 198,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2218.0,
@@ -5980,7 +5999,7 @@
         "elo_lower": 1301.0905818621607,
         "elo_upper": 1311.3334692888263
       },
-      "rank": 198,
+      "rank": 199,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 22578.0,
@@ -5999,7 +6018,7 @@
         "elo_lower": 1301.0281772412081,
         "elo_upper": 1308.3101793275782
       },
-      "rank": 199,
+      "rank": 200,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 63498.0,
@@ -6018,7 +6037,7 @@
         "elo_lower": 1296.7264435663776,
         "elo_upper": 1306.5061895048034
       },
-      "rank": 200,
+      "rank": 201,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27332.0,
@@ -6037,7 +6056,7 @@
         "elo_lower": 1297.106648154937,
         "elo_upper": 1303.9485270705163
       },
-      "rank": 201,
+      "rank": 202,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 112881.0,
@@ -6056,7 +6075,7 @@
         "elo_lower": 1295.3438759883193,
         "elo_upper": 1303.2366148521205
       },
-      "rank": 202,
+      "rank": 203,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 43169.0,
@@ -6075,7 +6094,7 @@
         "elo_lower": 1292.9183979016266,
         "elo_upper": 1305.558301925294
       },
-      "rank": 203,
+      "rank": 204,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10187.0,
@@ -6094,7 +6113,7 @@
         "elo_lower": 1290.5769400458512,
         "elo_upper": 1306.9205739675226
       },
-      "rank": 204,
+      "rank": 205,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5942.0,
@@ -6113,7 +6132,7 @@
         "elo_lower": 1294.5561015700769,
         "elo_upper": 1300.8417620768246
       },
-      "rank": 205,
+      "rank": 206,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 88333.0,
@@ -6132,7 +6151,7 @@
         "elo_lower": 1273.6708995291183,
         "elo_upper": 1315.565339940775
       },
-      "rank": 206,
+      "rank": 207,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 803.0,
@@ -6151,7 +6170,7 @@
         "elo_lower": 1285.8102683112259,
         "elo_upper": 1302.259030744206
       },
-      "rank": 207,
+      "rank": 208,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6795.0,
@@ -6170,7 +6189,7 @@
         "elo_lower": 1282.4453797323522,
         "elo_upper": 1302.5415334000613
       },
-      "rank": 208,
+      "rank": 209,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4063.0,
@@ -6189,7 +6208,7 @@
         "elo_lower": 1287.0239922235041,
         "elo_upper": 1296.0726964386986
       },
-      "rank": 209,
+      "rank": 210,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24739.0,
@@ -6208,7 +6227,7 @@
         "elo_lower": 1281.5635417129556,
         "elo_upper": 1300.0251383818425
       },
-      "rank": 210,
+      "rank": 211,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4171.0,
@@ -6227,7 +6246,7 @@
         "elo_lower": 1284.8469360413005,
         "elo_upper": 1294.6296720189234
       },
-      "rank": 211,
+      "rank": 212,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26126.0,
@@ -6246,7 +6265,7 @@
         "elo_lower": 1278.2621494139148,
         "elo_upper": 1297.7579840441117
       },
-      "rank": 212,
+      "rank": 213,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3738.0,
@@ -6265,7 +6284,7 @@
         "elo_lower": 1281.3417364902107,
         "elo_upper": 1294.0275989997758
       },
-      "rank": 213,
+      "rank": 214,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10625.0,
@@ -6284,7 +6303,7 @@
         "elo_lower": 1283.4221864406336,
         "elo_upper": 1291.8768520805138
       },
-      "rank": 214,
+      "rank": 215,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 39967.0,
@@ -6303,7 +6322,7 @@
         "elo_lower": 1282.5575054422497,
         "elo_upper": 1290.924644553993
       },
-      "rank": 215,
+      "rank": 216,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 34902.0,
@@ -6322,7 +6341,7 @@
         "elo_lower": 1283.016687421478,
         "elo_upper": 1290.007442597775
       },
-      "rank": 216,
+      "rank": 217,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 68709.0,
@@ -6341,7 +6360,7 @@
         "elo_lower": 1277.1437488871418,
         "elo_upper": 1292.426596146328
       },
-      "rank": 217,
+      "rank": 218,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6103.0,
@@ -6360,7 +6379,7 @@
         "elo_lower": 1280.0893104586721,
         "elo_upper": 1287.429130229947
       },
-      "rank": 218,
+      "rank": 219,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 41375.0,
@@ -6379,7 +6398,7 @@
         "elo_lower": 1275.0297362743836,
         "elo_upper": 1290.4448058514465
       },
-      "rank": 219,
+      "rank": 220,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7140.0,
@@ -6398,7 +6417,7 @@
         "elo_lower": 1278.4532882334456,
         "elo_upper": 1286.811210575806
       },
-      "rank": 220,
+      "rank": 221,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 45499.0,
@@ -6417,7 +6436,7 @@
         "elo_lower": 1276.2960534508002,
         "elo_upper": 1287.6347854148771
       },
-      "rank": 221,
+      "rank": 222,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16478.0,
@@ -6436,7 +6455,7 @@
         "elo_lower": 1268.1298173894234,
         "elo_upper": 1295.6856863318767
       },
-      "rank": 222,
+      "rank": 223,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1955.0,
@@ -6455,7 +6474,7 @@
         "elo_lower": 1278.3398428353212,
         "elo_upper": 1285.4520449695883
       },
-      "rank": 223,
+      "rank": 224,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 59656.0,
@@ -6474,7 +6493,7 @@
         "elo_lower": 1277.5985810564407,
         "elo_upper": 1284.413280065307
       },
-      "rank": 224,
+      "rank": 225,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 82419.0,
@@ -6493,7 +6512,7 @@
         "elo_lower": 1276.1374228313216,
         "elo_upper": 1285.4907294727147
       },
-      "rank": 225,
+      "rank": 226,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 30275.0,
@@ -6512,7 +6531,7 @@
         "elo_lower": 1277.1004986636794,
         "elo_upper": 1284.4726133044799
       },
-      "rank": 226,
+      "rank": 227,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 52567.0,
@@ -6531,7 +6550,7 @@
         "elo_lower": 1273.5524050475242,
         "elo_upper": 1283.7431442745847
       },
-      "rank": 227,
+      "rank": 228,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 50148.0,
@@ -6550,7 +6569,7 @@
         "elo_lower": 1273.4023645611005,
         "elo_upper": 1282.3933840629243
       },
-      "rank": 228,
+      "rank": 229,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 33204.0,
@@ -6569,7 +6588,7 @@
         "elo_lower": 1271.5892970026466,
         "elo_upper": 1278.4821538707854
       },
-      "rank": 229,
+      "rank": 230,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 54732.0,
@@ -6588,7 +6607,7 @@
         "elo_lower": 1264.3957219695358,
         "elo_upper": 1283.715102439752
       },
-      "rank": 230,
+      "rank": 231,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3904.0,
@@ -6607,7 +6626,7 @@
         "elo_lower": 1269.6216050894745,
         "elo_upper": 1277.5449091007044
       },
-      "rank": 231,
+      "rank": 232,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 79138.0,
@@ -6626,7 +6645,7 @@
         "elo_lower": 1267.8895540446547,
         "elo_upper": 1275.6670033254306
       },
-      "rank": 232,
+      "rank": 233,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 98114.0,
@@ -6645,7 +6664,7 @@
         "elo_lower": 1266.665509172294,
         "elo_upper": 1276.0080192145772
       },
-      "rank": 233,
+      "rank": 234,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24572.0,
@@ -6664,7 +6683,7 @@
         "elo_lower": 1262.915628739464,
         "elo_upper": 1277.3010530645774
       },
-      "rank": 234,
+      "rank": 235,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8503.0,
@@ -6683,7 +6702,7 @@
         "elo_lower": 1265.0665535156875,
         "elo_upper": 1273.156165137737
       },
-      "rank": 235,
+      "rank": 236,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 39406.0,
@@ -6702,7 +6721,7 @@
         "elo_lower": 1262.3355337461658,
         "elo_upper": 1270.1269204219793
       },
-      "rank": 236,
+      "rank": 237,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 45459.0,
@@ -6721,7 +6740,7 @@
         "elo_lower": 1260.9515033684524,
         "elo_upper": 1269.7793436574661
       },
-      "rank": 237,
+      "rank": 238,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 28073.0,
@@ -6740,7 +6759,7 @@
         "elo_lower": 1259.59239221712,
         "elo_upper": 1270.86807353854
       },
-      "rank": 238,
+      "rank": 239,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19621.0,
@@ -6759,7 +6778,7 @@
         "elo_lower": 1259.6644346786884,
         "elo_upper": 1267.3858694679202
       },
-      "rank": 239,
+      "rank": 240,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 100105.0,
@@ -6778,7 +6797,7 @@
         "elo_lower": 1254.1069834109971,
         "elo_upper": 1272.5136544219545
       },
-      "rank": 240,
+      "rank": 241,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5369.0,
@@ -6797,7 +6816,7 @@
         "elo_lower": 1258.2154070386737,
         "elo_upper": 1266.3673619934325
       },
-      "rank": 241,
+      "rank": 242,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 93439.0,
@@ -6816,7 +6835,7 @@
         "elo_lower": 1259.074366191055,
         "elo_upper": 1265.1205462193798
       },
-      "rank": 242,
+      "rank": 243,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 194909.0,
@@ -6835,7 +6854,7 @@
         "elo_lower": 1257.3030969403108,
         "elo_upper": 1264.6997770840592
       },
-      "rank": 243,
+      "rank": 244,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 55240.0,
@@ -6854,7 +6873,7 @@
         "elo_lower": 1254.2194274397739,
         "elo_upper": 1263.2745324155735
       },
-      "rank": 244,
+      "rank": 245,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24745.0,
@@ -6873,7 +6892,7 @@
         "elo_lower": 1245.3549397786535,
         "elo_upper": 1266.2930424770534
       },
-      "rank": 245,
+      "rank": 246,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2846.0,
@@ -6892,7 +6911,7 @@
         "elo_lower": 1252.2536795722413,
         "elo_upper": 1258.6318319289799
       },
-      "rank": 246,
+      "rank": 247,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 69947.0,
@@ -6911,7 +6930,7 @@
         "elo_lower": 1248.1374120260364,
         "elo_upper": 1260.9849583983241
       },
-      "rank": 247,
+      "rank": 248,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11630.0,
@@ -6930,7 +6949,7 @@
         "elo_lower": 1241.3622492323157,
         "elo_upper": 1255.5777553698003
       },
-      "rank": 248,
+      "rank": 249,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7312.0,
@@ -6949,7 +6968,7 @@
         "elo_lower": 1232.846567621093,
         "elo_upper": 1249.7217265073223
       },
-      "rank": 249,
+      "rank": 250,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5680.0,
@@ -6968,7 +6987,7 @@
         "elo_lower": 1234.929063783004,
         "elo_upper": 1243.8521185085165
       },
-      "rank": 250,
+      "rank": 251,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 62833.0,
@@ -6987,7 +7006,7 @@
         "elo_lower": 1229.8267104307438,
         "elo_upper": 1244.401322616854
       },
-      "rank": 251,
+      "rank": 252,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8662.0,
@@ -7006,7 +7025,7 @@
         "elo_lower": 1227.729691841208,
         "elo_upper": 1239.4549476951474
       },
-      "rank": 252,
+      "rank": 253,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14681.0,
@@ -7025,7 +7044,7 @@
         "elo_lower": 1228.111969005177,
         "elo_upper": 1234.8094717285062
       },
-      "rank": 253,
+      "rank": 254,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 75754.0,
@@ -7044,7 +7063,7 @@
         "elo_lower": 1222.090613327925,
         "elo_upper": 1238.1865724056738
       },
-      "rank": 254,
+      "rank": 255,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5432.0,
@@ -7063,7 +7082,7 @@
         "elo_lower": 1222.4456964338738,
         "elo_upper": 1235.5299057741054
       },
-      "rank": 255,
+      "rank": 256,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9866.0,
@@ -7082,7 +7101,7 @@
         "elo_lower": 1223.4247519487503,
         "elo_upper": 1233.6957423159097
       },
-      "rank": 256,
+      "rank": 257,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19372.0,
@@ -7101,7 +7120,7 @@
         "elo_lower": 1218.129138339837,
         "elo_upper": 1238.0185278234178
       },
-      "rank": 257,
+      "rank": 258,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3749.0,
@@ -7120,7 +7139,7 @@
         "elo_lower": 1220.308835072523,
         "elo_upper": 1233.999127278134
       },
-      "rank": 258,
+      "rank": 259,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10072.0,
@@ -7139,7 +7158,7 @@
         "elo_lower": 1219.062643713307,
         "elo_upper": 1232.9324790366118
       },
-      "rank": 259,
+      "rank": 260,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9788.0,
@@ -7158,7 +7177,7 @@
         "elo_lower": 1221.6859646508565,
         "elo_upper": 1230.2120349685842
       },
-      "rank": 260,
+      "rank": 261,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 35558.0,
@@ -7177,7 +7196,7 @@
         "elo_lower": 1219.6192204897866,
         "elo_upper": 1230.1864439014553
       },
-      "rank": 261,
+      "rank": 262,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19659.0,
@@ -7196,7 +7215,7 @@
         "elo_lower": 1219.258855569702,
         "elo_upper": 1228.9467779547601
       },
-      "rank": 262,
+      "rank": 263,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 27124.0,
@@ -7215,7 +7234,7 @@
         "elo_lower": 1217.3064495157191,
         "elo_upper": 1224.466014242832
       },
-      "rank": 263,
+      "rank": 264,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 156876.0,
@@ -7234,7 +7253,7 @@
         "elo_lower": 1214.166568118232,
         "elo_upper": 1222.0885953297752
       },
-      "rank": 264,
+      "rank": 265,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 109284.0,
@@ -7253,7 +7272,7 @@
         "elo_lower": 1211.078229441538,
         "elo_upper": 1224.940082101244
       },
-      "rank": 265,
+      "rank": 266,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7536.0,
@@ -7272,7 +7291,7 @@
         "elo_lower": 1207.1799483599757,
         "elo_upper": 1228.7583672373412
       },
-      "rank": 266,
+      "rank": 267,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3334.0,
@@ -7291,7 +7310,7 @@
         "elo_lower": 1212.1926464834537,
         "elo_upper": 1221.319143548742
       },
-      "rank": 267,
+      "rank": 268,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24126.0,
@@ -7310,7 +7329,7 @@
         "elo_lower": 1203.3571242622725,
         "elo_upper": 1213.6345377120886
       },
-      "rank": 268,
+      "rank": 269,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19364.0,
@@ -7329,7 +7348,7 @@
         "elo_lower": 1203.692197213961,
         "elo_upper": 1211.2570597757099
       },
-      "rank": 269,
+      "rank": 270,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 54611.0,
@@ -7348,7 +7367,7 @@
         "elo_lower": 1201.3489142489739,
         "elo_upper": 1210.8456221020497
       },
-      "rank": 270,
+      "rank": 271,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 54173.0,
@@ -7367,7 +7386,7 @@
         "elo_lower": 1199.629766041667,
         "elo_upper": 1208.210321235014
       },
-      "rank": 271,
+      "rank": 272,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 77554.0,
@@ -7386,7 +7405,7 @@
         "elo_lower": 1198.4596914928304,
         "elo_upper": 1208.2638213142895
       },
-      "rank": 272,
+      "rank": 273,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 37325.0,
@@ -7405,7 +7424,7 @@
         "elo_lower": 1190.4226863877734,
         "elo_upper": 1213.5964099382222
       },
-      "rank": 273,
+      "rank": 274,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2728.0,
@@ -7424,7 +7443,7 @@
         "elo_lower": 1191.0362451570031,
         "elo_upper": 1198.4989002004397
       },
-      "rank": 274,
+      "rank": 275,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 117701.0,
@@ -7443,7 +7462,7 @@
         "elo_lower": 1182.8931767579875,
         "elo_upper": 1203.9199106680683
       },
-      "rank": 275,
+      "rank": 276,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2896.0,
@@ -7462,7 +7481,7 @@
         "elo_lower": 1184.9339542745242,
         "elo_upper": 1197.6263669840193
       },
-      "rank": 276,
+      "rank": 277,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 15147.0,
@@ -7481,7 +7500,7 @@
         "elo_lower": 1182.0141449513435,
         "elo_upper": 1199.9863323050076
       },
-      "rank": 277,
+      "rank": 278,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4781.0,
@@ -7500,7 +7519,7 @@
         "elo_lower": 1180.9275136138162,
         "elo_upper": 1193.9688830329137
       },
-      "rank": 278,
+      "rank": 279,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10140.0,
@@ -7519,7 +7538,7 @@
         "elo_lower": 1179.598139227339,
         "elo_upper": 1193.9329818117726
       },
-      "rank": 279,
+      "rank": 280,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8858.0,
@@ -7538,7 +7557,7 @@
         "elo_lower": 1182.5818761918563,
         "elo_upper": 1190.757279126602
       },
-      "rank": 280,
+      "rank": 281,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 49605.0,
@@ -7557,7 +7576,7 @@
         "elo_lower": 1182.0581242990143,
         "elo_upper": 1190.132220989622
       },
-      "rank": 281,
+      "rank": 282,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 88723.0,
@@ -7576,7 +7595,7 @@
         "elo_lower": 1178.2939532269704,
         "elo_upper": 1192.1193357563704
       },
-      "rank": 282,
+      "rank": 283,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9818.0,
@@ -7595,7 +7614,7 @@
         "elo_lower": 1171.874704544312,
         "elo_upper": 1181.2572095861378
       },
-      "rank": 283,
+      "rank": 284,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 62436.0,
@@ -7614,7 +7633,7 @@
         "elo_lower": 1169.1366723133706,
         "elo_upper": 1180.1823841475443
       },
-      "rank": 284,
+      "rank": 285,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 26195.0,
@@ -7633,7 +7652,7 @@
         "elo_lower": 1168.0399039233084,
         "elo_upper": 1178.0538597598988
       },
-      "rank": 285,
+      "rank": 286,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24146.0,
@@ -7652,7 +7671,7 @@
         "elo_lower": 1163.2012636254867,
         "elo_upper": 1177.8411560722277
       },
-      "rank": 286,
+      "rank": 287,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 15450.0,
@@ -7671,7 +7690,7 @@
         "elo_lower": 1161.0454171817687,
         "elo_upper": 1171.4359778380745
       },
-      "rank": 287,
+      "rank": 288,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 39302.0,
@@ -7690,7 +7709,7 @@
         "elo_lower": 1161.9750285107539,
         "elo_upper": 1169.4100163739463
       },
-      "rank": 288,
+      "rank": 289,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 104642.0,
@@ -7709,7 +7728,7 @@
         "elo_lower": 1159.7906299547653,
         "elo_upper": 1170.6625917028032
       },
-      "rank": 289,
+      "rank": 290,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 34550.0,
@@ -7728,7 +7747,7 @@
         "elo_lower": 1159.174927464258,
         "elo_upper": 1170.9787331962912
       },
-      "rank": 290,
+      "rank": 291,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 24806.0,
@@ -7747,7 +7766,7 @@
         "elo_lower": 1158.485663604773,
         "elo_upper": 1167.9606053055472
       },
-      "rank": 291,
+      "rank": 292,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 54036.0,
@@ -7766,7 +7785,7 @@
         "elo_lower": 1157.5564216728105,
         "elo_upper": 1166.594545496303
       },
-      "rank": 292,
+      "rank": 293,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 51416.0,
@@ -7785,7 +7804,7 @@
         "elo_lower": 1150.5309166773955,
         "elo_upper": 1173.246017293187
       },
-      "rank": 293,
+      "rank": 294,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3231.0,
@@ -7804,7 +7823,7 @@
         "elo_lower": 1151.4771542632823,
         "elo_upper": 1165.5898432399047
       },
-      "rank": 294,
+      "rank": 295,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 9901.0,
@@ -7823,7 +7842,7 @@
         "elo_lower": 1151.8290901350056,
         "elo_upper": 1159.8852018645293
       },
-      "rank": 295,
+      "rank": 296,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 46616.0,
@@ -7842,7 +7861,7 @@
         "elo_lower": 1138.6803426132021,
         "elo_upper": 1160.570354789833
       },
-      "rank": 296,
+      "rank": 297,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3090.0,
@@ -7861,7 +7880,7 @@
         "elo_lower": 1141.7240361647223,
         "elo_upper": 1156.1485319863627
       },
-      "rank": 297,
+      "rank": 298,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 18354.0,
@@ -7880,7 +7899,7 @@
         "elo_lower": 1133.0380839933573,
         "elo_upper": 1154.5231257120117
       },
-      "rank": 298,
+      "rank": 299,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4652.0,
@@ -7899,7 +7918,7 @@
         "elo_lower": 1132.517387259446,
         "elo_upper": 1142.760084108995
       },
-      "rank": 299,
+      "rank": 300,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 25055.0,
@@ -7918,7 +7937,7 @@
         "elo_lower": 1131.208426496109,
         "elo_upper": 1143.3730528657652
       },
-      "rank": 300,
+      "rank": 301,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 21741.0,
@@ -7937,7 +7956,7 @@
         "elo_lower": 1124.8316064311896,
         "elo_upper": 1139.430641006607
       },
-      "rank": 301,
+      "rank": 302,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16056.0,
@@ -7956,7 +7975,7 @@
         "elo_lower": 1127.4104818380142,
         "elo_upper": 1135.8825113576802
       },
-      "rank": 302,
+      "rank": 303,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 73503.0,
@@ -7975,7 +7994,7 @@
         "elo_lower": 1119.1621758810284,
         "elo_upper": 1142.0899989740549
       },
-      "rank": 303,
+      "rank": 304,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6390.0,
@@ -7994,7 +8013,7 @@
         "elo_lower": 1121.7749422605393,
         "elo_upper": 1135.3413101284007
       },
-      "rank": 304,
+      "rank": 305,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 15483.0,
@@ -8013,7 +8032,7 @@
         "elo_lower": 1120.729120983251,
         "elo_upper": 1134.8339275892413
       },
-      "rank": 305,
+      "rank": 306,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17839.0,
@@ -8032,7 +8051,7 @@
         "elo_lower": 1116.446269344342,
         "elo_upper": 1138.5684769555696
       },
-      "rank": 306,
+      "rank": 307,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3188.0,
@@ -8051,7 +8070,7 @@
         "elo_lower": 1120.3344767876415,
         "elo_upper": 1129.6828518851698
       },
-      "rank": 307,
+      "rank": 308,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 66207.0,
@@ -8070,7 +8089,7 @@
         "elo_lower": 1111.4096570533475,
         "elo_upper": 1130.8353159561127
       },
-      "rank": 308,
+      "rank": 309,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6535.0,
@@ -8089,7 +8108,7 @@
         "elo_lower": 1110.2509052388002,
         "elo_upper": 1128.9652931618944
       },
-      "rank": 309,
+      "rank": 310,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8214.0,
@@ -8108,7 +8127,7 @@
         "elo_lower": 1112.8962967173643,
         "elo_upper": 1125.0166915985892
       },
-      "rank": 310,
+      "rank": 311,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32191.0,
@@ -8127,7 +8146,7 @@
         "elo_lower": 1109.850120561097,
         "elo_upper": 1120.7806765689115
       },
-      "rank": 311,
+      "rank": 312,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 38492.0,
@@ -8146,7 +8165,7 @@
         "elo_lower": 1100.309994967658,
         "elo_upper": 1123.9425143875371
       },
-      "rank": 312,
+      "rank": 313,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3777.0,
@@ -8165,7 +8184,7 @@
         "elo_lower": 1104.0566040240335,
         "elo_upper": 1115.7649136029538
       },
-      "rank": 313,
+      "rank": 314,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 17766.0,
@@ -8184,7 +8203,7 @@
         "elo_lower": 1102.0621902911323,
         "elo_upper": 1117.182285227344
       },
-      "rank": 314,
+      "rank": 315,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7936.0,
@@ -8203,7 +8222,7 @@
         "elo_lower": 1099.8197144527908,
         "elo_upper": 1115.6769260465949
       },
-      "rank": 315,
+      "rank": 316,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10224.0,
@@ -8222,7 +8241,7 @@
         "elo_lower": 1098.7800488447497,
         "elo_upper": 1114.611637967546
       },
-      "rank": 316,
+      "rank": 317,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12637.0,
@@ -8241,7 +8260,7 @@
         "elo_lower": 1099.21572142273,
         "elo_upper": 1111.478806429927
       },
-      "rank": 317,
+      "rank": 318,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 22479.0,
@@ -8260,7 +8279,7 @@
         "elo_lower": 1093.5506966339908,
         "elo_upper": 1116.6826694177967
       },
-      "rank": 318,
+      "rank": 319,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4932.0,
@@ -8279,7 +8298,7 @@
         "elo_lower": 1095.1724402767065,
         "elo_upper": 1106.9531604483145
       },
-      "rank": 319,
+      "rank": 320,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 32832.0,
@@ -8298,7 +8317,7 @@
         "elo_lower": 1085.6911890947413,
         "elo_upper": 1110.6639817077053
       },
-      "rank": 320,
+      "rank": 321,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3585.0,
@@ -8317,7 +8336,7 @@
         "elo_lower": 1087.470035420606,
         "elo_upper": 1106.7684071930753
       },
-      "rank": 321,
+      "rank": 322,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7968.0,
@@ -8336,7 +8355,7 @@
         "elo_lower": 1087.9764055537958,
         "elo_upper": 1105.0758994799016
       },
-      "rank": 322,
+      "rank": 323,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6638.0,
@@ -8355,7 +8374,7 @@
         "elo_lower": 1085.4633275978354,
         "elo_upper": 1102.9527400607576
       },
-      "rank": 323,
+      "rank": 324,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 16619.0,
@@ -8374,7 +8393,7 @@
         "elo_lower": 1088.0502196162884,
         "elo_upper": 1100.069425349378
       },
-      "rank": 324,
+      "rank": 325,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 23893.0,
@@ -8393,7 +8412,7 @@
         "elo_lower": 1082.243087220385,
         "elo_upper": 1102.9292073030715
       },
-      "rank": 325,
+      "rank": 326,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5006.0,
@@ -8412,7 +8431,7 @@
         "elo_lower": 1083.0988315045597,
         "elo_upper": 1096.205146533051
       },
-      "rank": 326,
+      "rank": 327,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19402.0,
@@ -8431,7 +8450,7 @@
         "elo_lower": 1077.8729973537147,
         "elo_upper": 1091.2151259722596
       },
-      "rank": 327,
+      "rank": 328,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19174.0,
@@ -8450,7 +8469,7 @@
         "elo_lower": 1073.8331637941387,
         "elo_upper": 1093.2604068131336
       },
-      "rank": 328,
+      "rank": 329,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4737.0,
@@ -8469,7 +8488,7 @@
         "elo_lower": 1070.0789124958565,
         "elo_upper": 1096.269235654263
       },
-      "rank": 329,
+      "rank": 330,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4155.0,
@@ -8488,7 +8507,7 @@
         "elo_lower": 1065.7035750988457,
         "elo_upper": 1096.4156523600332
       },
-      "rank": 330,
+      "rank": 331,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1679.0,
@@ -8507,7 +8526,7 @@
         "elo_lower": 1073.6933502356787,
         "elo_upper": 1086.3929580923273
       },
-      "rank": 331,
+      "rank": 332,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 12297.0,
@@ -8526,7 +8545,7 @@
         "elo_lower": 1071.711735481933,
         "elo_upper": 1088.1473982227444
       },
-      "rank": 332,
+      "rank": 333,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6837.0,
@@ -8545,7 +8564,7 @@
         "elo_lower": 1067.360216598679,
         "elo_upper": 1085.8883021695408
       },
-      "rank": 333,
+      "rank": 334,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7044.0,
@@ -8564,7 +8583,7 @@
         "elo_lower": 1067.0854381061126,
         "elo_upper": 1079.700578721694
       },
-      "rank": 334,
+      "rank": 335,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 20118.0,
@@ -8583,7 +8602,7 @@
         "elo_lower": 1060.7830582317144,
         "elo_upper": 1078.2331762513445
       },
-      "rank": 335,
+      "rank": 336,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 11118.0,
@@ -8602,7 +8621,7 @@
         "elo_lower": 1056.5377153542495,
         "elo_upper": 1080.852761790301
       },
-      "rank": 336,
+      "rank": 337,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2572.0,
@@ -8621,7 +8640,7 @@
         "elo_lower": 1056.7812146018205,
         "elo_upper": 1074.358829858853
       },
-      "rank": 337,
+      "rank": 338,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7366.0,
@@ -8640,7 +8659,7 @@
         "elo_lower": 1042.724813565325,
         "elo_upper": 1074.1859299295593
       },
-      "rank": 338,
+      "rank": 339,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1785.0,
@@ -8659,7 +8678,7 @@
         "elo_lower": 1051.135665166374,
         "elo_upper": 1064.3524039919735
       },
-      "rank": 339,
+      "rank": 340,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 19367.0,
@@ -8678,7 +8697,7 @@
         "elo_lower": 1039.266327294286,
         "elo_upper": 1075.3901061041392
       },
-      "rank": 340,
+      "rank": 341,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1143.0,
@@ -8697,7 +8716,7 @@
         "elo_lower": 1046.6891865424507,
         "elo_upper": 1065.7928660858943
       },
-      "rank": 341,
+      "rank": 342,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8925.0,
@@ -8716,7 +8735,7 @@
         "elo_lower": 1047.0149777353677,
         "elo_upper": 1062.4302574614946
       },
-      "rank": 342,
+      "rank": 343,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8045.0,
@@ -8735,7 +8754,7 @@
         "elo_lower": 1037.3644266632714,
         "elo_upper": 1071.5144457194365
       },
-      "rank": 343,
+      "rank": 344,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1295.0,
@@ -8754,7 +8773,7 @@
         "elo_lower": 1046.502885530229,
         "elo_upper": 1060.4662445849335
       },
-      "rank": 344,
+      "rank": 345,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 14148.0,
@@ -8773,7 +8792,7 @@
         "elo_lower": 1041.4051019065064,
         "elo_upper": 1065.5237989580996
       },
-      "rank": 345,
+      "rank": 346,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2921.0,
@@ -8792,7 +8811,7 @@
         "elo_lower": 1040.2165413484927,
         "elo_upper": 1062.0099440556787
       },
-      "rank": 346,
+      "rank": 347,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4964.0,
@@ -8811,7 +8830,7 @@
         "elo_lower": 1043.2407928501784,
         "elo_upper": 1057.7104828838728
       },
-      "rank": 347,
+      "rank": 348,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 20685.0,
@@ -8830,7 +8849,7 @@
         "elo_lower": 1027.9876572738385,
         "elo_upper": 1056.2407544016355
       },
-      "rank": 348,
+      "rank": 349,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2199.0,
@@ -8849,7 +8868,7 @@
         "elo_lower": 1027.5528075225552,
         "elo_upper": 1049.4982691456967
       },
-      "rank": 349,
+      "rank": 350,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5182.0,
@@ -8868,7 +8887,7 @@
         "elo_lower": 1020.8269819243948,
         "elo_upper": 1042.9665405683877
       },
-      "rank": 350,
+      "rank": 351,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6328.0,
@@ -8887,7 +8906,7 @@
         "elo_lower": 1021.9124885498578,
         "elo_upper": 1040.1518969997624
       },
-      "rank": 351,
+      "rank": 352,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6923.0,
@@ -8906,7 +8925,7 @@
         "elo_lower": 1018.0778544581334,
         "elo_upper": 1036.5684950527757
       },
-      "rank": 352,
+      "rank": 353,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8554.0,
@@ -8925,7 +8944,7 @@
         "elo_lower": 1014.4029739574972,
         "elo_upper": 1032.7834592975005
       },
-      "rank": 353,
+      "rank": 354,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 8977.0,
@@ -8944,7 +8963,7 @@
         "elo_lower": 1014.6276737228408,
         "elo_upper": 1029.9920742103686
       },
-      "rank": 354,
+      "rank": 355,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 10854.0,
@@ -8963,7 +8982,7 @@
         "elo_lower": 990.7203663547797,
         "elo_upper": 1013.7449791391105
       },
-      "rank": 355,
+      "rank": 356,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4780.0,
@@ -8982,7 +9001,7 @@
         "elo_lower": 988.0792307492592,
         "elo_upper": 1006.5609626373713
       },
-      "rank": 356,
+      "rank": 357,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 7597.0,
@@ -9001,7 +9020,7 @@
         "elo_lower": 979.9274466109599,
         "elo_upper": 999.4597864759025
       },
-      "rank": 357,
+      "rank": 358,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6965.0,
@@ -9020,7 +9039,7 @@
         "elo_lower": 960.5308704291159,
         "elo_upper": 983.7153133106325
       },
-      "rank": 358,
+      "rank": 359,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4658.0,
@@ -9039,7 +9058,7 @@
         "elo_lower": 941.1712804784812,
         "elo_upper": 971.360274488744
       },
-      "rank": 359,
+      "rank": 360,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 1743.0,
@@ -9058,7 +9077,7 @@
         "elo_lower": 943.5118574788657,
         "elo_upper": 967.0949918261714
       },
-      "rank": 360,
+      "rank": 361,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3924.0,
@@ -9077,7 +9096,7 @@
         "elo_lower": 937.1550971090832,
         "elo_upper": 959.7854787020234
       },
-      "rank": 361,
+      "rank": 362,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4845.0,
@@ -9096,7 +9115,7 @@
         "elo_lower": 925.2135414384798,
         "elo_upper": 952.2102084100896
       },
-      "rank": 362,
+      "rank": 363,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2658.0,
@@ -9115,7 +9134,7 @@
         "elo_lower": 921.5602079467243,
         "elo_upper": 944.2295584344978
       },
-      "rank": 363,
+      "rank": 364,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 5745.0,
@@ -9134,7 +9153,7 @@
         "elo_lower": 906.2464129331116,
         "elo_upper": 930.8510097743764
       },
-      "rank": 364,
+      "rank": 365,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4914.0,
@@ -9153,7 +9172,7 @@
         "elo_lower": 905.3916200621753,
         "elo_upper": 926.9096471876791
       },
-      "rank": 365,
+      "rank": 366,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 6310.0,
@@ -9172,7 +9191,7 @@
         "elo_lower": 882.1963346414155,
         "elo_upper": 906.7700588101011
       },
-      "rank": 366,
+      "rank": 367,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 4203.0,
@@ -9191,7 +9210,7 @@
         "elo_lower": 853.9933596709418,
         "elo_upper": 879.321431604532
       },
-      "rank": 367,
+      "rank": 368,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3287.0,
@@ -9210,7 +9229,7 @@
         "elo_lower": 837.865354036607,
         "elo_upper": 864.5579419638236
       },
-      "rank": 368,
+      "rank": 369,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 3412.0,
@@ -9229,7 +9248,7 @@
         "elo_lower": 817.9085471175968,
         "elo_upper": 849.2796638771008
       },
-      "rank": 369,
+      "rank": 370,
       "source_url": "https://lmarena.ai/leaderboard",
       "extra": {
         "vote_count": 2391.0,
