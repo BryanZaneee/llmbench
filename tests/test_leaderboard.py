@@ -83,6 +83,30 @@ def test_huggingface_parses_json_response(monkeypatch):
     assert entry.source == "huggingface"
 
 
+def test_huggingface_sends_hf_token_when_set(monkeypatch):
+    seen_auth: list[str | None] = []
+
+    def mock_handler(request: httpx.Request) -> httpx.Response:
+        seen_auth.append(request.headers.get("Authorization"))
+        return httpx.Response(200, json={"rows": []})
+
+    transport = httpx.MockTransport(mock_handler)
+    RealClient = httpx.Client
+
+    import llmbench.leaderboards.huggingface as hf_mod
+    monkeypatch.setenv("HF_TOKEN", "hf_test123")
+    monkeypatch.setattr(
+        hf_mod.httpx,
+        "Client",
+        lambda *args, **kwargs: RealClient(
+            transport=transport, timeout=10, headers=kwargs.get("headers")
+        ),
+    )
+
+    HuggingFaceLeaderboard(top_n=1).fetch()
+    assert seen_auth == ["Bearer hf_test123"]
+
+
 def test_aider_parses_yaml_response(monkeypatch):
     fake_yaml = """
 - dirname: 2026-01-15--claude-opus-4-7

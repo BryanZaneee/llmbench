@@ -8,6 +8,7 @@ HuggingFace dataset and parses it with pyarrow. Default category is `text`
 from __future__ import annotations
 
 import io
+import os
 
 import httpx
 
@@ -61,7 +62,10 @@ class LMArenaLeaderboard(LeaderboardSource):
                 "LMArena source requires pyarrow. Install with: pip install pyarrow"
             ) from exc
 
-        with httpx.Client(timeout=60, follow_redirects=True) as client:
+        # Unauthenticated requests share a per-IP rate limit; CI runners get 429s.
+        token = os.environ.get("HF_TOKEN")
+        headers = {"Authorization": f"Bearer {token}"} if token else None
+        with httpx.Client(timeout=60, follow_redirects=True, headers=headers) as client:
             r = client.get(_parquet_url(self.category))
             r.raise_for_status()
             table = pq.read_table(io.BytesIO(r.content))

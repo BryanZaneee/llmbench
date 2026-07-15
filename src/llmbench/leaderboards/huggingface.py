@@ -7,6 +7,7 @@ GPQA, MUSR, MMLU-PRO, plus an overall Average.
 
 from __future__ import annotations
 
+import os
 import re
 from typing import Any
 
@@ -75,7 +76,10 @@ class HuggingFaceLeaderboard(LeaderboardSource):
 
     def fetch(self) -> LeaderboardSnapshot:
         rows: list[dict[str, Any]] = []
-        with httpx.Client(timeout=30) as client:
+        # Unauthenticated requests share a per-IP rate limit; CI runners get 429s.
+        token = os.environ.get("HF_TOKEN")
+        headers = {"Authorization": f"Bearer {token}"} if token else None
+        with httpx.Client(timeout=30, headers=headers) as client:
             offset = 0
             while len(rows) < self.top_n:
                 length = min(PAGE_SIZE, self.top_n - len(rows))

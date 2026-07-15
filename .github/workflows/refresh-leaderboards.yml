@@ -21,6 +21,8 @@ jobs:
         run: pip install -e ".[lmarena]"
 
       - name: Fetch leaderboard snapshots
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           mkdir -p "$RUNNER_TEMP/snapshots"
           llmbench leaderboard --source huggingface --top 200 --json > "$RUNNER_TEMP/snapshots/huggingface.json"
