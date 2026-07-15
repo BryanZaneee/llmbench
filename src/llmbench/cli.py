@@ -26,6 +26,7 @@ app = typer.Typer(
     invoke_without_command=True,
 )
 console = Console()
+err_console = Console(stderr=True)
 
 
 @app.callback()
@@ -279,13 +280,13 @@ def cmd_leaderboard(
     try:
         src = get_source(source)
     except ValueError as e:
-        console.print(f"[red]{e}[/]")
+        err_console.print(f"[red]{e}[/]")
         raise typer.Exit(1)
 
     try:
         snapshot = get_snapshot(src, refresh=refresh, offline=offline)
     except Exception as exc:  # noqa: BLE001
-        console.print(f"[red]Failed to fetch from {source!r}:[/] {exc}")
+        err_console.print(f"[red]Failed to fetch from {source!r}:[/] {exc}")
         raise typer.Exit(1)
 
     entries = snapshot.entries
