@@ -1,0 +1,48 @@
+{
+  "prompt_id": "cat_bench",
+  "prompt": "A photorealistic tabby cat playing with a ball of red yarn, natural window light.",
+  "updated_at": "2026-04-29",
+  "note": "Pre-made runs from BryanZane's local CatBench. Drop PNGs into web/data/catbench/images/ matching the paths below to populate the gallery.",
+  "runs": [
+    {
+      "id": "openai-dall-e-3",
+      "provider": "openai",
+      "model": "dall-e-3",
+      "label": "DALL-E 3",
+      "image": "images/dall-e-3.png",
+      "size": "1024x1024",
+      "latency_ms": 12340,
+      "cost_usd": 0.04
+    },
+    {
+      "id": "openai-gpt-image-2",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "label": "GPT Image 2",
+      "image": "images/gpt-image-2.png",
+      "size": "1024x1024",
+      "latency_ms": 18920,
+      "cost_usd": 0.19
+    },
+    {
+      "id": "gemini-nano-banana-2",
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-image-preview",
+      "label": "Nano Banana 2",
+      "image": "images/nano-banana-2.png",
+      "size": "1024x1024",
+      "latency_ms": 7480,
+      "cost_usd": 0.065
+    },
+    {
+      "id": "flux-2-klein-4b",
+      "provider": "flux",
+      "model": "flux-2-klein-4b",
+      "label": "FLUX.2 [klein]",
+      "image": "images/flux-2-klein-4b.png",
+      "size": "1024x1024",
+      "latency_ms": 9210,
+      "cost_usd": 0.04
+    }
+  ]
+}
