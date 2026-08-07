@@ -1341,4 +1341,4 @@ a { color: inherit; }
 .prov-chip[data-kind="generic"] { border-left: 2px solid var(--ink-300); }
 
 /* ─────────────────────────────────────────── FOOTER ─── */
-/* .ed-colophon chrome comes from /shared/editorial.css. */
+/* .ed-footer chrome comes from /shared/editorial.css. */
