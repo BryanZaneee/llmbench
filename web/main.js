@@ -11,7 +11,7 @@ const PRIMARY = {
   bundled:     { key: "average",            label: "avg" },
 };
 const ALL_SOURCES = ["huggingface", "lmarena", "aider", "bundled"];
-const INITIAL_LIMIT = 10;
+const INITIAL_LIMIT = 25;
 const PAGE_INCREMENT = 50;
 
 const state = {
