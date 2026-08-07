@@ -4,6 +4,83 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-08-07 - Web: page rebuilt around what the tool does
+
+- Removed the simulated TUI from `web/`. It was the largest block on the page
+  at roughly 1,020px, it mimicked the CLI without running anything, and it
+  carried a second copy of the ASCII banner. `web/tui.js` became
+  `web/bench.js` (git mv, history preserved) holding only the CatBench
+  bring-your-own-key runner, and the page no longer loads it. See the note on
+  `bench.js` below.
+- Replaced it with a three-column band stating the product directly: the four
+  benchmark types, the five agentic tasks plus the sandbox primitives and the
+  post-run verdict model, and the ten provider adapters grouped as hosted /
+  local / image / custom. This content previously existed but sat behind a
+  tab, so the first thing a visitor saw explained nothing.
+- Copy is constrained by the audit in `docs/tui_authoring_gaps.md`. The page
+  does not claim benchmarks can be pulled from HuggingFace or LMArena, because
+  `leaderboards/` returns published scores and has no path into
+  `runner.run_suite`. The leaderboard section says so explicitly.
+- The page defaults to dark, resolved before first paint from the
+  `localStorage["bz-theme"]` key the main site uses, so the theme follows
+  visitors between bryanzane.com and this subpage.
+- Two dithering shader backdrops via `/shared/backdrop.js` from the parent
+  site: a page-wide paper field and the hero band. Canvas positioning comes
+  from `[data-paper-shader] > canvas` in `/shared/editorial.css`, because the
+  production CSP blocks the inline style the shader library injects. Do not
+  re-declare it locally.
+- A strict one-screen layout was built and then reverted. At a 900px viewport
+  it left the leaderboard 148px tall, three rows, which reads as broken rather
+  than compact. The table caps itself and scrolls internally instead; the page
+  is about 1.2 screens, down from roughly 4,600px.
+- `web/bench.js` is committed but no longer referenced by any page. The BYOK
+  runner works, but `web/data/catbench/images/` is empty, so its gallery
+  rendered four "no image yet" placeholders. Either populate that directory
+  and re-link the file, or delete it.
+- `main.js` `INITIAL_LIMIT` raised 10 to 25 now that the table is a scrolling
+  panel. All reset call sites already read the constant.
+
+## 2026-08-07 - TUI authoring gaps audit
+
+- Audited the project's own pitch ("configure models and add API keys in the
+  TUI, then author benchmarks yourself through the TUI, or pull from
+  HuggingFace and LMArena") against `src/llmbench`. Full findings in
+  `docs/tui_authoring_gaps.md`. No code changed; this is a scoping record.
+- Two of the four claims hold outright (model config, key entry). Authoring
+  benchmarks in the TUI is partial: a suite can be composed interactively
+  (`tui._build_custom_suite`) but is never persisted to YAML, and prompts
+  can only be pointed at by path, not authored. Pulling benchmarks from
+  HuggingFace or LMArena does not exist: `leaderboards/` reads published
+  scores only, with no code path into `runner.py` or `benchmarks/`.
+- The read-only leaderboard split is a deliberate decision recorded at
+  2026-04-23 ("Published leaderboards", below), not an oversight. Closing
+  the HuggingFace gap means reversing that decision on purpose, not
+  patching an omission. LMArena specifically can never be a benchmark
+  source: its data is human-preference ELO with no underlying prompt set.
+- Found and verified independently during the audit: `.env` reads
+  (`config.py:18`, `load_dotenv()`) and `.env` writes (`tui.py:103`,
+  `ENV_PATH = Path(".env")`) use two different resolution rules, not one
+  shared CWD-relative rule. Reads walk up from wherever `config.py` is
+  installed on disk (verified against `python-dotenv`'s `find_dotenv`);
+  writes resolve against the process's working directory. A key saved via
+  "Configure API keys" can be invisible on the next launch even without
+  changing directories.
+- Found during the audit, not in the original brief: `MOONSHOT_API_KEY` is
+  settable in the TUI and wired into the agentic-task engine
+  (`agent/providers/__init__.py:40`), but "moonshot" is not a registered
+  benchmark adapter; reaching a Moonshot-compatible endpoint from a
+  benchmark run requires `adapter="openai_compat"`, whose key resolution
+  (`adapters/openai_compat.py:34-38`) only ever reads `OPENAI_API_KEY`.
+  The key works for one surface and is silently ignored by the other.
+
+## 2026-05-05 - JokeBench + per-user models config
+
+- **New `joke_bench` benchmark** (`src/llmbench/benchmarks/joke_bench.py`). Mirrors `quality_judge` rather than subclassing it: existing siblings (throughput, quality_exact, image_gen) are independent classes, and adding a class-level override hook to `JudgeBenchmark` just to share one humor-specific prompt would be the kind of speculative abstraction `AGENTS.md` warns against. The judge prompt is comedy-specific (anchored to a 1-3 / 4-6 / 7-8 / 9-10 calibration so judges don't auto-inflate) and falls back to `DEFAULT_HUMOR_RUBRIC`; per-prompt rubrics in `prompts/joke_bench.yaml` override per joke type (one-liner vs. dad joke vs. observational vs. absurdist).
+- **`suite.joke_bench.yaml` pins judge to Opus 4.7 and uses `temperature=0.9`.** Humor needs warmth; the deterministic 0.0 default kills surprise. Pinning the judge keeps humor scores comparable across runs even when the judge model line moves.
+- **Per-user models at `~/.llmbench/models.yaml`** (`config.load_user_models` / `save_user_model`). The previous `PRESET_MODELS` hardcoded list in `tui.py` violated the "TUI only offers what the user configured" requirement and forced a code edit for any model change. User config lives outside the repo so it persists across project checkouts and never gets committed accidentally. Suite YAMLs in the repo are still authoritative for curated suites (CatBench, JokeBench presets); the user-models file only feeds the "Build a custom run" flow.
+- **Add-model walkthrough** (`tui._flow_add_model`). Reachable from the top-level Config section and inline when the custom-run flow finds zero configured models. `_BASE_URL_DEFAULTS` gates the base-URL prompt to local-server adapters (ollama/vllm/lmstudio/openai_compat) so cloud-adapter users aren't asked for a URL they don't have.
+- **`PRESET_MODELS` deleted, not deprecated.** Three references, all internal to `tui.py`; no tests, no other modules. Per CLAUDE.md "no backwards-compat hacks for unused vars," removed entirely.
+
 ## 2026-04-28 - Web: navigable TUI clone + page refresh through M4
 
 `web/index.html` was last refreshed 2026-04-25 (leaderboard explorer overhaul) and shipped only Install + the table — none of the M2/M3/M4 surface (5 agentic tasks, 6 sandbox primitives, agent loop, pricing rollup, polished questionary TUI, Gemini/Flux image adapters). Brought it through to current state and added a navigable web TUI as the centerpiece.
