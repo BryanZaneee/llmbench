@@ -11,12 +11,13 @@ from pathlib import Path
 
 from ..adapters.base import Adapter
 from ..config import SamplingParams
-from ..schema import BenchmarkResult, Prompt
+from ..schema import BenchmarkResult, Capability, Prompt
 from .base import Benchmark
 
 
 class ImageGenBenchmark(Benchmark):
     name = "image_gen"
+    requires = Capability.IMAGE_GEN
 
     async def run(
         self,

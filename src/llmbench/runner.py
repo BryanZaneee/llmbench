@@ -7,12 +7,13 @@ semaphore so we don't DoS any single provider, and collect the results.
 from __future__ import annotations
 
 import asyncio
+import warnings
 from pathlib import Path
 
 import yaml
 
 from . import __version__
-from .adapters import build_adapter
+from .adapters import adapter_class, build_adapter
 from .benchmarks import get_benchmark
 from .config import SuiteConfig
 from .schema import BenchmarkResult, ModelSpec, Prompt, RunManifest
@@ -55,7 +56,7 @@ async def run_suite(cfg: SuiteConfig) -> tuple[RunManifest, list[BenchmarkResult
         _run_one(sem, spec, bench_name, prompts, cfg, output_dir)
         for spec in cfg.models
         for bench_name in cfg.benchmarks
-        if spec.benchmarks is None or bench_name in spec.benchmarks
+        if _pair_runs(spec, bench_name, cfg)
     ]
     nested = await asyncio.gather(*tasks)
 
@@ -63,6 +64,28 @@ async def run_suite(cfg: SuiteConfig) -> tuple[RunManifest, list[BenchmarkResult
     for r in results:
         r.metadata["run_id"] = manifest.run_id
     return manifest, results
+
+
+def _pair_runs(spec: ModelSpec, bench_name: str, cfg: SuiteConfig) -> bool:
+    """Should this (model, benchmark) pair run?
+
+    Two gates: the model's own `benchmarks:` allowlist, and whether the
+    adapter can do what the benchmark needs. Without the second, a Flux model
+    in a throughput suite raised NotImplementedError partway through the run.
+    Capabilities come off the adapter class, since constructing one needs a
+    key we should not demand for a pair we are about to skip.
+    """
+    if spec.benchmarks is not None and bench_name not in spec.benchmarks:
+        return False
+    needed = get_benchmark(bench_name, cfg).requires
+    if needed in adapter_class(spec).capabilities:
+        return True
+    warnings.warn(
+        f"Skipping {spec.display} x {bench_name}: the {spec.adapter!r} adapter "
+        f"has no {needed.value} capability.",
+        stacklevel=2,
+    )
+    return False
 
 
 async def _run_one(

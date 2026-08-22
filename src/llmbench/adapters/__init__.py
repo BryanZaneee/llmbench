@@ -22,11 +22,15 @@ _REGISTRY: dict[str, type[Adapter]] = {
 }
 
 
-def build_adapter(spec: ModelSpec) -> Adapter:
+def adapter_class(spec: ModelSpec) -> type[Adapter]:
     cls = _REGISTRY.get(spec.adapter)
     if cls is None:
         raise ValueError(f"Unknown adapter: {spec.adapter!r}. Known: {sorted(_REGISTRY)}")
-    return cls(spec)
+    return cls
+
+
+def build_adapter(spec: ModelSpec) -> Adapter:
+    return adapter_class(spec)(spec)
 
 
 __all__ = [
@@ -34,5 +38,6 @@ __all__ = [
     "GenerationEvent",
     "ImageResult",
     "StreamedGeneration",
+    "adapter_class",
     "build_adapter",
 ]

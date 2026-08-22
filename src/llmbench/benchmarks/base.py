@@ -7,11 +7,12 @@ from pathlib import Path
 
 from ..adapters.base import Adapter
 from ..config import SamplingParams, SuiteConfig
-from ..schema import BenchmarkResult, Prompt
+from ..schema import BenchmarkResult, Capability, Prompt
 
 
 class Benchmark(ABC):
     name: str
+    requires: Capability = Capability.TEXT
 
     def __init__(self, cfg: SuiteConfig | None = None):
         self.cfg = cfg
