@@ -1,8 +1,4 @@
-"""Command-line entry point. Registered as the `llmbench` script in pyproject.toml.
-
-Calling `llmbench` with no subcommand launches the interactive TUI (tui.py).
-Subcommands (`run`, `view`, etc.) remain script- and agent-callable.
-"""
+"""Command-line entry point. Registered as the `llmbench` script in pyproject.toml."""
 
 from __future__ import annotations
 
@@ -21,21 +17,9 @@ from .runner import RESULTS_DIR, run_suite
 from .schema import BenchmarkResult, RunManifest
 from .storage import Store
 
-app = typer.Typer(
-    help="llmbench — benchmark any AI model. Run without a subcommand for the interactive TUI.",
-    invoke_without_command=True,
-)
+app = typer.Typer(help="llmbench: published LLM leaderboards and your own benchmarks.")
 console = Console()
 err_console = Console(stderr=True)
-
-
-@app.callback()
-def _root(ctx: typer.Context) -> None:
-    if ctx.invoked_subcommand is None:
-        from .tui import launch
-
-        launch()
-        raise typer.Exit()
 
 
 @app.command("run")
