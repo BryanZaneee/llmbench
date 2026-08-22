@@ -25,24 +25,24 @@ models:
     label: "Claude Haiku 4.5"
 
   - provider: openai
-    adapter: openai
+    adapter: openai_compat
     model: gpt-4o-mini
     label: "GPT-4o mini"
 
   # Image-capable model. Only runs image_gen.
   # - provider: openai
-  #   adapter: openai
+  #   adapter: openai_compat
   #   model: gpt-image-1
   #   label: "GPT Image 1"
   #   benchmarks: [image_gen]
 
   # Local OSS text model via Ollama (start: `ollama serve && ollama pull llama3.2`)
   # - provider: ollama
-  #   adapter: ollama
+  #   adapter: openai_compat
   #   model: llama3.2
   #   label: "Llama 3.2 (local)"
 
   # Local OSS model via vLLM
   # - provider: vllm
-  #   adapter: vllm
+  #   adapter: openai_compat
   #   model: meta-llama/Llama-3.1-8B-Instruct

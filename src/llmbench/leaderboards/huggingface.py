@@ -7,12 +7,12 @@ GPQA, MUSR, MMLU-PRO, plus an overall Average.
 
 from __future__ import annotations
 
-import os
 import re
 from typing import Any
 
 import httpx
 
+from ..config import api_key
 from .base import LeaderboardEntry, LeaderboardSnapshot, LeaderboardSource
 
 
@@ -77,7 +77,7 @@ class HuggingFaceLeaderboard(LeaderboardSource):
     def fetch(self) -> LeaderboardSnapshot:
         rows: list[dict[str, Any]] = []
         # Unauthenticated requests share a per-IP rate limit; CI runners get 429s.
-        token = os.environ.get("HF_TOKEN")
+        token = api_key("huggingface")
         headers = {"Authorization": f"Bearer {token}"} if token else None
         with httpx.Client(timeout=30, headers=headers) as client:
             offset = 0

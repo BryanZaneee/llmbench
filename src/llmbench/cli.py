@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
 import webbrowser
 from pathlib import Path
 
@@ -11,6 +12,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
+from . import config as cfgmod
 from .config import load_suite
 from .reports import render_gallery
 from .runner import RESULTS_DIR, run_suite
@@ -23,7 +25,9 @@ err_console = Console(stderr=True)
 
 @app.command("run")
 def cmd_run(
-    config: Path = typer.Argument(..., exists=True, help="Suite config YAML"),
+    suite: Path = typer.Argument(
+        None, exists=True, help=f"Suite YAML. Omit to use {cfgmod.CONFIG_PATH}"
+    ),
     open_browser: bool = typer.Option(
         False, "--open", help="Open HTML gallery in browser when finished"
     ),
@@ -31,8 +35,14 @@ def cmd_run(
         False, "--json", help="Emit results as JSON on stdout (for scripts/agents)"
     ),
 ) -> None:
-    """Run a suite defined in a YAML config file."""
-    cfg = load_suite(config)
+    """Run a suite of benchmarks. With no suite file, runs your config models."""
+    cfg = load_suite(suite)
+    if not cfg.models:
+        err_console.print(
+            f"[red]No models configured.[/] Add some to {cfgmod.CONFIG_PATH} "
+            "(`llmbench config --init`) or pass a suite YAML."
+        )
+        raise typer.Exit(1)
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     manifest, results = asyncio.run(run_suite(cfg))
 
@@ -50,6 +60,45 @@ def cmd_run(
 
     if open_browser:
         webbrowser.open(gallery_path.as_uri())
+
+
+@app.command("config")
+def cmd_config(
+    init: bool = typer.Option(False, "--init", help="Write a starter config file"),
+    force: bool = typer.Option(False, "--force", help="Overwrite an existing config"),
+) -> None:
+    """Show where API keys resolve from, or write a starter config."""
+    path = cfgmod.CONFIG_PATH
+    if init:
+        if path.exists() and not force:
+            err_console.print(f"[yellow]{path} already exists.[/] Use --force to overwrite.")
+            raise typer.Exit(1)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(cfgmod.render_template())
+        console.print(f"[green]Wrote[/] {path}")
+        return
+
+    console.print(f"[cyan]Config:[/] {path}" + ("" if path.exists() else " [dim](not created yet)[/]"))
+    configured = cfgmod.load_config().get("api_keys") or {}
+    t = Table(title="API keys")
+    t.add_column("Provider")
+    t.add_column("Key")
+    t.add_column("From", style="dim")
+    for name, provider in cfgmod.PROVIDERS.items():
+        if not provider.env:
+            continue
+        if configured.get(name) and str(configured[name]).strip():
+            t.add_row(name, "[green]set[/]", "config file")
+        elif (found := next((e for e in provider.env if os.environ.get(e)), None)):
+            t.add_row(name, "[green]set[/]", f"${found}")
+        else:
+            t.add_row(name, "[dim]—[/]", f"${provider.env[0]}")
+    console.print(t)
+
+    models = cfgmod.config_models()
+    console.print(f"\n[cyan]Models configured:[/] {len(models)}")
+    for m in models:
+        console.print(f"  {m.display} [dim]({m.adapter})[/]")
 
 
 @app.command("view")

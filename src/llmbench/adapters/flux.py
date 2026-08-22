@@ -10,7 +10,7 @@ import asyncio
 
 import httpx
 
-from ..config import env
+from ..config import require_key
 from ..schema import Capability, ModelSpec
 from .base import Adapter, ImageResult, StreamedGeneration
 
@@ -22,9 +22,7 @@ class FluxAdapter(Adapter):
 
     def __init__(self, spec: ModelSpec):
         super().__init__(spec)
-        self.api_key = env("BFL_API_KEY")
-        if not self.api_key:
-            raise RuntimeError("BFL_API_KEY is not set")
+        self.api_key = require_key(spec.provider, spec.adapter)
         self._headers = {
             "x-key": self.api_key,
             "accept": "application/json",

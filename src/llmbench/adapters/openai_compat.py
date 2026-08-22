@@ -1,7 +1,8 @@
-"""One adapter for every OpenAI-protocol endpoint: OpenAI, vLLM, Ollama, LM Studio, llama.cpp.
+"""One adapter for every OpenAI-protocol endpoint.
 
-They all speak the same chat-completions API — only the base URL differs — so a single
-class handles all of them. The `adapter` field in config picks which env var holds the URL.
+OpenAI, Moonshot, DeepSeek, Groq, Ollama, vLLM and the rest all speak the same
+chat-completions API; only the key and the base URL differ. Both come from
+`spec.provider` via config.PROVIDERS, so this class needs no per-provider code.
 """
 
 from __future__ import annotations
@@ -12,30 +13,18 @@ import time
 import httpx
 from openai import AsyncOpenAI
 
-from ..config import env
+from ..config import api_key, base_url
 from ..schema import Capability, ModelSpec, TokenUsage
 from .base import Adapter, GenerationEvent, ImageResult, StreamedGeneration
 
-_BASE_URL_ENV = {
-    "openai": None,
-    "ollama": "OLLAMA_BASE_URL",
-    "vllm": "VLLM_BASE_URL",
-    "lmstudio": "LMSTUDIO_BASE_URL",
-}
-
 
 def _resolve_base_url(spec: ModelSpec) -> str | None:
-    if spec.base_url:
-        return spec.base_url
-    key = _BASE_URL_ENV.get(spec.adapter)
-    return env(key) if key else None
+    return spec.base_url or base_url(spec.provider, spec.adapter)
 
 
 def _resolve_api_key(spec: ModelSpec) -> str:
-    if spec.adapter == "openai":
-        return env("OPENAI_API_KEY") or "missing"
-    # Local OpenAI-compatible servers usually ignore the key, but the SDK requires a value.
-    return env("OPENAI_API_KEY") or "local"
+    # Local servers ignore the key but the SDK insists on a value.
+    return api_key(spec.provider, spec.adapter) or "local"
 
 
 class OpenAICompatAdapter(Adapter):

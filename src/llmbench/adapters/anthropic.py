@@ -6,7 +6,7 @@ import time
 
 from anthropic import AsyncAnthropic
 
-from ..config import env
+from ..config import api_key
 from ..schema import Capability, ModelSpec, TokenUsage
 from .base import Adapter, GenerationEvent, StreamedGeneration
 
@@ -17,7 +17,7 @@ class AnthropicAdapter(Adapter):
     def __init__(self, spec: ModelSpec):
         super().__init__(spec)
         self._client = AsyncAnthropic(
-            api_key=env("ANTHROPIC_API_KEY"),
+            api_key=api_key(spec.provider, spec.adapter),
             base_url=spec.base_url,
         )
 

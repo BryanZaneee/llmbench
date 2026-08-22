@@ -16,7 +16,7 @@ import time
 
 import httpx
 
-from ..config import env
+from ..config import require_key
 from ..schema import Capability, ModelSpec, TokenUsage
 from .base import Adapter, GenerationEvent, ImageResult, StreamedGeneration
 
@@ -28,9 +28,7 @@ class GeminiAdapter(Adapter):
 
     def __init__(self, spec: ModelSpec):
         super().__init__(spec)
-        self.api_key = env("GEMINI_API_KEY")
-        if not self.api_key:
-            raise RuntimeError("GEMINI_API_KEY is not set")
+        self.api_key = require_key(spec.provider, spec.adapter)
         self._headers = {
             "x-goog-api-key": self.api_key,
             "content-type": "application/json",

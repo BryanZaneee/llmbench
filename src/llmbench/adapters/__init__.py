@@ -1,23 +1,24 @@
+"""Adapters are wire protocols, not vendors.
+
+`spec.adapter` picks the protocol; `spec.provider` picks the key and base URL
+out of config.PROVIDERS. That is why there is no "moonshot" or "groq" adapter:
+they speak OpenAI's protocol, so they are `adapter: openai_compat`.
+"""
+
 from __future__ import annotations
 
 from ..schema import ModelSpec
 from .anthropic import AnthropicAdapter
 from .base import Adapter, GenerationEvent, ImageResult, StreamedGeneration
-from .openai_compat import OpenAICompatAdapter
-from .gemini import GeminiAdapter
 from .flux import FluxAdapter
+from .gemini import GeminiAdapter
+from .openai_compat import OpenAICompatAdapter
 
 _REGISTRY: dict[str, type[Adapter]] = {
     "anthropic": AnthropicAdapter,
-    "openai": OpenAICompatAdapter,
     "openai_compat": OpenAICompatAdapter,
-    "ollama": OpenAICompatAdapter,
-    "vllm": OpenAICompatAdapter,
-    "lmstudio": OpenAICompatAdapter,
     "gemini": GeminiAdapter,
-    "google": GeminiAdapter,
     "flux": FluxAdapter,
-    "bfl": FluxAdapter,
 }
 
 

@@ -12,13 +12,13 @@ sampling:
 
 models:
   - provider: openai
-    adapter: openai
+    adapter: openai_compat
     model: dall-e-3
     label: "DALL-E 3"
     benchmarks: [image_gen]
 
   - provider: openai
-    adapter: openai
+    adapter: openai_compat
     model: gpt-image-2
     label: "GPT Image 2"
     benchmarks: [image_gen]

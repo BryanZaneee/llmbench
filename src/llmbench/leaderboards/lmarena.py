@@ -8,10 +8,10 @@ HuggingFace dataset and parses it with pyarrow. Default category is `text`
 from __future__ import annotations
 
 import io
-import os
 
 import httpx
 
+from ..config import api_key
 from .base import LeaderboardEntry, LeaderboardSnapshot, LeaderboardSource
 
 
@@ -63,7 +63,7 @@ class LMArenaLeaderboard(LeaderboardSource):
             ) from exc
 
         # Unauthenticated requests share a per-IP rate limit; CI runners get 429s.
-        token = os.environ.get("HF_TOKEN")
+        token = api_key("huggingface")
         headers = {"Authorization": f"Bearer {token}"} if token else None
         with httpx.Client(timeout=60, follow_redirects=True, headers=headers) as client:
             r = client.get(_parquet_url(self.category))
