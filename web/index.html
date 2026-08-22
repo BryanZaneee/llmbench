@@ -11,21 +11,21 @@
     document.documentElement.dataset.theme = localStorage.getItem("bz-theme") || "dark";
   </script>
   <title>llmbench · benchmark any language model, any provider, one command</title>
-  <meta name="description" content="Open-source CLI for benchmarking language models across providers. Measure speed and quality on your own prompts, run agents through sandboxed tasks with verifiable verdicts, and browse published leaderboards in one table." />
+  <meta name="description" content="Open-source CLI for benchmarking language models across providers. Browse four published leaderboards in one table, refreshed daily, and run your own speed and image benchmarks from a single config file." />
   <link rel="canonical" href="https://bryanzane.com/llmbench/" />
   <meta name="theme-color" content="#0B0B0C" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Bryan Zane Smith" />
   <meta property="og:title" content="llmbench · benchmark any language model" />
-  <meta property="og:description" content="Open-source CLI for benchmarking language models across providers, with an agentic task harness and a unified leaderboard explorer." />
+  <meta property="og:description" content="Open-source CLI for benchmarking language models across providers, with a unified leaderboard explorer refreshed daily." />
   <meta property="og:url" content="https://bryanzane.com/llmbench/" />
   <meta property="og:image" content="https://bryanzane.com/assets/og/og-llmbench.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="llmbench · benchmark any language model" />
-  <meta name="twitter:description" content="Open-source CLI for benchmarking language models across providers, with an agentic task harness and a unified leaderboard explorer." />
+  <meta name="twitter:description" content="Open-source CLI for benchmarking language models across providers, with a unified leaderboard explorer refreshed daily." />
   <meta name="twitter:image" content="https://bryanzane.com/assets/og/og-llmbench.png" />
   <link rel="apple-touch-icon" href="/assets/favicon-180.png" />
 
@@ -72,9 +72,9 @@
           </h1>
           <p class="lb-hero-tagline">
             An open-source CLI that benchmarks language models across providers.
-            Measure speed and quality on your own prompts, put agents through
-            sandboxed tasks that are graded on what they actually did, and browse
-            four published leaderboards in one table.
+            Browse four published leaderboards in one table, refreshed daily, and
+            run your own speed and image-generation benchmarks against any
+            provider you have a key for.
           </p>
         </div>
 
@@ -103,19 +103,11 @@
           <span class="what-num">01</span>
           <h3 class="what-title">Measure</h3>
         </header>
-        <p class="what-lede">One prompt set, many models, four ways to score.</p>
+        <p class="what-lede">One prompt set, many models, two ways to score.</p>
         <dl class="what-list">
           <div class="what-row">
             <dt class="pf-mono">throughput</dt>
             <dd>Time to first token, tokens/sec, inter-chunk and total latency, token usage.</dd>
-          </div>
-          <div class="what-row">
-            <dt class="pf-mono">quality_exact</dt>
-            <dd>Deterministic check against an expected value: exact, contains, or regex.</dd>
-          </div>
-          <div class="what-row">
-            <dt class="pf-mono">quality_judge</dt>
-            <dd>LLM-as-judge, a 1&ndash;10 score with one line of reasoning.</dd>
           </div>
           <div class="what-row">
             <dt class="pf-mono">image_gen</dt>
@@ -123,68 +115,82 @@
           </div>
         </dl>
         <p class="what-foot">
-          Every run writes an HTML gallery and a queryable SQLite row.
+          Every run writes a self-contained HTML gallery you can scroll through.
         </p>
       </article>
 
       <article class="what-col">
         <header class="what-head">
           <span class="what-num">02</span>
-          <h3 class="what-title">Exercise</h3>
+          <h3 class="what-title">Configure</h3>
         </header>
         <p class="what-lede">
-          Five multi-step tasks in a sealed sandbox. The verdict is read from
-          post-run state, so a model cannot talk its way to a pass.
+          One file, <code class="pf-mono">~/.llmbench/config.yaml</code>, holds every API
+          key and every model. Twenty providers are known by name.
         </p>
         <ul class="what-chips">
-          <li class="pf-mono">file-refactor</li>
-          <li class="pf-mono">api-orchestration</li>
-          <li class="pf-mono">multi-step-research</li>
-          <li class="pf-mono">recovery</li>
-          <li class="pf-mono">long-horizon</li>
+          <li class="pf-mono">openai</li>
+          <li class="pf-mono">anthropic</li>
+          <li class="pf-mono">gemini</li>
+          <li class="pf-mono">moonshot</li>
+          <li class="pf-mono">deepseek</li>
+          <li class="pf-mono">xai</li>
+          <li class="pf-mono">groq</li>
+          <li class="pf-mono">mistral</li>
+          <li class="pf-mono">together</li>
+          <li class="pf-mono">fireworks</li>
+          <li class="pf-mono">openrouter</li>
+          <li class="pf-mono">perplexity</li>
+          <li class="pf-mono">cerebras</li>
+          <li class="pf-mono">qwen</li>
+          <li class="pf-mono">nvidia</li>
+          <li class="pf-mono">nebius</li>
+          <li class="pf-mono">deepinfra</li>
+          <li class="pf-mono">sambanova</li>
+          <li class="pf-mono">flux</li>
         </ul>
-        <p class="what-sub">Sandbox primitives</p>
+        <p class="what-sub">Local, no key required</p>
         <ul class="what-chips what-chips--dim">
-          <li class="pf-mono">fake_fs</li>
-          <li class="pf-mono">fake_http</li>
-          <li class="pf-mono">fake_sql</li>
-          <li class="pf-mono">fake_search</li>
-          <li class="pf-mono">fake_shell</li>
-          <li class="pf-mono">failure_injector</li>
+          <li class="pf-mono">ollama</li>
+          <li class="pf-mono">vllm</li>
+          <li class="pf-mono">lmstudio</li>
+          <li class="pf-mono">llamacpp</li>
         </ul>
         <p class="what-foot">
-          Each run saves a full trace: turns, tool calls, tokens, timing, cost, verdict.
+          Four wire protocols cover all of them. Environment variables still work
+          as a fallback, so CI needs no config file.
         </p>
       </article>
 
       <article class="what-col">
         <header class="what-head">
           <span class="what-num">03</span>
-          <h3 class="what-title">Connect</h3>
+          <h3 class="what-title">Compare</h3>
         </header>
         <p class="what-lede">
-          Ten adapters, hosted and local. Adding one is roughly forty lines.
+          Published scores from four sources, refreshed daily. No API key needed
+          to read them, in the terminal or in the table below.
         </p>
-        <dl class="what-provs">
-          <div class="prov-group" data-kind="hosted">
-            <dt>Hosted</dt>
-            <dd>Anthropic · OpenAI · Google Gemini · Moonshot</dd>
+        <dl class="what-list">
+          <div class="what-row">
+            <dt class="pf-mono">huggingface</dt>
+            <dd>Open LLM Leaderboard v2: IFEval, BBH, MATH, GPQA, MUSR, MMLU-PRO.</dd>
           </div>
-          <div class="prov-group" data-kind="local">
-            <dt>Local</dt>
-            <dd>Ollama · vLLM · LM Studio</dd>
+          <div class="what-row">
+            <dt class="pf-mono">lmarena</dt>
+            <dd>LMArena ELO, from head-to-head human preference voting.</dd>
           </div>
-          <div class="prov-group" data-kind="image">
-            <dt>Image</dt>
-            <dd>Black Forest Labs · OpenAI · Gemini</dd>
+          <div class="what-row">
+            <dt class="pf-mono">aider</dt>
+            <dd>Aider Polyglot: multi-language code-editing pass rate.</dd>
           </div>
-          <div class="prov-group" data-kind="generic">
-            <dt>Custom</dt>
-            <dd>Any OpenAI-compatible base URL</dd>
+          <div class="what-row">
+            <dt class="pf-mono">bundled</dt>
+            <dd>Snapshot shipped inside the package, so it works offline.</dd>
           </div>
         </dl>
         <p class="what-foot">
-          Models and API keys are configured from the interactive TUI, not a config file.
+          <code class="pf-mono">llmbench leaderboard --source lmarena --top 10</code>
         </p>
       </article>
 
