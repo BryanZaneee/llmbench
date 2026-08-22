@@ -4,6 +4,64 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-08-22 - Scope cut back to leaderboards plus custom benchmarks
+
+- The repo had drifted into the v1 PRD's shape: an agentic harness with its
+  own provider layer, five sandboxed tasks, six fake tools, a questionary
+  TUI, and five benchmarks. What the tool is actually for is narrower:
+  pull published scores from HuggingFace and LMArena daily onto
+  bryanzane.com, read those same scores from the terminal, and run your own
+  custom benchmarks. Python dropped from 8,768 lines to roughly 2,300.
+- Deleted `agent/`, `tasks/`, `tools/` and the TraceDocument half of
+  `schema.py`. Nothing in the benchmark path imported them, so it was a leaf
+  amputation. `llmbench-prd.md` went with them; it described a Textual TUI
+  and a Next.js app, neither of which was ever built. Do not reintroduce
+  either from that document.
+- Deleted `tui.py` (827 lines, untested) and `docs/tui_authoring_gaps.md`,
+  which audited it. The key-entry bug that doc records (writes .env relative
+  to the CWD, reads relative to the package) is fixed by the config file
+  below, not by patching the TUI.
+- Benchmarks cut to `throughput` and `image_gen`. `quality_exact` and
+  `quality_judge` went, taking `Prompt.expected`, `Prompt.check`,
+  `Prompt.rubric`, and `SuiteConfig.judge` with them.
+- Deleted `storage.py`. It wrote 13 top-level columns and two indexes that
+  no query ever read; `load_run` selected only `payload_json`, and its one
+  caller re-rendered a gallery that `run` had already written. `view` now
+  globs `results/*/gallery.html`. The file on disk is the record.
+- **`~/.llmbench/config.yaml` is now the single key and model store**, and is
+  itself a valid suite config, so `llmbench run` with no argument runs it.
+  `config.PROVIDERS` is the only place a provider is described: accepted env
+  var names (plural, because Together, Fireworks, and Perplexity are spelled
+  differently by LiteLLM than by their own docs) and a default base URL.
+  Keys in the file win; env vars remain the fallback so CI is unaffected.
+  This fixed a real leak: `openai_compat` sent `OPENAI_API_KEY` to every
+  compatible endpoint, so benchmarking Moonshot shipped your OpenAI key to
+  Moonshot. Keys now follow `spec.provider`, falling back to `spec.adapter`.
+- The adapter registry is four wire protocols, not ten vendor aliases.
+  `adapter` means protocol; `provider` selects the key and base URL. Most new
+  providers need no adapter, just a `PROVIDERS` row and `openai_compat`.
+- `Capability` was declared on every adapter and read nowhere, so the claim
+  that the runner skipped mismatched pairs was false and a Flux model in a
+  throughput suite raised mid-run. Benchmarks now declare `requires` and
+  `runner._pair_runs` checks it off the adapter class, warning on a skip.
+- The daily refresh had not run since 2026-07-15. All four sources were
+  fetched in one `bash -e` step, so any one failing aborted the merge. Each
+  source now has its own `continue-on-error` step and
+  `scripts/merge_leaderboards.py` skips missing or corrupt snapshots,
+  failing only if every source is gone. `HF_TOKEN` is still unset as a repo
+  secret; the refresh now survives that instead of dying on it. Note that
+  GitHub also disables scheduled workflows after 60 days of repo inactivity.
+- `--offline` used to raise for `bundled` even though it reads a file inside
+  the package; it now falls through to `fetch()` for any source with
+  `requires_network = False`. HuggingFace capped its fetch at 100 rows while
+  the workflow asked for 200, silently truncating; cap raised to 500.
+- Deleted `web/bench.js` and `web/data/catbench/`. The BYOK runner was
+  unreachable three ways: no `#bench-panel`, no script tag, no matching CSS.
+  The 2026-08-07 entry below flagged it as populate-or-delete.
+- The web page's three-column band described five agentic tasks, six sandbox
+  primitives, four benchmarks, ten adapters, and TUI-based key entry. All of
+  that was false. It is now Measure / Configure / Compare.
+
 ## 2026-08-07 - Web: page rebuilt around what the tool does
 
 - Removed the simulated TUI from `web/`. It was the largest block on the page

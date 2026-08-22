@@ -9,13 +9,13 @@
 ╚══════╝╚══════╝╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
 ```
 
-**Benchmark any AI model — any provider, one command.** CLI-first, open source, MIT-licensed.
+**Published LLM leaderboards in your terminal, plus your own benchmarks.**
+CLI-first, open source, MIT-licensed.
 
 ```bash
-llmbench                                         # interactive TUI
-llmbench task file-refactor                      # run a sandboxed agentic task
-llmbench run suite.example.yaml --open           # run a benchmark suite, open the HTML gallery
-llmbench leaderboard --source lmarena -m claude  # search published scores
+llmbench leaderboard --source lmarena --top 10   # published scores, no API key
+llmbench config --init                           # one file for every API key
+llmbench run suite.cat_bench.yaml --open         # your own run, HTML gallery
 ```
 
 ---
@@ -34,167 +34,141 @@ From source:
 git clone https://github.com/BryanZaneee/llmbench && cd llmbench
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-cp .env.example .env       # paste in ANTHROPIC_API_KEY / OPENAI_API_KEY
+llmbench config --init     # writes ~/.llmbench/config.yaml
 ```
 
-Requires Python 3.11+.
+Requires Python 3.11+. LMArena needs `pip install llmbench[lmarena]` for pyarrow.
 
 ---
 
-## What it does
+## Published leaderboards
 
-**Local benchmarks** — run against any provider you configure:
-
-| Benchmark        | Measures                                                          |
-| ---------------- | ----------------------------------------------------------------- |
-| `throughput`     | TTFT, tokens/sec, inter-chunk latency, total latency, token usage |
-| `quality_exact`  | Deterministic check vs `expected` (exact / contains / regex)      |
-| `quality_judge`  | LLM-as-judge: 1–10 score with one-line reasoning                  |
-| `image_gen`      | Latency + saved PNGs for visual review (e.g. `CatBench`)          |
-
-**Published leaderboards** — real scores without needing any API keys:
+Real scores, no API keys, cached for 24h:
 
 | Source        | Provides                                                          |
 | ------------- | ----------------------------------------------------------------- |
 | `huggingface` | Open LLM Leaderboard v2 (IFEval, BBH, MATH, GPQA, MUSR, MMLU-PRO) |
 | `lmarena`     | LMArena ELO from human-preference voting                          |
-| `aider`       | Aider Polyglot — multi-language code-editing pass rate            |
-| `bundled`     | Snapshot shipped with llmbench (works offline)                    |
-
-**Agentic tasks** drive an LLM agent through a multi-step scenario in a sealed sandbox. Verdict is computed from post-run state, not text:
-
-| Task                  | What it tests                                                                |
-| --------------------- | ---------------------------------------------------------------------------- |
-| `file-refactor`       | Rename a function across a 5-file mock project without breaking parsing.     |
-| `api-orchestration`   | GET a list, transform each row, POST to an audit endpoint with a field rename. |
-| `multi-step-research` | Synthesize four canned search results into a markdown brief.                 |
-| `recovery`            | Retry a transient transactional failure and verify the side effect landed.   |
-| `long-horizon`        | Parse a config, fetch sources, and write a multi-section report (~15 steps). |
-
-Every task run produces a `TraceDocument` JSON at `runs/<run_id>.json` capturing every turn, tool call, token count, timing, cost, and verdict. Browse them via the TUI's "View past task traces" flow. Agent providers: `anthropic`, `openai`, `gemini`, `moonshot`. See `llmbench list-tasks` and `llmbench list-models` (with priced rates) for the catalog.
-
----
-
-## Quick start
-
-Zero setup — see published scores immediately:
+| `aider`       | Aider Polyglot: multi-language code-editing pass rate             |
+| `bundled`     | Snapshot shipped inside the package (works offline)               |
 
 ```bash
 llmbench leaderboard --source lmarena --top 10
 llmbench leaderboard --source huggingface --model llama
 llmbench leaderboard --source bundled --offline
+llmbench leaderboard --list-sources
 ```
 
-Run your own benchmark (needs at least one API key, or a local model):
-
-```bash
-llmbench run suite.example.yaml --open
-```
-
-Run an agentic task:
-
-```bash
-llmbench task file-refactor                          # default model, one repetition
-llmbench task long-horizon --provider openai -m gpt-4o --reps 3
-llmbench list-tasks                                  # see all registered tasks
-llmbench list-models                                 # priced model catalog
-```
-
-Or launch the menu:
-
-```bash
-llmbench
-```
-
----
-
-## Suites
-
-A suite is a YAML file listing models and benchmarks:
-
-```yaml
-benchmarks: [throughput, quality_exact, quality_judge]
-prompts_file: prompts/default.yaml
-repetitions: 3
-concurrency: 2
-
-judge:
-  provider: anthropic
-  adapter: anthropic
-  model: claude-opus-4-7
-
-models:
-  - { provider: anthropic, adapter: anthropic, model: claude-opus-4-7 }
-  - { provider: openai,    adapter: openai,    model: gpt-4o-mini }
-  - { provider: ollama,    adapter: ollama,    model: llama3.2 }
-  - { provider: openai,    adapter: openai,    model: gpt-image-1, benchmarks: [image_gen] }
-  - { provider: gw, adapter: openai_compat, model: x, base_url: http://gateway.internal/v1 }
-```
-
-Prompts are YAML records; optional `expected` / `rubric` fields enable the quality benchmarks. See `prompts/default.yaml` for examples.
-
----
-
-## Supported providers
-
-| Adapter         | Targets                                                  |
-| --------------- | -------------------------------------------------------- |
-| `anthropic`     | Claude API (Opus / Sonnet / Haiku).                      |
-| `openai`        | OpenAI API (GPT-4o, o-series, dall-e-3, gpt-image-1).    |
-| `gemini`        | Google Gemini API (text + Imagen 3 image generation).    |
-| `flux`          | Black Forest Labs API (`api.bfl.ml` image models).       |
-| `ollama`        | Local Ollama server.                                     |
-| `vllm`          | Local vLLM server.                                       |
-| `lmstudio`      | LM Studio local server.                                  |
-| `openai_compat` | Any OpenAI-compatible endpoint (text + optional images). |
-
----
-
-## Output
-
-After `llmbench run`:
-
-```
-results/
-├── results.db                  # SQLite, one row per (model, prompt, repetition)
-└── <run_id>/
-    ├── gallery.html            # side-by-side text + image comparison
-    └── images/<model>/...      # generated PNGs (if image_gen ran)
-```
-
-Re-open later with `llmbench view <run_id>` (or `--latest`). Every `BenchmarkResult` is also stored as a JSON blob in the SQLite `payload_json` column; query it with `json_extract` for ad-hoc analysis.
-
-After `llmbench task`:
-
-```
-runs/
-└── <run_id>.json               # one TraceDocument per repetition (steps, tool calls, totals, verdict)
-```
-
-Inspect a trace with the TUI's "View past task traces" flow, or load `runs/<run_id>.json` directly; its shape is the `TraceDocument` pydantic model in `schema.py`.
-
-Every data-returning command takes `--json` for piping into `jq` or tool-use:
+Every data-returning command takes `--json`:
 
 ```bash
 llmbench leaderboard --source lmarena --top 20 --json | jq '.entries[].display_name'
+```
+
+A GitHub Action refreshes all four daily into `web/data/all.json`, which backs the
+sortable table at [bryanzane.com/llmbench](https://bryanzane.com/llmbench). Each
+source fetches independently, so one failing upstream costs its rows, not the day.
+
+---
+
+## Configuration
+
+One file, `~/.llmbench/config.yaml`, holds every API key and every model.
+`llmbench config --init` writes a commented starter; `llmbench config` shows
+what currently resolves and from where.
+
+```yaml
+api_keys:
+  openai: "sk-..."
+  moonshot: "sk-..."
+
+models:
+  - { provider: openai,   adapter: openai_compat, model: gpt-4o-mini }
+  - { provider: moonshot, adapter: openai_compat, model: kimi-k2.5 }
+  - { provider: ollama,   adapter: openai_compat, model: llama3.2 }
+
+benchmarks: [throughput]
+repetitions: 3
+```
+
+Keys in this file win over environment variables; env vars still work as a
+fallback, which is how CI supplies them. Twenty providers are known by name:
+
+| Group  | Providers |
+| ------ | --------- |
+| Hosted | `openai` `anthropic` `gemini` `moonshot` `deepseek` `xai` `groq` `mistral` `together` `fireworks` `openrouter` `perplexity` `cerebras` `qwen` `nvidia` `nebius` `deepinfra` `sambanova` |
+| Image  | `flux` (Black Forest Labs), plus `openai` and `gemini` |
+| Local  | `ollama` `vllm` `lmstudio` `llamacpp` (no key needed) |
+
+Each entry in `config.PROVIDERS` carries the accepted environment variable
+names and a default base URL. Adding a provider is one row there plus
+`adapter: openai_compat` on the model. Where the ecosystem disagrees on a name
+(`TOGETHER_API_KEY` vs `TOGETHERAI_API_KEY`, and likewise for Fireworks and
+Perplexity), both spellings resolve.
+
+`adapter` is the wire protocol, not the vendor. There are four:
+`anthropic`, `openai_compat`, `gemini`, `flux`.
+
+---
+
+## Your own benchmarks
+
+| Benchmark    | Measures                                                          |
+| ------------ | ----------------------------------------------------------------- |
+| `throughput` | TTFT, tokens/sec, inter-chunk latency, total latency, token usage |
+| `image_gen`  | Latency plus saved PNGs for visual review (e.g. `CatBench`)       |
+
+```bash
+llmbench run                              # your config models
+llmbench run suite.cat_bench.yaml --open  # a suite file, then open the gallery
+llmbench view --latest
+```
+
+A suite is a YAML file. Omit `models:` to fall back to your config:
+
+```yaml
+benchmarks: [image_gen]
+prompts_file: prompts/cat_bench.yaml
+repetitions: 3
+concurrency: 2
+
+models:
+  - { provider: openai, adapter: openai_compat, model: dall-e-3, label: "DALL-E 3" }
+  - { provider: flux,   adapter: flux,          model: flux-2-klein-4b }
+```
+
+A model may narrow which benchmarks it runs with `benchmarks: [image_gen]`.
+Pairs the adapter cannot serve are skipped with a warning rather than failing
+mid-run.
+
+Output:
+
+```
+results/<run_id>/
+├── gallery.html            # side-by-side text and image comparison
+└── images/<model>/...      # generated PNGs (if image_gen ran)
 ```
 
 ---
 
 ## Extending
 
-Subclass `Adapter`, `Benchmark`, or `LeaderboardSource` (see `base.py` in each directory) and register your class in the corresponding `__init__.py`. New adapters are typically ~40 lines.
+Subclass `Adapter`, `Benchmark`, or `LeaderboardSource` (see `base.py` in each
+directory) and register it in the corresponding `__init__.py`. Most new
+providers need no adapter at all: add a row to `config.PROVIDERS` and use
+`adapter: openai_compat`.
 
-> Read `history.md` before non-trivial architectural changes — it's the running design log.
+> Read `history.md` before non-trivial architectural changes. It is the running design log.
 
 ---
 
 ## Contributing
 
-PRs welcome. Add tests (see `tests/test_*.py` for patterns), keep modules single-purpose, and append a line to `history.md` for design decisions. Run `pytest -q` before opening a PR.
+PRs welcome. Add tests (see `tests/test_*.py`), keep modules single-purpose, and
+append a line to `history.md` for design decisions. Run `pytest -q` first.
 
 ---
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).

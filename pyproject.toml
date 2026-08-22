@@ -1,7 +1,7 @@
 [project]
 name = "llmbench"
 version = "0.1.0"
-description = "Benchmark any LLM — any provider, one command. CLI + TUI + published leaderboards."
+description = "Published LLM leaderboards in your terminal, plus your own benchmarks."
 requires-python = ">=3.11"
 readme = "README.md"
 license = "MIT"
