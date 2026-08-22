@@ -1,4 +1,3 @@
-import json
 from datetime import datetime, timedelta, timezone
 
 import httpx
@@ -9,7 +8,6 @@ from llmbench.leaderboards import (
     BundledSource,
     HuggingFaceLeaderboard,
     available_sources,
-    get_source,
 )
 from llmbench.leaderboards.base import LeaderboardEntry, LeaderboardSnapshot
 from llmbench.leaderboards.cache import (
