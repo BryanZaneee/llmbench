@@ -1,6 +1,7 @@
-"""Black Forest Labs (Flux) adapter for image generation via api.bfl.ml.
+"""Black Forest Labs (Flux) adapter for image generation via api.bfl.ai.
 
-Implements asynchronous polling to submit requests and wait for completion.
+Implements asynchronous polling: submit returns a polling_url which we follow
+until status == "Ready", then download the short-lived signed sample URL.
 """
 
 from __future__ import annotations
@@ -13,7 +14,7 @@ from ..config import env
 from ..schema import Capability, ModelSpec
 from .base import Adapter, ImageResult, StreamedGeneration
 
-_BASE_URL = "https://api.bfl.ml/v1"
+_BASE_URL = "https://api.bfl.ai/v1"
 
 
 class FluxAdapter(Adapter):
@@ -34,9 +35,9 @@ class FluxAdapter(Adapter):
         raise NotImplementedError("Flux models do not support text generation")
 
     async def generate_image(self, prompt: str, **kwargs) -> ImageResult:
-        # e.g., model "flux-pro-1.1" -> POST https://api.bfl.ml/v1/flux-pro-1.1
+        # e.g., model "flux-2-klein-4b" -> POST https://api.bfl.ai/v1/flux-2-klein-4b
         url = f"{_BASE_URL}/{self.spec.model}"
-        
+
         # Parse common dimensions, falling back to 1024x768 if not provided
         size = kwargs.get("size", "1024x768")
         width, height = (int(x) for x in size.split("x", 1)) if "x" in size else (1024, 768)
@@ -51,25 +52,31 @@ class FluxAdapter(Adapter):
             # 1. Submit request
             resp = await client.post(url, headers=self._headers, json=body)
             resp.raise_for_status()
-            task_id = resp.json().get("id")
-            if not task_id:
-                raise RuntimeError(f"Failed to obtain task ID from BFL API: {resp.text}")
+            submit = resp.json()
+            # The integration guide says: always follow the polling_url returned
+            # in the response (it handles regional load balancing). Fall back
+            # to constructing get_result?id=... only if the field is missing.
+            poll_url = submit.get("polling_url")
+            if not poll_url:
+                task_id = submit.get("id")
+                if not task_id:
+                    raise RuntimeError(f"Failed to obtain task ID from BFL API: {resp.text}")
+                poll_url = f"{_BASE_URL}/get_result?id={task_id}"
 
             # 2. Poll for completion
-            poll_url = f"{_BASE_URL}/get_result?id={task_id}"
             while True:
                 await asyncio.sleep(1.0)
                 poll_resp = await client.get(poll_url, headers=self._headers)
                 poll_resp.raise_for_status()
                 poll_data = poll_resp.json()
-                
+
                 status = poll_data.get("status")
                 if status == "Ready":
                     sample_url = poll_data.get("result", {}).get("sample")
                     if not sample_url:
                         raise RuntimeError(f"Task Ready but missing sample URL: {poll_data}")
-                    
-                    # 3. Download generated image
+
+                    # 3. Download generated image (signed URL is short-lived)
                     img_resp = await client.get(sample_url)
                     img_resp.raise_for_status()
                     return ImageResult(
