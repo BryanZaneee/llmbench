@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      SNAPSHOTS_DIR: ${{ runner.temp }}/snapshots
     steps:
       - uses: actions/checkout@v4
 
@@ -20,55 +22,33 @@ jobs:
       - name: Install llmbench
         run: pip install -e ".[lmarena]"
 
-      - name: Fetch leaderboard snapshots
+      - run: mkdir -p "$SNAPSHOTS_DIR"
+
+      # One step per source, each allowed to fail. A source that is rate
+      # limited or has changed shape upstream costs its own rows for the day
+      # and nothing else; merge_leaderboards.py skips the missing file.
+      - name: Fetch huggingface
+        continue-on-error: true
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-          mkdir -p "$RUNNER_TEMP/snapshots"
-          llmbench leaderboard --source huggingface --top 200 --json > "$RUNNER_TEMP/snapshots/huggingface.json"
-          llmbench leaderboard --source lmarena     --top 500 --json > "$RUNNER_TEMP/snapshots/lmarena.json"
-          llmbench leaderboard --source aider       --top 200 --json > "$RUNNER_TEMP/snapshots/aider.json"
-          llmbench leaderboard --source bundled     --top 500 --json > "$RUNNER_TEMP/snapshots/bundled.json"
+        run: llmbench leaderboard --source huggingface --top 500 --json > "$SNAPSHOTS_DIR/huggingface.json"
+
+      - name: Fetch lmarena
+        continue-on-error: true
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: llmbench leaderboard --source lmarena --top 500 --json > "$SNAPSHOTS_DIR/lmarena.json"
+
+      - name: Fetch aider
+        continue-on-error: true
+        run: llmbench leaderboard --source aider --top 200 --json > "$SNAPSHOTS_DIR/aider.json"
+
+      - name: Fetch bundled
+        continue-on-error: true
+        run: llmbench leaderboard --source bundled --top 500 --json > "$SNAPSHOTS_DIR/bundled.json"
 
       - name: Merge into all.json
-        env:
-          SNAPSHOTS_DIR: ${{ runner.temp }}/snapshots
-        run: |
-          mkdir -p web/data
-          python - <<'PY'
-          import json
-          import os
-          from datetime import datetime, timezone
-          from pathlib import Path
-
-          src_dir = Path(os.environ["SNAPSHOTS_DIR"])
-          paths = [
-              src_dir / "huggingface.json",
-              src_dir / "lmarena.json",
-              src_dir / "aider.json",
-              src_dir / "bundled.json",
-          ]
-          snapshots = [json.load(open(p)) for p in paths]
-          entries = []
-          for s in snapshots:
-              entries.extend(s.get("entries", []))
-          merged = {
-              "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-              "sources": [
-                  {
-                      "source": s["source"],
-                      "source_url": s.get("source_url"),
-                      "fetched_at": s.get("fetched_at"),
-                      "count": len(s.get("entries", [])),
-                  }
-                  for s in snapshots
-              ],
-              "entries": entries,
-          }
-          with open("web/data/all.json", "w") as f:
-              json.dump(merged, f, indent=2)
-          print(f"merged {len(entries)} entries")
-          PY
+        run: python scripts/merge_leaderboards.py --snapshots "$SNAPSHOTS_DIR"
 
       - name: Commit and push if changed
         run: |

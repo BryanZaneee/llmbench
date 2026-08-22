@@ -55,18 +55,22 @@ def get_snapshot(
     """Return a snapshot, using the cache when appropriate.
 
     Priority:
-      - offline=True -> cache only (raise if missing)
+      - offline=True -> cache, or the source itself if it needs no network
       - refresh=True -> live fetch, update cache
       - otherwise: return cache if fresh, else live fetch
     """
     cached = load_cached(source.name)
 
     if offline:
-        if cached is None:
-            raise RuntimeError(
-                f"No cached data for source {source.name!r} and --offline set"
-            )
-        return cached
+        if cached is not None:
+            return cached
+        # `bundled` reads a file shipped inside the package, so it is always
+        # available offline even on a machine with a cold cache.
+        if not source.requires_network:
+            return source.fetch()
+        raise RuntimeError(
+            f"No cached data for source {source.name!r} and --offline set"
+        )
 
     if not refresh and cached is not None and is_fresh(cached, source.cache_ttl_seconds):
         return cached

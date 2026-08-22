@@ -71,7 +71,9 @@ class HuggingFaceLeaderboard(LeaderboardSource):
     name = "huggingface"
     description = "HuggingFace Open LLM Leaderboard v2 (IFEval, BBH, MATH, GPQA, MUSR, MMLU-PRO)"
 
-    def __init__(self, *, top_n: int = 100) -> None:
+    # get_source() constructs with no arguments, so this is the real ceiling
+    # on what `--top` can ever show. Kept well above the CLI default.
+    def __init__(self, *, top_n: int = 500) -> None:
         self.top_n = top_n
 
     def fetch(self) -> LeaderboardSnapshot:

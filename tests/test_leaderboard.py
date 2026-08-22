@@ -190,11 +190,24 @@ def test_get_snapshot_prefers_cache_within_ttl(tmp_path, monkeypatch):
     assert snap1.fetched_at == snap2.fetched_at
 
 
-def test_offline_mode_requires_cache(tmp_path, monkeypatch):
+def test_offline_raises_for_a_network_source_with_no_cache(tmp_path, monkeypatch):
     monkeypatch.setenv("XDG_CACHE_HOME", str(tmp_path))
 
     class DummySource(BundledSource):
         name = "dummy-never-cached"
+        requires_network = True
 
     with pytest.raises(RuntimeError):
         get_snapshot(DummySource(), offline=True)
+
+
+def test_offline_works_for_bundled_with_a_cold_cache(tmp_path, monkeypatch):
+    """`--source bundled --offline` reads a file inside the package, so it
+    must work on a fresh machine that has never populated the cache."""
+    monkeypatch.setenv("XDG_CACHE_HOME", str(tmp_path))
+
+    class DummySource(BundledSource):
+        name = "dummy-bundled-cold"
+
+    snapshot = get_snapshot(DummySource(), offline=True)
+    assert snapshot.entries
