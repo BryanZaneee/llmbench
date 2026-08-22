@@ -46,13 +46,10 @@ class ModelSpec(BaseModel):
 
 
 class Prompt(BaseModel):
-    """A single test case. `expected` and `rubric` are used by quality benchmarks."""
+    """A single test case."""
 
     id: str
     prompt: str
-    expected: str | None = None
-    check: str = "contains"  # exact | contains | regex
-    rubric: str | None = None
 
 
 class TokenUsage(BaseModel):

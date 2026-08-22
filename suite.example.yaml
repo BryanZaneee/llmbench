@@ -1,7 +1,5 @@
 benchmarks:
   - throughput
-  - quality_exact
-  - quality_judge
   # - image_gen          # uncomment once you have an image-capable model configured
 
 prompts_file: prompts/default.yaml
@@ -12,13 +10,6 @@ sampling:
   max_tokens: 512
   temperature: 0.0
   top_p: 1.0
-
-# Judge used by quality_judge. Defaults to Claude Opus 4.7 if omitted.
-judge:
-  provider: anthropic
-  adapter: anthropic
-  model: claude-opus-4-7
-  label: "Judge (Opus 4.7)"
 
 models:
   - provider: anthropic
