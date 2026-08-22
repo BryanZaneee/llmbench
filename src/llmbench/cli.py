@@ -15,7 +15,6 @@ from .config import load_suite
 from .reports import render_gallery
 from .runner import RESULTS_DIR, run_suite
 from .schema import BenchmarkResult, RunManifest
-from .storage import Store
 
 app = typer.Typer(help="llmbench: published LLM leaderboards and your own benchmarks.")
 console = Console()
@@ -36,10 +35,6 @@ def cmd_run(
     cfg = load_suite(config)
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     manifest, results = asyncio.run(run_suite(cfg))
-
-    store = Store(RESULTS_DIR / "results.db")
-    store.save_run(manifest, results)
-    store.close()
 
     gallery_path = render_gallery(
         manifest, results, RESULTS_DIR / manifest.run_id / "gallery.html"
@@ -62,24 +57,26 @@ def cmd_view(
     run_id: str = typer.Argument(None, help="Run ID (omit with --latest)"),
     latest: bool = typer.Option(False, "--latest", help="View the most recent run"),
 ) -> None:
-    """Open the HTML gallery for a past run."""
-    store = Store(RESULTS_DIR / "results.db")
-    try:
-        if latest:
-            run_id = store.latest_run_id()
-            if not run_id:
-                console.print("[red]No runs found[/]")
-                raise typer.Exit(1)
-        if not run_id:
-            console.print("[red]Provide a run_id or use --latest[/]")
-            raise typer.Exit(1)
-        manifest, results = store.load_run(run_id)
-    finally:
-        store.close()
+    """Open the HTML gallery for a past run.
 
-    gallery_path = RESULTS_DIR / manifest.run_id / "gallery.html"
-    if not gallery_path.exists():
-        render_gallery(manifest, results, gallery_path)
+    `llmbench run` always renders the gallery, so the file on disk is the
+    record of the run. There is nothing else to look up.
+    """
+    if latest:
+        galleries = sorted(RESULTS_DIR.glob("*/gallery.html"), key=lambda p: p.stat().st_mtime)
+        if not galleries:
+            err_console.print(f"[red]No runs found under {RESULTS_DIR}/[/]")
+            raise typer.Exit(1)
+        gallery_path = galleries[-1]
+    elif run_id:
+        gallery_path = RESULTS_DIR / run_id / "gallery.html"
+        if not gallery_path.exists():
+            err_console.print(f"[red]No gallery at {gallery_path}[/]")
+            raise typer.Exit(1)
+    else:
+        err_console.print("[red]Provide a run_id or use --latest[/]")
+        raise typer.Exit(1)
+
     console.print(f"[cyan]Opening:[/] {gallery_path}")
     webbrowser.open(gallery_path.as_uri())
 
