@@ -11,9 +11,26 @@ sampling:
   top_p: 1.0
 
 models:
-  # Image-capable model. Only runs image_gen.
   - provider: openai
     adapter: openai
     model: dall-e-3
     label: "DALL-E 3"
+    benchmarks: [image_gen]
+
+  - provider: openai
+    adapter: openai
+    model: gpt-image-2
+    label: "GPT Image 2"
+    benchmarks: [image_gen]
+
+  - provider: gemini
+    adapter: gemini
+    model: gemini-3.1-flash-image-preview
+    label: "Nano Banana 2"
+    benchmarks: [image_gen]
+
+  - provider: flux
+    adapter: flux
+    model: flux-2-klein-4b
+    label: "FLUX.2 [klein]"
     benchmarks: [image_gen]
