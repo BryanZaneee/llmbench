@@ -1,6 +1,11 @@
 """Google Gemini adapter via raw httpx.
 
-Supports text generation via streamGenerateContent and image generation via predict (Imagen 3).
+Text generation goes through :streamGenerateContent. Image generation has two
+shapes: Imagen models (e.g. imagen-3.0-generate-002) use :predict with an
+"instances"/"predictions" schema; Gemini multimodal image models (e.g.
+gemini-3.1-flash-image-preview, the "Nano Banana 2" model) use
+:generateContent with responseModalities=["TEXT","IMAGE"] and return image
+bytes inline on the candidate parts.
 """
 
 from __future__ import annotations
@@ -103,23 +108,46 @@ class GeminiAdapter(Adapter):
         )
 
     async def generate_image(self, prompt: str, **kwargs) -> ImageResult:
-        # Google's image generation endpoint (Imagen 3) typically uses :predict
+        model = self.spec.model
+        # Gemini 3.x multimodal image models ride on :generateContent. Imagen
+        # (and any future :predict-shaped model) keeps the existing path.
+        if model.startswith("gemini-") and "image" in model:
+            return await self._generate_image_via_generate_content(prompt)
+        return await self._generate_image_via_predict(prompt, n=kwargs.get("n", 1))
+
+    async def _generate_image_via_predict(self, prompt: str, *, n: int) -> ImageResult:
         url = f"{_BASE_URL}/{self.spec.model}:predict"
-        n = kwargs.get("n", 1)
         body = {
             "instances": [{"prompt": prompt}],
             "parameters": {"sampleCount": n},
         }
-
         async with httpx.AsyncClient(timeout=120) as client:
             resp = await client.post(url, headers=self._headers, json=body)
             resp.raise_for_status()
             data = resp.json()
 
-        predictions = data.get("predictions", [])
         images: list[bytes] = []
-        for pred in predictions:
+        for pred in data.get("predictions", []):
             if "bytesBase64Encoded" in pred:
                 images.append(base64.b64decode(pred["bytesBase64Encoded"]))
+        return ImageResult(images=images, width=0, height=0)
 
+    async def _generate_image_via_generate_content(self, prompt: str) -> ImageResult:
+        url = f"{_BASE_URL}/{self.spec.model}:generateContent"
+        body = {
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": {"responseModalities": ["TEXT", "IMAGE"]},
+        }
+        async with httpx.AsyncClient(timeout=120) as client:
+            resp = await client.post(url, headers=self._headers, json=body)
+            resp.raise_for_status()
+            data = resp.json()
+
+        images: list[bytes] = []
+        for cand in data.get("candidates", []):
+            for part in cand.get("content", {}).get("parts", []):
+                # REST returns inline_data; some SDK paths use inlineData.
+                inline = part.get("inline_data") or part.get("inlineData")
+                if inline and inline.get("data"):
+                    images.append(base64.b64decode(inline["data"]))
         return ImageResult(images=images, width=0, height=0)
