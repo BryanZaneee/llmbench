@@ -58,26 +58,10 @@
 }
 
 /* ── Dark theme ────────────────────────────────────────────────────────
-   Near-neutral black, not a navy, with a desaturated ink ramp: a
-   blue-tinted grey on black paper reads as a colour cast. Mirrors the
-   main site's block so the two pages match when you navigate between them. */
+   The token ramp lives in /shared/editorial.css. Only the llmbench-local
+   accent is redefined here. (The light :root copy above is the deliberate
+   standalone-preview fallback; this one has no equivalent need.) */
 html[data-theme="dark"] {
-  --bg-paper:   #0B0B0C;
-  --bg-paper-2: #131315;
-  --bg-paper-3: #1A1A1D;
-
-  --ink-900: #F4F3F0;
-  --ink-700: #DCDBD7;
-  --ink-500: #A8A8A6;
-  --ink-400: #8D8D8B;
-  --ink-300: #6E6E6D;
-  --ink-200: #3C3C3E;
-  --ink-100: #232326;
-
-  --rule:   rgba(240, 240, 238, 0.16);
-  --rule-2: rgba(240, 240, 238, 0.08);
-
-  --blue-700: #7FA0F0;     /* accent has to lift off dark paper */
   --llm-yellow: #D4A017;
 }
 
