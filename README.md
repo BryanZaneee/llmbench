@@ -92,13 +92,14 @@ repetitions: 3
 ```
 
 Keys in this file win over environment variables; env vars still work as a
-fallback, which is how CI supplies them. Twenty providers are known by name:
+fallback, which is how CI supplies them. Twenty-four providers are known by name:
 
 | Group  | Providers |
 | ------ | --------- |
 | Hosted | `openai` `anthropic` `gemini` `moonshot` `deepseek` `xai` `groq` `mistral` `together` `fireworks` `openrouter` `perplexity` `cerebras` `qwen` `nvidia` `nebius` `deepinfra` `sambanova` |
 | Image  | `flux` (Black Forest Labs), plus `openai` and `gemini` |
 | Local  | `ollama` `vllm` `lmstudio` `llamacpp` (no key needed) |
+| Other  | `huggingface` (not a model provider; raises the leaderboard rate limit) |
 
 Each entry in `config.PROVIDERS` carries the accepted environment variable
 names and a default base URL. Adding a provider is one row there plus
