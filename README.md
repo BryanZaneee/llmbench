@@ -166,7 +166,8 @@ providers need no adapter at all: add a row to `config.PROVIDERS` and use
 ## Contributing
 
 PRs welcome. Add tests (see `tests/test_*.py`), keep modules single-purpose, and
-append a line to `history.md` for design decisions. Run `pytest -q` first.
+append a line to `history.md` for design decisions. Run `pytest -q` first; the suite
+is 45 tests and takes under a second.
 
 ---
 
