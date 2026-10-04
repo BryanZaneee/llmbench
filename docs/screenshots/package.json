@@ -1,0 +1,13 @@
+{
+  "name": "readme-screenshots",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local fixture screenshots for the README.",
+  "type": "module",
+  "scripts": {
+    "capture": "node capture.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

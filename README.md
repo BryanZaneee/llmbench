@@ -1,16 +1,18 @@
 # llmbench
 
-```
-██╗     ██╗     ███╗   ███╗██████╗ ███████╗███╗   ██╗ ██████╗██╗  ██╗
-██║     ██║     ████╗ ████║██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║
-██║     ██║     ██╔████╔██║██████╔╝█████╗  ██╔██╗ ██║██║     ███████║
-██║     ██║     ██║╚██╔╝██║██╔══██╗██╔══╝  ██║╚██╗██║██║     ██╔══██║
-███████╗███████╗██║ ╚═╝ ██║██████╔╝███████╗██║ ╚████║╚██████╗██║  ██║
-╚══════╝╚══════╝╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
-```
-
 **Published LLM leaderboards in your terminal, plus your own benchmarks.**
 CLI-first, open source, MIT-licensed.
+
+![llmbench offline leaderboard output](docs/screenshots/leaderboard.webp)
+
+*The bundled leaderboard snapshot, rendered from real CLI output.*
+
+![llmbench test output](docs/screenshots/tests.webp)
+
+*The local offline test run.*
+
+Regenerate: `cd docs/screenshots && npm ci && npx playwright install chromium && npm run capture`
+(Node.js and `cwebp` required; install the app dependencies first).
 
 ```bash
 llmbench leaderboard --source lmarena --top 10   # published scores, no API key
@@ -67,7 +69,7 @@ llmbench leaderboard --source lmarena --top 20 --json | jq '.entries[].display_n
 
 A GitHub Action refreshes all four daily into `web/data/all.json`, which backs the
 sortable table at [bryanzane.com/llmbench](https://bryanzane.com/llmbench). Each
-source fetches independently, so one failing upstream costs its rows, not the day.
+source fetches independently; a failed fetch does not stop the others.
 
 ---
 
@@ -166,8 +168,8 @@ providers need no adapter at all: add a row to `config.PROVIDERS` and use
 ## Contributing
 
 PRs welcome. Add tests (see `tests/test_*.py`), keep modules single-purpose, and
-append a line to `history.md` for design decisions. Run `pytest -q` first; the suite
-is 45 tests and takes under a second.
+append a line to `history.md` for design decisions. Run `.venv/bin/pytest -q` first. Never commit provider keys, local configuration,
+or benchmark outputs containing private prompts.
 
 ---
 
