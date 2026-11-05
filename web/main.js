@@ -140,7 +140,7 @@ function render() {
 
   $("#lb-meta").innerHTML =
     `<strong>${visible.length}</strong> of ${filtered.length} matching · ` +
-    `${state.rows.length} total across ${state.sources.size} source${state.sources.size === 1 ? "" : "s"}`;
+    `${state.rows.filter(r => state.sources.has(r.source)).length} total across ${state.sources.size} source${state.sources.size === 1 ? "" : "s"}`;
 
   document.querySelectorAll(".lb-table thead th").forEach((th) => {
     th.dataset.sortDir =
