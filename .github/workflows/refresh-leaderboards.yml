@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write
     env:
-      SNAPSHOTS_DIR: ${{ runner.temp }}/snapshots
+      SNAPSHOTS_DIR: /tmp/llmbench-snapshots
     steps:
       - uses: actions/checkout@v4
 
