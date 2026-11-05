@@ -225,6 +225,9 @@ def test_arena_uses_latest_overall_snapshot(monkeypatch):
     ]
     pq = types.ModuleType("pyarrow.parquet")
     pq.read_table = lambda data: types.SimpleNamespace(to_pylist=lambda: rows)
+    arrow = types.ModuleType("pyarrow")
+    arrow.parquet = pq
+    monkeypatch.setitem(sys.modules, "pyarrow", arrow)
     monkeypatch.setitem(sys.modules, "pyarrow.parquet", pq)
     real_client = httpx.Client
     transport = httpx.MockTransport(lambda request: httpx.Response(200, content=b"parquet"))
