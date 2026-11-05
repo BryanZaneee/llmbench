@@ -11,14 +11,18 @@ from pathlib import Path
 import typer
 from rich.console import Console
 from rich.table import Table
+from rich.prompt import Prompt as Ask
+
+from .adapters import adapter_class
+from .benchmarks import _REGISTRY as BENCHMARKS
 
 from . import config as cfgmod
 from .config import load_suite
 from .reports import render_gallery
 from .runner import RESULTS_DIR, run_suite
-from .schema import BenchmarkResult, RunManifest
+from .schema import BenchmarkResult, Capability, ModelSpec, Prompt, RunManifest
 
-app = typer.Typer(help="llmbench: published LLM leaderboards and your own benchmarks.")
+app = typer.Typer(invoke_without_command=True, help="llmbench: published LLM leaderboards and your own benchmarks.")
 console = Console()
 err_console = Console(stderr=True)
 
@@ -43,8 +47,12 @@ def cmd_run(
             "(`llmbench config --init`) or pass a suite YAML."
         )
         raise typer.Exit(1)
+    _execute(cfg, open_browser, as_json)
+
+
+def _execute(cfg, open_browser=False, as_json=False, prompts=None):
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    manifest, results = asyncio.run(run_suite(cfg))
+    manifest, results = asyncio.run(run_suite(cfg, prompts=prompts))
 
     gallery_path = render_gallery(
         manifest, results, RESULTS_DIR / manifest.run_id / "gallery.html"
@@ -60,6 +68,104 @@ def cmd_run(
 
     if open_browser:
         webbrowser.open(gallery_path.as_uri())
+
+
+DEFAULT_IMAGE_PROMPT = "A photorealistic image of a cat."
+
+
+def _image_models(models):
+    return [m for m in models if
+            (m.benchmarks is None or "image_gen" in m.benchmarks)
+            and Capability.IMAGE_GEN in adapter_class(m).capabilities]
+
+
+@app.command("image-bench")
+def cmd_image_bench(
+    prompt: str = typer.Option("", "--prompt", "-p", help="Blank uses a photorealistic cat"),
+    open_browser: bool = typer.Option(False, "--open", help="Open the image gallery"),
+    as_json: bool = typer.Option(False, "--json", help="Emit JSON results"),
+) -> None:
+    """Generate one image per configured image model with the same prompt."""
+    models = _image_models(cfgmod.config_models())
+    if not models:
+        err_console.print("[red]No image models configured. Run llmbench to add models.[/]")
+        raise typer.Exit(1)
+    cfg = cfgmod.SuiteConfig(models=models, benchmarks=["image_gen"], repetitions=1)
+    _execute(cfg, open_browser, as_json, [Prompt(id="image-bench", prompt=prompt.strip() or DEFAULT_IMAGE_PROMPT)])
+
+
+@app.callback()
+def start(ctx: typer.Context):
+    """Open the guided menu when called without a command."""
+    if ctx.invoked_subcommand is None:
+        cmd_menu()
+
+
+@app.command("menu")
+def cmd_menu() -> None:
+    """Choose published leaderboards or a local Image Bench run."""
+    console.print("1. View published leaderboards\n2. Run a benchmark\n3. Exit")
+    choice = Ask.ask("Choose", choices=["1", "2", "3"], default="2")
+    if choice == "3":
+        return
+    if choice == "1":
+        from .leaderboards import available_sources
+        source = Ask.ask("Leaderboard source", choices=available_sources(), default="bundled")
+        cmd_leaderboard(source=source, refresh=False, offline=source == "bundled",
+                        top=20, model_filter=None, as_json=False, list_sources=False)
+        return
+
+    # Only image benchmarks are exposed in the guided flow; scripted suites retain throughput.
+    names = [name for name, cls in BENCHMARKS.items() if cls.requires == Capability.IMAGE_GEN]
+    for i, name in enumerate(names, 1):
+        console.print(f"{i}. {'Image Bench' if name == 'image_gen' else name}")
+    selected = Ask.ask("Benchmark", choices=[str(i) for i in range(1, len(names) + 1)], default="1")
+    benchmark = names[int(selected) - 1]
+    models = _image_models(cfgmod.config_models())
+    console.print("Model changes apply to this run. API keys come from your config or environment.")
+    while True:
+        for i, model in enumerate(models, 1):
+            console.print(f"{i}. {model.display}", markup=False)
+        console.print("1. Run selected models\n2. Add a model\n3. Select models / remove from this run\n4. Cancel")
+        action = Ask.ask("Models", choices=["1", "2", "3", "4"], default="1" if models else "2")
+        if action == "4":
+            return
+        if action == "2":
+            provider = Ask.ask("Provider (e.g. openai, gemini, flux)").strip()
+            adapter = Ask.ask("Adapter", choices=["openai_compat", "gemini", "flux"],
+                              default=provider if provider in {"gemini", "flux"} else "openai_compat")
+            model_id = Ask.ask("Image model ID").strip()
+            if not provider or not model_id:
+                console.print("[red]Provider and model ID cannot be empty.[/]")
+                continue
+            base_url = Ask.ask("Custom API base URL (optional)", default="").strip() or None
+            model = ModelSpec(provider=provider, adapter=adapter, model=model_id,
+                              base_url=base_url, benchmarks=[benchmark])
+            if model not in models:
+                models.append(model)
+        elif action == "3":
+            keep = Ask.ask("Model numbers to keep, separated by commas (or none)").strip()
+            if keep.lower() == "none":
+                models = []
+                continue
+            try:
+                indices = list(dict.fromkeys(int(n.strip()) for n in keep.split(",")))
+                if any(i < 1 or i > len(models) for i in indices):
+                    raise ValueError
+                models = [models[i - 1] for i in indices]
+            except ValueError:
+                console.print("[red]Use the model numbers shown above.[/]")
+        elif action == "1":
+            if not models:
+                console.print("[red]Add at least one image model first.[/]")
+                continue
+            break
+    prompt = Ask.ask("Image prompt (Enter for a photorealistic cat)", default="").strip()
+    cfg = cfgmod.SuiteConfig(models=models, benchmarks=[benchmark], repetitions=1)
+    console.print(f"This will generate one image with each of {len(models)} models using your API keys.")
+    if not typer.confirm("Run Image Bench?", default=True):
+        return
+    _execute(cfg, prompts=[Prompt(id="image-bench", prompt=prompt or DEFAULT_IMAGE_PROMPT)])
 
 
 @app.command("config")

@@ -176,3 +176,27 @@ or benchmark outputs containing private prompts.
 ## License
 
 MIT, see [LICENSE](LICENSE).
+
+## Guided Image Bench
+
+Run `llmbench` (or `llmbench menu`) to choose **View published leaderboards** or
+**Run a benchmark**. The benchmark menu currently offers **Image Bench**. Review
+your configured image models, add models, or select which models to keep in this
+run. Model changes in the menu apply only to that run; edit
+`~/.llmbench/config.yaml` to retain them. Keys come from that file or the provider's
+environment variables. Mark image models with `benchmarks: [image_gen]` and text
+models with `benchmarks: [throughput]` so shared-protocol adapters can distinguish them.
+
+Enter any image prompt, or press Enter for **A photorealistic image of a cat.**
+After confirmation, the same prompt runs once against each selected model and
+saves an HTML image gallery. Provider requests use your API keys and may incur charges.
+Published leaderboards require no model API keys.
+
+For scripts:
+
+```sh
+llmbench image-bench --open
+llmbench image-bench --prompt "A lighthouse at sunset" --json
+```
+
+Existing `run`, `leaderboard`, `config`, and `view` commands remain available.

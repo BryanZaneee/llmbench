@@ -4,6 +4,14 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-11-05 - Guided Image Bench
+
+- A small Typer/Rich menu reuses the existing runner and gallery instead of adding
+  a second interface framework. Only image benchmarks appear in the guided menu;
+  throughput suites remain available through `run`.
+- The runner accepts explicit prompts so the CLI can pass a custom image prompt
+  or its cat default without temporary YAML files. Model selections are run-local.
+
 ## 2026-08-22 - Scope cut back to leaderboards plus custom benchmarks
 
 - The repo had drifted into the v1 PRD's shape: an agentic harness with its

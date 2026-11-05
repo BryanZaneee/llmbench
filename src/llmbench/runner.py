@@ -41,8 +41,11 @@ def load_prompts(path: str | None) -> list[Prompt]:
     return [Prompt.model_validate(item) for item in data]
 
 
-async def run_suite(cfg: SuiteConfig) -> tuple[RunManifest, list[BenchmarkResult]]:
-    prompts = load_prompts(cfg.prompts_file)
+async def run_suite(
+    cfg: SuiteConfig, *, prompts: list[Prompt] | None = None
+) -> tuple[RunManifest, list[BenchmarkResult]]:
+    if prompts is None:
+        prompts = load_prompts(cfg.prompts_file)
     manifest = RunManifest(
         suite_version=__version__,
         models=cfg.models,
