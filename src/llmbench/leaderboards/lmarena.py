@@ -15,7 +15,7 @@ from ..config import api_key
 from .base import LeaderboardEntry, LeaderboardSnapshot, LeaderboardSource
 
 
-SOURCE_URL = "https://lmarena.ai/leaderboard"
+SOURCE_URL = "https://arena.ai/leaderboard/text"
 
 
 def _parquet_url(category: str) -> str:
@@ -72,7 +72,11 @@ class LMArenaLeaderboard(LeaderboardSource):
 
         # The `latest` parquet contains per-date snapshots of every model.
         # Keep only the most recent publish_date per model_name.
-        rows = table.to_pylist()
+        rows = [row for row in table.to_pylist() if row.get("category") == "overall"]
+        if not rows:
+            raise RuntimeError("Arena returned no overall leaderboard rows")
+        newest = max(str(row.get("leaderboard_publish_date") or "") for row in rows)
+        rows = [row for row in rows if str(row.get("leaderboard_publish_date") or "") == newest]
         latest_per_model: dict[str, dict] = {}
         for row in rows:
             name = row.get("model_name") or ""

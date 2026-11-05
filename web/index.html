@@ -212,14 +212,15 @@
       <div class="lb-controls">
         <input class="lb-input" id="lb-search" type="search" placeholder="Filter by model or organization…" autocomplete="off" />
         <div class="lb-filter-group" id="lb-source-filter">
-          <label><input type="checkbox" value="huggingface" checked /> HuggingFace</label>
+          <label><input type="checkbox" value="huggingface" /> HuggingFace</label>
           <label><input type="checkbox" value="lmarena" checked /> LMArena</label>
-          <label><input type="checkbox" value="aider" checked /> Aider</label>
-          <label><input type="checkbox" value="bundled" checked /> Bundled</label>
+          <label><input type="checkbox" value="aider" /> Aider</label>
+          <label><input type="checkbox" value="bundled" /> Bundled archive</label>
         </div>
       </div>
     </div>
 
+    <p class="lb-meta" id="lb-freshness" aria-live="polite"></p>
     <div class="lb-meta" id="lb-meta">Loading…</div>
 
     <div class="lb-table-wrap">
@@ -258,7 +259,7 @@
   </footer>
 
   <script src="/shared/motion.js?v=3" defer></script>
-  <script src="main.js?v=2" defer></script>
+  <script src="main.js?v=3" defer></script>
   <script type="module" src="console.js?v=2"></script>
 </body>
 </html>

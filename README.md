@@ -200,3 +200,11 @@ llmbench image-bench --prompt "A lighthouse at sunset" --json
 ```
 
 Existing `run`, `leaderboard`, `config`, and `view` commands remain available.
+
+### Leaderboard freshness
+
+The website opens on Arena's overall text leaderboard. Its source publication date
+and fetch date are shown separately; a new fetch does not mean new benchmark results.
+Other sources remain selectable, and the bundled snapshot is labelled as an offline
+archive. Scores from different benchmarks use different scales and are not an overall ranking.
+The daily GitHub refresh runs at 06:17 UTC and can also be started manually.

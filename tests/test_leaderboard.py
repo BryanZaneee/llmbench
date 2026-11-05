@@ -211,3 +211,24 @@ def test_offline_works_for_bundled_with_a_cold_cache(tmp_path, monkeypatch):
 
     snapshot = get_snapshot(DummySource(), offline=True)
     assert snapshot.entries
+
+
+def test_arena_uses_latest_overall_snapshot(monkeypatch):
+    import sys
+    import types
+    import llmbench.leaderboards.lmarena as arena
+
+    rows = [
+        {"model_name": "old", "rating": 9000, "category": "overall", "leaderboard_publish_date": "2026-01-01"},
+        {"model_name": "current", "rating": 2000, "category": "coding", "leaderboard_publish_date": "2026-11-01"},
+        {"model_name": "current", "rating": 1300, "category": "overall", "leaderboard_publish_date": "2026-11-01"},
+    ]
+    pq = types.ModuleType("pyarrow.parquet")
+    pq.read_table = lambda data: types.SimpleNamespace(to_pylist=lambda: rows)
+    monkeypatch.setitem(sys.modules, "pyarrow.parquet", pq)
+    real_client = httpx.Client
+    transport = httpx.MockTransport(lambda request: httpx.Response(200, content=b"parquet"))
+    monkeypatch.setattr(arena.httpx, "Client", lambda **kw: real_client(transport=transport))
+    snapshot = arena.LMArenaLeaderboard().fetch()
+    assert [(e.model_id, e.metrics["elo"]) for e in snapshot.entries] == [("current", 1300)]
+    assert snapshot.entries[0].extra["published"] == "2026-11-01"

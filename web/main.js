@@ -17,7 +17,8 @@ const PAGE_INCREMENT = 50;
 const state = {
   rows: [],
   query: "",
-  sources: new Set(ALL_SOURCES),
+  sources: new Set(["lmarena"]),
+  freshness: [],
   sortKey: "primary_score",
   sortDir: "desc",
   limit: INITIAL_LIMIT,
@@ -76,6 +77,11 @@ function applyFilters() {
 }
 
 function render() {
+  $("#lb-freshness").textContent = state.freshness.filter(s => state.sources.has(s.source)).map(s => {
+    const fetched = s.fetched_at ? s.fetched_at.slice(0, 10) : "unknown";
+    const stale = s.fetched_at && Date.now() - new Date(s.fetched_at).getTime() > 3 * 86400000;
+    return `${s.source}: fetched ${fetched}${s.published_at ? `, source published ${s.published_at}` : ""}${s.source === "bundled" ? " (offline archive)" : stale ? " (refresh overdue)" : ""}`;
+  }).join(" · ");
   const filtered = applyFilters();
   const visible = filtered.slice(0, state.limit);
   const tbody = $("#lb-tbody");
@@ -162,7 +168,7 @@ function render() {
 function writeURL() {
   const params = new URLSearchParams();
   if (state.query) params.set("q", state.query);
-  if (state.sources.size !== ALL_SOURCES.length) {
+  if (state.sources.size !== 1 || !state.sources.has("lmarena")) {
     params.set("source", [...state.sources].join(","));
   }
   if (state.sortKey !== "primary_score" || state.sortDir !== "desc") {
@@ -182,7 +188,7 @@ function readURL() {
     $("#lb-search").value = q;
   }
   const srcCsv = params.get("source");
-  if (srcCsv) {
+  if (srcCsv !== null) {
     const wanted = new Set(srcCsv.split(",").filter(Boolean));
     state.sources = new Set(ALL_SOURCES.filter((s) => wanted.has(s)));
     document.querySelectorAll("#lb-source-filter input").forEach((cb) => {
@@ -279,6 +285,7 @@ async function boot() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const raw = await res.json();
     state.rows = normalize(raw.entries || []);
+    state.freshness = raw.sources || [];
   } catch (err) {
     $("#lb-meta").textContent = `Failed to load leaderboard data: ${err.message}`;
     return;

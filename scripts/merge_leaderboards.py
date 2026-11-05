@@ -39,6 +39,8 @@ def merge(src_dir: Path, sources: list[str]) -> dict:
                 "source_url": s.get("source_url"),
                 "fetched_at": s.get("fetched_at"),
                 "count": len(s.get("entries", [])),
+                "published_at": max((str(e.get("extra", {}).get("published") or "")
+                                     for e in s.get("entries", [])), default="") or None,
             }
             for s in snapshots
         ],

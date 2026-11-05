@@ -4,6 +4,13 @@ Running log of design and architecture decisions. One line per entry — the "wh
 
 Agents reading this should skim before touching the code: many choices below are deliberate and look non-obvious from the source alone.
 
+## 2026-11-05 - Restore leaderboard freshness
+
+- The daily workflow was manually disabled and the deployed data dated from July 15.
+- Arena now uses only overall rows from the newest published snapshot, avoiding
+  category mixing and old model scores. The site defaults to Arena and displays
+  source publication dates separately from fetch dates; the offline bundle is labelled.
+
 ## 2026-11-05 - Guided Image Bench
 
 - A small Typer/Rich menu reuses the existing runner and gallery instead of adding

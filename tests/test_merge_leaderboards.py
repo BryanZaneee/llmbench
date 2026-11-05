@@ -52,3 +52,14 @@ def test_corrupt_snapshot_is_skipped(tmp_path):
 def test_every_source_failing_refuses_to_write(tmp_path):
     with pytest.raises(SystemExit):
         merge_mod.merge(tmp_path, merge_mod.SOURCES)
+
+
+def test_source_publication_date_is_distinct_from_fetch_date(tmp_path):
+    _snapshot(tmp_path, "lmarena", 1)
+    path = tmp_path / "lmarena.json"
+    raw = json.loads(path.read_text())
+    raw["entries"][0]["extra"] = {"published": "2026-08-20"}
+    path.write_text(json.dumps(raw))
+    source = merge_mod.merge(tmp_path, ["lmarena"])["sources"][0]
+    assert source["published_at"] == "2026-08-20"
+    assert source["fetched_at"] == "2026-08-22T00:00:00+00:00"
