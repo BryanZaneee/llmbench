@@ -60,14 +60,17 @@ def _execute(cfg, open_browser=False, as_json=False, prompts=None):
 
     if as_json:
         _print_json(manifest, results, gallery_path)
-        return
-
-    _print_results_table(results)
-    console.print(f"\n[green]Saved {len(results)} results[/] to {RESULTS_DIR}")
-    console.print(f"[cyan]Gallery:[/] {gallery_path}")
-
-    if open_browser:
-        webbrowser.open(gallery_path.as_uri())
+    else:
+        _print_results_table(results)
+        for result in results:
+            if not result.success:
+                err_console.print(f"{result.model.display}: {result.error or 'Benchmark failed'}", markup=False)
+        console.print(f"\nSaved {len(results)} results to {RESULTS_DIR}")
+        console.print(f"[cyan]Gallery:[/] {gallery_path}")
+        if open_browser:
+            webbrowser.open(gallery_path.resolve().as_uri())
+    if any(not result.success for result in results):
+        raise typer.Exit(1)
 
 
 DEFAULT_IMAGE_PROMPT = "A photorealistic image of a cat."

@@ -92,3 +92,26 @@ def test_image_bench_writes_gallery_with_shared_prompt(tmp_path, monkeypatch):
     assert gallery.exists()
     assert "A mountain cat" in gallery.read_text()
     assert len(list(tmp_path.glob("*/images/*/*.png"))) == 2
+
+
+def test_failed_benchmark_exits_nonzero_and_preserves_report(tmp_path, monkeypatch):
+    from llmbench.schema import BenchmarkResult, RunManifest
+    model = ModelSpec(provider="gemini", adapter="gemini", model="image-test")
+    monkeypatch.setattr(cli.cfgmod, "config_models", lambda: [model])
+    monkeypatch.setattr(cli, "RESULTS_DIR", tmp_path)
+
+    async def failed(cfg, **kwargs):
+        return RunManifest(run_id="failed", suite_version="test", models=[model],
+                           benchmarks=["image_gen"]), [
+            BenchmarkResult(benchmark="image_gen", model=model, duration_ms=1,
+                            success=False, error="402 Payment Required")]
+
+    monkeypatch.setattr(cli, "run_suite", failed)
+    result = runner.invoke(cli.app, ["image-bench"])
+    assert result.exit_code == 1
+    assert "402 Payment Required" in result.output
+    assert (tmp_path / "failed/gallery.html").exists()
+    result = runner.invoke(cli.app, ["image-bench", "--json"])
+    assert result.exit_code == 1
+    import json
+    assert json.loads(result.stdout)["results"][0]["success"] is False

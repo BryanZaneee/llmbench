@@ -45,6 +45,8 @@ class ImageGenBenchmark(Benchmark):
         start = time.perf_counter()
         try:
             result = await adapter.generate_image(prompt.prompt)
+            if not result.images:
+                raise ValueError("Provider returned no images")
         except Exception as exc:  # noqa: BLE001
             return BenchmarkResult(
                 benchmark=self.name,

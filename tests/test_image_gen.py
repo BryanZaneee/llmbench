@@ -53,3 +53,18 @@ async def test_image_gen_requires_output_dir():
         await ImageGenBenchmark().run(
             FakeImageAdapter(spec), [], sampling=SamplingParams(), repetitions=1
         )
+
+
+@pytest.mark.asyncio
+async def test_empty_provider_response_is_a_failed_benchmark(tmp_path):
+    class EmptyAdapter(FakeImageAdapter):
+        async def generate_image(self, prompt, **kwargs):
+            return ImageResult(images=[], width=0, height=0)
+
+    spec = ModelSpec(provider="fake", adapter="gemini", model="image-test")
+    results = await ImageGenBenchmark().run(
+        EmptyAdapter(spec), [Prompt(id="cat", prompt="a cat")],
+        sampling=SamplingParams(), repetitions=1, output_dir=tmp_path,
+    )
+    assert not results[0].success
+    assert "no images" in results[0].error
