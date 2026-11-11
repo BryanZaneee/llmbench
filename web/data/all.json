@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-11-10T14:58:05+00:00",
+  "generated_at": "2026-11-11T14:29:03+00:00",
   "sources": [
     {
       "source": "huggingface",
       "source_url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
-      "fetched_at": "2026-11-10T14:57:59.160181Z",
+      "fetched_at": "2026-11-11T14:28:56.808373Z",
       "count": 500,
       "published_at": null
     },
     {
       "source": "lmarena",
       "source_url": "https://arena.ai/leaderboard/text",
-      "fetched_at": "2026-11-10T14:58:01.503929Z",
+      "fetched_at": "2026-11-11T14:28:59.137550Z",
       "count": 421,
       "published_at": "2026-11-09"
     },
     {
       "source": "aider",
       "source_url": "https://aider.chat/docs/leaderboards/",
-      "fetched_at": "2026-11-10T14:58:03.706222Z",
+      "fetched_at": "2026-11-11T14:29:01.051631Z",
       "count": 69,
       "published_at": null
     },
